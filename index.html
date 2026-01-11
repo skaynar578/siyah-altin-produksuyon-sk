@@ -21,9 +21,6 @@ nav a{
     margin:0 10px;
     font-weight:bold;
 }
-.section-title{
-    margin:0;
-}
 .sub{
     font-size:16px;
     font-weight:bold;
@@ -105,6 +102,13 @@ audio{
     align-items:center;
     gap:6px;
     font-weight:bold;
+}
+.category h3 span{
+    transition:0.3s;
+}
+.category h3 span:hover{
+    text-shadow:0 0 8px #ffd700;
+    transform:scale(1.1);
 }
 .track-list{
     display:none;
@@ -274,6 +278,7 @@ footer .contacts{
         Siyah Altın Prodüksiyon, Serkan Kaynar tarafından kurulan; arabesk, pop ve özgün müzik üretimleri yapan bağımsız bir prodüksiyon platformudur. 
         Bu sitede yer alan tüm eserlerin söz ve müzik hakları eser sahibine, Serkan Kaynar'a aittir. Yetkisiz kişiler tarafından izinsiz ticari amaçla kullanılamaz, kopyalanamaz, çoğaltılamaz. Tüm hakları saklıdır!
     </p>
+    <p style="color:#FFD700; font-weight:bold; font-size:16px; text-shadow:0 0 8px #FFD700;">© 2026 Siyah Altın Prodüksiyon · SK</p>
 </footer>
 
 <div class="fixed-buttons">
@@ -318,7 +323,8 @@ function playTrack(name, file){
         player.src = file;
         nowPlaying.textContent = "Çalan Şarkı: " + name;
         nowPlaying.style.color="#ffd700";
-        setTimeout(()=>{nowPlaying.style.color="#d4af37"},500);
+        nowPlaying.style.textShadow="0 0 10px #ffd700";
+        setTimeout(()=>{nowPlaying.style.color="#d4af37"; nowPlaying.style.textShadow="";},500);
         player.play();
     }
 }
@@ -328,7 +334,7 @@ function toggleList(id){
     const el = document.getElementById(id);
     el.style.display = el.style.display === "block" ? "none" : "block";
 
-    const icon = el.previousElementSibling.querySelector(".icon-shake");
+    const icon = el.previousElementSibling.querySelector("span");
     icon.classList.remove("icon-shake");
     void icon.offsetWidth;
     icon.classList.add("icon-shake");
