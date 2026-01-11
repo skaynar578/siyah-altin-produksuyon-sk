@@ -40,6 +40,13 @@ nav a{
 .header-sub-title{
     font-size:28px;
     font-weight:700;
+    margin-bottom:5px;
+    color:#ffd700;
+    text-shadow: 0 0 8px #ffd700;
+}
+.header-sk{
+    font-size:20px;
+    font-weight:700;
     margin-bottom:15px;
     color:#ffd700;
     text-shadow: 0 0 8px #ffd700;
@@ -200,8 +207,9 @@ footer .contacts{
         <span onclick="setLanguage('en')">EN</span>
     </div>
 
-    <h1 class="header-main-title">Siyah Altın Prodüksiyon · SK</h1>
-    <h2 class="header-sub-title" id="header-sub-title">BLACK GOLD PRODUCTION · SK</h2>
+    <h1 class="header-main-title">Siyah Altın Prodüksiyon</h1>
+    <h2 class="header-sub-title" id="header-sub-title">BLACK GOLD PRODUCTION</h2>
+    <div class="header-sk">· SK</div>
 
     <div class="notice" id="notice-text">
         Mağaza ve Mekan Açılışları
@@ -337,7 +345,7 @@ function toggleList(id){
 // Dil değiştirme fonksiyonu
 function setLanguage(lang){
     if(lang==='en'){
-        headerSubTitle.textContent = "BLACK GOLD PRODUCTION · SK";
+        headerSubTitle.textContent = "BLACK GOLD PRODUCTION";
         noticeText.textContent = "Store & Venue Openings";
         sub1.textContent = "Ready Songs • Compositions";
         sub2.textContent = "Available for Sale & License Transfer";
@@ -355,7 +363,7 @@ function setLanguage(lang){
         tracks.trackPop.textContent = "Afraid";
         tracks.trackSlowPop.textContent = "Broken Dreams – Slow Pop";
     }else{
-        headerSubTitle.textContent = "BLACK GOLD PRODUCTION · SK";
+        headerSubTitle.textContent = "BLACK GOLD PRODUCTION";
         noticeText.textContent = "Mağaza ve Mekan Açılışları";
         sub1.textContent = "Hazır Şarkılar • Besteler";
         sub2.textContent = "Satışa ve Devire Hazır İçerikler";
