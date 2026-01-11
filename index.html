@@ -15,7 +15,7 @@ body{
 }
 header{ padding:25px 15px; position:relative; }
 .sub{
-    font-size:18px;
+    font-size:18px; /* Büyütüldü */
     font-weight:bold;
     margin:6px 0;
 }
@@ -38,7 +38,7 @@ header{ padding:25px 15px; position:relative; }
     text-shadow: 0 0 8px #ffd700;
 }
 .professional-title{
-    font-size:32px;
+    font-size:32px; /* Büyütüldü */
     font-weight:800;
     margin-bottom:15px;
     color:#ffd700;
@@ -71,6 +71,8 @@ header{ padding:25px 15px; position:relative; }
 .language-switch span:hover{
     color:#ffd700;
 }
+
+/* PLAYER & ÜST YAZI */
 .player-box-container{
     max-width:450px;
     margin:50px auto 20px auto;
@@ -158,6 +160,8 @@ footer .description{
 footer .contacts{
     font-weight:bold;
 }
+
+/* SABİT WHATSAPP & MESAJ BUTONLARI */
 .fixed-buttons{
     position:fixed;
     bottom:20px;
@@ -186,6 +190,8 @@ footer .contacts{
 .message-btn{
     background:#d4af37;
 }
+
+/* ANİMASYONLAR */
 @keyframes fadeInList{
     from{opacity:0; transform:translateY(-10px);}
     to{opacity:1; transform:translateY(0);}
@@ -222,19 +228,19 @@ footer .contacts{
         <span onclick="setLanguage('en')">EN</span>
     </div>
 
-    <h1 class="header-main-title">Siyah Altın Prodüksiyon</h1>
-    <!-- SK sadece buraya taşındı -->
-    <div class="sk-title">SK</div>
-
+    <h1 class="header-main-title">
+        <span style="text-transform:capitalize;">Siyah Altın </span><span style="text-transform:uppercase;">P</span>rodüksiyon
+    </h1>
     <h2 class="header-sub-title" id="header-sub-title">BLACK GOLD PRODUCTION</h2>
     <div class="professional-title">PROFESYONEL</div>
+    <div class="sk-title">SK</div>
 
-    <div class="sub" id="sub1">Hazır Şarkılar • Eserler</div>
+    <div class="sub" id="sub1">Hazır Şarkılar • Besteler</div>
     <div class="sub" id="sub2">Satışa ve Devire Hazır Eserler</div>
 </header>
 
-<!-- PLAYER, KATEGORİLER, FOOTER ve SCRIPT ORİJİNAL KODUN GİBİ -->
 <section>
+
     <div class="player-box-container">
         <div class="player-description">SATIŞA VE DEVİRE HAZIR ESERLERİ DİNLEYEBİLİRSİNİZ</div>
         <div class="player-box" id="playerBox">
@@ -242,14 +248,63 @@ footer .contacts{
             <audio id="audioPlayer" controls></audio>
         </div>
     </div>
+
+    <!-- KATEGORİLER -->
+    <div class="category">
+        <h3 onclick="toggleList('yeniler')"><span class="icon-shake">🎧</span> <span id="cat-yeniler">Yeniler Mix</span></h3>
+        <div class="track-list" id="yeniler">
+            <div onclick="playTrack('Yeniler Mix','yeniler.mp3.mp3')"><span>🎧</span> <span id="track-yeniler">Yeniler Mix</span></div>
+        </div>
+    </div>
+
+    <div class="category">
+        <h3 onclick="toggleList('arabesk')"><span class="icon-shake">🎧</span> <span id="cat-arabesk">Arabesk</span></h3>
+        <div class="track-list" id="arabesk">
+            <div onclick="playTrack('Küllerimden Kalktım – Arabesk','kullerimden-kalktim.mp3.mp3')"><span>🎧</span> <span id="track-arabesk">Küllerimden Kalktım – Arabesk</span></div>
+        </div>
+    </div>
+
+    <div class="category">
+        <h3 onclick="toggleList('arabeskpop')"><span class="icon-shake">🎧</span> <span id="cat-arabeskpop">Arabesk Pop Karışımı</span></h3>
+        <div class="track-list" id="arabeskpop">
+            <div onclick="playTrack('Dünya Benim Olurdu','dunya-benim-olurdu.mp3.mp3')"><span>🎧</span> <span id="track-arabeskpop">Dünya Benim Olurdu</span></div>
+        </div>
+    </div>
+
+    <div class="category">
+        <h3 onclick="toggleList('turku')"><span class="icon-shake">🎧</span> <span id="cat-turku">Türkü</span></h3>
+        <div class="track-list" id="turku">
+            <div onclick="playTrack('Bu Geçer – Türkü','bu-gecer-turku.mp3.mp3')"><span>🎧</span> <span id="track-turku">Bu Geçer – Türkü</span></div>
+        </div>
+    </div>
+
+    <div class="category">
+        <h3 onclick="toggleList('pop')"><span class="icon-shake">🎧</span> <span id="cat-pop">Pop</span></h3>
+        <div class="track-list" id="pop">
+            <div onclick="playTrack('Korkuyorum','mp3.korkuyorum.mp3')"><span>🎧</span> <span id="track-pop">Korkuyorum</span></div>
+        </div>
+    </div>
+
+    <div class="category">
+        <h3 onclick="toggleList('slowpop')"><span class="icon-shake">🎧</span> <span id="cat-slowpop">Slow Pop</span></h3>
+        <div class="track-list" id="slowpop">
+            <div onclick="playTrack('Kırık Düşler – Slow Pop','kirik-dusler.mp3.mp3')"><span>🎧</span> <span id="track-slowpop">Kırık Düşler – Slow Pop</span></div>
+        </div>
+    </div>
+
 </section>
 
 <footer>
     <p class="contacts">📞 WhatsApp: 0507 416 36 05 | 📧 skaynar578@gmail.com | 📸 @siyahaltinproduksiyonsk</p>
     <p class="description" id="footer-desc">
-        Siyah Altın Prodüksiyon, Serkan Kaynar tarafından kurulan; arabesk, pop ve özgün müzik üretimleri yapan bağımsız bir prodüksiyon platformudur. Tüm eserlerin söz ve müzik hakları eser sahibine aittir. 2026
+        Siyah Altın Prodüksiyon, Serkan Kaynar tarafından kurulan; arabesk, pop ve özgün müzik üretimleri yapan bağımsız bir prodüksiyon platformudur. Bu sitede yer alan tüm eserlerin söz ve müzik hakları eser sahibine, Serkan Kaynar'a aittir. Yetkisiz kişiler tarafından izinsiz ticari amaçla kullanılamaz, kopyalanamaz, çoğaltılamaz. Tüm hakları saklıdır! <span style="color:#ffd700;">2026</span>
     </p>
 </footer>
+
+<div class="fixed-buttons">
+    <a class="whatsapp-btn" href="https://wa.me/905074163605" target="_blank">WhatsApp</a>
+    <a class="message-btn" href="https://wa.me/905074163605?text=Merhaba%20bilgi%20almak%20istiyorum" target="_blank">Mesaj Gönder</a>
+</div>
 
 <script>
 const player = document.getElementById("audioPlayer");
@@ -267,6 +322,7 @@ function playTrack(name, file){
         player.play();
     }
 
+    // Player glow animasyonunu kontrol et
     if(!player.paused){
         playerBox.classList.add("playing");
     }else{
@@ -274,6 +330,7 @@ function playTrack(name, file){
     }
 }
 
+// Player oynatıldığında animasyonu başlat
 player.addEventListener('play',()=>{playerBox.classList.add("playing");});
 player.addEventListener('pause',()=>{playerBox.classList.remove("playing");});
 
