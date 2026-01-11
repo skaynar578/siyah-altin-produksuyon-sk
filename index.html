@@ -287,8 +287,8 @@ footer .contacts{
 </section>
 
 <footer>
-    <p class="contacts">📞 WhatsApp: 0507 416 36 05 | 📧 skaynar578@gmail.com | 📸 @siyahaltinproduksiyonsk</p>
-    <p class="description" id="footer-desc">
+    <p class="contacts" id="footerContacts">📞 WhatsApp: 0507 416 36 05 | 📧 skaynar578@gmail.com | 📸 @siyahaltinproduksiyonsk</p>
+    <p class="description" id="footerDesc">
         Siyah Altın Prodüksiyon, Serkan Kaynar tarafından kurulan; arabesk, pop ve özgün müzik üretimleri yapan bağımsız bir prodüksiyon platformudur. Bu sitede yer alan tüm eserlerin söz ve müzik hakları eser sahibine, Serkan Kaynar'a aittir. Yetkisiz kişiler tarafından izinsiz ticari amaçla kullanılamaz, kopyalanamaz, çoğaltılamaz. Tüm hakları saklıdır! <span style="color:#ffd700;">2026</span>
     </p>
 </footer>
@@ -311,6 +311,8 @@ const sub2 = document.getElementById("sub2");
 const professionalTitle = document.querySelector(".professional-title");
 const skTitle = document.querySelector(".sk-title");
 const playerDesc = document.getElementById("playerDesc");
+const footerDesc = document.getElementById("footerDesc");
+const footerContacts = document.getElementById("footerContacts");
 
 // Oynatma fonksiyonu
 function playTrack(name, file){
@@ -352,6 +354,8 @@ function setLanguage(lang){
         skTitle.textContent = "SK";
         playerDesc.textContent = "LISTEN TO READY-TO-SELL & LICENSED SONGS";
         nowPlaying.textContent = "No track selected";
+        footerDesc.textContent = "Black Gold Production, founded by Serkan Kaynar; an independent production platform producing arabesque, pop and original music. All songs on this site belong to their authors. Unauthorized commercial use, copying or distribution is prohibited. All rights reserved! 2026";
+        footerContacts.textContent = "📞 WhatsApp: 0507 416 36 05 | 📧 skaynar578@gmail.com | 📸 @blackgoldproductionsk";
     } else {
         headerMainTitle.innerHTML = "<span style='text-transform:capitalize;'>Siyah Altın </span><span style='text-transform:uppercase;'>P</span>rodüksiyon";
         headerSubTitle.textContent = "BLACK GOLD PRODUCTION";
@@ -361,6 +365,8 @@ function setLanguage(lang){
         skTitle.textContent = "SK";
         playerDesc.textContent = "SATIŞA VE DEVİRE HAZIR ESERLERİ DİNLEYEBİLİRSİNİZ";
         nowPlaying.textContent = "Seçili şarkı yok";
+        footerDesc.textContent = "Siyah Altın Prodüksiyon, Serkan Kaynar tarafından kurulan; arabesk, pop ve özgün müzik üretimleri yapan bağımsız bir prodüksiyon platformudur. Bu sitede yer alan tüm eserlerin söz ve müzik hakları eser sahibine, Serkan Kaynar'a aittir. Yetkisiz kişiler tarafından izinsiz ticari amaçla kullanılamaz, kopyalanamaz, çoğaltılamaz. Tüm hakları saklıdır! 2026";
+        footerContacts.textContent = "📞 WhatsApp: 0507 416 36 05 | 📧 skaynar578@gmail.com | 📸 @siyahaltinproduksiyonsk";
     }
 }
 </script>
