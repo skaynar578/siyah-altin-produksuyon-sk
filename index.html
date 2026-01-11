@@ -2,75 +2,188 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Siyah Altın Prodüksiyon · SK</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 <style>
-body{
+:root{
+    --bg:#0b0b0b;
+    --gold:#d4af37;
+    --soft:#1a1a1a;
+}
+
+*{
     margin:0;
-    font-family:Arial, Helvetica, sans-serif;
-    background:#0b0b0b;
-    color:#d4af37;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:var(--bg);
+    color:#fff;
+}
+
+/* HEADER */
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(0,0,0,.9);
+    padding:20px;
+    border-bottom:1px solid rgba(212,175,55,.2);
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    max-width:1200px;
+    margin:auto;
+}
+
+.logo{
+    font-size:22px;
+    font-weight:700;
+    color:var(--gold);
+    letter-spacing:1px;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:25px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#fff;
+    font-size:14px;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:var(--gold);
+}
+
+/* HERO */
+.hero{
+    height:90vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:20px;
+    background:linear-gradient(to bottom, rgba(0,0,0,.6), #0b0b0b);
+}
+
+.hero h1{
+    font-size:48px;
+    color:var(--gold);
+}
+
+.hero p{
+    margin:20px 0;
+    font-size:18px;
+    color:#ccc;
+}
+
+.hero button{
+    padding:15px 40px;
+    border:none;
+    background:var(--gold);
+    color:#000;
+    font-weight:600;
+    cursor:pointer;
+    border-radius:30px;
+    transition:.3s;
+}
+
+.hero button:hover{
+    transform:scale(1.05);
+}
+
+/* SECTIONS */
+section{
+    max-width:1200px;
+    margin:auto;
+    padding:80px 20px;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-title h2{
+    color:var(--gold);
+    font-size:32px;
+}
+
+/* ABOUT */
+.about{
+    text-align:center;
+    color:#ccc;
+    line-height:1.8;
+}
+
+/* SERVICES */
+.services{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.service-box{
+    background:var(--soft);
+    padding:30px;
+    border-radius:15px;
+    text-align:center;
+    transition:.3s;
+    border:1px solid transparent;
+}
+
+.service-box:hover{
+    border-color:var(--gold);
+    transform:translateY(-5px);
+}
+
+.service-box h3{
+    color:var(--gold);
+    margin-bottom:15px;
+}
+
+/* MUSIC */
+.music audio{
+    width:100%;
+    margin-top:20px;
+}
+
+/* CONTACT */
+.contact{
     text-align:center;
 }
-header{ padding:25px 15px; }
-nav{ margin:15px 0; }
-nav a{
-    color:#d4af37;
-    text-decoration:none;
-    margin:0 10px;
-    font-weight:bold;
-}
-section{ padding:20px 15px; }
-h1,h2,h3{ margin:12px 0; }
-.sub{
-    font-size:18px;
-    font-weight:bold;
-    margin:6px 0;
-}
-.notice{
-    margin:15px 0;
-    font-size:16px;
-    font-weight:bold;
-}
-.player-box{
-    border:1px solid #d4af37;
-    padding:15px;
-    margin:20px auto;
-    max-width:420px;
-}
-#nowPlaying{
-    font-weight:bold;
+
+.contact p{
     margin-bottom:10px;
+    color:#ccc;
 }
-audio{
-    width:100%;
-    height:32px;
-}
-.category{
-    margin:20px auto;
-    max-width:420px;
-    border:1px solid #d4af37;
-    padding:10px;
-}
-.category h3{
-    cursor:pointer;
-    margin:0;
-}
-.track-list{
-    display:none;
-    margin-top:10px;
-}
-.track-list div{
-    padding:6px;
-    cursor:pointer;
-    border-bottom:1px solid #333;
-}
-.track-list div:hover{
-    background:#1a1a1a;
-}
+
+/* FOOTER */
 footer{
-    padding:20px 10px;
-    font-size:14px;
+    background:#000;
+    text-align:center;
+    padding:30px;
+    color:#777;
+    font-size:13px;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+    .hero h1{font-size:34px;}
+    nav ul{display:none;}
 }
 </style>
 </head>
@@ -78,124 +191,76 @@ footer{
 <body>
 
 <header>
-    <h1>SİYAH ALTIN PRODÜKSİYON · SK</h1>
-
-    <div class="notice">
-        Yayınlanan ve yayınlanacak olan eserlerin söz ve müzikleri  
-        <strong>Serkan Kaynar</strong>’a aittir.  
-        Tüm hakları saklıdır.
-    </div>
-
-    <div class="sub">Müzik Prodüksiyon · Açılış Organizasyonları</div>
-    <div class="sub">Hazır Şarkılar • Beatler • Mixler</div>
-    <div class="sub">Satışa ve Devire Hazır İçerikler</div>
-
     <nav>
-        <a href="#">Müzik</a>
-        <a href="#">Organizasyon</a>
+        <div class="logo">SİYAH ALTIN · SK</div>
+        <ul>
+            <li><a href="#">Anasayfa</a></li>
+            <li><a href="#">Hakkımızda</a></li>
+            <li><a href="#">Hizmetler</a></li>
+            <li><a href="#">Müzikler</a></li>
+            <li><a href="#">İletişim</a></li>
+        </ul>
     </nav>
 </header>
 
+<section class="hero">
+    <div>
+        <h1>Siyah Altın Prodüksiyon</h1>
+        <p>Müzikte iz bırakmak isteyenler için profesyonel prodüksiyon</p>
+        <button>Bizimle Çalış</button>
+    </div>
+</section>
+
 <section>
-
-    <!-- TEK PLAYER -->
-    <div class="player-box">
-        <div id="nowPlaying">Seçili şarkı yok</div>
-        <audio id="audioPlayer" controls></audio>
+    <div class="section-title">
+        <h2>Hakkımızda</h2>
     </div>
+    <div class="about">
+        Siyah Altın Prodüksiyon, özgün müzik üretimi, aranje, mix & mastering
+        alanlarında sanatçılara profesyonel çözümler sunar.
+    </div>
+</section>
 
-    <!-- YENİLER -->
-    <div class="category">
-        <h3 onclick="toggleList('yeniler')">Yeniler</h3>
-        <div class="track-list" id="yeniler">
-            <div onclick="playTrack('Yeniler Mix','1.mp3.mp3')">
-                Yeniler Mix
-            </div>
+<section>
+    <div class="section-title">
+        <h2>Hizmetler</h2>
+    </div>
+    <div class="services">
+        <div class="service-box">
+            <h3>Beste & Aranje</h3>
+            <p>Profesyonel altyapılar ve özgün sound.</p>
+        </div>
+        <div class="service-box">
+            <h3>Mix & Mastering</h3>
+            <p>Endüstri standartlarında ses kalitesi.</p>
+        </div>
+        <div class="service-box">
+            <h3>Prodüksiyon</h3>
+            <p>Şarkınızı baştan sona hayata geçiriyoruz.</p>
         </div>
     </div>
+</section>
 
-    <!-- ARABESK (SADECE BURAYA EKLENDİ) -->
-    <div class="category">
-        <h3 onclick="toggleList('arabesk')">Arabesk</h3>
-        <div class="track-list" id="arabesk">
-            <div onclick="playTrack('Küllerimden Kalktım – Arabesk','kullerimden-kalktim.mp3.mp3')">
-                Küllerimden Kalktım – Arabesk
-            </div>
-        </div>
+<section class="music">
+    <div class="section-title">
+        <h2>Çalışmalar</h2>
     </div>
+    <audio controls>
+        <source src="ornek.mp3" type="audio/mpeg">
+    </audio>
+</section>
 
-    <!-- ARABESK POP KARISIMI -->
-    <div class="category">
-        <h3 onclick="toggleList('arabeskpop')">Arabesk Pop Karışımı</h3>
-        <div class="track-list" id="arabeskpop">
-            <div onclick="playTrack('Dünya Benim Olurdu – Arabesk Pop Karışımı','dunya-benim-olurdu.mp3.mp3')">
-                Dünya Benim Olurdu – Arabesk Pop Karışımı
-            </div>
-        </div>
+<section class="contact">
+    <div class="section-title">
+        <h2>İletişim</h2>
     </div>
-
-    <!-- TÜRKÜ -->
-    <div class="category">
-        <h3 onclick="toggleList('turku')">Türkü</h3>
-        <div class="track-list" id="turku">
-            <div onclick="playTrack('Bu Geçer – Türkü','bu-gecer-turku.mp3.mp3')">
-                Bu Geçer – Türkü
-            </div>
-        </div>
-    </div>
-
-    <!-- POP -->
-    <div class="category">
-        <h3 onclick="toggleList('pop')">Pop</h3>
-        <div class="track-list" id="pop">
-            <div onclick="playTrack('Korkuyorum','pop01.mp3')">
-                Korkuyorum
-            </div>
-        </div>
-    </div>
-
-    <!-- SLOW POP -->
-    <div class="category">
-        <h3 onclick="toggleList('slowpop')">Slow Pop</h3>
-        <div class="track-list" id="slowpop">
-            <div onclick="playTrack('Kırık Düşler – Slow Pop','kirik-dusler.mp3.mp3')">
-                Kırık Düşler – Slow Pop
-            </div>
-        </div>
-    </div>
-
+    <p>📧 mail@siyahaltinproduksiyon.com</p>
+    <p>📞 05xx xxx xx xx</p>
 </section>
 
 <footer>
-    📞 WhatsApp: 0507 416 36 05<br>
-    📧 skaynar578@gmail.com<br>
-    📸 @siyahaltinproduksiyonsk<br><br>
-    © 2026 Siyah Altın Prodüksiyon · SK
+    © 2026 Siyah Altın Prodüksiyon · Serkan Kaynar
 </footer>
-
-<script>
-const player = document.getElementById("audioPlayer");
-const nowPlaying = document.getElementById("nowPlaying");
-
-function playTrack(name, file){
-    if(player.src.includes(file)){
-        if(player.paused){
-            player.play();
-        }else{
-            player.pause();
-        }
-    }else{
-        player.src = file;
-        nowPlaying.textContent = "Çalan Şarkı: " + name;
-        player.play();
-    }
-}
-
-function toggleList(id){
-    const el = document.getElementById(id);
-    el.style.display = el.style.display === "block" ? "none" : "block";
-}
-</script>
 
 </body>
 </html>
