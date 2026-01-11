@@ -45,30 +45,33 @@ header{ padding:25px 15px; position:relative; }
     text-shadow:0 0 12px #ffd700,0 0 22px #ffd700;
 }
 
-/* SK başlığı - S | K ve animasyonlu hareket */
+/* SK başlığı - S ve K arası yatay çizgi ve animasyon */
 .sk-title{
     font-size:48px;
     font-weight:500;
     color:#ffd700;
     text-shadow:0 0 6px #ffd700, 0 0 12px #ffd700;
     margin:10px auto 15px auto;
-    display:inline-block;
+    display:flex;
+    align-items:center;
+    justify-content:center;
     position:relative;
     animation:skShake 0.8s infinite alternate;
+    gap:8px;
 }
-.sk-title span{
+.sk-s, .sk-k{
     display:inline-block;
 }
-.sk-s{
-    margin-right:4px; /* S ile çizgi arası boşluk */
-}
-.sk-k{
-    margin-left:4px; /* çizgi ile K arası boşluk */
+.sk-line{
+    display:inline-block;
+    width:20px;             /* çizgi uzunluğu */
+    border-bottom:3px solid #ffd700; /* yatay çizgi */
+    vertical-align:middle;
 }
 
 @keyframes skShake {
     0% { transform: translateX(0); }
-    25% { transform: translateX(-3px); } /* sola kayma */
+    25% { transform: translateX(-3px); } 
     50% { transform: translateX(0); }
     75% { transform: translateX(-2px); }
     100% { transform: translateX(0); }
@@ -177,6 +180,7 @@ footer .description{
 }
 footer .contacts{
     font-weight:bold;
+    font-size:16px; /* büyütüldü */
 }
 footer .contacts span.year{
     font-weight:900;
@@ -249,7 +253,11 @@ footer .contacts span.year{
     <h1 class="header-main-title">
         <span style="text-transform:capitalize;">Siyah Altın </span><span style="text-transform:uppercase;">P</span>rodüksiyon
     </h1>
-    <div class="sk-title"><span class="sk-s">S</span> | <span class="sk-k">K</span></div>
+    <div class="sk-title">
+        <span class="sk-s">S</span>
+        <span class="sk-line"></span>
+        <span class="sk-k">K</span>
+    </div>
     <h2 class="header-sub-title" id="header-sub-title">BLACK GOLD PRODUCTION</h2>
     <div class="professional-title">PROFESYONEL</div>
 
@@ -379,7 +387,7 @@ function setLanguage(lang){
         sub1.textContent = "Ready Songs • Compositions";
         sub2.textContent = "Available for Sale & License Transfer";
         professionalTitle.textContent = "PROFESSIONAL";
-        skTitle.innerHTML = "<span class='sk-s'>S</span> | <span class='sk-k'>K</span>";
+        skTitle.innerHTML = "<span class='sk-s'>S</span><span class='sk-line'></span><span class='sk-k'>K</span>";
         playerDesc.textContent = "LISTEN TO READY-TO-SELL & LICENSED SONGS";
         nowPlaying.textContent = "No track selected";
         footerDesc.textContent = "Black Gold Production, founded by Serkan Kaynar; an independent production platform producing arabesque, pop and original music. All songs on this site belong to their authors. Unauthorized commercial use, copying or distribution is prohibited. All rights reserved!";
@@ -390,7 +398,7 @@ function setLanguage(lang){
         sub1.textContent = "Hazır Şarkılar • Besteler";
         sub2.textContent = "Satışa ve Devire Hazır Eserler";
         professionalTitle.textContent = "PROFESYONEL";
-        skTitle.innerHTML = "<span class='sk-s'>S</span> | <span class='sk-k'>K</span>";
+        skTitle.innerHTML = "<span class='sk-s'>S</span><span class='sk-line'></span><span class='sk-k'>K</span>";
         playerDesc.textContent = "SATIŞA VE DEVİRE HAZIR ESERLERİ DİNLEYEBİLİRSİNİZ";
         nowPlaying.textContent = "Seçili şarkı yok";
         footerDesc.textContent = "Siyah Altın Prodüksiyon, Serkan Kaynar tarafından kurulan; arabesk, pop ve özgün müzik üretimleri yapan bağımsız bir prodüksiyon platformudur. Bu sitede yer alan tüm eserlerin söz ve müzik hakları eser sahibine, Serkan Kaynar'a aittir. Yetkisiz kişiler tarafından izinsiz ticari amaçla kullanılamaz, kopyalanamaz, çoğaltılamaz. Tüm hakları saklıdır!";
