@@ -104,12 +104,8 @@ audio{
     font-size:14px;
     box-shadow:0 0 15px rgba(0,0,0,.4);
 }
-.whatsapp{
-    background:#25D366;
-}
-.mail{
-    background:#d4af37;
-}
+.whatsapp{ background:#25D366; }
+.mail{ background:#d4af37; }
 
 /* FOOTER */
 footer{
@@ -129,105 +125,77 @@ footer{
 <body>
 
 <header>
-    <div class="hero">
-        <h1>SİYAH ALTIN PRODÜKSİYON · SK</h1>
-        <p>
-            Siyah Altın Prodüksiyon, <strong>Serkan Kaynar</strong> tarafından kurulan;  
-            arabesk, pop ve özgün müzik üretimleri yapan bağımsız bir prodüksiyon platformudur.  
-            Bu sitede yer alan tüm eserlerin söz ve müzik hakları eser sahibine aittir.
-        </p>
-        <div class="sub">Müzik Prodüksiyon · Açılış Organizasyonları</div>
-        <div class="sub">Hazır Şarkılar • Beatler • Mixler</div>
-        <div class="sub">Satışa ve Devire Hazır İçerikler</div>
-    </div>
+<div class="hero">
+<h1>SİYAH ALTIN PRODÜKSİYON · SK</h1>
+<p>
+Siyah Altın Prodüksiyon, <strong>Serkan Kaynar</strong> tarafından kurulan;
+arabesk, pop ve özgün müzik üretimleri yapan bağımsız bir prodüksiyon platformudur.
+</p>
+<div class="sub">Müzik Prodüksiyon · Açılış Organizasyonları</div>
+<div class="sub">Hazır Şarkılar • Beatler • Mixler</div>
+<div class="sub">Satışa ve Devire Hazır İçerikler</div>
+</div>
 </header>
 
 <section>
 
-    <div class="player-box">
-        <div id="nowPlaying">Seçili şarkı yok</div>
-        <audio id="audioPlayer" controls></audio>
-    </div>
+<div class="player-box">
+<div id="nowPlaying">Seçili şarkı yok</div>
+<audio id="audioPlayer" controls></audio>
+</div>
 
-    <div class="category">
-        <h3 onclick="toggleList('yeniler')">🎧 Yeniler</h3>
-        <div class="track-list" id="yeniler">
-            <div onclick="playTrack('Yeniler Mix','yeniler.mix.mp3')">Yeniler Mix</div>
-        </div>
-    </div>
+<div class="category">
+<h3 onclick="toggleList('yeniler')">🎧 Yeniler</h3>
+<div class="track-list" id="yeniler">
+<div onclick="playTrack('Yeniler Mix','yeniler-mix.mp3')">Yeniler Mix</div>
+</div>
+</div>
 
-    <div class="category">
-        <h3 onclick="toggleList('arabesk')">🔥 Arabesk</h3>
-        <div class="track-list" id="arabesk">
-            <div onclick="playTrack('Küllerimden Kalktım','kullerimden-kalktim.mp3.mp3')">
-                Küllerimden Kalktım
-            </div>
-        </div>
-    </div>
+<div class="category">
+<h3 onclick="toggleList('arabesk')">🔥 Arabesk</h3>
+<div class="track-list" id="arabesk">
+<div onclick="playTrack('Küllerimden Kalktım','kullerimden-kalktim.mp3')">
+Küllerimden Kalktım
+</div>
+</div>
+</div>
 
-    <div class="category">
-        <h3 onclick="toggleList('turku')">🎻 Türkü</h3>
-        <div class="track-list" id="turku">
-            <div onclick="playTrack('Bu Geçer','bu-gecer-turku.mp3.mp3')">
-                Bu Geçer
-            </div>
-        </div>
-    </div>
+<div class="category">
+<h3 onclick="toggleList('turku')">🎻 Türkü</h3>
+<div class="track-list" id="turku">
+<div onclick="playTrack('Bu Geçer','bu-gecer-turku.mp3')">
+Bu Geçer
+</div>
+</div>
+</div>
 
-    <div class="category">
-        <h3 onclick="toggleList('pop')">🎶 Pop</h3>
-        <div class="track-list" id="pop">
-            <div onclick="playTrack('Korkuyorum','pop01.mp3.mp3')">
-                Korkuyorum
-            </div>
-        </div>
-    </div>
+<div class="category">
+<h3 onclick="toggleList('pop')">🎶 Pop</h3>
+<div class="track-list" id="pop">
+<div onclick="playTrack('Korkuyorum','pop01.mp3')">
+Korkuyorum
+</div>
+</div>
+</div>
 
-    <div class="category">
-        <h3 onclick="toggleList('slowpop')">💔 Slow Pop</h3>
-        <div class="track-list" id="slowpop">
-            <div onclick="playTrack('Kırık Düşler','kirik-dusler.mp3.mp3')">
-                Kırık Düşler
-            </div>
-        </div>
-    </div>
+<div class="category">
+<h3 onclick="toggleList('slowpop')">💔 Slow Pop</h3>
+<div class="track-list" id="slowpop">
+<div onclick="playTrack('Kırık Düşler','kirik-dusler-slow-pop.mp3')">
+Kırık Düşler
+</div>
+</div>
+</div>
 
 </section>
 
-<footer>
-    © 2026 Siyah Altın Prodüksiyon · SK
-</footer>
+<footer>© 2026 Siyah Altın Prodüksiyon · SK</footer>
 
-<!-- SABİT İLETİŞİM BUTONLARI -->
 <div class="fixed-buttons">
-    <a class="whatsapp" 
-       href="https://wa.me/905074163605?text=Merhaba%20Siyah%20Altın%20Prodüksiyon" 
-       target="_blank">💬 WhatsApp</a>
-
-    <a class="mail" 
-       href="mailto:skaynar578@gmail.com?subject=Siyah%20Altın%20Prodüksiyon">
-       ✉️ Mail
-    </a>
+<a class="whatsapp" href="https://wa.me/905074163605" target="_blank">💬 WhatsApp</a>
+<a class="mail" href="mailto:skaynar578@gmail.com">✉️ Mail</a>
 </div>
 
 <script>
 const player = document.getElementById("audioPlayer");
-const nowPlaying = document.getElementById("nowPlaying");
-
-function playTrack(name, file){
-    if(player.src.includes(file)){
-        player.paused ? player.play() : player.pause();
-    }else{
-        player.src = file;
-        nowPlaying.textContent = "Çalan Şarkı: " + name;
-        player.play();
-    }
-}
-function toggleList(id){
-    const el = document.getElementById(id);
-    el.style.display = el.style.display === "block" ? "none" : "block";
-}
-</script>
-
-</body>
-</html>
+const
