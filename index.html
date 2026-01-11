@@ -83,10 +83,10 @@ header{ padding:25px 15px; position:relative; }
     padding:20px;
     border-radius:14px;
     box-shadow:0 0 20px rgba(212,175,55,0.3);
-    transition:0.3s;
+    transition:0.3s, box-shadow 0.5s;
 }
-.player-box:hover{
-    box-shadow:0 0 30px rgba(212,175,55,0.5);
+.player-box.playing{
+    animation:playerGlow 1s infinite alternate;
 }
 #nowPlaying{
     font-weight:bold;
@@ -201,6 +201,11 @@ footer .contacts{
     50%{text-shadow:0 0 25px #ffd700,0 0 35px #ffd700,0 0 45px #ffd700;}
     100%{text-shadow:0 0 15px #ffd700,0 0 25px #ffd700,0 0 35px #ffd700;}
 }
+@keyframes playerGlow{
+    0%{box-shadow:0 0 20px rgba(212,175,55,0.5);}
+    50%{box-shadow:0 0 35px rgba(212,175,55,0.8);}
+    100%{box-shadow:0 0 50px rgba(212,175,55,1);}
+}
 .icon-shake{
     display:inline-block;
     animation:shakeIcon 0.6s ease;
@@ -230,7 +235,7 @@ footer .contacts{
 
     <div class="player-box-container">
         <div class="player-description">SATIŞA VE DEVİRE HAZIR ESERLERİ DİNLEYEBİLİRSİNİZ</div>
-        <div class="player-box">
+        <div class="player-box" id="playerBox">
             <div id="nowPlaying">Seçili şarkı yok</div>
             <audio id="audioPlayer" controls></audio>
         </div>
@@ -296,6 +301,7 @@ footer .contacts{
 <script>
 const player = document.getElementById("audioPlayer");
 const nowPlaying = document.getElementById("nowPlaying");
+const playerBox = document.getElementById("playerBox");
 
 function playTrack(name, file){
     if(player.src.includes(file)){
@@ -307,7 +313,18 @@ function playTrack(name, file){
         setTimeout(()=>{nowPlaying.style.color="#d4af37"},500);
         player.play();
     }
+
+    // Player glow animasyonunu kontrol et
+    if(!player.paused){
+        playerBox.classList.add("playing");
+    }else{
+        playerBox.classList.remove("playing");
+    }
 }
+
+// Player oynatıldığında animasyonu başlat
+player.addEventListener('play',()=>{playerBox.classList.add("playing");});
+player.addEventListener('pause',()=>{playerBox.classList.remove("playing");});
 
 function toggleList(id){
     const el = document.getElementById(id);
