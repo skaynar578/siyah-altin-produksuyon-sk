@@ -24,13 +24,13 @@ nav a{
 section{ padding:20px 15px; }
 h1,h2,h3{ margin:12px 0; }
 .sub{
-    font-size:16px; /* Küçültüldü */
+    font-size:16px;
     font-weight:bold;
     margin:6px 0;
 }
 .notice{
     margin:15px 0;
-    font-size:14px; /* Küçültüldü */
+    font-size:16px; /* Büyütüldü, kibar görünsün */
     font-weight:bold;
     line-height:1.5;
 }
@@ -144,19 +144,32 @@ footer{
     display:inline-block;
     animation:shakeIcon 0.6s ease;
 }
+
+/* Başlık küçültme ve kibar hale getirme */
+.header-title{
+    font-size:18px;
+    font-weight:500;
+    line-height:1.4;
+    margin-bottom:12px;
+}
+
+/* Alt yazıyı biraz büyüt */
+.notice{
+    font-size:18px;
+    font-weight:bold;
+}
 </style>
 </head>
 
 <body>
 
 <header>
-    <h1>🎵 Siyah Altın Prodüksiyon, Serkan Kaynar tarafından kurulan; arabesk, pop ve özgün müzik üretimleri yapan bağımsız bir prodüksiyon platformudur. Bu sitede yer alan tüm eserlerin söz ve müzik hakları eser sahibine aittir.</h1>
+    <h1 class="header-title">🎵 Siyah Altın Prodüksiyon, Serkan Kaynar tarafından kurulan; arabesk, pop ve özgün müzik üretimleri yapan bağımsız bir prodüksiyon platformudur. Bu sitede yer alan tüm eserlerin söz ve müzik hakları eser sahibine aittir.</h1>
 
     <div class="notice">
         Mağaza ve Mekan Açılışları
     </div>
 
-    <div class="sub">Müzik Prodüksiyon · Mağaza ve Mekan Açılışları</div>
     <div class="sub">Hazır Şarkılar • Besteler</div>
     <div class="sub">Satışa ve Devire Hazır İçerikler</div>
 
@@ -255,10 +268,9 @@ function toggleList(id){
     const el = document.getElementById(id);
     el.style.display = el.style.display === "block" ? "none" : "block";
 
-    // ikon sallama efekti
     const icon = el.previousElementSibling.querySelector(".icon-shake");
     icon.classList.remove("icon-shake");
-    void icon.offsetWidth; // restart animation
+    void icon.offsetWidth;
     icon.classList.add("icon-shake");
 }
 </script>
