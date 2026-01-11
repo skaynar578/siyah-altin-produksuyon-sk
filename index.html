@@ -45,12 +45,27 @@ nav a{
     text-shadow: 0 0 8px #ffd700;
 }
 .sk-title{
-    font-size:36px;
+    font-size:48px;
     font-weight:900;
     letter-spacing:5px;
     color:#ffd700;
-    text-shadow:0 0 15px #ffd700;
+    text-shadow:0 0 15px #ffd700, 0 0 25px #ffd700, 0 0 35px #ffd700;
+    margin-bottom:15px;
+    animation:glowSK 1.5s infinite alternate;
+    max-width:90%;
+    margin-left:auto;
+    margin-right:auto;
+}
+.sk-sub{
+    font-size:24px;
+    font-weight:bold;
+    letter-spacing:2px;
+    color:#ffd700;
+    text-shadow:0 0 10px #ffd700;
     margin-bottom:20px;
+    max-width:80%;
+    margin-left:auto;
+    margin-right:auto;
 }
 .language-switch{
     position:absolute;
@@ -66,12 +81,6 @@ nav a{
 }
 .language-switch span:hover{
     color:#ffd700;
-}
-.notice{
-    margin:15px 0;
-    font-size:16px;
-    font-weight:bold;
-    line-height:1.5;
 }
 .player-box{
     border:1px solid #d4af37;
@@ -201,6 +210,11 @@ footer .contacts{
     75%{transform:rotate(10deg);}
     100%{transform:rotate(0);}
 }
+@keyframes glowSK{
+    0%{text-shadow:0 0 15px #ffd700,0 0 25px #ffd700,0 0 35px #ffd700;}
+    50%{text-shadow:0 0 25px #ffd700,0 0 35px #ffd700,0 0 45px #ffd700;}
+    100%{text-shadow:0 0 15px #ffd700,0 0 25px #ffd700,0 0 35px #ffd700;}
+}
 .icon-shake{
     display:inline-block;
     animation:shakeIcon 0.6s ease;
@@ -221,10 +235,7 @@ footer .contacts{
     </h1>
     <h2 class="header-sub-title" id="header-sub-title">BLACK GOLD PRODUCTION</h2>
     <div class="sk-title">SK</div>
-
-    <div class="notice" id="notice-text">
-        Müzik · Organizasyon
-    </div>
+    <div class="sk-sub">SATIŞA VE DEVİRE HAZIR ESERLERİ DİNLEYEBİLİRSİNİZ</div>
 
     <div class="sub" id="sub1">Hazır Şarkılar • Besteler</div>
     <div class="sub" id="sub2">Satışa ve Devire Hazır İçerikler</div>
@@ -236,11 +247,6 @@ footer .contacts{
 </header>
 
 <section>
-
-    <!-- PLAYER ÜSTÜ AÇIKLAMA -->
-    <div class="player-description">
-        SATIŞA VE DEVİRE HAZIR ESERLERİ DİNLEYEBİLİRSİNİZ
-    </div>
 
     <div class="player-box">
         <div id="nowPlaying">Seçili şarkı yok</div>
@@ -307,16 +313,6 @@ footer .contacts{
 <script>
 const player = document.getElementById("audioPlayer");
 const nowPlaying = document.getElementById("nowPlaying");
-const noticeText = document.getElementById("notice-text");
-
-// Dil değiştirme fonksiyonu
-function setLanguage(lang){
-    if(lang==='en'){
-        noticeText.textContent = "Music · Organization";
-    }else{
-        noticeText.textContent = "Müzik · Organizasyon";
-    }
-}
 
 // Kategori ve tracklar
 const categories = {
@@ -358,6 +354,11 @@ function toggleList(id){
     icon.classList.remove("icon-shake");
     void icon.offsetWidth;
     icon.classList.add("icon-shake");
+}
+
+// Dil değiştirme fonksiyonu
+function setLanguage(lang){
+    // Şimdilik sadece notice kaldırıldı, header ve sub sabit kalıyor
 }
 </script>
 
