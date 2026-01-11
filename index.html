@@ -228,12 +228,12 @@ footer .contacts{
         <span onclick="setLanguage('en')">EN</span>
     </div>
 
-    <h1 class="header-main-title">
-        <span style="text-transform:capitalize;">Siyah Altın </span><span style="text-transform:uppercase;">P</span>rodüksiyon
-    </h1>
+    <!-- Başlık ve SK -->
+    <h1 class="header-main-title">Siyah Altın Prodüksiyon</h1>
+    <div class="sk-title">SK</div>
+
     <h2 class="header-sub-title" id="header-sub-title">BLACK GOLD PRODUCTION</h2>
     <div class="professional-title">PROFESYONEL</div>
-    <div class="sk-title">SK</div>
 
     <div class="sub" id="sub1">Hazır Şarkılar • Besteler</div>
     <div class="sub" id="sub2">Satışa ve Devire Hazır Eserler</div>
@@ -322,7 +322,6 @@ function playTrack(name, file){
         player.play();
     }
 
-    // Player glow animasyonunu kontrol et
     if(!player.paused){
         playerBox.classList.add("playing");
     }else{
@@ -330,7 +329,6 @@ function playTrack(name, file){
     }
 }
 
-// Player oynatıldığında animasyonu başlat
 player.addEventListener('play',()=>{playerBox.classList.add("playing");});
 player.addEventListener('pause',()=>{playerBox.classList.remove("playing");});
 
