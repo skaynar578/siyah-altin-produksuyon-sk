@@ -72,6 +72,30 @@ footer{
     padding:20px 10px;
     font-size:14px;
 }
+
+/* SABİT BUTONLAR */
+.fixed-buttons{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+.fixed-buttons a{
+    text-decoration:none;
+    padding:10px 14px;
+    border-radius:6px;
+    font-weight:bold;
+    font-size:14px;
+    color:#0b0b0b;
+}
+.whatsapp-btn{
+    background:#25D366;
+}
+.message-btn{
+    background:#d4af37;
+}
 </style>
 </head>
 
@@ -103,17 +127,13 @@ footer{
         <audio id="audioPlayer" controls></audio>
     </div>
 
-    <!-- YENİLER -->
     <div class="category">
         <h3 onclick="toggleList('yeniler')">Yeniler</h3>
         <div class="track-list" id="yeniler">
-            <div onclick="playTrack('Yeniler','yeniler.mp3')">
-                Yeniler
-            </div>
+            <div onclick="playTrack('Yeniler Mix','yeniler.mix.mp3')">Yeniler Mix</div>
         </div>
     </div>
 
-    <!-- ARABESK -->
     <div class="category">
         <h3 onclick="toggleList('arabesk')">Arabesk</h3>
         <div class="track-list" id="arabesk">
@@ -123,7 +143,6 @@ footer{
         </div>
     </div>
 
-    <!-- ARABESK POP KARISIMI -->
     <div class="category">
         <h3 onclick="toggleList('arabeskpop')">Arabesk Pop Karışımı</h3>
         <div class="track-list" id="arabeskpop">
@@ -133,7 +152,6 @@ footer{
         </div>
     </div>
 
-    <!-- TÜRKÜ -->
     <div class="category">
         <h3 onclick="toggleList('turku')">Türkü</h3>
         <div class="track-list" id="turku">
@@ -143,7 +161,6 @@ footer{
         </div>
     </div>
 
-    <!-- POP -->
     <div class="category">
         <h3 onclick="toggleList('pop')">Pop</h3>
         <div class="track-list" id="pop">
@@ -153,7 +170,6 @@ footer{
         </div>
     </div>
 
-    <!-- SLOW POP -->
     <div class="category">
         <h3 onclick="toggleList('slowpop')">Slow Pop</h3>
         <div class="track-list" id="slowpop">
@@ -171,6 +187,16 @@ footer{
     📸 @siyahaltinproduksiyonsk<br><br>
     © 2026 Siyah Altın Prodüksiyon · SK
 </footer>
+
+<!-- SABİT WHATSAPP & MESAJ BUTONLARI -->
+<div class="fixed-buttons">
+    <a class="whatsapp-btn" href="https://wa.me/905074163605" target="_blank">
+        WhatsApp
+    </a>
+    <a class="message-btn" href="https://wa.me/905074163605?text=Merhaba%20bilgi%20almak%20istiyorum" target="_blank">
+        Mesaj Gönder
+    </a>
+</div>
 
 <script>
 const player = document.getElementById("audioPlayer");
