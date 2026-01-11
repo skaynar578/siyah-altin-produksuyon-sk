@@ -49,10 +49,9 @@ header{ padding:25px 15px; position:relative; }
     font-weight:900;
     letter-spacing:5px;
     color:#ffd700;
-    text-shadow:0 0 4px #ffd700, 0 0 8px #ffd700, 0 0 12px #ffd700;
+    text-shadow:0 0 8px #ffd700, 0 0 16px #ffd700; /* hafif parlak */
     margin:10px auto 15px auto;
     display:inline-block;
-    animation:glowSK 2s infinite alternate;
 }
 .language-switch{
     position:absolute;
@@ -201,11 +200,6 @@ footer .contacts{
     75%{transform:rotate(10deg);}
     100%{transform:rotate(0);}
 }
-@keyframes glowSK{
-    0%{transform:translateX(-3px); text-shadow:0 0 4px #ffd700, 0 0 8px #ffd700, 0 0 12px #ffd700;}
-    50%{transform:translateX(3px); text-shadow:0 0 5px #ffd700, 0 0 9px #ffd700, 0 0 13px #ffd700;}
-    100%{transform:translateX(-3px); text-shadow:0 0 4px #ffd700, 0 0 8px #ffd700, 0 0 12px #ffd700;}
-}
 @keyframes playerGlow{
     0%{box-shadow:0 0 20px rgba(212,175,55,0.5);}
     50%{box-shadow:0 0 35px rgba(212,175,55,0.8);}
@@ -238,6 +232,7 @@ footer .contacts{
 </header>
 
 <section>
+
     <div class="player-box-container">
         <div class="player-description">SATIŞA VE DEVİRE HAZIR ESERLERİ DİNLEYEBİLİRSİNİZ</div>
         <div class="player-box" id="playerBox">
@@ -318,6 +313,8 @@ function playTrack(name, file){
         setTimeout(()=>{nowPlaying.style.color="#d4af37"},500);
         player.play();
     }
+
+    // Player glow animasyonunu kontrol et
     if(!player.paused){
         playerBox.classList.add("playing");
     }else{
@@ -338,62 +335,26 @@ function toggleList(id){
     icon.classList.add("icon-shake");
 }
 
-// Dil değiştirme fonksiyonu tüm metinler için
+// Dil değişimi tüm sayfada
+const headerSubTitle = document.getElementById("header-sub-title");
+const sub1 = document.getElementById("sub1");
+const sub2 = document.getElementById("sub2");
+const professionalTitle = document.querySelector(".professional-title");
+const skTitle = document.querySelector(".sk-title");
+
 function setLanguage(lang){
-    const headerSubTitle = document.getElementById("header-sub-title");
-    const sub1 = document.getElementById("sub1");
-    const sub2 = document.getElementById("sub2");
-    const footerDesc = document.getElementById("footer-desc");
-    const categories = {
-        catYeniler: document.getElementById("cat-yeniler"),
-        catArabesk: document.getElementById("cat-arabesk"),
-        catArabeskPop: document.getElementById("cat-arabeskpop"),
-        catTurku: document.getElementById("cat-turku"),
-        catPop: document.getElementById("cat-pop"),
-        catSlowPop: document.getElementById("cat-slowpop")
-    };
-    const tracks = {
-        trackYeniler: document.getElementById("track-yeniler"),
-        trackArabesk: document.getElementById("track-arabesk"),
-        trackArabeskPop: document.getElementById("track-arabeskpop"),
-        trackTurku: document.getElementById("track-turku"),
-        trackPop: document.getElementById("track-pop"),
-        trackSlowPop: document.getElementById("track-slowpop")
-    };
     if(lang==='en'){
         headerSubTitle.textContent = "BLACK GOLD PRODUCTION";
         sub1.textContent = "Ready Songs • Compositions";
         sub2.textContent = "Available for Sale & License Transfer";
-        footerDesc.textContent = "Black Gold Production, founded by Serkan Kaynar, is an independent production platform creating arabesk, pop, and original music. All music and lyrics on this site belong to the owner, Serkan Kaynar. Unauthorized use is prohibited. 2026";
-        categories.catYeniler.textContent = "New Releases";
-        categories.catArabesk.textContent = "Arabesk";
-        categories.catArabeskPop.textContent = "Arabesk Pop Mix";
-        categories.catTurku.textContent = "Folk";
-        categories.catPop.textContent = "Pop";
-        categories.catSlowPop.textContent = "Slow Pop";
-        tracks.trackYeniler.textContent = "New Releases";
-        tracks.trackArabesk.textContent = "Arabesk";
-        tracks.trackArabeskPop.textContent = "Arabesk Pop Mix";
-        tracks.trackTurku.textContent = "Folk";
-        tracks.trackPop.textContent = "Afraid";
-        tracks.trackSlowPop.textContent = "Broken Dreams – Slow Pop";
+        professionalTitle.textContent = "PROFESSIONAL";
+        skTitle.textContent = "SK";
     }else{
         headerSubTitle.textContent = "BLACK GOLD PRODUCTION";
         sub1.textContent = "Hazır Şarkılar • Besteler";
         sub2.textContent = "Satışa ve Devire Hazır Eserler";
-        footerDesc.innerHTML = "Siyah Altın Prodüksiyon, Serkan Kaynar tarafından kurulan; arabesk, pop ve özgün müzik üretimleri yapan bağımsız bir prodüksiyon platformudur. Bu sitede yer alan tüm eserlerin söz ve müzik hakları eser sahibine, Serkan Kaynar'a aittir. Yetkisiz kişiler tarafından izinsiz ticari amaçla kullanılamaz, kopyalanamaz, çoğaltılamaz. Tüm hakları saklıdır! <span style='color:#ffd700;'>2026</span>";
-        categories.catYeniler.textContent = "Yeniler Mix";
-        categories.catArabesk.textContent = "Arabesk";
-        categories.catArabeskPop.textContent = "Arabesk Pop Karışımı";
-        categories.catTurku.textContent = "Türkü";
-        categories.catPop.textContent = "Pop";
-        categories.catSlowPop.textContent = "Slow Pop";
-        tracks.trackYeniler.textContent = "Yeniler Mix";
-        tracks.trackArabesk.textContent = "Küllerimden Kalktım – Arabesk";
-        tracks.trackArabeskPop.textContent = "Dünya Benim Olurdu";
-        tracks.trackTurku.textContent = "Bu Geçer – Türkü";
-        tracks.trackPop.textContent = "Korkuyorum";
-        tracks.trackSlowPop.textContent = "Kırık Düşler – Slow Pop";
+        professionalTitle.textContent = "PROFESYONEL";
+        skTitle.textContent = "SK";
     }
 }
 </script>
