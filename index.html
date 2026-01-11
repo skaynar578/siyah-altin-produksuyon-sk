@@ -2,6 +2,7 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Siyah Altın Prodüksiyon · SK</title>
 
 <style>
@@ -21,24 +22,27 @@ nav a{
     font-weight:bold;
 }
 section{ padding:20px 15px; }
-h1,h2,h3{ margin:12px 0; }
+h1,h2,h3{ margin:12px 0; font-weight:normal; }
+h1{
+    font-size:20px; /* Başlık küçültüldü */
+}
 .sub{
-    font-size:18px;
+    font-size:16px;
     font-weight:bold;
     margin:6px 0;
 }
 .notice{
     margin:15px 0;
-    font-size:16px;
-    font-weight:bold;
+    font-size:14px; /* Açıklama küçültüldü */
+    font-weight:normal;
 }
 .player-box{
     border:1px solid #d4af37;
     padding:20px;
     margin:20px auto;
-    max-width:440px;
-    border-radius:12px;
-    box-shadow:0 0 20px rgba(212,175,55,0.2);
+    max-width:420px;
+    border-radius:14px;
+    box-shadow:0 0 25px rgba(212,175,55,0.2);
 }
 #nowPlaying{
     font-weight:bold;
@@ -50,21 +54,29 @@ audio{
 }
 .category{
     margin:20px auto;
-    max-width:440px;
+    max-width:420px;
     border:1px solid #d4af37;
     padding:12px;
     border-radius:10px;
-    box-shadow:0 0 15px rgba(212,175,55,0.15);
-    transition:all 0.3s ease;
+    box-shadow:0 0 12px rgba(212,175,55,0.15);
+    transition:0.3s;
+}
+.category:hover{
+    box-shadow:0 0 20px rgba(212,175,55,0.25);
 }
 .category h3{
     cursor:pointer;
     margin:0;
+    display:flex;
+    align-items:center;
+    gap:6px;
+    font-size:16px;
 }
 .track-list{
     display:none;
     margin-top:10px;
-    transition:all 0.4s ease;
+    transition: max-height 0.4s ease-in-out;
+    overflow:hidden;
 }
 .track-list div{
     padding:6px;
@@ -78,6 +90,8 @@ footer{
     padding:20px 10px;
     font-size:14px;
 }
+
+/* SABİT WHATSAPP & MESAJ BUTONLARI */
 .fixed-buttons{
     position:fixed;
     bottom:20px;
@@ -95,8 +109,27 @@ footer{
     font-size:14px;
     color:#0b0b0b;
 }
-.whatsapp-btn{ background:#25D366; }
-.message-btn{ background:#d4af37; }
+.whatsapp-btn{
+    background:#25D366;
+}
+.message-btn{
+    background:#d4af37;
+}
+
+/* Fade-in effect for header */
+header .sub, .notice{
+    opacity:0;
+    animation:fadeIn 1s forwards;
+}
+header .sub:nth-child(2){animation-delay:0.2s;}
+header .sub:nth-child(3){animation-delay:0.4s;}
+header .sub:nth-child(4){animation-delay:0.6s;}
+.notice{animation-delay:0.1s;}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(10px);}
+    to{opacity:1; transform:translateY(0);}
+}
 </style>
 </head>
 
@@ -105,9 +138,9 @@ footer{
 <header>
     <h1>🎵 Siyah Altın Prodüksiyon, Serkan Kaynar tarafından kurulan; arabesk, pop ve özgün müzik üretimleri yapan bağımsız bir prodüksiyon platformudur. Bu sitede yer alan tüm eserlerin söz ve müzik hakları eser sahibine aittir.</h1>
 
-    <div class="sub">Müzik Prodüksiyon · Event & Opening Organizations</div>
-    <div class="sub">Hazır Şarkılar • Besteler</div>
-    <div class="sub">Lisans</div>
+    <div class="sub">Event & Opening Organizations</div>
+    <div class="sub">Hazır Besteler</div>
+    <!-- Lisans başlığı silindi -->
 
     <nav>
         <a href="#">Müzik</a>
@@ -124,44 +157,56 @@ footer{
 
     <!-- YENİLER -->
     <div class="category">
-        <h3 onclick="toggleList('yeniler')">🎧 Yeniler</h3>
+        <h3>🎧 Yeniler</h3>
         <div class="track-list" id="yeniler">
-            <div onclick="playTrack('Yeniler','yeniler.mp3.mp3')">🎧 Yeniler</div>
+            <div onclick="playTrack('Yeniler','yeniler.mp3.mp3')">
+                Yeniler
+            </div>
         </div>
     </div>
 
     <div class="category">
-        <h3 onclick="toggleList('arabesk')">🎧 Arabesk</h3>
+        <h3>🎧 Arabesk</h3>
         <div class="track-list" id="arabesk">
-            <div onclick="playTrack('Küllerimden Kalktım – Arabesk','kullerimden-kalktim.mp3.mp3')">🎧 Küllerimden Kalktım – Arabesk</div>
+            <div onclick="playTrack('Küllerimden Kalktım – Arabesk','kullerimden-kalktim.mp3.mp3')">
+                Küllerimden Kalktım – Arabesk
+            </div>
         </div>
     </div>
 
     <div class="category">
-        <h3 onclick="toggleList('arabeskpop')">🎧 Arabesk Pop Karışımı</h3>
+        <h3>🎧 Arabesk Pop Karışımı</h3>
         <div class="track-list" id="arabeskpop">
-            <div onclick="playTrack('Dünya Benim Olurdu','dunya-benim-olurdu.mp3.mp3')">🎧 Dünya Benim Olurdu</div>
+            <div onclick="playTrack('Dünya Benim Olurdu','dunya-benim-olurdu.mp3.mp3')">
+                Dünya Benim Olurdu
+            </div>
         </div>
     </div>
 
     <div class="category">
-        <h3 onclick="toggleList('turku')">🎧 Türkü</h3>
+        <h3>🎧 Türkü</h3>
         <div class="track-list" id="turku">
-            <div onclick="playTrack('Bu Geçer – Türkü','bu-gecer-turku.mp3.mp3')">🎧 Bu Geçer – Türkü</div>
+            <div onclick="playTrack('Bu Geçer – Türkü','bu-gecer-turku.mp3.mp3')">
+                Bu Geçer – Türkü
+            </div>
         </div>
     </div>
 
     <div class="category">
-        <h3 onclick="toggleList('pop')">🎧 Pop</h3>
+        <h3>🎧 Pop</h3>
         <div class="track-list" id="pop">
-            <div onclick="playTrack('Korkuyorum','mp3.korkuyorum.mp3')">🎧 Korkuyorum</div>
+            <div onclick="playTrack('Korkuyorum','mp3.korkuyorum.mp3')">
+                Korkuyorum
+            </div>
         </div>
     </div>
 
     <div class="category">
-        <h3 onclick="toggleList('slowpop')">🎧 Slow Pop</h3>
+        <h3>🎧 Slow Pop</h3>
         <div class="track-list" id="slowpop">
-            <div onclick="playTrack('Kırık Düşler – Slow Pop','kirik-dusler.mp3.mp3')">🎧 Kırık Düşler – Slow Pop</div>
+            <div onclick="playTrack('Kırık Düşler – Slow Pop','kirik-dusler.mp3.mp3')">
+                Kırık Düşler – Slow Pop
+            </div>
         </div>
     </div>
 
@@ -175,8 +220,12 @@ footer{
 </footer>
 
 <div class="fixed-buttons">
-    <a class="whatsapp-btn" href="https://wa.me/905074163605" target="_blank">WhatsApp</a>
-    <a class="message-btn" href="https://wa.me/905074163605?text=Merhaba%20bilgi%20almak%20istiyorum" target="_blank">Mesaj Gönder</a>
+    <a class="whatsapp-btn" href="https://wa.me/905074163605" target="_blank">
+        WhatsApp
+    </a>
+    <a class="message-btn" href="https://wa.me/905074163605?text=Merhaba%20bilgi%20almak%20istiyorum" target="_blank">
+        Mesaj Gönder
+    </a>
 </div>
 
 <script>
@@ -193,10 +242,13 @@ function playTrack(name, file){
     }
 }
 
-function toggleList(id){
-    const el = document.getElementById(id);
-    el.style.display = el.style.display === "block" ? "none" : "block";
-}
+const categories = document.querySelectorAll(".category h3");
+categories.forEach(cat=>{
+    cat.addEventListener("click", ()=>{
+        const list = cat.nextElementSibling;
+        list.style.display = list.style.display==="block" ? "none" : "block";
+    });
+});
 </script>
 
 </body>
