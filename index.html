@@ -6,7 +6,6 @@
 <title>Siyah Altın Prodüksiyon · SK</title>
 
 <style>
-/* === HİÇ DOKUNULMADI === */
 body{
     margin:0;
     font-family:Arial, Helvetica, sans-serif;
@@ -17,9 +16,24 @@ body{
 header{ padding:30px 15px; }
 section{ padding:25px 15px; }
 h1,h2,h3{ margin:12px 0; }
-.hero{ max-width:900px; margin:auto; animation:fadeIn 1.2s ease; }
-.hero p{ font-size:16px; line-height:1.6; opacity:0.95; }
-.sub{ font-size:17px; font-weight:bold; margin:8px 0; opacity:0.9; }
+
+.hero{
+    max-width:900px;
+    margin:auto;
+    animation:fadeIn 1.2s ease;
+}
+.hero p{
+    font-size:16px;
+    line-height:1.6;
+    opacity:0.95;
+}
+.sub{
+    font-size:17px;
+    font-weight:bold;
+    margin:8px 0;
+    opacity:0.9;
+}
+
 .player-box{
     border:1px solid #d4af37;
     padding:15px;
@@ -28,8 +42,12 @@ h1,h2,h3{ margin:12px 0; }
     border-radius:12px;
     box-shadow:0 0 20px rgba(212,175,55,0.15);
 }
-#nowPlaying{ font-weight:bold; margin-bottom:10px; }
+#nowPlaying{
+    font-weight:bold;
+    margin-bottom:10px;
+}
 audio{ width:100%; }
+
 .category{
     margin:20px auto;
     max-width:420px;
@@ -37,11 +55,53 @@ audio{ width:100%; }
     padding:12px;
     border-radius:14px;
 }
-.category h3{ cursor:pointer; margin:0; }
-.track-list{ display:none; margin-top:10px; }
-.track-list div{ padding:7px; cursor:pointer; border-bottom:1px solid #333; }
-.track-list div:hover{ background:#1a1a1a; }
-footer{ padding:30px 10px; font-size:14px; opacity:0.9; }
+.category:hover{
+    box-shadow:0 0 15px rgba(212,175,55,0.25);
+}
+.category h3{
+    cursor:pointer;
+    margin:0;
+}
+.track-list{
+    display:none;
+    margin-top:10px;
+}
+.track-list div{
+    padding:7px;
+    cursor:pointer;
+    border-bottom:1px solid #333;
+}
+.track-list div:hover{
+    background:#1a1a1a;
+}
+
+.fixed-buttons{
+    position:fixed;
+    right:15px;
+    bottom:15px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    z-index:999;
+}
+.fixed-buttons a{
+    padding:12px 14px;
+    border-radius:50px;
+    text-decoration:none;
+    color:#000;
+    font-weight:bold;
+    font-size:14px;
+    box-shadow:0 0 15px rgba(0,0,0,.4);
+}
+.whatsapp{ background:#25D366; }
+.mail{ background:#d4af37; }
+
+footer{
+    padding:30px 10px;
+    font-size:14px;
+    opacity:0.9;
+}
+
 @keyframes fadeIn{
     from{opacity:0; transform:translateY(20px);}
     to{opacity:1; transform:translateY(0);}
@@ -50,6 +110,18 @@ footer{ padding:30px 10px; font-size:14px; opacity:0.9; }
 </head>
 
 <body>
+
+<header>
+<div class="hero">
+<h1>SİYAH ALTIN PRODÜKSİYON · SK</h1>
+<p>
+Siyah Altın Prodüksiyon, <strong>Serkan Kaynar</strong> tarafından kurulan;  
+arabesk, pop ve özgün müzik üretimleri yapan bağımsız bir prodüksiyon platformudur.
+</p>
+<div class="sub">Müzik Prodüksiyon · Açılış Organizasyonları</div>
+<div class="sub">Hazır Şarkılar • Beatler • Mixler</div>
+</div>
+</header>
 
 <section>
 
@@ -74,12 +146,19 @@ footer{ padding:30px 10px; font-size:14px; opacity:0.9; }
 
 </section>
 
+<footer>© 2026 Siyah Altın Prodüksiyon · SK</footer>
+
+<div class="fixed-buttons">
+<a class="whatsapp" href="https://wa.me/905074163605" target="_blank">💬 WhatsApp</a>
+<a class="mail" href="mailto:skaynar578@gmail.com">✉️ Mail</a>
+</div>
+
 <script>
 const player = document.getElementById("audioPlayer");
 const nowPlaying = document.getElementById("nowPlaying");
 
 function playTrack(name, file){
-    player.src = file;
+    player.src = file + "?v=" + Date.now(); // cache kırıcı
     nowPlaying.textContent = "Çalan Şarkı: " + name;
     player.play();
 }
