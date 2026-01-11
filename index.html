@@ -13,15 +13,9 @@ body{
     color:#d4af37;
     text-align:center;
 }
-header{ 
-    padding:25px 15px; 
-    position:relative; 
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-}
+header{ padding:25px 15px; position:relative; }
 .sub{
-    font-size:18px;
+    font-size:18px; /* Büyütüldü */
     font-weight:bold;
     margin:6px 0;
 }
@@ -44,7 +38,7 @@ header{
     text-shadow: 0 0 8px #ffd700;
 }
 .professional-title{
-    font-size:32px;
+    font-size:32px; /* Büyütüldü */
     font-weight:800;
     margin-bottom:15px;
     color:#ffd700;
@@ -55,8 +49,12 @@ header{
     font-weight:900;
     letter-spacing:5px;
     color:#ffd700;
-    text-shadow:0 0 12px #ffd700, 0 0 20px #ffd700, 0 0 28px #ffd700;
+    text-shadow:0 0 15px #ffd700, 0 0 25px #ffd700, 0 0 35px #ffd700;
     margin-bottom:15px;
+    animation:glowSK 1.5s infinite alternate;
+    max-width:90%;
+    margin-left:auto;
+    margin-right:auto;
 }
 .language-switch{
     position:absolute;
@@ -73,6 +71,8 @@ header{
 .language-switch span:hover{
     color:#ffd700;
 }
+
+/* PLAYER & ÜST YAZI */
 .player-box-container{
     max-width:450px;
     margin:50px auto 20px auto;
@@ -160,6 +160,8 @@ footer .description{
 footer .contacts{
     font-weight:bold;
 }
+
+/* SABİT WHATSAPP & MESAJ BUTONLARI */
 .fixed-buttons{
     position:fixed;
     bottom:20px;
@@ -188,6 +190,8 @@ footer .contacts{
 .message-btn{
     background:#d4af37;
 }
+
+/* ANİMASYONLAR */
 @keyframes fadeInList{
     from{opacity:0; transform:translateY(-10px);}
     to{opacity:1; transform:translateY(0);}
@@ -198,6 +202,11 @@ footer .contacts{
     50%{transform:rotate(-10deg);}
     75%{transform:rotate(10deg);}
     100%{transform:rotate(0);}
+}
+@keyframes glowSK{
+    0%{text-shadow:0 0 15px #ffd700,0 0 25px #ffd700,0 0 35px #ffd700;}
+    50%{text-shadow:0 0 25px #ffd700,0 0 35px #ffd700,0 0 45px #ffd700;}
+    100%{text-shadow:0 0 15px #ffd700,0 0 25px #ffd700,0 0 35px #ffd700;}
 }
 @keyframes playerGlow{
     0%{box-shadow:0 0 20px rgba(212,175,55,0.5);}
@@ -222,19 +231,12 @@ footer .contacts{
     <h1 class="header-main-title">
         <span style="text-transform:capitalize;">Siyah Altın </span><span style="text-transform:uppercase;">P</span>rodüksiyon
     </h1>
-
-    <div class="sk-title" id="skTitle">SK</div>
-
-    <div class="header-sub-title" id="header-sub-title">BLACK GOLD PRODUCTION</div>
+    <h2 class="header-sub-title" id="header-sub-title">BLACK GOLD PRODUCTION</h2>
     <div class="professional-title">PROFESYONEL</div>
+    <div class="sk-title">SK</div>
 
-    <div class="sub" id="sub1">Hazır Şarkılar • Eserler</div>
+    <div class="sub" id="sub1">Hazır Şarkılar • Besteler</div>
     <div class="sub" id="sub2">Satışa ve Devire Hazır Eserler</div>
-
-    <nav>
-        <a href="#">Müzik</a>
-        <a href="#">Organizasyon</a>
-    </nav>
 </header>
 
 <section>
@@ -252,6 +254,41 @@ footer .contacts{
         <h3 onclick="toggleList('yeniler')"><span class="icon-shake">🎧</span> <span id="cat-yeniler">Yeniler Mix</span></h3>
         <div class="track-list" id="yeniler">
             <div onclick="playTrack('Yeniler Mix','yeniler.mp3.mp3')"><span>🎧</span> <span id="track-yeniler">Yeniler Mix</span></div>
+        </div>
+    </div>
+
+    <div class="category">
+        <h3 onclick="toggleList('arabesk')"><span class="icon-shake">🎧</span> <span id="cat-arabesk">Arabesk</span></h3>
+        <div class="track-list" id="arabesk">
+            <div onclick="playTrack('Küllerimden Kalktım – Arabesk','kullerimden-kalktim.mp3.mp3')"><span>🎧</span> <span id="track-arabesk">Küllerimden Kalktım – Arabesk</span></div>
+        </div>
+    </div>
+
+    <div class="category">
+        <h3 onclick="toggleList('arabeskpop')"><span class="icon-shake">🎧</span> <span id="cat-arabeskpop">Arabesk Pop Karışımı</span></h3>
+        <div class="track-list" id="arabeskpop">
+            <div onclick="playTrack('Dünya Benim Olurdu','dunya-benim-olurdu.mp3.mp3')"><span>🎧</span> <span id="track-arabeskpop">Dünya Benim Olurdu</span></div>
+        </div>
+    </div>
+
+    <div class="category">
+        <h3 onclick="toggleList('turku')"><span class="icon-shake">🎧</span> <span id="cat-turku">Türkü</span></h3>
+        <div class="track-list" id="turku">
+            <div onclick="playTrack('Bu Geçer – Türkü','bu-gecer-turku.mp3.mp3')"><span>🎧</span> <span id="track-turku">Bu Geçer – Türkü</span></div>
+        </div>
+    </div>
+
+    <div class="category">
+        <h3 onclick="toggleList('pop')"><span class="icon-shake">🎧</span> <span id="cat-pop">Pop</span></h3>
+        <div class="track-list" id="pop">
+            <div onclick="playTrack('Korkuyorum','mp3.korkuyorum.mp3')"><span>🎧</span> <span id="track-pop">Korkuyorum</span></div>
+        </div>
+    </div>
+
+    <div class="category">
+        <h3 onclick="toggleList('slowpop')"><span class="icon-shake">🎧</span> <span id="cat-slowpop">Slow Pop</span></h3>
+        <div class="track-list" id="slowpop">
+            <div onclick="playTrack('Kırık Düşler – Slow Pop','kirik-dusler.mp3.mp3')"><span>🎧</span> <span id="track-slowpop">Kırık Düşler – Slow Pop</span></div>
         </div>
     </div>
 
@@ -274,24 +311,6 @@ const player = document.getElementById("audioPlayer");
 const nowPlaying = document.getElementById("nowPlaying");
 const playerBox = document.getElementById("playerBox");
 
-// Dil değiştirme
-const headerSubTitle = document.getElementById("header-sub-title");
-const sub1 = document.getElementById("sub1");
-const sub2 = document.getElementById("sub2");
-
-function setLanguage(lang){
-    if(lang==='en'){
-        headerSubTitle.textContent = "BLACK GOLD PRODUCTION";
-        sub1.textContent = "Ready Songs • Compositions";
-        sub2.textContent = "Available for Sale & License Transfer";
-    }else{
-        headerSubTitle.textContent = "BLACK GOLD PRODUCTION";
-        sub1.textContent = "Hazır Şarkılar • Eserler";
-        sub2.textContent = "Satışa ve Devire Hazır Eserler";
-    }
-}
-
-// Müzik çalma fonksiyonu
 function playTrack(name, file){
     if(player.src.includes(file)){
         player.paused ? player.play() : player.pause();
@@ -303,6 +322,7 @@ function playTrack(name, file){
         player.play();
     }
 
+    // Player glow animasyonunu kontrol et
     if(!player.paused){
         playerBox.classList.add("playing");
     }else{
@@ -310,14 +330,16 @@ function playTrack(name, file){
     }
 }
 
+// Player oynatıldığında animasyonu başlat
 player.addEventListener('play',()=>{playerBox.classList.add("playing");});
 player.addEventListener('pause',()=>{playerBox.classList.remove("playing");});
 
 function toggleList(id){
     const el = document.getElementById(id);
     el.style.display = el.style.display === "block" ? "none" : "block";
+
     const icon = el.previousElementSibling.querySelector(".icon-shake");
-    icon.classList.qaremove("icon-shake");
+    icon.classList.remove("icon-shake");
     void icon.offsetWidth;
     icon.classList.add("icon-shake");
 }
