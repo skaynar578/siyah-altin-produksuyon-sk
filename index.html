@@ -23,7 +23,10 @@ nav a{
     font-weight:bold;
 }
 section{ padding:20px 15px; }
-h1,h2,h3{ margin:12px 0; letter-spacing:0.5px; }
+h1,h2,h3{ 
+    margin:12px 0; 
+    letter-spacing:0.6px;
+}
 .sub{
     font-size:18px;
     font-weight:bold;
@@ -35,62 +38,81 @@ h1,h2,h3{ margin:12px 0; letter-spacing:0.5px; }
     font-weight:bold;
 }
 
-/* PLAYER – premium dokunuş */
+/* PLAYER – daha güçlü premium */
 .player-box{
     border:1px solid #d4af37;
     padding:18px;
-    margin:25px auto;
+    margin:26px auto;
     max-width:420px;
-    border-radius:12px;
-    background:linear-gradient(180deg,#111,#0b0b0b);
-    box-shadow:0 0 25px rgba(212,175,55,0.15);
+    border-radius:14px;
+    background:linear-gradient(180deg,#131313,#0b0b0b);
+    box-shadow:
+        0 0 20px rgba(212,175,55,0.18),
+        inset 0 0 10px rgba(212,175,55,0.08);
 }
 #nowPlaying{
     font-weight:bold;
     margin-bottom:10px;
-    letter-spacing:0.4px;
+    letter-spacing:0.5px;
 }
 audio{
     width:100%;
     height:32px;
 }
 
-/* KATEGORİLER – yuvarlatma + yumuşak gölge */
+/* KATEGORİ KUTULARI */
 .category{
     margin:22px auto;
     max-width:420px;
     border:1px solid #d4af37;
     padding:12px;
-    border-radius:14px;
+    border-radius:16px;
     background:#0e0e0e;
-    box-shadow:0 0 18px rgba(212,175,55,0.12);
-    transition:box-shadow .3s, transform .2s;
+    box-shadow:
+        0 0 18px rgba(212,175,55,0.15),
+        inset 0 0 8px rgba(212,175,55,0.05);
+    transition:all .3s ease;
 }
 .category:hover{
-    box-shadow:0 0 28px rgba(212,175,55,0.25);
+    box-shadow:
+        0 0 30px rgba(212,175,55,0.3),
+        inset 0 0 10px rgba(212,175,55,0.1);
     transform:translateY(-2px);
 }
 .category h3{
     cursor:pointer;
     margin:0;
-    letter-spacing:0.6px;
+    letter-spacing:0.8px;
+    position:relative;
 }
 
-/* AÇILIR LİSTE – yumuşak animasyon */
+/* küçük ikon hissi */
+.category h3::after{
+    content:"▾";
+    position:absolute;
+    right:6px;
+    transition:transform .3s;
+}
+.track-list.open + h3::after{
+    transform:rotate(180deg);
+}
+
+/* AÇILIR LİSTE – animasyon */
 .track-list{
     max-height:0;
     overflow:hidden;
-    transition:max-height .4s ease, opacity .3s ease;
     opacity:0;
+    transition:max-height .45s ease, opacity .35s ease;
 }
 .track-list.open{
     max-height:300px;
     opacity:1;
 }
 .track-list div{
-    padding:7px;
+    padding:8px;
     cursor:pointer;
     border-bottom:1px solid #333;
+    letter-spacing:0.3px;
 }
 .track-list div:hover{
     background:#1a1a1a;
@@ -114,15 +136,23 @@ footer{
 }
 .fixed-buttons a{
     text-decoration:none;
-    padding:10px 14px;
-    border-radius:8px;
+    padding:11px 16px;
+    border-radius:10px;
     font-weight:bold;
     font-size:14px;
     color:#0b0b0b;
-    box-shadow:0 0 15px rgba(0,0,0,.4);
+    box-shadow:0 0 18px rgba(0,0,0,.45);
 }
 .whatsapp-btn{ background:#25D366; }
 .message-btn{ background:#d4af37; }
+
+/* MOBİL DOKUNUŞ */
+@media(max-width:600px){
+    h1{ font-size:22px; }
+    .sub{ font-size:16px; }
+    .category{ margin:18px auto; }
+    footer{ font-size:13px; }
+}
 </style>
 </head>
 
