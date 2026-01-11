@@ -223,7 +223,7 @@ footer .contacts{
     <div class="sk-title">SK</div>
 
     <div class="sub" id="sub1">Hazır Şarkılar • Besteler</div>
-    <div class="sub" id="sub2">Satışa ve Devire Hazır İçerikler</div>
+    <div class="sub" id="sub2">Satışa ve Devire Hazır Eserler</div>
 </header>
 
 <section>
@@ -297,25 +297,6 @@ footer .contacts{
 const player = document.getElementById("audioPlayer");
 const nowPlaying = document.getElementById("nowPlaying");
 
-// Kategori ve tracklar
-const categories = {
-    catYeniler: document.getElementById("cat-yeniler"),
-    catArabesk: document.getElementById("cat-arabesk"),
-    catArabeskPop: document.getElementById("cat-arabeskpop"),
-    catTurku: document.getElementById("cat-turku"),
-    catPop: document.getElementById("cat-pop"),
-    catSlowPop: document.getElementById("cat-slowpop")
-};
-const tracks = {
-    trackYeniler: document.getElementById("track-yeniler"),
-    trackArabesk: document.getElementById("track-arabesk"),
-    trackArabeskPop: document.getElementById("track-arabeskpop"),
-    trackTurku: document.getElementById("track-turku"),
-    trackPop: document.getElementById("track-pop"),
-    trackSlowPop: document.getElementById("track-slowpop")
-};
-
-// Müzik çalma
 function playTrack(name, file){
     if(player.src.includes(file)){
         player.paused ? player.play() : player.pause();
@@ -328,7 +309,6 @@ function playTrack(name, file){
     }
 }
 
-// Kategori açılırken ikon animasyonu
 function toggleList(id){
     const el = document.getElementById(id);
     el.style.display = el.style.display === "block" ? "none" : "block";
@@ -337,11 +317,6 @@ function toggleList(id){
     icon.classList.remove("icon-shake");
     void icon.offsetWidth;
     icon.classList.add("icon-shake");
-}
-
-// Dil değiştirme fonksiyonu
-function setLanguage(lang){
-    // Şimdilik sadece header ve alt sabitler
 }
 </script>
 
