@@ -45,7 +45,7 @@ header{ padding:25px 15px; position:relative; }
     text-shadow:0 0 12px #ffd700,0 0 22px #ffd700;
 }
 
-/* SK başlığı - S ve K arası yatay çizgi ve animasyon */
+/* SK başlığı - S ve K arası yatay çizgi, sabit */
 .sk-title{
     font-size:48px;
     font-weight:500;
@@ -55,8 +55,6 @@ header{ padding:25px 15px; position:relative; }
     display:flex;
     align-items:center;
     justify-content:center;
-    position:relative;
-    animation:skShake 0.8s infinite alternate;
     gap:8px;
 }
 .sk-s, .sk-k{
@@ -67,14 +65,6 @@ header{ padding:25px 15px; position:relative; }
     width:20px;             /* çizgi uzunluğu */
     border-bottom:3px solid #ffd700; /* yatay çizgi */
     vertical-align:middle;
-}
-
-@keyframes skShake {
-    0% { transform: translateX(0); }
-    25% { transform: translateX(-3px); } 
-    50% { transform: translateX(0); }
-    75% { transform: translateX(-2px); }
-    100% { transform: translateX(0); }
 }
 
 .language-switch{
