@@ -149,46 +149,48 @@ footer{
         <audio id="audioPlayer" controls></audio>
     </div>
 
+    <!-- Mixler -->
     <div class="category">
         <h3 onclick="toggleList('mixler')">🎧 Mixler</h3>
         <div class="track-list" id="mixler">
-            <div onclick="playTrack('Yeniler Mix','yeniler.mix.mp3')">Yeniler Mix</div>
+            <div onclick="playTrack('Yeniler Mix','mixler01.mp3')">Yeniler Mix</div>
+            <div onclick="playTrack('Enerjik Mix','mixler02.mp3')">Enerjik Mix</div>
         </div>
     </div>
 
+    <!-- Arabesk -->
     <div class="category">
         <h3 onclick="toggleList('arabesk')">🔥 Arabesk</h3>
         <div class="track-list" id="arabesk">
-            <div onclick="playTrack('Küllerimden Kalktım','kullerimden-kalktim.mp3')">
-                Küllerimden Kalktım
-            </div>
+            <div onclick="playTrack('Küllerimden Kalktım','arabesk01.mp3')">Küllerimden Kalktım</div>
+            <div onclick="playTrack('Ağla Gözlerim','arabesk02.mp3')">Ağla Gözlerim</div>
         </div>
     </div>
 
+    <!-- Türkü -->
     <div class="category">
         <h3 onclick="toggleList('turku')">🎻 Türkü</h3>
         <div class="track-list" id="turku">
-            <div onclick="playTrack('Bu Geçer','bu-gecer-turku.mp3')">
-                Bu Geçer
-            </div>
+            <div onclick="playTrack('Bu Geçer','turku01.mp3')">Bu Geçer</div>
+            <div onclick="playTrack('Yolun Sonu','turku02.mp3')">Yolun Sonu</div>
         </div>
     </div>
 
+    <!-- Pop -->
     <div class="category">
         <h3 onclick="toggleList('pop')">🎶 Pop</h3>
         <div class="track-list" id="pop">
-            <div onclick="playTrack('Korkuyorum','pop01.mp3')">
-                Korkuyorum
-            </div>
+            <div onclick="playTrack('Korkuyorum','pop01.mp3')">Korkuyorum</div>
+            <div onclick="playTrack('Sevgi Yolu','pop02.mp3')">Sevgi Yolu</div>
         </div>
     </div>
 
+    <!-- Slow Pop -->
     <div class="category">
         <h3 onclick="toggleList('slowpop')">💔 Slow Pop</h3>
         <div class="track-list" id="slowpop">
-            <div onclick="playTrack('Kırık Düşler','kirik-dusler.mp3')">
-                Kırık Düşler
-            </div>
+            <div onclick="playTrack('Kırık Düşler','slowpop01.mp3')">Kırık Düşler</div>
+            <div onclick="playTrack('Geceler','slowpop02.mp3')">Geceler</div>
         </div>
     </div>
 
@@ -215,14 +217,11 @@ const player = document.getElementById("audioPlayer");
 const nowPlaying = document.getElementById("nowPlaying");
 
 function playTrack(name, file){
-    if(player.src.includes(file)){
-        player.paused ? player.play() : player.pause();
-    }else{
-        player.src = file;
-        nowPlaying.textContent = "Çalan Şarkı: " + name;
-        player.play();
-    }
+    player.src = file; // direkt güncel dosya
+    nowPlaying.textContent = "Çalan Şarkı: " + name;
+    player.play();
 }
+
 function toggleList(id){
     const el = document.getElementById(id);
     el.style.display = el.style.display === "block" ? "none" : "block";
