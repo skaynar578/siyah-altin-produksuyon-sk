@@ -46,10 +46,10 @@ header{ padding:25px 15px; position:relative; }
 }
 .sk-title{
     font-size:48px;
-    font-weight:500; /* inceltildi, kibar görünüm */
+    font-weight:500;
     letter-spacing:5px;
     color:#ffd700;
-    text-shadow:0 0 6px #ffd700, 0 0 12px #ffd700; /* hafif parlaklık */
+    text-shadow:0 0 6px #ffd700, 0 0 12px #ffd700;
     margin:10px auto 15px auto;
     display:inline-block;
 }
@@ -234,7 +234,7 @@ footer .contacts{
 <section>
 
     <div class="player-box-container">
-        <div class="player-description">SATIŞA VE DEVİRE HAZIR ESERLERİ DİNLEYEBİLİRSİNİZ</div>
+        <div class="player-description" id="playerDesc">SATIŞA VE DEVİRE HAZIR ESERLERİ DİNLEYEBİLİRSİNİZ</div>
         <div class="player-box" id="playerBox">
             <div id="nowPlaying">Seçili şarkı yok</div>
             <audio id="audioPlayer" controls></audio>
@@ -303,6 +303,16 @@ const player = document.getElementById("audioPlayer");
 const nowPlaying = document.getElementById("nowPlaying");
 const playerBox = document.getElementById("playerBox");
 
+// Metin elementleri
+const headerMainTitle = document.querySelector(".header-main-title");
+const headerSubTitle = document.getElementById("header-sub-title");
+const sub1 = document.getElementById("sub1");
+const sub2 = document.getElementById("sub2");
+const professionalTitle = document.querySelector(".professional-title");
+const skTitle = document.querySelector(".sk-title");
+const playerDesc = document.getElementById("playerDesc");
+
+// Oynatma fonksiyonu
 function playTrack(name, file){
     if(player.src.includes(file)){
         player.paused ? player.play() : player.pause();
@@ -313,21 +323,18 @@ function playTrack(name, file){
         setTimeout(()=>{nowPlaying.style.color="#d4af37"},500);
         player.play();
     }
-
     if(!player.paused){
         playerBox.classList.add("playing");
     }else{
         playerBox.classList.remove("playing");
     }
 }
-
 player.addEventListener('play',()=>{playerBox.classList.add("playing");});
 player.addEventListener('pause',()=>{playerBox.classList.remove("playing");});
 
 function toggleList(id){
     const el = document.getElementById(id);
     el.style.display = el.style.display === "block" ? "none" : "block";
-
     const icon = el.previousElementSibling.querySelector(".icon-shake");
     icon.classList.remove("icon-shake");
     void icon.offsetWidth;
@@ -335,25 +342,25 @@ function toggleList(id){
 }
 
 // Dil değişimi tüm sayfada
-const headerSubTitle = document.getElementById("header-sub-title");
-const sub1 = document.getElementById("sub1");
-const sub2 = document.getElementById("sub2");
-const professionalTitle = document.querySelector(".professional-title");
-const skTitle = document.querySelector(".sk-title");
-
 function setLanguage(lang){
     if(lang==='en'){
+        headerMainTitle.innerHTML = "<span style='text-transform:capitalize;'>Black Gold </span><span style='text-transform:uppercase;'>P</span>roduction";
         headerSubTitle.textContent = "BLACK GOLD PRODUCTION";
         sub1.textContent = "Ready Songs • Compositions";
         sub2.textContent = "Available for Sale & License Transfer";
         professionalTitle.textContent = "PROFESSIONAL";
         skTitle.textContent = "SK";
-    }else{
+        playerDesc.textContent = "LISTEN TO READY-TO-SELL & LICENSED SONGS";
+        nowPlaying.textContent = "No track selected";
+    } else {
+        headerMainTitle.innerHTML = "<span style='text-transform:capitalize;'>Siyah Altın </span><span style='text-transform:uppercase;'>P</span>rodüksiyon";
         headerSubTitle.textContent = "BLACK GOLD PRODUCTION";
         sub1.textContent = "Hazır Şarkılar • Besteler";
         sub2.textContent = "Satışa ve Devire Hazır Eserler";
         professionalTitle.textContent = "PROFESYONEL";
         skTitle.textContent = "SK";
+        playerDesc.textContent = "SATIŞA VE DEVİRE HAZIR ESERLERİ DİNLEYEBİLİRSİNİZ";
+        nowPlaying.textContent = "Seçili şarkı yok";
     }
 }
 </script>
