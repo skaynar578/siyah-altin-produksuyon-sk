@@ -46,10 +46,10 @@ header{ padding:25px 15px; position:relative; }
 }
 .sk-title{
     font-size:48px;
-    font-weight:900;
+    font-weight:500; /* inceltildi, kibar görünüm */
     letter-spacing:5px;
     color:#ffd700;
-    text-shadow:0 0 8px #ffd700, 0 0 16px #ffd700; /* hafif parlak */
+    text-shadow:0 0 6px #ffd700, 0 0 12px #ffd700; /* hafif parlaklık */
     margin:10px auto 15px auto;
     display:inline-block;
 }
@@ -314,7 +314,6 @@ function playTrack(name, file){
         player.play();
     }
 
-    // Player glow animasyonunu kontrol et
     if(!player.paused){
         playerBox.classList.add("playing");
     }else{
