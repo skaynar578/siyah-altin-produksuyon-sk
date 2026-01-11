@@ -13,7 +13,7 @@ body{
     color:#d4af37;
     text-align:center;
 }
-header{ padding:25px 15px; }
+header{ padding:25px 15px; position:relative; }
 nav{ margin:15px 0; }
 nav a{
     color:#d4af37;
@@ -21,8 +21,9 @@ nav a{
     margin:0 10px;
     font-weight:bold;
 }
-section{ padding:20px 15px; }
-h1,h2,h3{ margin:12px 0; }
+.section-title{
+    margin:0;
+}
 .sub{
     font-size:16px;
     font-weight:bold;
@@ -32,13 +33,35 @@ h1,h2,h3{ margin:12px 0; }
     font-size:32px;
     font-weight:900;
     letter-spacing:3px;
-    margin-bottom:15px;
+    margin-bottom:5px;
     color:#ffd700;
     text-shadow: 0 0 15px #ffd700;
 }
+.header-sub-title{
+    font-size:20px;
+    font-weight:700;
+    margin-bottom:15px;
+    color:#ffd700;
+    text-shadow: 0 0 8px #ffd700;
+}
+.language-switch{
+    position:absolute;
+    top:15px;
+    right:20px;
+    font-weight:bold;
+    font-size:14px;
+}
+.language-switch span{
+    cursor:pointer;
+    margin:0 5px;
+    text-decoration:underline;
+}
+.language-switch span:hover{
+    color:#ffd700;
+}
 .notice{
     margin:15px 0;
-    font-size:16px; /* Kibar ve okunaklı */
+    font-size:16px;
     font-weight:bold;
     line-height:1.5;
 }
@@ -152,16 +175,12 @@ footer{
     display:inline-block;
     animation:shakeIcon 0.6s ease;
 }
-
-/* Başlık küçültme ve kibar hale getirme */
 .header-title{
     font-size:18px;
     font-weight:500;
     line-height:1.4;
     margin-bottom:12px;
 }
-
-/* Alt yazıyı biraz büyüt */
 .notice{
     font-size:18px;
     font-weight:bold;
@@ -172,9 +191,13 @@ footer{
 <body>
 
 <header>
+    <div class="language-switch">
+        <span onclick="setLanguage('tr')">TR</span> | 
+        <span onclick="setLanguage('en')">EN</span>
+    </div>
+
     <h1 class="header-main-title">BLACK GOLD PRODUCTION · SK</h1>
-    
-    <h2 class="header-title">🎵 Siyah Altın Prodüksiyon, Serkan Kaynar tarafından kurulan; arabesk, pop ve özgün müzik üretimleri yapan bağımsız bir prodüksiyon platformudur. Bu sitede yer alan tüm eserlerin söz ve müzik hakları eser sahibine aittir.</h2>
+    <h2 class="header-sub-title" id="header-sub-title">Siyah Altın Prodüksiyon · SK</h2>
 
     <div class="notice">
         Mağaza ve Mekan Açılışları
@@ -261,6 +284,7 @@ footer{
 <script>
 const player = document.getElementById("audioPlayer");
 const nowPlaying = document.getElementById("nowPlaying");
+const headerSubTitle = document.getElementById("header-sub-title");
 
 function playTrack(name, file){
     if(player.src.includes(file)){
@@ -282,6 +306,14 @@ function toggleList(id){
     icon.classList.remove("icon-shake");
     void icon.offsetWidth;
     icon.classList.add("icon-shake");
+}
+
+function setLanguage(lang){
+    if(lang==='en'){
+        headerSubTitle.textContent = "Black Gold Production · SK";
+    }else{
+        headerSubTitle.textContent = "Siyah Altın Prodüksiyon · SK";
+    }
 }
 </script>
 
