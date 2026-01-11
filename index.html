@@ -2,75 +2,159 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Siyah Altın Prodüksiyon · SK</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
 <style>
+:root{
+    --bg:#0b0b0b;
+    --gold:#d4af37;
+    --soft:#151515;
+}
+
+*{ box-sizing:border-box; }
+
 body{
     margin:0;
-    font-family:Arial, Helvetica, sans-serif;
-    background:#0b0b0b;
-    color:#d4af37;
+    font-family:'Poppins',sans-serif;
+    background:var(--bg);
+    color:var(--gold);
     text-align:center;
 }
-header{ padding:25px 15px; }
-nav{ margin:15px 0; }
-nav a{
-    color:#d4af37;
-    text-decoration:none;
-    margin:0 10px;
-    font-weight:bold;
+
+/* HEADER */
+header{
+    padding:30px 15px;
+    border-bottom:1px solid rgba(212,175,55,.2);
 }
-section{ padding:20px 15px; }
-h1,h2,h3{ margin:12px 0; }
-.sub{
-    font-size:18px;
-    font-weight:bold;
-    margin:6px 0;
-}
-.notice{
-    margin:15px 0;
-    font-size:16px;
-    font-weight:bold;
-}
-.player-box{
-    border:1px solid #d4af37;
-    padding:15px;
-    margin:20px auto;
-    max-width:420px;
-}
-#nowPlaying{
-    font-weight:bold;
+
+header h1{
     margin-bottom:10px;
+    font-size:30px;
+    letter-spacing:1px;
 }
+
+.notice{
+    max-width:720px;
+    margin:15px auto;
+    font-size:15px;
+    color:#ccc;
+    line-height:1.6;
+}
+
+.sub{
+    font-size:16px;
+    margin:6px 0;
+    color:#aaa;
+}
+
+nav{
+    margin-top:15px;
+}
+
+nav a{
+    color:var(--gold);
+    text-decoration:none;
+    margin:0 12px;
+    font-weight:600;
+    transition:.3s;
+}
+
+nav a:hover{
+    opacity:.7;
+}
+
+/* SECTION */
+section{ padding:25px 15px; }
+
+/* PLAYER */
+.player-box{
+    background:var(--soft);
+    border:1px solid rgba(212,175,55,.4);
+    padding:20px;
+    margin:25px auto;
+    max-width:460px;
+    border-radius:16px;
+    box-shadow:0 0 25px rgba(0,0,0,.6);
+}
+
+#nowPlaying{
+    font-weight:600;
+    margin-bottom:12px;
+    font-size:15px;
+    color:#fff;
+}
+
 audio{
     width:100%;
-    height:32px;
+    height:36px;
 }
+
+/* CATEGORY */
 .category{
-    margin:20px auto;
-    max-width:420px;
-    border:1px solid #d4af37;
-    padding:10px;
+    margin:22px auto;
+    max-width:460px;
+    background:var(--soft);
+    border-radius:16px;
+    overflow:hidden;
+    border:1px solid rgba(212,175,55,.25);
 }
+
 .category h3{
-    cursor:pointer;
     margin:0;
-}
-.track-list{
-    display:none;
-    margin-top:10px;
-}
-.track-list div{
-    padding:6px;
+    padding:16px;
     cursor:pointer;
-    border-bottom:1px solid #333;
+    font-size:17px;
+    background:rgba(212,175,55,.08);
+    transition:.3s;
 }
-.track-list div:hover{
-    background:#1a1a1a;
+
+.category h3:hover{
+    background:rgba(212,175,55,.18);
 }
-footer{
-    padding:20px 10px;
+
+/* TRACK LIST */
+.track-list{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .4s ease, opacity .4s ease;
+    opacity:0;
+}
+
+.track-list.active{
+    max-height:300px;
+    opacity:1;
+}
+
+.track-list div{
+    padding:12px;
+    cursor:pointer;
+    border-top:1px solid #222;
     font-size:14px;
+    color:#ddd;
+    transition:.25s;
+}
+
+.track-list div:hover{
+    background:#1f1f1f;
+    color:var(--gold);
+}
+
+/* FOOTER */
+footer{
+    padding:25px 10px;
+    font-size:13px;
+    color:#777;
+    border-top:1px solid #222;
+    margin-top:30px;
+}
+
+/* MOBILE */
+@media(max-width:600px){
+    header h1{ font-size:24px; }
+    .sub{ font-size:14px; }
 }
 </style>
 </head>
@@ -82,8 +166,7 @@ footer{
 
     <div class="notice">
         Yayınlanan ve yayınlanacak olan eserlerin söz ve müzikleri  
-        <strong>Serkan Kaynar</strong>’a aittir.  
-        Tüm hakları saklıdır.
+        <strong>Serkan Kaynar</strong>’a aittir. Tüm hakları saklıdır.
     </div>
 
     <div class="sub">Müzik Prodüksiyon · Açılış Organizasyonları</div>
@@ -98,23 +181,19 @@ footer{
 
 <section>
 
-    <!-- TEK PLAYER -->
     <div class="player-box">
         <div id="nowPlaying">Seçili şarkı yok</div>
         <audio id="audioPlayer" controls></audio>
     </div>
 
-    <!-- YENİLER -->
+    <!-- KATEGORİLER -->
     <div class="category">
         <h3 onclick="toggleList('yeniler')">Yeniler</h3>
         <div class="track-list" id="yeniler">
-            <div onclick="playTrack('Yeniler Mix','1.mp3.mp3')">
-                Yeniler Mix
-            </div>
+            <div onclick="playTrack('Yeniler Mix','1.mp3.mp3')">Yeniler Mix</div>
         </div>
     </div>
 
-    <!-- ARABESK (SADECE BURAYA EKLENDİ) -->
     <div class="category">
         <h3 onclick="toggleList('arabesk')">Arabesk</h3>
         <div class="track-list" id="arabesk">
@@ -124,17 +203,15 @@ footer{
         </div>
     </div>
 
-    <!-- ARABESK POP KARISIMI -->
     <div class="category">
         <h3 onclick="toggleList('arabeskpop')">Arabesk Pop Karışımı</h3>
         <div class="track-list" id="arabeskpop">
-            <div onclick="playTrack('Dünya Benim Olurdu – Arabesk Pop Karışımı','dunya-benim-olurdu.mp3.mp3')">
-                Dünya Benim Olurdu – Arabesk Pop Karışımı
+            <div onclick="playTrack('Dünya Benim Olurdu','dunya-benim-olurdu.mp3.mp3')">
+                Dünya Benim Olurdu
             </div>
         </div>
     </div>
 
-    <!-- TÜRKÜ -->
     <div class="category">
         <h3 onclick="toggleList('turku')">Türkü</h3>
         <div class="track-list" id="turku">
@@ -144,22 +221,18 @@ footer{
         </div>
     </div>
 
-    <!-- POP -->
     <div class="category">
         <h3 onclick="toggleList('pop')">Pop</h3>
         <div class="track-list" id="pop">
-            <div onclick="playTrack('Korkuyorum','pop01.mp3')">
-                Korkuyorum
-            </div>
+            <div onclick="playTrack('Korkuyorum','pop01.mp3')">Korkuyorum</div>
         </div>
     </div>
 
-    <!-- SLOW POP -->
     <div class="category">
         <h3 onclick="toggleList('slowpop')">Slow Pop</h3>
         <div class="track-list" id="slowpop">
-            <div onclick="playTrack('Kırık Düşler – Slow Pop','kirik-dusler.mp3.mp3')">
-                Kırık Düşler – Slow Pop
+            <div onclick="playTrack('Kırık Düşler','kirik-dusler.mp3.mp3')">
+                Kırık Düşler
             </div>
         </div>
     </div>
@@ -179,11 +252,7 @@ const nowPlaying = document.getElementById("nowPlaying");
 
 function playTrack(name, file){
     if(player.src.includes(file)){
-        if(player.paused){
-            player.play();
-        }else{
-            player.pause();
-        }
+        player.paused ? player.play() : player.pause();
     }else{
         player.src = file;
         nowPlaying.textContent = "Çalan Şarkı: " + name;
@@ -193,7 +262,7 @@ function playTrack(name, file){
 
 function toggleList(id){
     const el = document.getElementById(id);
-    el.style.display = el.style.display === "block" ? "none" : "block";
+    el.classList.toggle("active");
 }
 </script>
 
