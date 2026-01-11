@@ -2,75 +2,130 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Siyah Altın Prodüksiyon · SK</title>
 
 <style>
+:root{
+    --gold:#d4af37;
+    --bg:#000;
+    --card:#0f0f0f;
+}
+*{box-sizing:border-box}
+
 body{
     margin:0;
+    background:var(--bg);
+    color:#fff;
     font-family:Arial, Helvetica, sans-serif;
-    background:#0b0b0b;
-    color:#d4af37;
-    text-align:center;
 }
-header{ padding:25px 15px; }
-nav{ margin:15px 0; }
+
+/* HEADER */
+header{
+    position:fixed;
+    top:0; left:0;
+    width:100%;
+    background:rgba(0,0,0,0.95);
+    border-bottom:1px solid rgba(212,175,55,.15);
+    padding:15px 25px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:999;
+}
+.logo{
+    font-size:24px;
+    font-weight:800;
+    color:var(--gold);
+}
 nav a{
-    color:#d4af37;
+    color:var(--gold);
+    margin-left:18px;
     text-decoration:none;
-    margin:0 10px;
     font-weight:bold;
 }
-section{ padding:20px 15px; }
-h1,h2,h3{ margin:12px 0; }
-.sub{
-    font-size:18px;
-    font-weight:bold;
-    margin:6px 0;
+nav a:hover{color:#fff}
+
+/* MAIN */
+.container{
+    max-width:1100px;
+    margin:110px auto 60px;
+    padding:0 16px;
 }
-.notice{
-    margin:15px 0;
-    font-size:16px;
-    font-weight:bold;
+
+/* HERO */
+.hero{
+    border:2px solid rgba(212,175,55,.12);
+    padding:22px;
+    border-radius:12px;
+    background:linear-gradient(180deg,#111,#000);
 }
+.hero h1{color:var(--gold);margin:0}
+.hero p{color:#ccc}
+
+/* PLAYER */
 .player-box{
-    border:1px solid #d4af37;
+    margin-top:15px;
+    border:1px solid rgba(212,175,55,.2);
     padding:15px;
-    margin:20px auto;
-    max-width:420px;
+    border-radius:10px;
 }
 #nowPlaying{
     font-weight:bold;
-    margin-bottom:10px;
+    color:var(--gold);
+    margin-bottom:8px;
 }
-audio{
-    width:100%;
-    height:32px;
-}
+audio{width:100%}
+
+/* CATEGORIES */
 .category{
-    margin:20px auto;
-    max-width:420px;
-    border:1px solid #d4af37;
-    padding:10px;
+    margin-top:25px;
+    border:1px solid rgba(212,175,55,.12);
+    border-radius:10px;
+    background:var(--card);
 }
 .category h3{
-    cursor:pointer;
     margin:0;
+    padding:14px;
+    cursor:pointer;
+    color:var(--gold);
 }
 .track-list{
     display:none;
-    margin-top:10px;
+    border-top:1px solid rgba(212,175,55,.08);
 }
-.track-list div{
-    padding:6px;
+.track{
+    padding:12px 14px;
     cursor:pointer;
-    border-bottom:1px solid #333;
+    border-bottom:1px solid #222;
 }
-.track-list div:hover{
-    background:#1a1a1a;
+.track:hover{background:#141414}
+
+/* FIXED BUTTONS */
+.whatsapp{
+    position:fixed;
+    left:18px;
+    top:120px;
+    background:#25D366;
+    color:#fff;
+    padding:10px 14px;
+    border-radius:8px;
+    font-weight:bold;
+    cursor:pointer;
+    z-index:900;
 }
+
+/* FOOTER */
 footer{
-    padding:20px 10px;
-    font-size:14px;
+    margin-top:40px;
+    padding:20px;
+    text-align:center;
+    color:#bbb;
+    border-top:1px solid rgba(255,255,255,.05);
+}
+
+@media(max-width:700px){
+    nav{display:none}
 }
 </style>
 </head>
@@ -78,122 +133,105 @@ footer{
 <body>
 
 <header>
-    <h1>SİYAH ALTIN PRODÜKSİYON · SK</h1>
-
-    <div class="notice">
-        Yayınlanan ve yayınlanacak olan eserlerin söz ve müzikleri  
-        <strong>Serkan Kaynar</strong>’a aittir.  
-        Tüm hakları saklıdır.
-    </div>
-
-    <div class="sub">Müzik Prodüksiyon · Açılış Organizasyonları</div>
-    <div class="sub">Hazır Şarkılar • Beatler • Mixler</div>
-    <div class="sub">Satışa ve Devire Hazır İçerikler</div>
-
+    <div class="logo">SİYAH ALTIN · SK</div>
     <nav>
         <a href="#">Müzik</a>
         <a href="#">Organizasyon</a>
+        <a href="#">İletişim</a>
     </nav>
 </header>
 
-<section>
+<div class="whatsapp"
+onclick="window.location.href='https://wa.me/905074163605?text=Merhaba%20m%C3%BCzik%20i%C3%A7in%20yaz%C4%B1yorum'">
+WhatsApp
+</div>
 
-    <!-- TEK PLAYER -->
-    <div class="player-box">
-        <div id="nowPlaying">Seçili şarkı yok</div>
-        <audio id="audioPlayer" controls></audio>
+<div class="container">
+
+    <div class="hero">
+        <h1>SİYAH ALTIN PRODÜKSİYON</h1>
+        <p>
+            Yayınlanan ve yayınlanacak olan eserlerin söz ve müzikleri
+            <b>Serkan Kaynar</b>’a aittir. Tüm hakları saklıdır.
+        </p>
+
+        <div class="player-box">
+            <div id="nowPlaying">Seçili şarkı yok</div>
+            <audio id="audioPlayer" controls></audio>
+        </div>
     </div>
 
     <!-- YENİLER -->
     <div class="category">
-        <h3 onclick="toggleList('yeniler')">Yeniler</h3>
+        <h3 onclick="toggleList('yeniler')">🎵 Yeniler</h3>
         <div class="track-list" id="yeniler">
-            <div onclick="playTrack('Yeniler Mix','1.mp3.mp3')">
-                Yeniler Mix
-            </div>
+            <div class="track" onclick="playTrack('Yeniler Mix','1.mp3.mp3')">Yeniler Mix</div>
         </div>
     </div>
 
-    <!-- ARABESK (SADECE BURAYA EKLENDİ) -->
+    <!-- ARABESK -->
     <div class="category">
-        <h3 onclick="toggleList('arabesk')">Arabesk</h3>
+        <h3 onclick="toggleList('arabesk')">🔥 Arabesk</h3>
         <div class="track-list" id="arabesk">
-            <div onclick="playTrack('Küllerimden Kalktım – Arabesk','kullerimden-kalktim.mp3.mp3')">
-                Küllerimden Kalktım – Arabesk
+            <div class="track" onclick="playTrack('Küllerimden Kalktım','kullerimden-kalktim.mp3.mp3')">
+                Küllerimden Kalktım
             </div>
         </div>
     </div>
 
-    <!-- ARABESK POP KARISIMI -->
+    <!-- ARABESK POP -->
     <div class="category">
-        <h3 onclick="toggleList('arabeskpop')">Arabesk Pop Karışımı</h3>
+        <h3 onclick="toggleList('arabeskpop')">💣 Arabesk Pop</h3>
         <div class="track-list" id="arabeskpop">
-            <div onclick="playTrack('Dünya Benim Olurdu – Arabesk Pop Karışımı','dunya-benim-olurdu.mp3.mp3')">
-                Dünya Benim Olurdu – Arabesk Pop Karışımı
+            <div class="track" onclick="playTrack('Dünya Benim Olurdu','dunya-benim-olurdu.mp3.mp3')">
+                Dünya Benim Olurdu
             </div>
         </div>
     </div>
 
     <!-- TÜRKÜ -->
     <div class="category">
-        <h3 onclick="toggleList('turku')">Türkü</h3>
+        <h3 onclick="toggleList('turku')">🎻 Türkü</h3>
         <div class="track-list" id="turku">
-            <div onclick="playTrack('Bu Geçer – Türkü','bu-gecer-turku.mp3.mp3')">
-                Bu Geçer – Türkü
+            <div class="track" onclick="playTrack('Bu Geçer','bu-gecer-turku.mp3.mp3')">
+                Bu Geçer
             </div>
         </div>
     </div>
 
     <!-- POP -->
     <div class="category">
-        <h3 onclick="toggleList('pop')">Pop</h3>
+        <h3 onclick="toggleList('pop')">🎶 Pop</h3>
         <div class="track-list" id="pop">
-            <div onclick="playTrack('Korkuyorum','pop01.mp3')">
+            <div class="track" onclick="playTrack('Korkuyorum','pop01.mp3')">
                 Korkuyorum
             </div>
         </div>
     </div>
 
-    <!-- SLOW POP -->
-    <div class="category">
-        <h3 onclick="toggleList('slowpop')">Slow Pop</h3>
-        <div class="track-list" id="slowpop">
-            <div onclick="playTrack('Kırık Düşler – Slow Pop','kirik-dusler.mp3.mp3')">
-                Kırık Düşler – Slow Pop
-            </div>
-        </div>
-    </div>
-
-</section>
+</div>
 
 <footer>
-    📞 WhatsApp: 0507 416 36 05<br>
-    📧 skaynar578@gmail.com<br>
-    📸 @siyahaltinproduksiyonsk<br><br>
+    📞 0507 416 36 05 · 📧 skaynar578@gmail.com<br>
     © 2026 Siyah Altın Prodüksiyon · SK
 </footer>
 
 <script>
-const player = document.getElementById("audioPlayer");
-const nowPlaying = document.getElementById("nowPlaying");
+const player=document.getElementById("audioPlayer");
+const nowPlaying=document.getElementById("nowPlaying");
 
-function playTrack(name, file){
+function playTrack(name,file){
     if(player.src.includes(file)){
-        if(player.paused){
-            player.play();
-        }else{
-            player.pause();
-        }
+        player.paused ? player.play() : player.pause();
     }else{
-        player.src = file;
-        nowPlaying.textContent = "Çalan Şarkı: " + name;
+        player.src=file;
+        nowPlaying.textContent="Çalan: "+name;
         player.play();
     }
 }
-
 function toggleList(id){
-    const el = document.getElementById(id);
-    el.style.display = el.style.display === "block" ? "none" : "block";
+    const el=document.getElementById(id);
+    el.style.display=el.style.display==="block"?"none":"block";
 }
 </script>
 
