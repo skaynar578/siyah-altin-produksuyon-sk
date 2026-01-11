@@ -6,109 +6,100 @@
 <title>Siyah Altın Prodüksiyon · SK</title>
 
 <style>
-/* Genel stil */
-body {
+body{
     margin:0;
     font-family:Arial, Helvetica, sans-serif;
     background:#0b0b0b;
     color:#d4af37;
     text-align:center;
 }
-header {
-    padding:25px 15px;
-}
-nav {
-    margin:15px 0;
-}
-nav a {
+header{ padding:25px 15px; }
+nav{ margin:15px 0; }
+nav a{
     color:#d4af37;
     text-decoration:none;
     margin:0 10px;
     font-weight:bold;
 }
-
-/* Başlık & Alt metin */
-h1 {
-    font-size:20px; /* Küçültüldü */
-    line-height:1.4;
-    font-weight:normal;
-}
-.sub {
-    font-size:16px;
+section{ padding:20px 15px; }
+h1,h2,h3{ margin:12px 0; }
+.sub{
+    font-size:16px; /* Küçültüldü */
     font-weight:bold;
     margin:6px 0;
 }
-.notice {
+.notice{
     margin:15px 0;
     font-size:14px; /* Küçültüldü */
-    font-weight:normal;
-    opacity:0;
-    animation:fadeIn 1s forwards;
-    animation-delay:0.1s;
+    font-weight:bold;
+    line-height:1.5;
 }
-
-/* Player */
-.player-box {
+.player-box{
     border:1px solid #d4af37;
     padding:20px;
     margin:20px auto;
-    max-width:420px;
+    max-width:450px;
     border-radius:14px;
-    box-shadow:0 0 25px rgba(212,175,55,0.2);
+    box-shadow:0 0 20px rgba(212,175,55,0.3);
+    transition:0.3s;
 }
-#nowPlaying {
+.player-box:hover{
+    box-shadow:0 0 30px rgba(212,175,55,0.5);
+}
+#nowPlaying{
     font-weight:bold;
     margin-bottom:10px;
+    transition:0.3s;
 }
-audio {
+audio{
     width:100%;
     height:32px;
 }
-
-/* Kategori kutuları */
-.category {
+.category{
     margin:20px auto;
     max-width:420px;
     border:1px solid #d4af37;
     padding:12px;
-    border-radius:10px;
-    box-shadow:0 0 12px rgba(212,175,55,0.15);
+    border-radius:12px;
+    box-shadow:0 0 15px rgba(212,175,55,0.1);
     transition:0.3s;
 }
-.category:hover {
-    box-shadow:0 0 20px rgba(212,175,55,0.25);
+.category:hover{
+    box-shadow:0 0 25px rgba(212,175,55,0.25);
 }
-.category h3 {
+.category h3{
     cursor:pointer;
     margin:0;
     display:flex;
     align-items:center;
     gap:6px;
-    font-size:16px;
+    font-weight:bold;
 }
-.track-list {
+.track-list{
     display:none;
     margin-top:10px;
-    overflow:hidden;
-    transition:max-height 0.4s ease-in-out;
+    animation:fadeInList 0.4s ease-in-out;
 }
-.track-list div {
+.track-list div{
     padding:6px;
     cursor:pointer;
     border-bottom:1px solid #333;
+    display:flex;
+    align-items:center;
+    gap:6px;
 }
-.track-list div:hover {
+.track-list div:hover{
     background:#1a1a1a;
+    transform:translateX(3px);
+    transition:0.3s;
 }
-
-/* Footer */
-footer {
+footer{
     padding:20px 10px;
     font-size:14px;
 }
 
-/* Sabit WhatsApp & Mesaj butonları */
-.fixed-buttons {
+/* SABİT WHATSAPP & MESAJ BUTONLARI */
+.fixed-buttons{
     position:fixed;
     bottom:20px;
     right:20px;
@@ -117,33 +108,42 @@ footer {
     gap:10px;
     z-index:999;
 }
-.fixed-buttons a {
+.fixed-buttons a{
     text-decoration:none;
     padding:10px 14px;
     border-radius:6px;
     font-weight:bold;
     font-size:14px;
     color:#0b0b0b;
+    transition:0.3s;
 }
-.whatsapp-btn {
+.fixed-buttons a:hover{
+    box-shadow:0 0 15px #d4af37;
+    transform:scale(1.05);
+}
+.whatsapp-btn{
     background:#25D366;
 }
-.message-btn {
+.message-btn{
     background:#d4af37;
 }
 
-/* Fade-in animasyon */
-@keyframes fadeIn {
-    from {opacity:0; transform:translateY(10px);}
-    to {opacity:1; transform:translateY(0);}
+/* ANİMASYONLAR */
+@keyframes fadeInList{
+    from{opacity:0; transform:translateY(-10px);}
+    to{opacity:1; transform:translateY(0);}
 }
-header .sub {
-    opacity:0;
-    animation:fadeIn 1s forwards;
+@keyframes shakeIcon{
+    0%{transform:rotate(0deg);}
+    25%{transform:rotate(10deg);}
+    50%{transform:rotate(-10deg);}
+    75%{transform:rotate(10deg);}
+    100%{transform:rotate(0deg);}
 }
-header .sub:nth-child(2) {animation-delay:0.2s;}
-header .sub:nth-child(3) {animation-delay:0.4s;}
-header .sub:nth-child(4) {animation-delay:0.6s;}
+.icon-shake{
+    display:inline-block;
+    animation:shakeIcon 0.6s ease;
+}
 </style>
 </head>
 
@@ -152,8 +152,13 @@ header .sub:nth-child(4) {animation-delay:0.6s;}
 <header>
     <h1>🎵 Siyah Altın Prodüksiyon, Serkan Kaynar tarafından kurulan; arabesk, pop ve özgün müzik üretimleri yapan bağımsız bir prodüksiyon platformudur. Bu sitede yer alan tüm eserlerin söz ve müzik hakları eser sahibine aittir.</h1>
 
-    <div class="sub">Event & Opening Organizations</div>
-    <div class="sub">Hazır Besteler</div>
+    <div class="notice">
+        Mağaza ve Mekan Açılışları
+    </div>
+
+    <div class="sub">Müzik Prodüksiyon · Mağaza ve Mekan Açılışları</div>
+    <div class="sub">Hazır Şarkılar • Besteler</div>
+    <div class="sub">Satışa ve Devire Hazır İçerikler</div>
 
     <nav>
         <a href="#">Müzik</a>
@@ -162,51 +167,57 @@ header .sub:nth-child(4) {animation-delay:0.6s;}
 </header>
 
 <section>
+
     <div class="player-box">
         <div id="nowPlaying">Seçili şarkı yok</div>
         <audio id="audioPlayer" controls></audio>
     </div>
 
-    <!-- Kategoriler -->
+    <!-- YENİLER -->
     <div class="category">
-        <h3>🎧 Yeniler</h3>
+        <h3 onclick="toggleList('yeniler')"><span class="icon-shake">🎧</span> Yeniler</h3>
         <div class="track-list" id="yeniler">
-            <div onclick="playTrack('Yeniler','yeniler.mp3.mp3')">Yeniler</div>
+            <div onclick="playTrack('Yeniler','yeniler.mp3.mp3')"><span>🎧</span> Yeniler</div>
         </div>
     </div>
 
+    <!-- ARABESK -->
     <div class="category">
-        <h3>🎧 Arabesk</h3>
+        <h3 onclick="toggleList('arabesk')"><span class="icon-shake">🎧</span> Arabesk</h3>
         <div class="track-list" id="arabesk">
-            <div onclick="playTrack('Küllerimden Kalktım – Arabesk','kullerimden-kalktim.mp3.mp3')">Küllerimden Kalktım – Arabesk</div>
+            <div onclick="playTrack('Küllerimden Kalktım – Arabesk','kullerimden-kalktim.mp3.mp3')"><span>🎧</span> Küllerimden Kalktım – Arabesk</div>
         </div>
     </div>
 
+    <!-- ARABESK POP KARISIMI -->
     <div class="category">
-        <h3>🎧 Arabesk Pop Karışımı</h3>
+        <h3 onclick="toggleList('arabeskpop')"><span class="icon-shake">🎧</span> Arabesk Pop Karışımı</h3>
         <div class="track-list" id="arabeskpop">
-            <div onclick="playTrack('Dünya Benim Olurdu','dunya-benim-olurdu.mp3.mp3')">Dünya Benim Olurdu</div>
+            <div onclick="playTrack('Dünya Benim Olurdu','dunya-benim-olurdu.mp3.mp3')"><span>🎧</span> Dünya Benim Olurdu</div>
         </div>
     </div>
 
+    <!-- TÜRKÜ -->
     <div class="category">
-        <h3>🎧 Türkü</h3>
+        <h3 onclick="toggleList('turku')"><span class="icon-shake">🎧</span> Türkü</h3>
         <div class="track-list" id="turku">
-            <div onclick="playTrack('Bu Geçer – Türkü','bu-gecer-turku.mp3.mp3')">Bu Geçer – Türkü</div>
+            <div onclick="playTrack('Bu Geçer – Türkü','bu-gecer-turku.mp3.mp3')"><span>🎧</span> Bu Geçer – Türkü</div>
         </div>
     </div>
 
+    <!-- POP -->
     <div class="category">
-        <h3>🎧 Pop</h3>
+        <h3 onclick="toggleList('pop')"><span class="icon-shake">🎧</span> Pop</h3>
         <div class="track-list" id="pop">
-            <div onclick="playTrack('Korkuyorum','mp3.korkuyorum.mp3')">Korkuyorum</div>
+            <div onclick="playTrack('Korkuyorum','mp3.korkuyorum.mp3')"><span>🎧</span> Korkuyorum</div>
         </div>
     </div>
 
+    <!-- SLOW POP -->
     <div class="category">
-        <h3>🎧 Slow Pop</h3>
+        <h3 onclick="toggleList('slowpop')"><span class="icon-shake">🎧</span> Slow Pop</h3>
         <div class="track-list" id="slowpop">
-            <div onclick="playTrack('Kırık Düşler – Slow Pop','kirik-dusler.mp3.mp3')">Kırık Düşler – Slow Pop</div>
+            <div onclick="playTrack('Kırık Düşler – Slow Pop','kirik-dusler.mp3.mp3')"><span>🎧</span> Kırık Düşler – Slow Pop</div>
         </div>
     </div>
 
@@ -234,18 +245,22 @@ function playTrack(name, file){
     }else{
         player.src = file;
         nowPlaying.textContent = "Çalan Şarkı: " + name;
+        nowPlaying.style.color="#ffd700";
+        setTimeout(()=>{nowPlaying.style.color="#d4af37"},500);
         player.play();
     }
 }
 
-// Kategori açılır listeler
-const categories = document.querySelectorAll(".category h3");
-categories.forEach(cat => {
-    cat.addEventListener("click", () => {
-        const list = cat.nextElementSibling;
-        list.style.display = list.style.display==="block" ? "none" : "block";
-    });
-});
+function toggleList(id){
+    const el = document.getElementById(id);
+    el.style.display = el.style.display === "block" ? "none" : "block";
+
+    // ikon sallama efekti
+    const icon = el.previousElementSibling.querySelector(".icon-shake");
+    icon.classList.remove("icon-shake");
+    void icon.offsetWidth; // restart animation
+    icon.classList.add("icon-shake");
+}
 </script>
 
 </body>
