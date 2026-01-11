@@ -15,7 +15,7 @@ body{
 }
 header{ padding:25px 15px; position:relative; }
 .sub{
-    font-size:18px; /* Büyütüldü */
+    font-size:18px; 
     font-weight:bold;
     margin:6px 0;
 }
@@ -38,7 +38,7 @@ header{ padding:25px 15px; position:relative; }
     text-shadow: 0 0 8px #ffd700;
 }
 .professional-title{
-    font-size:32px; /* Büyütüldü */
+    font-size:32px; 
     font-weight:800;
     margin-bottom:15px;
     color:#ffd700;
@@ -49,7 +49,7 @@ header{ padding:25px 15px; position:relative; }
     font-weight:900;
     letter-spacing:5px;
     color:#ffd700;
-    text-shadow:0 0 15px #ffd700, 0 0 25px #ffd700, 0 0 35px #ffd700;
+    text-shadow:0 0 10px #ffd700, 0 0 20px #ffd700, 0 0 30px #ffd700;
     margin-bottom:15px;
     animation:glowSK 1.5s infinite alternate;
     max-width:90%;
@@ -204,9 +204,9 @@ footer .contacts{
     100%{transform:rotate(0);}
 }
 @keyframes glowSK{
-    0%{text-shadow:0 0 15px #ffd700,0 0 25px #ffd700,0 0 35px #ffd700;}
-    50%{text-shadow:0 0 25px #ffd700,0 0 35px #ffd700,0 0 45px #ffd700;}
-    100%{text-shadow:0 0 15px #ffd700,0 0 25px #ffd700,0 0 35px #ffd700;}
+    0%{text-shadow:0 0 10px #ffd700,0 0 20px #ffd700,0 0 30px #ffd700;}
+    50%{text-shadow:0 0 15px #ffd700,0 0 25px #ffd700,0 0 35px #ffd700;}
+    100%{text-shadow:0 0 10px #ffd700,0 0 20px #ffd700,0 0 30px #ffd700;}
 }
 @keyframes playerGlow{
     0%{box-shadow:0 0 20px rgba(212,175,55,0.5);}
@@ -228,10 +228,8 @@ footer .contacts{
         <span onclick="setLanguage('en')">EN</span>
     </div>
 
-    <!-- Başlık ve SK -->
     <h1 class="header-main-title">Siyah Altın Prodüksiyon</h1>
     <div class="sk-title">SK</div>
-
     <h2 class="header-sub-title" id="header-sub-title">BLACK GOLD PRODUCTION</h2>
     <div class="professional-title">PROFESYONEL</div>
 
@@ -311,6 +309,7 @@ const player = document.getElementById("audioPlayer");
 const nowPlaying = document.getElementById("nowPlaying");
 const playerBox = document.getElementById("playerBox");
 
+// Müzik çalma
 function playTrack(name, file){
     if(player.src.includes(file)){
         player.paused ? player.play() : player.pause();
@@ -328,10 +327,10 @@ function playTrack(name, file){
         playerBox.classList.remove("playing");
     }
 }
-
 player.addEventListener('play',()=>{playerBox.classList.add("playing");});
 player.addEventListener('pause',()=>{playerBox.classList.remove("playing");});
 
+// Kategori açılırken ikon animasyonu
 function toggleList(id){
     const el = document.getElementById(id);
     el.style.display = el.style.display === "block" ? "none" : "block";
@@ -340,6 +339,23 @@ function toggleList(id){
     icon.classList.remove("icon-shake");
     void icon.offsetWidth;
     icon.classList.add("icon-shake");
+}
+
+// Dil değiştirme fonksiyonu
+function setLanguage(lang){
+    const headerSubTitle = document.getElementById("header-sub-title");
+    const sub1 = document.getElementById("sub1");
+    const sub2 = document.getElementById("sub2");
+
+    if(lang==='en'){
+        headerSubTitle.textContent = "BLACK GOLD PRODUCTION";
+        sub1.textContent = "Ready Songs • Compositions";
+        sub2.textContent = "Available for Sale & License";
+    }else{
+        headerSubTitle.textContent = "BLACK GOLD PRODUCTION";
+        sub1.textContent = "Hazır Şarkılar • Besteler";
+        sub2.textContent = "Satışa ve Devire Hazır Eserler";
+    }
 }
 </script>
 
