@@ -223,7 +223,7 @@ footer .contacts{
     <div class="sk-title">SK</div>
 
     <div class="notice" id="notice-text">
-        Mağaza ve Mekan Açılışları
+        Müzik · Organizasyon
     </div>
 
     <div class="sub" id="sub1">Hazır Şarkılar • Besteler</div>
@@ -307,14 +307,18 @@ footer .contacts{
 <script>
 const player = document.getElementById("audioPlayer");
 const nowPlaying = document.getElementById("nowPlaying");
-
-// Dil elementleri
-const headerSubTitle = document.getElementById("header-sub-title");
 const noticeText = document.getElementById("notice-text");
-const sub1 = document.getElementById("sub1");
-const sub2 = document.getElementById("sub2");
-const footerDesc = document.getElementById("footer-desc");
 
+// Dil değiştirme fonksiyonu
+function setLanguage(lang){
+    if(lang==='en'){
+        noticeText.textContent = "Music · Organization";
+    }else{
+        noticeText.textContent = "Müzik · Organizasyon";
+    }
+}
+
+// Kategori ve tracklar
 const categories = {
     catYeniler: document.getElementById("cat-yeniler"),
     catArabesk: document.getElementById("cat-arabesk"),
@@ -323,7 +327,6 @@ const categories = {
     catPop: document.getElementById("cat-pop"),
     catSlowPop: document.getElementById("cat-slowpop")
 };
-
 const tracks = {
     trackYeniler: document.getElementById("track-yeniler"),
     trackArabesk: document.getElementById("track-arabesk"),
@@ -333,7 +336,7 @@ const tracks = {
     trackSlowPop: document.getElementById("track-slowpop")
 };
 
-// Müzik çalma fonksiyonu
+// Müzik çalma
 function playTrack(name, file){
     if(player.src.includes(file)){
         player.paused ? player.play() : player.pause();
@@ -355,47 +358,6 @@ function toggleList(id){
     icon.classList.remove("icon-shake");
     void icon.offsetWidth;
     icon.classList.add("icon-shake");
-}
-
-// Dil değiştirme fonksiyonu
-function setLanguage(lang){
-    if(lang==='en'){
-        headerSubTitle.textContent = "BLACK GOLD PRODUCTION";
-        noticeText.textContent = "Store & Venue Openings";
-        sub1.textContent = "Ready Songs • Compositions";
-        sub2.textContent = "Available for Sale & License Transfer";
-        footerDesc.textContent = "Black Gold Production, founded by Serkan Kaynar, is an independent production platform creating arabesk, pop, and original music. All music and lyrics on this site belong to the owner, Serkan Kaynar. Unauthorized individuals may not use, copy, or reproduce for commercial purposes. All rights reserved. 2026";
-        categories.catYeniler.textContent = "New Releases";
-        categories.catArabesk.textContent = "Arabesk";
-        categories.catArabeskPop.textContent = "Arabesk Pop Mix";
-        categories.catTurku.textContent = "Folk";
-        categories.catPop.textContent = "Pop";
-        categories.catSlowPop.textContent = "Slow Pop";
-        tracks.trackYeniler.textContent = "New Releases";
-        tracks.trackArabesk.textContent = "Arabesk";
-        tracks.trackArabeskPop.textContent = "Arabesk Pop Mix";
-        tracks.trackTurku.textContent = "Folk";
-        tracks.trackPop.textContent = "Afraid";
-        tracks.trackSlowPop.textContent = "Broken Dreams – Slow Pop";
-    }else{
-        headerSubTitle.textContent = "BLACK GOLD PRODUCTION";
-        noticeText.textContent = "Mağaza ve Mekan Açılışları";
-        sub1.textContent = "Hazır Şarkılar • Besteler";
-        sub2.textContent = "Satışa ve Devire Hazır İçerikler";
-        footerDesc.innerHTML = "Siyah Altın Prodüksiyon, Serkan Kaynar tarafından kurulan; arabesk, pop ve özgün müzik üretimleri yapan bağımsız bir prodüksiyon platformudur. Bu sitede yer alan tüm eserlerin söz ve müzik hakları eser sahibine, Serkan Kaynar'a aittir. Yetkisiz kişiler tarafından izinsiz ticari amaçla kullanılamaz, kopyalanamaz, çoğaltılamaz. Tüm hakları saklıdır! <span style='color:#ffd700;'>2026</span>";
-        categories.catYeniler.textContent = "Yeniler";
-        categories.catArabesk.textContent = "Arabesk";
-        categories.catArabeskPop.textContent = "Arabesk Pop Karışımı";
-        categories.catTurku.textContent = "Türkü";
-        categories.catPop.textContent = "Pop";
-        categories.catSlowPop.textContent = "Slow Pop";
-        tracks.trackYeniler.textContent = "Yeniler";
-        tracks.trackArabesk.textContent = "Küllerimden Kalktım – Arabesk";
-        tracks.trackArabeskPop.textContent = "Dünya Benim Olurdu";
-        tracks.trackTurku.textContent = "Bu Geçer – Türkü";
-        tracks.trackPop.textContent = "Korkuyorum";
-        tracks.trackSlowPop.textContent = "Kırık Düşler – Slow Pop";
-    }
 }
 </script>
 
