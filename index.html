@@ -13,13 +13,33 @@ body{
     color:#d4af37;
     text-align:center;
 }
+
+/* GENEL */
 header{ padding:30px 15px; }
 section{ padding:25px 15px; }
 h1,h2,h3{ margin:12px 0; }
-.hero{ max-width:900px; margin:auto; animation:fadeIn 1.2s ease; }
-.hero p{ font-size:16px; line-height:1.6; opacity:0.95; }
-.sub{ font-size:17px; font-weight:bold; margin:8px 0; opacity:0.9; }
 
+/* ÜST BAŞLIK */
+.hero{
+    max-width:900px;
+    margin:auto;
+    animation:fadeIn 1.2s ease;
+}
+.hero p{
+    font-size:16px;
+    line-height:1.6;
+    opacity:0.95;
+}
+
+/* ALT BAŞLIKLAR */
+.sub{
+    font-size:17px;
+    font-weight:bold;
+    margin:8px 0;
+    opacity:0.9;
+}
+
+/* PLAYER */
 .player-box{
     border:1px solid #d4af37;
     padding:15px;
@@ -28,9 +48,15 @@ h1,h2,h3{ margin:12px 0; }
     border-radius:12px;
     box-shadow:0 0 20px rgba(212,175,55,0.15);
 }
-#nowPlaying{ font-weight:bold; margin-bottom:10px; }
-audio{ width:100%; }
+#nowPlaying{
+    font-weight:bold;
+    margin-bottom:10px;
+}
+audio{
+    width:100%;
+}
 
+/* KATEGORİ KARTLARI */
 .category{
     margin:20px auto;
     max-width:420px;
@@ -39,12 +65,27 @@ audio{ width:100%; }
     border-radius:14px;
     transition:.3s;
 }
-.category:hover{ box-shadow:0 0 15px rgba(212,175,55,0.25); }
-.category h3{ cursor:pointer; margin:0; }
-.track-list{ display:none; margin-top:10px; }
-.track-list div{ padding:7px; cursor:pointer; border-bottom:1px solid #333; }
-.track-list div:hover{ background:#1a1a1a; }
+.category:hover{
+    box-shadow:0 0 15px rgba(212,175,55,0.25);
+}
+.category h3{
+    cursor:pointer;
+    margin:0;
+}
+.track-list{
+    display:none;
+    margin-top:10px;
+}
+.track-list div{
+    padding:7px;
+    cursor:pointer;
+    border-bottom:1px solid #333;
+}
+.track-list div:hover{
+    background:#1a1a1a;
+}
 
+/* SABİT BUTONLAR */
 .fixed-buttons{
     position:fixed;
     right:15px;
@@ -63,12 +104,25 @@ audio{ width:100%; }
     font-size:14px;
     box-shadow:0 0 15px rgba(0,0,0,.4);
 }
-.whatsapp{ background:#25D366; }
-.mail{ background:#d4af37; }
+.whatsapp{
+    background:#25D366;
+}
+.mail{
+    background:#d4af37;
+}
 
-footer{ padding:30px 10px; font-size:14px; opacity:0.9; }
+/* FOOTER */
+footer{
+    padding:30px 10px;
+    font-size:14px;
+    opacity:0.9;
+}
 
-@keyframes fadeIn{ from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);} }
+/* ANİMASYON */
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(20px);}
+    to{opacity:1; transform:translateY(0);}
+}
 </style>
 </head>
 
@@ -90,55 +144,53 @@ footer{ padding:30px 10px; font-size:14px; opacity:0.9; }
 
 <section>
 
-<div class="player-box">
-    <div id="nowPlaying">Seçili şarkı yok</div>
-    <audio id="audioPlayer" controls></audio>
-</div>
-
-<!-- Mixler -->
-<div class="category">
-    <h3 onclick="toggleList('mixler')">🎧 Mixler</h3>
-    <div class="track-list" id="mixler">
-        <div onclick="playTrack('Yeniler Mix','mixler01.mp3')">Yeniler Mix</div>
-        <div onclick="playTrack('Enerjik Mix','mixler02.mp3')">Enerjik Mix</div>
+    <div class="player-box">
+        <div id="nowPlaying">Seçili şarkı yok</div>
+        <audio id="audioPlayer" controls></audio>
     </div>
-</div>
 
-<!-- Arabesk -->
-<div class="category">
-    <h3 onclick="toggleList('arabesk')">🔥 Arabesk</h3>
-    <div class="track-list" id="arabesk">
-        <div onclick="playTrack('Küllerimden Kalktım','arabesk01.mp3')">Küllerimden Kalktım</div>
-        <div onclick="playTrack('Ağla Gözlerim','arabesk02.mp3')">Ağla Gözlerim</div>
+    <div class="category">
+        <h3 onclick="toggleList('yeniler')">🎧 Yeniler</h3>
+        <div class="track-list" id="yeniler">
+            <div onclick="playTrack('Yeniler Mix','yeniler.mix.mp3')">Yeniler Mix</div>
+        </div>
     </div>
-</div>
 
-<!-- Türkü -->
-<div class="category">
-    <h3 onclick="toggleList('turku')">🎻 Türkü</h3>
-    <div class="track-list" id="turku">
-        <div onclick="playTrack('Bu Geçer','turku01.mp3')">Bu Geçer</div>
-        <div onclick="playTrack('Yolun Sonu','turku02.mp3')">Yolun Sonu</div>
+    <div class="category">
+        <h3 onclick="toggleList('arabesk')">🔥 Arabesk</h3>
+        <div class="track-list" id="arabesk">
+            <div onclick="playTrack('Küllerimden Kalktım','kullerimden-kalktim.mp3.mp3')">
+                Küllerimden Kalktım
+            </div>
+        </div>
     </div>
-</div>
 
-<!-- Pop -->
-<div class="category">
-    <h3 onclick="toggleList('pop')">🎶 Pop</h3>
-    <div class="track-list" id="pop">
-        <div onclick="playTrack('Korkuyorum','pop01.mp3')">Korkuyorum</div>
-        <div onclick="playTrack('Sevgi Yolu','pop02.mp3')">Sevgi Yolu</div>
+    <div class="category">
+        <h3 onclick="toggleList('turku')">🎻 Türkü</h3>
+        <div class="track-list" id="turku">
+            <div onclick="playTrack('Bu Geçer','bu-gecer-turku.mp3.mp3')">
+                Bu Geçer
+            </div>
+        </div>
     </div>
-</div>
 
-<!-- Slow Pop -->
-<div class="category">
-    <h3 onclick="toggleList('slowpop')">💔 Slow Pop</h3>
-    <div class="track-list" id="slowpop">
-        <div onclick="playTrack('Kırık Düşler','slowpop01.mp3')">Kırık Düşler</div>
-        <div onclick="playTrack('Geceler','slowpop02.mp3')">Geceler</div>
+    <div class="category">
+        <h3 onclick="toggleList('pop')">🎶 Pop</h3>
+        <div class="track-list" id="pop">
+            <div onclick="playTrack('Korkuyorum','pop01.mp3.mp3')">
+                Korkuyorum
+            </div>
+        </div>
     </div>
-</div>
+
+    <div class="category">
+        <h3 onclick="toggleList('slowpop')">💔 Slow Pop</h3>
+        <div class="track-list" id="slowpop">
+            <div onclick="playTrack('Kırık Düşler','kirik-dusler.mp3.mp3')">
+                Kırık Düşler
+            </div>
+        </div>
+    </div>
 
 </section>
 
@@ -146,25 +198,34 @@ footer{ padding:30px 10px; font-size:14px; opacity:0.9; }
     © 2026 Siyah Altın Prodüksiyon · SK
 </footer>
 
+<!-- SABİT İLETİŞİM BUTONLARI -->
 <div class="fixed-buttons">
-    <a class="whatsapp" href="https://wa.me/905074163605?text=Merhaba%20Siyah%20Altın%20Prodüksiyon" target="_blank">💬 WhatsApp</a>
-    <a class="mail" href="mailto:skaynar578@gmail.com?subject=Siyah%20Altın%20Prodüksiyon">✉️ Mail</a>
+    <a class="whatsapp" 
+       href="https://wa.me/905074163605?text=Merhaba%20Siyah%20Altın%20Prodüksiyon" 
+       target="_blank">💬 WhatsApp</a>
+
+    <a class="mail" 
+       href="mailto:skaynar578@gmail.com?subject=Siyah%20Altın%20Prodüksiyon">
+       ✉️ Mail
+    </a>
 </div>
 
 <script>
 const player = document.getElementById("audioPlayer");
 const nowPlaying = document.getElementById("nowPlaying");
 
-// Kesin çalışan playTrack fonksiyonu
 function playTrack(name, file){
-    player.src = file;        // direkt dosya yükle
-    nowPlaying.textContent = "Çalan Şarkı: " + name;
-    player.play();
+    if(player.src.includes(file)){
+        player.paused ? player.play() : player.pause();
+    }else{
+        player.src = file;
+        nowPlaying.textContent = "Çalan Şarkı: " + name;
+        player.play();
+    }
 }
-
 function toggleList(id){
     const el = document.getElementById(id);
-    el.style.display = (el.style.display === "block") ? "none" : "block";
+    el.style.display = el.style.display === "block" ? "none" : "block";
 }
 </script>
 
