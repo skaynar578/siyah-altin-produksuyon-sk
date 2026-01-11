@@ -12,6 +12,8 @@ body{
     color:#d4af37;
     text-align:center;
 }
+
+/* GENEL */
 header{ padding:25px 15px; }
 nav{ margin:15px 0; }
 nav a{
@@ -21,7 +23,7 @@ nav a{
     font-weight:bold;
 }
 section{ padding:20px 15px; }
-h1,h2,h3{ margin:12px 0; }
+h1,h2,h3{ margin:12px 0; letter-spacing:0.5px; }
 .sub{
     font-size:18px;
     font-weight:bold;
@@ -32,47 +34,75 @@ h1,h2,h3{ margin:12px 0; }
     font-size:16px;
     font-weight:bold;
 }
+
+/* PLAYER – premium dokunuş */
 .player-box{
     border:1px solid #d4af37;
-    padding:15px;
-    margin:20px auto;
+    padding:18px;
+    margin:25px auto;
     max-width:420px;
+    border-radius:12px;
+    background:linear-gradient(180deg,#111,#0b0b0b);
+    box-shadow:0 0 25px rgba(212,175,55,0.15);
 }
 #nowPlaying{
     font-weight:bold;
     margin-bottom:10px;
+    letter-spacing:0.4px;
 }
 audio{
     width:100%;
     height:32px;
 }
+
+/* KATEGORİLER – yuvarlatma + yumuşak gölge */
 .category{
-    margin:20px auto;
+    margin:22px auto;
     max-width:420px;
     border:1px solid #d4af37;
-    padding:10px;
+    padding:12px;
+    border-radius:14px;
+    background:#0e0e0e;
+    box-shadow:0 0 18px rgba(212,175,55,0.12);
+    transition:box-shadow .3s, transform .2s;
+}
+.category:hover{
+    box-shadow:0 0 28px rgba(212,175,55,0.25);
+    transform:translateY(-2px);
 }
 .category h3{
     cursor:pointer;
     margin:0;
+    letter-spacing:0.6px;
 }
+
+/* AÇILIR LİSTE – yumuşak animasyon */
 .track-list{
-    display:none;
-    margin-top:10px;
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .4s ease, opacity .3s ease;
+    opacity:0;
+}
+.track-list.open{
+    max-height:300px;
+    opacity:1;
 }
 .track-list div{
-    padding:6px;
+    padding:7px;
     cursor:pointer;
     border-bottom:1px solid #333;
 }
 .track-list div:hover{
     background:#1a1a1a;
 }
+
+/* FOOTER */
 footer{
     padding:20px 10px;
     font-size:14px;
 }
 
+/* SABİT BUTONLAR */
 .fixed-buttons{
     position:fixed;
     bottom:20px;
@@ -85,10 +115,11 @@ footer{
 .fixed-buttons a{
     text-decoration:none;
     padding:10px 14px;
-    border-radius:6px;
+    border-radius:8px;
     font-weight:bold;
     font-size:14px;
     color:#0b0b0b;
+    box-shadow:0 0 15px rgba(0,0,0,.4);
 }
 .whatsapp-btn{ background:#25D366; }
 .message-btn{ background:#d4af37; }
@@ -118,73 +149,70 @@ footer{
 
 <section>
 
-<div class="player-box">
-    <div id="nowPlaying">Seçili şarkı yok</div>
-    <audio id="audioPlayer" controls></audio>
-</div>
+    <div class="player-box">
+        <div id="nowPlaying">Seçili şarkı yok</div>
+        <audio id="audioPlayer" controls></audio>
+    </div>
 
-<div class="category">
-    <h3 onclick="toggleList('yeniler')">Yeniler</h3>
-    <div class="track-list" id="yeniler">
-        <div onclick="playTrack('Yeniler','yeniler.mp3.mp3')">
-            Yeniler
+    <div class="category">
+        <h3 onclick="toggleList('yeniler')">Yeniler</h3>
+        <div class="track-list" id="yeniler">
+            <div onclick="playTrack('Yeniler','yeniler.mp3.mp3')">Yeniler</div>
         </div>
     </div>
-</div>
 
-<div class="category">
-    <h3 onclick="toggleList('arabesk')">Arabesk</h3>
-    <div class="track-list" id="arabesk">
-        <div onclick="playTrack('Küllerimden Kalktım – Arabesk','kullerimden-kalktim.mp3.mp3')">
-            Küllerimden Kalktım – Arabesk
+    <div class="category">
+        <h3 onclick="toggleList('arabesk')">Arabesk</h3>
+        <div class="track-list" id="arabesk">
+            <div onclick="playTrack('Küllerimden Kalktım – Arabesk','kullerimden-kalktim.mp3.mp3')">
+                Küllerimden Kalktım – Arabesk
+            </div>
         </div>
     </div>
-</div>
 
-<div class="category">
-    <h3 onclick="toggleList('arabeskpop')">Arabesk Pop Karışımı</h3>
-    <div class="track-list" id="arabeskpop">
-        <div onclick="playTrack('Dünya Benim Olurdu','dunya-benim-olurdu.mp3.mp3')">
-            Dünya Benim Olurdu
+    <div class="category">
+        <h3 onclick="toggleList('arabeskpop')">Arabesk Pop Karışımı</h3>
+        <div class="track-list" id="arabeskpop">
+            <div onclick="playTrack('Dünya Benim Olurdu','dunya-benim-olurdu.mp3.mp3')">
+                Dünya Benim Olurdu
+            </div>
         </div>
     </div>
-</div>
 
-<div class="category">
-    <h3 onclick="toggleList('turku')">Türkü</h3>
-    <div class="track-list" id="turku">
-        <div onclick="playTrack('Bu Geçer – Türkü','bu-gecer-turku.mp3.mp3')">
-            Bu Geçer – Türkü
+    <div class="category">
+        <h3 onclick="toggleList('turku')">Türkü</h3>
+        <div class="track-list" id="turku">
+            <div onclick="playTrack('Bu Geçer – Türkü','bu-gecer-turku.mp3.mp3')">
+                Bu Geçer – Türkü
+            </div>
         </div>
     </div>
-</div>
 
-<!-- POP – İSİM SENİN VERDİĞİN GİBİ -->
-<div class="category">
-    <h3 onclick="toggleList('pop')">Pop</h3>
-    <div class="track-list" id="pop">
-        <div onclick="playTrack('Korkuyorum','mp3.korkuyorum.mp3')">
-            Korkuyorum
+    <div class="category">
+        <h3 onclick="toggleList('pop')">Pop</h3>
+        <div class="track-list" id="pop">
+            <div onclick="playTrack('Korkuyorum','mp3.korkuyorum.mp3')">
+                Korkuyorum
+            </div>
         </div>
     </div>
-</div>
 
-<div class="category">
-    <h3 onclick="toggleList('slowpop')">Slow Pop</h3>
-    <div class="track-list" id="slowpop">
-        <div onclick="playTrack('Kırık Düşler – Slow Pop','kirik-dusler.mp3.mp3')">
-            Kırık Düşler – Slow Pop
+    <div class="category">
+        <h3 onclick="toggleList('slowpop')">Slow Pop</h3>
+        <div class="track-list" id="slowpop">
+            <div onclick="playTrack('Kırık Düşler – Slow Pop','kirik-dusler.mp3.mp3')">
+                Kırık Düşler – Slow Pop
+            </div>
         </div>
     </div>
-</div>
 
 </section>
 
 <footer>
-📞 WhatsApp: 0507 416 36 05<br>
-📧 skaynar578@gmail.com<br>
-📸 @siyahaltinproduksiyonsk<br><br>
-© 2026 Siyah Altın Prodüksiyon · SK
+    📞 WhatsApp: 0507 416 36 05<br>
+    📧 skaynar578@gmail.com<br>
+    📸 @siyahaltinproduksiyonsk<br><br>
+    © 2026 Siyah Altın Prodüksiyon · SK
 </footer>
 
 <div class="fixed-buttons">
@@ -199,14 +227,18 @@ const player = document.getElementById("audioPlayer");
 const nowPlaying = document.getElementById("nowPlaying");
 
 function playTrack(name, file){
-    player.src = file;
-    nowPlaying.textContent = "Çalan Şarkı: " + name;
-    player.play();
+    if(player.src.includes(file)){
+        player.paused ? player.play() : player.pause();
+    }else{
+        player.src = file;
+        nowPlaying.textContent = "Çalan Şarkı: " + name;
+        player.play();
+    }
 }
 
 function toggleList(id){
     const el = document.getElementById(id);
-    el.style.display = el.style.display === "block" ? "none" : "block";
+    el.classList.toggle("open");
 }
 </script>
 
