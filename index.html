@@ -16,9 +16,11 @@ body{
 header{ padding:30px 15px; }
 section{ padding:25px 15px; }
 h1,h2,h3{ margin:12px 0; }
-.hero{ max-width:900px; margin:auto; animation:fadeIn 1.2s ease; }
-.hero p{ font-size:16px; line-height:1.6; opacity:0.95; }
-.sub{ font-size:17px; font-weight:bold; margin:8px 0; opacity:0.9; }
+
+.hero{ max-width:900px; margin:auto; }
+.hero p{ font-size:16px; line-height:1.6; }
+
+.sub{ font-size:17px; font-weight:bold; margin:8px 0; }
 
 .player-box{
     border:1px solid #d4af37;
@@ -26,10 +28,9 @@ h1,h2,h3{ margin:12px 0; }
     margin:25px auto;
     max-width:420px;
     border-radius:12px;
-    box-shadow:0 0 20px rgba(212,175,55,0.15);
 }
 #nowPlaying{ font-weight:bold; margin-bottom:10px; }
-audio{ width:100%; }
+audio, video{ width:100%; }
 
 .category{
     margin:20px auto;
@@ -37,132 +38,92 @@ audio{ width:100%; }
     border:1px solid #d4af37;
     padding:12px;
     border-radius:14px;
-    transition:.3s;
 }
-.category:hover{ box-shadow:0 0 15px rgba(212,175,55,0.25); }
 .category h3{ cursor:pointer; margin:0; }
+
 .track-list{ display:none; margin-top:10px; }
-.track-list div{ padding:7px; cursor:pointer; border-bottom:1px solid #333; }
+.track-list div{
+    padding:8px;
+    cursor:pointer;
+    border-bottom:1px solid #333;
+}
 .track-list div:hover{ background:#1a1a1a; }
 
-.fixed-buttons{
-    position:fixed;
-    right:15px;
-    bottom:15px;
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-    z-index:999;
-}
-.fixed-buttons a{
-    padding:12px 14px;
-    border-radius:50px;
-    text-decoration:none;
-    color:#000;
-    font-weight:bold;
-    font-size:14px;
-    box-shadow:0 0 15px rgba(0,0,0,.4);
-}
-.whatsapp{ background:#25D366; }
-.mail{ background:#d4af37; }
-
-footer{ padding:30px 10px; font-size:14px; opacity:0.9; }
-
-@keyframes fadeIn{ from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);} }
+footer{ padding:30px 10px; font-size:14px; }
 </style>
 </head>
 
 <body>
 
 <header>
-    <div class="hero">
-        <h1>SİYAH ALTIN PRODÜKSİYON · SK</h1>
-        <p>
-            Siyah Altın Prodüksiyon, <strong>Serkan Kaynar</strong> tarafından kurulan;  
-            arabesk, pop ve özgün müzik üretimleri yapan bağımsız bir prodüksiyon platformudur.  
-            Bu sitede yer alan tüm eserlerin söz ve müzik hakları eser sahibine aittir.
-        </p>
-        <div class="sub">Müzik Prodüksiyon · Açılış Organizasyonları</div>
-        <div class="sub">Hazır Şarkılar • Beatler • Mixler</div>
-        <div class="sub">Satışa ve Devire Hazır İçerikler</div>
-    </div>
+<div class="hero">
+<h1>SİYAH ALTIN PRODÜKSİYON · SK</h1>
+<p>Arabesk · Pop · Türkü · Mixler</p>
+<div class="sub">Hazır Şarkılar • Mixler • Tanıtımlar</div>
+</div>
 </header>
 
 <section>
 
 <div class="player-box">
-    <div id="nowPlaying">Seçili şarkı yok</div>
-    <audio id="audioPlayer" controls></audio>
+<div id="nowPlaying">Seçili parça yok</div>
+<audio id="audioPlayer" controls></audio>
 </div>
 
-<!-- Mixler -->
+<!-- MIXLER -->
 <div class="category">
-    <h3 onclick="toggleList('mixler')">🎧 Mixler</h3>
-    <div class="track-list" id="mixler">
-        <div onclick="playTrack('Yeniler Mix','mixler01.mp3')">Yeniler Mix</div>
-        <div onclick="playTrack('Enerjik Mix','mixler02.mp3')">Enerjik Mix</div>
-    </div>
+<h3 onclick="toggleList('mixler')">🎧 Mixler</h3>
+<div class="track-list" id="mixler">
+<div onclick="playTrack('Dünya Benim Olurdu','dunya-benim-olurdu.mp3')">Dünya Benim Olurdu</div>
+</div>
+<video controls style="margin-top:10px;">
+<source src="mixler-tanitim.mp4" type="video/mp4">
+Tarayıcı video desteklemiyor.
+</video>
 </div>
 
-<!-- Arabesk -->
+<!-- ARABESK -->
 <div class="category">
-    <h3 onclick="toggleList('arabesk')">🔥 Arabesk</h3>
-    <div class="track-list" id="arabesk">
-        <div onclick="playTrack('Küllerimden Kalktım','arabesk01.mp3')">Küllerimden Kalktım</div>
-        <div onclick="playTrack('Ağla Gözlerim','arabesk02.mp3')">Ağla Gözlerim</div>
-    </div>
+<h3 onclick="toggleList('arabesk')">🔥 Arabesk</h3>
+<div class="track-list" id="arabesk">
+<div onclick="playTrack('Küllerimden Kalktım','kullerimden-kalktim.mp3')">Küllerimden Kalktım</div>
+</div>
 </div>
 
-<!-- Türkü -->
+<!-- TÜRKÜ -->
 <div class="category">
-    <h3 onclick="toggleList('turku')">🎻 Türkü</h3>
-    <div class="track-list" id="turku">
-        <div onclick="playTrack('Bu Geçer','turku01.mp3')">Bu Geçer</div>
-        <div onclick="playTrack('Yolun Sonu','turku02.mp3')">Yolun Sonu</div>
-    </div>
+<h3 onclick="toggleList('turku')">🎻 Türkü</h3>
+<div class="track-list" id="turku">
+<div onclick="playTrack('Bu Geçer','bu-gecer-turku.mp3')">Bu Geçer</div>
+</div>
 </div>
 
-<!-- Pop -->
+<!-- SLOW POP -->
 <div class="category">
-    <h3 onclick="toggleList('pop')">🎶 Pop</h3>
-    <div class="track-list" id="pop">
-        <div onclick="playTrack('Korkuyorum','pop01.mp3')">Korkuyorum</div>
-        <div onclick="playTrack('Sevgi Yolu','pop02.mp3')">Sevgi Yolu</div>
-    </div>
+<h3 onclick="toggleList('slowpop')">💔 Slow Pop</h3>
+<div class="track-list" id="slowpop">
+<div onclick="playTrack('Kırık Düşler','kirik-dusler-slow-pop.mp3')">Kırık Düşler</div>
 </div>
-
-<!-- Slow Pop -->
-<div class="category">
-    <h3 onclick="toggleList('slowpop')">💔 Slow Pop</h3>
-    <div class="track-list" id="slowpop">
-        <div onclick="playTrack('Kırık Düşler','slowpop01.mp3')">Kırık Düşler</div>
-        <div onclick="playTrack('Geceler','slowpop02.mp3')">Geceler</div>
-    </div>
 </div>
 
 </section>
 
-<footer>
-    © 2026 Siyah Altın Prodüksiyon · SK
-</footer>
-
-<div class="fixed-buttons">
-    <a class="whatsapp" href="https://wa.me/905074163605?text=Merhaba%20Siyah%20Altın%20Prodüksiyon" target="_blank">💬 WhatsApp</a>
-    <a class="mail" href="mailto:skaynar578@gmail.com?subject=Siyah%20Altın%20Prodüksiyon">✉️ Mail</a>
-</div>
+<footer>© 2026 Siyah Altın Prodüksiyon · SK</footer>
 
 <script>
 const player = document.getElementById("audioPlayer");
 const nowPlaying = document.getElementById("nowPlaying");
 
-// TÜM ŞARKILARIN ÇALIŞMASI İÇİN BASİT FONKSİYON
 function playTrack(name, file){
-    player.src = file;  // direkt dosya yükle
-    nowPlaying.textContent = "Çalan Şarkı: " + name;
-    player.play();
+    player.pause();
+    player.src = file;
+    player.load();
+    nowPlaying.textContent = "Çalan: " + name;
+    player.play().catch(()=>{
+        alert("Dosya bulunamadı: " + file);
+    });
 }
 
-// KATEGORİ AÇ/KAPA
 function toggleList(id){
     const el = document.getElementById(id);
     el.style.display = el.style.display === "block" ? "none" : "block";
