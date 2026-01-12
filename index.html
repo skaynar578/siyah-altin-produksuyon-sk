@@ -62,8 +62,8 @@ header{ padding:25px 15px; position:relative; }
 }
 .sk-line{
     display:inline-block;
-    width:20px;             
-    border-bottom:3px solid #ffd700; 
+    width:20px;
+    border-bottom:3px solid #ffd700;
     vertical-align:middle;
 }
 
@@ -115,17 +115,22 @@ audio{
     width:100%;
     height:32px;
 }
+
+/* PARLAK KATEGORİ KUTULARI */
 .category{
     margin:20px auto;
     max-width:420px;
-    border:1px solid #d4af37;
+    border:1px solid #ffd700;
     padding:12px;
     border-radius:12px;
-    box-shadow:0 0 15px rgba(212,175,55,0.1);
-    transition:0.3s;
+    background: rgba(212,175,55,0.1);
+    box-shadow:0 0 25px rgba(212,175,55,0.2);
+    transition:0.4s, box-shadow 0.4s, transform 0.3s, background 0.4s;
 }
 .category:hover{
-    box-shadow:0 0 25px rgba(212,175,55,0.25);
+    box-shadow:0 0 40px rgba(212,175,55,0.6);
+    background: rgba(212,175,55,0.15);
+    transform:translateY(-4px);
 }
 .category h3{
     cursor:pointer;
@@ -153,6 +158,7 @@ audio{
     transform:translateX(3px);
     transition:0.3s;
 }
+
 footer{
     padding:25px 15px;
     font-size:14px;
@@ -170,17 +176,12 @@ footer .description{
 }
 footer .contacts{
     font-weight:bold;
-    font-size:16px; 
+    font-size:16px;
 }
 footer .contacts span.year{
     font-weight:900;
     color:#ffd700;
     margin-left:8px;
-}
-footer .visitor-count{
-    font-weight:bold;
-    font-size:16px;
-    margin-top:6px;
 }
 
 /* SABİT WHATSAPP & MESAJ BUTONLARI */
@@ -319,9 +320,6 @@ footer .visitor-count{
     <p class="contacts" id="footerContacts">
         📞 WhatsApp: 0507 416 36 05 | 📧 skaynar578@gmail.com | 📸 @siyahaltinproduksiyonsk <span class="year">2026</span>
     </p>
-    <p class="visitor-count" id="visitorCount">
-        Ziyaretçi sayısı: <span id="count">0</span>
-    </p>
     <p class="description" id="footerDesc">
         Siyah Altın Prodüksiyon, Serkan Kaynar tarafından kurulan; arabesk, pop ve özgün müzik üretimleri yapan bağımsız bir prodüksiyon platformudur. Bu sitede yer alan tüm eserlerin söz ve müzik hakları eser sahibine, Serkan Kaynar'a aittir. Yetkisiz kişiler tarafından izinsiz ticari amaçla kullanılamaz, kopyalanamaz, çoğaltılamaz. Tüm hakları saklıdır!
     </p>
@@ -403,15 +401,6 @@ function setLanguage(lang){
         footerContacts.innerHTML = "📞 WhatsApp: 0507 416 36 05 | 📧 skaynar578@gmail.com | 📸 @siyahaltinproduksiyonsk <span class='year'>2026</span>";
     }
 }
-
-// Ziyaretçi sayacı (localStorage ile kalıcı)
-function updateVisitorCount(){
-    let count = localStorage.getItem('visitorCount') || 0;
-    count = parseInt(count) + 1;
-    localStorage.setItem('visitorCount', count);
-    document.getElementById('count').textContent = count;
-}
-window.addEventListener('load', updateVisitorCount);
 </script>
 
 </body>
