@@ -67,6 +67,16 @@ header{ padding:25px 15px; position:relative; }
     vertical-align:middle;
 }
 
+/* Ziyaretçi sayacı */
+.visitor-counter{
+    margin-top:8px;
+    font-size:16px;
+    font-weight:bold;
+    color:#ffd700;
+    text-shadow:0 0 6px #ffd700;
+}
+
+/* Dil seçimi */
 .language-switch{
     position:absolute;
     top:15px;
@@ -249,6 +259,7 @@ footer .contacts span.year{
     <h1 class="header-main-title">
         <span style="text-transform:capitalize;">Siyah Altın </span><span style="text-transform:uppercase;">P</span>rodüksiyon
     </h1>
+    <div class="visitor-counter" id="visitorCounter">Ziyaretçi Sayısı: 1500</div>
     <div class="sk-title">
         <span class="sk-s">S</span>
         <span class="sk-line"></span>
@@ -344,7 +355,9 @@ const skTitle = document.querySelector(".sk-title");
 const playerDesc = document.getElementById("playerDesc");
 const footerDesc = document.getElementById("footerDesc");
 const footerContacts = document.getElementById("footerContacts");
+const visitorCounter = document.getElementById("visitorCounter");
 
+// Oynatma fonksiyonu
 function playTrack(name, file){
     if(player.src.includes(file)){
         player.paused ? player.play() : player.pause();
@@ -364,6 +377,7 @@ function playTrack(name, file){
 player.addEventListener('play',()=>{playerBox.classList.add("playing");});
 player.addEventListener('pause',()=>{playerBox.classList.remove("playing");});
 
+// Kategori toggle
 function toggleList(id){
     const el = document.getElementById(id);
     el.style.display = el.style.display === "block" ? "none" : "block";
@@ -373,6 +387,7 @@ function toggleList(id){
     icon.classList.add("icon-shake");
 }
 
+// Dil değişimi
 function setLanguage(lang){
     if(lang==='en'){
         headerMainTitle.innerHTML = "<span style='text-transform:capitalize;'>Black Gold </span><span style='text-transform:uppercase;'>P</span>roduction";
@@ -395,10 +410,4 @@ function setLanguage(lang){
         playerDesc.textContent = "SATIŞA VE DEVİRE HAZIR ESERLERİ DİNLEYEBİLİRSİNİZ";
         nowPlaying.textContent = "Seçili şarkı yok";
         footerDesc.textContent = "Siyah Altın Prodüksiyon, Serkan Kaynar tarafından kurulan; arabesk, pop ve özgün müzik üretimleri yapan bağımsız bir prodüksiyon platformudur. Bu sitede yer alan tüm eserlerin söz ve müzik hakları eser sahibine, Serkan Kaynar'a aittir. Yetkisiz kişiler tarafından izinsiz ticari amaçla kullanılamaz, kopyalanamaz, çoğaltılamaz. Tüm hakları saklıdır!";
-        footerContacts.innerHTML = "📞 WhatsApp: 0507 416 36 05 | 📧 skaynar578@gmail.com | 📸 @siyahaltinproduksiyonsk <span class='year'>2026</span>";
-    }
-}
-</script>
-
-</body>
-</html>
+        footerContacts.innerHTML = "📞 WhatsApp: 0507 416 36 05 | 📧 skaynar578@gmail.com | 📸 @s
