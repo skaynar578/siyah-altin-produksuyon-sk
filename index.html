@@ -62,8 +62,8 @@ header{ padding:25px 15px; position:relative; }
 }
 .sk-line{
     display:inline-block;
-    width:20px;             
-    border-bottom:3px solid #ffd700; 
+    width:20px;
+    border-bottom:3px solid #ffd700;
     vertical-align:middle;
 }
 
@@ -313,10 +313,10 @@ footer .contacts span.year{
 <footer>
     <p class="contacts" id="footerContacts">
         📞 WhatsApp: 0507 416 36 05 | 📧 skaynar578@gmail.com | 📸 @siyahaltinproduksiyonsk <span class="year">2026</span>
-        <span class="visitor-counter" id="visitorCounter">Ziyaretçi Sayısı: 1500</span>
     </p>
     <p class="description" id="footerDesc">
-        Siyah Altın Prodüksiyon, Serkan Kaynar tarafından kurulan; arabesk, pop ve özgün müzik üretimleri yapan bağımsız bir prodüksiyon platformudur. Bu sitede yer alan tüm eserlerin söz ve müzik hakları eser sahibine, Serkan Kaynar'a aittir. Yetkisiz kişiler tarafından izinsiz ticari amaçla kullanılamaz, kopyalanamaz, çoğaltılamaz. Tüm hakları saklıdır!
+        Siyah Altın Prodüksiyon, Serkan Kaynar tarafından kurulan; arabesk, pop ve özgün müzik üretimleri yapan bağımsız bir prodüksiyon platformudur. Bu sitede yer alan tüm eserlerin söz ve müzik hakları eser sahibine, Serkan Kaynar'a aittir. Yetkisiz kişiler tarafından izinsiz ticari amaçla kullanılamaz, kopyalanamaz, çoğaltılamaz. Tüm hakları saklıdır! 
+        <span class="visitor-counter" id="visitorCounter">Ziyaretçi Sayısı: 1500</span>
     </p>
 </footer>
 
@@ -330,6 +330,7 @@ const player = document.getElementById("audioPlayer");
 const nowPlaying = document.getElementById("nowPlaying");
 const playerBox = document.getElementById("playerBox");
 
+// Metin elementleri
 const headerMainTitle = document.querySelector(".header-main-title");
 const headerSubTitle = document.getElementById("header-sub-title");
 const sub1 = document.getElementById("sub1");
@@ -340,7 +341,7 @@ const playerDesc = document.getElementById("playerDesc");
 const footerDesc = document.getElementById("footerDesc");
 const footerContacts = document.getElementById("footerContacts");
 
-// Müzik oynatma fonksiyonu
+// Oynatma fonksiyonu
 function playTrack(name, file){
     if(player.src.includes(file)){
         player.paused ? player.play() : player.pause();
@@ -369,7 +370,7 @@ function toggleList(id){
     icon.classList.add("icon-shake");
 }
 
-// Dil değişimi
+// Dil değişimi tüm sayfada
 function setLanguage(lang){
     if(lang==='en'){
         headerMainTitle.innerHTML = "<span style='text-transform:capitalize;'>Black Gold </span><span style='text-transform:uppercase;'>P</span>roduction";
@@ -391,19 +392,11 @@ function setLanguage(lang){
         skTitle.innerHTML = "<span class='sk-s'>S</span><span class='sk-line'></span><span class='sk-k'>K</span>";
         playerDesc.textContent = "SATIŞA VE DEVİRE HAZIR ESERLERİ DİNLEYEBİLİRSİNİZ";
         nowPlaying.textContent = "Seçili şarkı yok";
-        footerDesc.textContent = "Siyah Altın Prodüksiyon, Serkan Kaynar tarafından kurulan; arabesk, pop ve özgün müzik üretimleri yapan bağımsız bir prodüksiyon platformudur. Bu sitede yer alan tüm eserlerin söz ve müzik hakları eser sahibine, Serkan Kaynar'a aittir. Yetkisiz kişiler tarafından izinsiz ticari amaçla kullanılamaz, kopyalanamaz, çoğaltılamaz. Tüm hakları saklıdır!";
+        footerDesc.innerHTML = "Siyah Altın Prodüksiyon, Serkan Kaynar tarafından kurulan; arabesk, pop ve özgün müzik üretimleri yapan bağımsız bir prodüksiyon platformudur. Bu sitede yer alan tüm eserlerin söz ve müzik hakları eser sahibine, Serkan Kaynar'a aittir. Yetkisiz kişiler tarafından izinsiz ticari amaçla kullanılamaz, kopyalanamaz, çoğaltılamaz. Tüm hakları saklıdır! <span class='visitor-counter' id='visitorCounter'>Ziyaretçi Sayısı: 1500</span>";
         footerContacts.innerHTML = "📞 WhatsApp: 0507 416 36 05 | 📧 skaynar578@gmail.com | 📸 @siyahaltinproduksiyonsk <span class='year'>2026</span>";
     }
 }
-
-// --- ZİYARETÇİ SAYACI ---
-let visitorCounter = document.getElementById("visitorCounter");
-let count = localStorage.getItem("visitorCount");
-if(!count) count = 1500;
-count = parseInt(count) + 1;
-localStorage.setItem("visitorCount", count);
-visitorCounter.textContent = "Ziyaretçi Sayısı: " + count;
-</script>
+</script>a
 
 </body>
 </html>
