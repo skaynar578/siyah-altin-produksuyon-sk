@@ -280,7 +280,7 @@ footer .contacts span.year{
     </div>
 
     <div class="category">
-        <h3 onclick="toggleList('arabesk')"><span class="icon-shake">🎧</span> <span id="cat-arabesk">Arabesk</span></h3>
+        <h3 onclick="toggleList('arabesk')"><span class="icon-shake">🎧</span> <span id="cat-arabesk">Yeni Nesil Arabesk</span></h3>
         <div class="track-list" id="arabesk">
             <div onclick="playTrack('Küllerimden Kalktım – Arabesk','kullerimden-kalktim.mp3.mp3')"><span>🎧</span> <span id="track-arabesk">Küllerimden Kalktım – Arabesk</span></div>
         </div>
@@ -335,7 +335,6 @@ const player = document.getElementById("audioPlayer");
 const nowPlaying = document.getElementById("nowPlaying");
 const playerBox = document.getElementById("playerBox");
 
-// Metin elementleri
 const headerMainTitle = document.querySelector(".header-main-title");
 const headerSubTitle = document.getElementById("header-sub-title");
 const sub1 = document.getElementById("sub1");
@@ -346,7 +345,6 @@ const playerDesc = document.getElementById("playerDesc");
 const footerDesc = document.getElementById("footerDesc");
 const footerContacts = document.getElementById("footerContacts");
 
-// Oynatma fonksiyonu
 function playTrack(name, file){
     if(player.src.includes(file)){
         player.paused ? player.play() : player.pause();
@@ -375,7 +373,6 @@ function toggleList(id){
     icon.classList.add("icon-shake");
 }
 
-// Dil değişimi tüm sayfada
 function setLanguage(lang){
     if(lang==='en'){
         headerMainTitle.innerHTML = "<span style='text-transform:capitalize;'>Black Gold </span><span style='text-transform:uppercase;'>P</span>roduction";
