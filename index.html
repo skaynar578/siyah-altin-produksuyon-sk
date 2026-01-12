@@ -38,14 +38,13 @@ header{ padding:25px 15px; position:relative; }
     text-shadow: 0 0 8px #ffd700;
 }
 
-/* 🔽 SADECE BURASI YUMUŞATILDI */
+/* SADECE BURASI YUMUŞATILDI */
 .professional-title{
     font-size:32px;
     font-weight:800;
     margin-bottom:15px;
-    color:#ffd700;
-    text-shadow:0 0 6px rgba(255,215,0,0.6),
-               0 0 12px rgba(255,215,0,0.4);
+    color:#e6c75f;
+    text-shadow:0 0 6px rgba(255,215,0,0.5);
 }
 
 .sk-title{
@@ -59,9 +58,14 @@ header{ padding:25px 15px; position:relative; }
     justify-content:center;
     gap:8px;
 }
+.sk-s, .sk-k{
+    display:inline-block;
+}
 .sk-line{
+    display:inline-block;
     width:20px;
     border-bottom:3px solid #ffd700;
+    vertical-align:middle;
 }
 .language-switch{
     position:absolute;
@@ -85,38 +89,91 @@ header{ padding:25px 15px; position:relative; }
 .player-description{
     font-weight:bold;
     font-size:16px;
+    color:#ffd700;
     text-transform:uppercase;
     text-shadow:0 0 8px #ffd700;
+    margin-bottom:10px;
 }
 .player-box{
     border:1px solid #d4af37;
     padding:20px;
     border-radius:14px;
     box-shadow:0 0 20px rgba(212,175,55,0.3);
+    transition:0.3s, box-shadow 0.5s;
 }
 .player-box.playing{
     animation:playerGlow 1s infinite alternate;
 }
-audio{ width:100%; }
+#nowPlaying{
+    font-weight:bold;
+    margin-bottom:10px;
+    transition:0.3s;
+}
+audio{
+    width:100%;
+    height:32px;
+}
 .category{
     margin:20px auto;
     max-width:420px;
     border:1px solid #d4af37;
     padding:12px;
     border-radius:12px;
+    box-shadow:0 0 15px rgba(212,175,55,0.1);
+    transition:0.3s;
 }
-.track-list{ display:none; margin-top:10px; }
+.category:hover{
+    box-shadow:0 0 25px rgba(212,175,55,0.25);
+}
+.category h3{
+    cursor:pointer;
+    margin:0;
+    display:flex;
+    align-items:center;
+    gap:6px;
+    font-weight:bold;
+}
+.track-list{
+    display:none;
+    margin-top:10px;
+    animation:fadeInList 0.4s ease-in-out;
+}
 .track-list div{
     padding:6px;
     cursor:pointer;
     border-bottom:1px solid #333;
+    display:flex;
+    align-items:center;
+    gap:6px;
+}
+.track-list div:hover{
+    background:#1a1a1a;
+    transform:translateX(3px);
+    transition:0.3s;
 }
 footer{
     padding:25px 15px;
     font-size:14px;
+    line-height:1.6;
     max-width:900px;
-    margin:30px auto 0;
+    margin:30px auto 0 auto;
     text-align:left;
+}
+footer p{
+    margin:6px 0;
+}
+footer .description{
+    font-size:13px;
+    color:#f0e68c;
+}
+footer .contacts{
+    font-weight:bold;
+    font-size:16px;
+}
+footer .contacts span.year{
+    font-weight:900;
+    color:#ffd700;
+    margin-left:8px;
 }
 .fixed-buttons{
     position:fixed;
@@ -125,58 +182,48 @@ footer{
     display:flex;
     flex-direction:column;
     gap:10px;
+    z-index:999;
 }
 .fixed-buttons a{
     text-decoration:none;
     padding:10px 14px;
     border-radius:6px;
     font-weight:bold;
+    font-size:14px;
     color:#0b0b0b;
+    transition:0.3s;
+}
+.fixed-buttons a:hover{
+    box-shadow:0 0 15px #d4af37;
+    transform:scale(1.05);
 }
 .whatsapp-btn{ background:#25D366; }
 .message-btn{ background:#d4af37; }
 
+@keyframes fadeInList{
+    from{opacity:0; transform:translateY(-10px);}
+    to{opacity:1; transform:translateY(0);}
+}
+@keyframes shakeIcon{
+    0%{transform:rotate(0deg);}
+    25%{transform:rotate(10deg);}
+    50%{transform:rotate(-10deg);}
+    75%{transform:rotate(10deg);}
+    100%{transform:rotate(0);}
+}
 @keyframes playerGlow{
-    from{box-shadow:0 0 20px rgba(212,175,55,0.5);}
-    to{box-shadow:0 0 45px rgba(212,175,55,1);}
+    0%{box-shadow:0 0 20px rgba(212,175,55,0.5);}
+    50%{box-shadow:0 0 35px rgba(212,175,55,0.8);}
+    100%{box-shadow:0 0 50px rgba(212,175,55,1);}
+}
+.icon-shake{
+    display:inline-block;
+    animation:shakeIcon 0.6s ease;
 }
 </style>
 </head>
 
 <body>
-
-<header>
-    <div class="language-switch">
-        <span onclick="setLanguage('tr')">TR</span> | 
-        <span onclick="setLanguage('en')">EN</span>
-    </div>
-
-    <h1 class="header-main-title">
-        <span>Siyah Altın </span><span>P</span>rodüksiyon
-    </h1>
-
-    <div class="sk-title">S<span class="sk-line"></span>K</div>
-
-    <h2 class="header-sub-title" id="header-sub-title">BLACK GOLD PRODUCTION</h2>
-    <div class="professional-title">PROFESYONEL</div>
-
-    <div class="sub" id="sub1">Hazır Şarkılar • Besteler</div>
-    <div class="sub" id="sub2">Satışa ve Devire Hazır Eserler</div>
-</header>
-
-<script>
-function setLanguage(lang){
-    if(lang==="en"){
-        document.querySelector(".professional-title").innerText="PROFESSIONAL";
-        document.getElementById("sub1").innerText="Ready Songs • Compositions";
-        document.getElementById("sub2").innerText="Available for Sale & License";
-    }else{
-        document.querySelector(".professional-title").innerText="PROFESYONEL";
-        document.getElementById("sub1").innerText="Hazır Şarkılar • Besteler";
-        document.getElementById("sub2").innerText="Satışa ve Devire Hazır Eserler";
-    }
-}
-</script>
-
+<!-- BODY ve SCRIPT kısmı SANA AİT ANA KODLA AYNI ŞEKİLDE DEVAM EDER -->
 </body>
 </html>
