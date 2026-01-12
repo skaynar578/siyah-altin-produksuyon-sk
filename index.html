@@ -62,8 +62,8 @@ header{ padding:25px 15px; position:relative; }
 }
 .sk-line{
     display:inline-block;
-    width:20px;
-    border-bottom:3px solid #ffd700;
+    width:20px;             
+    border-bottom:3px solid #ffd700; 
     vertical-align:middle;
 }
 
@@ -229,6 +229,15 @@ footer .contacts span.year{
     display:inline-block;
     animation:shakeIcon 0.6s ease;
 }
+
+/* ZİYARETÇİ SAYACI */
+.visitor-counter{
+    display:inline-block;
+    font-weight:bold;
+    color:#ffd700;
+    margin-left:12px;
+    font-size:15px;
+}
 </style>
 </head>
 
@@ -313,10 +322,10 @@ footer .contacts span.year{
 <footer>
     <p class="contacts" id="footerContacts">
         📞 WhatsApp: 0507 416 36 05 | 📧 skaynar578@gmail.com | 📸 @siyahaltinproduksiyonsk <span class="year">2026</span>
+        <span class="visitor-counter" id="visitorCounter">Ziyaretçi Sayısı: 1500</span>
     </p>
     <p class="description" id="footerDesc">
-        Siyah Altın Prodüksiyon, Serkan Kaynar tarafından kurulan; arabesk, pop ve özgün müzik üretimleri yapan bağımsız bir prodüksiyon platformudur. Bu sitede yer alan tüm eserlerin söz ve müzik hakları eser sahibine, Serkan Kaynar'a aittir. Yetkisiz kişiler tarafından izinsiz ticari amaçla kullanılamaz, kopyalanamaz, çoğaltılamaz. Tüm hakları saklıdır! 
-        <span class="visitor-counter" id="visitorCounter">Ziyaretçi Sayısı: 1500</span>
+        Siyah Altın Prodüksiyon, Serkan Kaynar tarafından kurulan; arabesk, pop ve özgün müzik üretimleri yapan bağımsız bir prodüksiyon platformudur. Bu sitede yer alan tüm eserlerin söz ve müzik hakları eser sahibine, Serkan Kaynar'a aittir. Yetkisiz kişiler tarafından izinsiz ticari amaçla kullanılamaz, kopyalanamaz, çoğaltılamaz. Tüm hakları saklıdır!
     </p>
 </footer>
 
@@ -392,11 +401,15 @@ function setLanguage(lang){
         skTitle.innerHTML = "<span class='sk-s'>S</span><span class='sk-line'></span><span class='sk-k'>K</span>";
         playerDesc.textContent = "SATIŞA VE DEVİRE HAZIR ESERLERİ DİNLEYEBİLİRSİNİZ";
         nowPlaying.textContent = "Seçili şarkı yok";
-        footerDesc.innerHTML = "Siyah Altın Prodüksiyon, Serkan Kaynar tarafından kurulan; arabesk, pop ve özgün müzik üretimleri yapan bağımsız bir prodüksiyon platformudur. Bu sitede yer alan tüm eserlerin söz ve müzik hakları eser sahibine, Serkan Kaynar'a aittir. Yetkisiz kişiler tarafından izinsiz ticari amaçla kullanılamaz, kopyalanamaz, çoğaltılamaz. Tüm hakları saklıdır! <span class='visitor-counter' id='visitorCounter'>Ziyaretçi Sayısı: 1500</span>";
+        footerDesc.textContent = "Siyah Altın Prodüksiyon, Serkan Kaynar tarafından kurulan; arabesk, pop ve özgün müzik üretimleri yapan bağımsız bir prodüksiyon platformudur. Bu sitede yer alan tüm eserlerin söz ve müzik hakları eser sahibine, Serkan Kaynar'a aittir. Yetkisiz kişiler tarafından izinsiz ticari amaçla kullanılamaz, kopyalanamaz, çoğaltılamaz. Tüm hakları saklıdır!";
         footerContacts.innerHTML = "📞 WhatsApp: 0507 416 36 05 | 📧 skaynar578@gmail.com | 📸 @siyahaltinproduksiyonsk <span class='year'>2026</span>";
     }
 }
-</script>
 
-</body>
-</html>
+// Ziyaretçi sayacı
+let visitorCounter = document.getElementById("visitorCounter");
+let count = localStorage.getItem("visitorCount");
+if(!count) count = 1500;
+count++;
+localStorage.setItem("visitorCount", count);
+visitorCounter.textContent = "Ziyaretçi Sayısı:
