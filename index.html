@@ -229,15 +229,6 @@ footer .contacts span.year{
     display:inline-block;
     animation:shakeIcon 0.6s ease;
 }
-
-/* ZİYARETÇİ SAYACI */
-.visitor-counter{
-    display:inline-block;
-    font-weight:bold;
-    color:#ffd700;
-    margin-left:12px;
-    font-size:15px;
-}
 </style>
 </head>
 
@@ -339,7 +330,6 @@ const player = document.getElementById("audioPlayer");
 const nowPlaying = document.getElementById("nowPlaying");
 const playerBox = document.getElementById("playerBox");
 
-// Metin elementleri
 const headerMainTitle = document.querySelector(".header-main-title");
 const headerSubTitle = document.getElementById("header-sub-title");
 const sub1 = document.getElementById("sub1");
@@ -350,7 +340,7 @@ const playerDesc = document.getElementById("playerDesc");
 const footerDesc = document.getElementById("footerDesc");
 const footerContacts = document.getElementById("footerContacts");
 
-// Oynatma fonksiyonu
+// Müzik oynatma fonksiyonu
 function playTrack(name, file){
     if(player.src.includes(file)){
         player.paused ? player.play() : player.pause();
@@ -379,7 +369,7 @@ function toggleList(id){
     icon.classList.add("icon-shake");
 }
 
-// Dil değişimi tüm sayfada
+// Dil değişimi
 function setLanguage(lang){
     if(lang==='en'){
         headerMainTitle.innerHTML = "<span style='text-transform:capitalize;'>Black Gold </span><span style='text-transform:uppercase;'>P</span>roduction";
@@ -406,10 +396,14 @@ function setLanguage(lang){
     }
 }
 
-// Ziyaretçi sayacı
+// --- ZİYARETÇİ SAYACI ---
 let visitorCounter = document.getElementById("visitorCounter");
 let count = localStorage.getItem("visitorCount");
 if(!count) count = 1500;
-count++;
+count = parseInt(count) + 1;
 localStorage.setItem("visitorCount", count);
-visitorCounter.textContent = "Ziyaretçi Sayısı:
+visitorCounter.textContent = "Ziyaretçi Sayısı: " + count;
+</script>
+
+</body>
+</html>
