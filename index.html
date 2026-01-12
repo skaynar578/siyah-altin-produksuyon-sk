@@ -45,7 +45,7 @@ header{ padding:25px 15px; position:relative; }
     text-shadow:0 0 12px #ffd700,0 0 22px #ffd700;
 }
 
-/* SK başlığı - S ve K arası yatay çizgi, sabit */
+/* SK başlığı */
 .sk-title{
     font-size:48px;
     font-weight:500;
@@ -340,6 +340,7 @@ const skTitle = document.querySelector(".sk-title");
 const playerDesc = document.getElementById("playerDesc");
 const footerDesc = document.getElementById("footerDesc");
 const footerContacts = document.getElementById("footerContacts");
+const visitorCounter = document.getElementById("visitorCounter");
 
 // Oynatma fonksiyonu
 function playTrack(name, file){
@@ -381,7 +382,7 @@ function setLanguage(lang){
         skTitle.innerHTML = "<span class='sk-s'>S</span><span class='sk-line'></span><span class='sk-k'>K</span>";
         playerDesc.textContent = "LISTEN TO READY-TO-SELL & LICENSED SONGS";
         nowPlaying.textContent = "No track selected";
-        footerDesc.textContent = "Black Gold Production, founded by Serkan Kaynar; an independent production platform producing arabesque, pop and original music. All songs on this site belong to their authors. Unauthorized commercial use, copying or distribution is prohibited. All rights reserved!";
+        footerDesc.textContent = "Black Gold Production, founded by Serkan Kaynar; an independent production platform producing arabesque, pop and original music. All songs on this site belong to their authors. Unauthorized commercial use, copying or distribution is prohibited. All rights reserved! Ziyaretçi Sayısı: 1500";
         footerContacts.innerHTML = "📞 WhatsApp: 0507 416 36 05 | 📧 skaynar578@gmail.com | 📸 @blackgoldproductionsk <span class='year'>2026</span>";
     } else {
         headerMainTitle.innerHTML = "<span style='text-transform:capitalize;'>Siyah Altın </span><span style='text-transform:uppercase;'>P</span>rodüksiyon";
@@ -396,7 +397,7 @@ function setLanguage(lang){
         footerContacts.innerHTML = "📞 WhatsApp: 0507 416 36 05 | 📧 skaynar578@gmail.com | 📸 @siyahaltinproduksiyonsk <span class='year'>2026</span>";
     }
 }
-</script>a
+</script>
 
 </body>
 </html>
