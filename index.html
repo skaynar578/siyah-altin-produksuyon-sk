@@ -62,8 +62,8 @@ header{ padding:25px 15px; position:relative; }
 }
 .sk-line{
     display:inline-block;
-    width:20px;             /* çizgi uzunluğu */
-    border-bottom:3px solid #ffd700; /* yatay çizgi */
+    width:20px;
+    border-bottom:3px solid #ffd700;
     vertical-align:middle;
 }
 
@@ -170,12 +170,19 @@ footer .description{
 }
 footer .contacts{
     font-weight:bold;
-    font-size:16px; /* büyütüldü */
+    font-size:16px;
 }
 footer .contacts span.year{
     font-weight:900;
     color:#ffd700;
     margin-left:8px;
+}
+/* Ziyaretçi sayacı */
+footer .visitor-count{
+    font-size:14px;
+    font-weight:bold;
+    color:#ffd700;
+    margin-top:5px;
 }
 
 /* SABİT WHATSAPP & MESAJ BUTONLARI */
@@ -314,6 +321,9 @@ footer .contacts span.year{
     <p class="contacts" id="footerContacts">
         📞 WhatsApp: 0507 416 36 05 | 📧 skaynar578@gmail.com | 📸 @siyahaltinproduksiyonsk <span class="year">2026</span>
     </p>
+    <p class="visitor-count" id="visitorCount">
+        Ziyaretçi sayısı: <span id="count">0</span>
+    </p>
     <p class="description" id="footerDesc">
         Siyah Altın Prodüksiyon, Serkan Kaynar tarafından kurulan; arabesk, pop ve özgün müzik üretimleri yapan bağımsız bir prodüksiyon platformudur. Bu sitede yer alan tüm eserlerin söz ve müzik hakları eser sahibine, Serkan Kaynar'a aittir. Yetkisiz kişiler tarafından izinsiz ticari amaçla kullanılamaz, kopyalanamaz, çoğaltılamaz. Tüm hakları saklıdır!
     </p>
@@ -395,7 +405,10 @@ function setLanguage(lang){
         footerContacts.innerHTML = "📞 WhatsApp: 0507 416 36 05 | 📧 skaynar578@gmail.com | 📸 @siyahaltinproduksiyonsk <span class='year'>2026</span>";
     }
 }
-</script>
 
-</body>
-</html>
+// Ziyaretçi sayacı (JS + localStorage)
+let visitorCount = localStorage.getItem('visitorCount') || 0;
+visitorCount++;
+localStorage.setItem('visitorCount', visitorCount);
+document.getElementById('count').textContent = visitorCount;
+
