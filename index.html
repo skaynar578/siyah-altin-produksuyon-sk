@@ -20,7 +20,7 @@ header{ padding:25px 15px; position:relative; }
     margin:6px 0;
 }
 
-/* DEĞİŞMEDİ */
+/* AYNI */
 .header-main-title{
     font-size:38px;
     font-weight:900;
@@ -28,21 +28,18 @@ header{ padding:25px 15px; position:relative; }
     margin-bottom:5px;
     color:#ffd700;
     text-shadow: 0 0 15px #ffd700;
-    max-width:90%;
-    margin-left:auto;
-    margin-right:auto;
 }
 
-/* ⬇ MATLAŞTIRILDI */
+/* ⬇ MAT */
 .header-sub-title{
     font-size:28px;
     font-weight:700;
     margin-bottom:5px;
     color:#e6c85a;
-    text-shadow:0 0 3px rgba(255,215,0,0.4);
+    text-shadow:0 0 3px rgba(255,215,0,0.35);
 }
 
-/* ⬇ MATLAŞTIRILDI */
+/* ⬇ MAT */
 .professional-title{
     font-size:32px;
     font-weight:800;
@@ -51,7 +48,7 @@ header{ padding:25px 15px; position:relative; }
     text-shadow:0 0 4px rgba(255,215,0,0.35);
 }
 
-/* ⬇ MATLAŞTIRILDI (S K) */
+/* ⬇ MAT (S K) */
 .sk-title{
     font-size:48px;
     font-weight:500;
@@ -63,7 +60,6 @@ header{ padding:25px 15px; position:relative; }
     justify-content:center;
     gap:8px;
 }
-
 .sk-line{
     width:20px;
     border-bottom:2px solid rgba(255,215,0,0.6);
@@ -82,6 +78,10 @@ header{ padding:25px 15px; position:relative; }
     text-decoration:underline;
 }
 
+.player-box-container{
+    max-width:450px;
+    margin:50px auto 20px auto;
+}
 .player-description{
     font-weight:bold;
     font-size:16px;
@@ -89,8 +89,29 @@ header{ padding:25px 15px; position:relative; }
     text-shadow:0 0 8px #ffd700;
     margin-bottom:10px;
 }
+.player-box{
+    border:1px solid #d4af37;
+    padding:20px;
+    border-radius:14px;
+}
+audio{ width:100%; }
 
-/* GERİ KALAN HER ŞEY AYNEN */
+.category{
+    margin:20px auto;
+    max-width:420px;
+    border:1px solid #d4af37;
+    padding:12px;
+    border-radius:12px;
+}
+.track-list{ display:none; }
+
+footer{
+    padding:25px 15px;
+    font-size:14px;
+    max-width:900px;
+    margin:30px auto 0;
+    text-align:left;
+}
 </style>
 </head>
 
@@ -100,7 +121,9 @@ header{ padding:25px 15px; position:relative; }
     <h1 class="header-main-title">Siyah Altın Prodüksiyon</h1>
 
     <div class="sk-title">
-        <span>S</span><span class="sk-line"></span><span>K</span>
+        <span>S</span>
+        <span class="sk-line"></span>
+        <span>K</span>
     </div>
 
     <h2 class="header-sub-title">BLACK GOLD PRODUCTION</h2>
@@ -109,6 +132,25 @@ header{ padding:25px 15px; position:relative; }
     <div class="sub">Hazır Şarkılar • Besteler</div>
     <div class="sub">Satışa ve Devire Hazır Eserler</div>
 </header>
+
+<section>
+    <div class="player-box-container">
+        <div class="player-description">
+            SATIŞA VE DEVİRE HAZIR ESERLERİ DİNLEYEBİLİRSİNİZ
+        </div>
+        <div class="player-box">
+            <div>Seçili şarkı yok</div>
+            <audio controls></audio>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>
+        📞 WhatsApp: 0507 416 36 05 | 📧 skaynar578@gmail.com <br>
+        © 2026 Siyah Altın Prodüksiyon
+    </p>
+</footer>
 
 </body>
 </html>
