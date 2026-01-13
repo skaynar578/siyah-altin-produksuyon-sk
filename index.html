@@ -44,7 +44,6 @@ header{ padding:25px 15px; position:relative; }
     color:#ffd700;
     text-shadow:0 0 12px #ffd700,0 0 22px #ffd700;
 }
-
 .sk-title{
     font-size:32px; 
     font-weight:500;
@@ -56,9 +55,7 @@ header{ padding:25px 15px; position:relative; }
     justify-content:center;
     gap:6px; 
 }
-
 .sk-s, .sk-k{ display:inline-block; }
-
 .language-switch{
     position:absolute;
     top:15px;
@@ -72,7 +69,6 @@ header{ padding:25px 15px; position:relative; }
     text-decoration:underline;
 }
 .language-switch span:hover{ color:#ffd700; }
-
 .player-box-container{
     max-width:450px;
     margin:50px auto 20px auto;
@@ -90,22 +86,16 @@ header{ padding:25px 15px; position:relative; }
     padding:20px;
     border-radius:14px;
     box-shadow:0 0 20px rgba(212,175,55,0.3);
-    transition:0.3s, box-shadow 0.5s;
 }
-.player-box.playing{ animation:playerGlow 1s infinite alternate; }
-#nowPlaying{ font-weight:bold; margin-bottom:10px; transition:0.3s; }
+#nowPlaying{ font-weight:bold; margin-bottom:10px; }
 audio{ width:100%; height:32px; }
-
 .category{
     margin:20px auto;
     max-width:420px;
     border:1px solid #d4af37;
     padding:12px;
     border-radius:12px;
-    box-shadow:0 0 15px rgba(212,175,55,0.1);
-    transition:0.3s;
 }
-.category:hover{ box-shadow:0 0 25px rgba(212,175,55,0.25); }
 .category h3{
     cursor:pointer;
     margin:0;
@@ -126,7 +116,6 @@ audio{ width:100%; height:32px; }
     align-items:center;
     gap:6px;
 }
-
 .icon-shake{ display:inline-block; }
 </style>
 </head>
@@ -135,19 +124,14 @@ audio{ width:100%; height:32px; }
 
 <header>
     <div class="language-switch">
-        <span onclick="setLanguage('tr')">TR</span> | 
-        <span onclick="setLanguage('en')">EN</span>
+        <span>TR</span> | <span>EN</span>
     </div>
 
     <h1 class="header-main-title">
-        <span style="text-transform:capitalize;">Siyah Altın </span><span style="text-transform:uppercase;">P</span>rodüksiyon
+        <span>Siyah Altın </span><span>P</span>rodüksiyon
     </h1>
 
-    <div class="sk-title">
-        <span class="sk-s">S</span>
-        <span class="sk-k">K</span>
-    </div>
-
+    <div class="sk-title"><span>S</span><span>K</span></div>
     <h2 class="header-sub-title">BLACK GOLD PRODUCTION</h2>
     <div class="professional-title">PROFESYONEL</div>
 
@@ -160,14 +144,14 @@ audio{ width:100%; height:32px; }
 
 <div class="player-box-container">
     <div class="player-description">SATIŞA VE DEVİRE HAZIR ESERLERİ DİNLEYEBİLİRSİNİZ</div>
-    <div class="player-box" id="playerBox">
+    <div class="player-box">
         <div id="nowPlaying">Seçili şarkı yok</div>
         <audio id="audioPlayer" controls></audio>
     </div>
 </div>
 
 <div class="category">
-    <h3 onclick="toggleList('pop')"><span class="icon-shake">🎧</span> Pop</h3>
+    <h3 onclick="toggleList('pop')">🎧 Pop</h3>
     <div class="track-list" id="pop">
         <div onclick="playTrack('Korkuyorum','mp3.korkuyorum.mp3')">🎧 Korkuyorum</div>
         <div onclick="playTrack('Masal','masal-pop-mp3.mp3')">🎧 Masal</div>
