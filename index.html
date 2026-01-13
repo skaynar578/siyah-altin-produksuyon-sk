@@ -218,33 +218,141 @@ footer .contacts span.year{
     </div>
 
     <div class="category">
-        <h3 onclick="toggleList('hiphop')"><span class="icon-shake">🎧</span> <span id="cat-hiphop">Yeni Nesil Hip Hop</span></h3>
-        <div class="track-list" id="hiphop">
-            <div onclick="playTrack('Yangın Gibi – Hip Hop','yangın-gibi-hiphop.mp3')">
-                <span>🎧</span> <span>Yangın Gibi – Hip Hop</span>
-            </div>
+        <h3 onclick="toggleList('yeniler')"><span class="icon-shake">🎧</span> <span id="cat-yeniler">Yeniler Mix</span></h3>
+        <div class="track-list" id="yeniler">
+            <div onclick="playTrack('Yeniler Mix','yeniler.mp3.mp3')"><span>🎧</span> <span id="track-yeniler">Yeniler Mix</span></div>
         </div>
     </div>
+
+    <div class="category">
+        <h3 onclick="toggleList('arabesk')"><span class="icon-shake">🎧</span> <span id="cat-arabesk">Yeni Nesil Arabesk</span></h3>
+        <div class="track-list" id="arabesk">
+            <div onclick="playTrack('Küllerimden Kalktım – Arabesk','kullerimden-kalktim.mp3.mp3')"><span>🎧</span> <span id="track-arabesk">Küllerimden Kalktım – Arabesk</span></div>
+        </div>
+    </div>
+
+    <div class="category">
+        <h3 onclick="toggleList('arabeskpop')"><span class="icon-shake">🎧</span> <span id="cat-arabeskpop">Arabesk Pop Karışımı</span></h3>
+        <div class="track-list" id="arabeskpop">
+            <div onclick="playTrack('Dünya Benim Olurdu','dunya-benim-olurdu.mp3.mp3')"><span>🎧</span> <span id="track-arabeskpop">Dünya Benim Olurdu</span></div>
+        </div>
+    </div>
+
+    <div class="category">
+        <h3 onclick="toggleList('turku')"><span class="icon-shake">🎧</span> <span id="cat-turku">Türkü</span></h3>
+        <div class="track-list" id="turku">
+            <div onclick="playTrack('Bu Geçer – Türkü','bu-gecer-turku.mp3.mp3')"><span>🎧</span> <span id="track-turku">Bu Geçer – Türkü</span></div>
+        </div>
+    </div>
+
+    <div class="category">
+        <h3 onclick="toggleList('pop')"><span class="icon-shake">🎧</span> <span id="cat-pop">Pop</span></h3>
+        <div class="track-list" id="pop">
+            <div onclick="playTrack('Korkuyorum','mp3.korkuyorum.mp3')"><span>🎧</span> <span id="track-pop">Korkuyorum</span></div>
+            <div onclick="playTrack('Masal','masal-pop-mp3.mp3')"><span>🎧</span> <span id="track-pop-masal">Masal</span></div>
+            <div onclick="playTrack('Bu Geçer','bu-gecer.mp3.mp3')"><span>🎧</span> <span id="track-pop-gecer">Bu Geçer</span></div>
+            <div onclick="playTrack('Hadi Gidelim','hadi-gidelim-pop.mp3')"><span>🎧</span> <span id="track-pop-buhadi">Hadi Gidelim</span></div>
+        </div>
+    </div>
+
+    <div class="category">
+        <h3 onclick="toggleList('slowpop')"><span class="icon-shake">🎧</span> <span id="cat-slowpop">Slow Pop</span></h3>
+        <div class="track-list" id="slowpop">
+            <div onclick="playTrack('Kırık Düşler – Slow Pop','kirik-dusler.mp3.mp3')"><span>🎧</span> <span id="track-slowpop">Kırık Düşler – Slow Pop</span></div>
+        </div>
+    </div>
+
+    <div class="category">
+        <h3 onclick="toggleList('hiphop')"><span class="icon-shake">🎧</span> <span id="cat-hiphop">Yeni Nesil Hip Hop</span></h3>
+        <div class="track-list" id="hiphop">
+            <div onclick="playTrack('Yangın Gibi – Hip Hop','yangin-gibi-hip-hop1.mp3')"><span>🎧</span> <span>Yangın Gibi – Hip Hop</span></div>
+        </div>
+    </div>
+
 </section>
+
+<footer>
+    <p class="contacts" id="footerContacts">
+        📞 WhatsApp: 0507 416 36 05 | 📧 skaynar578@gmail.com | 📸 @siyahaltinproduksiyonsk <span class="year">2026</span>
+    </p>
+    <p class="description" id="footerDesc">
+        Siyah Altın Prodüksiyon, Serkan Kaynar tarafından kurulan; arabesk, pop ve özgün müzik üretimleri yapan bağımsız bir prodüksiyon platformudur. Bu sitede yer alan tüm eserlerin söz ve müzik hakları eser sahibine, Serkan Kaynar'a aittir. Yetkisiz kişiler tarafından izinsiz ticari amaçla kullanılamaz, kopyalanamaz, çoğaltılamaz. Tüm hakları saklıdır!
+        <span class="visitor-counter" id="visitorCounter">Ziyaretçi Sayısı: 1500</span>
+    </p>
+</footer>
+
+<div class="fixed-buttons">
+    <a class="whatsapp-btn" href="https://wa.me/905074163605" target="_blank">WhatsApp</a>
+    <a class="message-btn" href="https://wa.me/905074163605?text=Merhaba%20bilgi%20almak%20istiyorum" target="_blank">Mesaj Gönder</a>
+</div>
 
 <script>
 const player=document.getElementById("audioPlayer");
 const nowPlaying=document.getElementById("nowPlaying");
 const playerBox=document.getElementById("playerBox");
+const headerMainTitle=document.querySelector(".header-main-title");
+const headerSubTitle=document.getElementById("header-sub-title");
+const sub1=document.getElementById("sub1");
+const sub2=document.getElementById("sub2");
+const sub3=document.getElementById("sub3");
+const professionalTitle=document.querySelector(".professional-title");
+const skTitle=document.querySelector(".sk-title");
+const playerDesc=document.getElementById("playerDesc");
+const footerDesc=document.getElementById("footerDesc");
+const footerContacts=document.getElementById("footerContacts");
+const visitorCounter=document.getElementById("visitorCounter");
+
+let visits=localStorage.getItem('visits')?parseInt(localStorage.getItem('visits')):1500;
+visits++; localStorage.setItem('visits',visits);
+visitorCounter.textContent="Ziyaretçi Sayısı: "+visits;
 
 function playTrack(name,file){
     if(player.src.includes(file)){ player.paused?player.play():player.pause(); }
     else{
         player.src=file;
         nowPlaying.textContent="Çalan Şarkı: "+name;
+        nowPlaying.style.color="#ffd700";
+        setTimeout(()=>{nowPlaying.style.color="#d4af37"},500);
         player.play();
     }
     player.paused?playerBox.classList.remove("playing"):playerBox.classList.add("playing");
 }
+player.addEventListener('play',()=>playerBox.classList.add("playing"));
+player.addEventListener('pause',()=>playerBox.classList.remove("playing"));
 
 function toggleList(id){
     const el=document.getElementById(id);
     el.style.display=el.style.display==="block"?"none":"block";
+    const icon=el.previousElementSibling.querySelector(".icon-shake");
+    icon.classList.remove("icon-shake"); void icon.offsetWidth; icon.classList.add("icon-shake");
+}
+
+function setLanguage(lang){
+    if(lang==='en'){
+        headerMainTitle.innerHTML="<span style='text-transform:capitalize;'>Black Gold </span><span style='text-transform:uppercase;'>P</span>roduction";
+        headerSubTitle.textContent="BLACK GOLD PRODUCTION";
+        sub1.textContent="Ready Songs • Compositions";
+        sub2.textContent="Available for Sale & License Transfer";
+        sub3.textContent="Custom works are prepared according to special requests.";
+        professionalTitle.textContent="PROFESSIONAL";
+        skTitle.innerHTML="<span class='sk-s'>S</span><span class='sk-k'>K</span>";
+        playerDesc.textContent="LISTEN TO READY-TO-SELL & LICENSED SONGS";
+        nowPlaying.textContent="No track selected";
+        footerDesc.textContent="Black Gold Production, founded by Serkan Kaynar; an independent production platform producing arabesque, pop and original music. All songs on this site belong to their authors. Unauthorized commercial use, copying or distribution is prohibited. All rights reserved! Ziyaretçi Sayısı: "+visits;
+        footerContacts.innerHTML="📞 WhatsApp: 0507 416 36 05 | 📧 skaynar578@gmail.com | 📸 @blackgoldproductionsk <span class='year'>2026</span>";
+    }else{
+        headerMainTitle.innerHTML="<span style='text-transform:capitalize;'>Siyah Altın </span><span style='text-transform:uppercase;'>P</span>rodüksiyon";
+        headerSubTitle.textContent="BLACK GOLD PRODUCTION";
+        sub1.textContent="Hazır Şarkılar • Besteler";
+        sub2.textContent="Satışa ve Devire Hazır Eserler";
+        sub3.textContent="Özel talepler doğrultusunda özgün çalışmalar hazırlanır.";
+        professionalTitle.textContent="PROFESYONEL";
+        skTitle.innerHTML="<span class='sk-s'>S</span><span class='sk-k'>K</span>";
+        playerDesc.textContent="SATIŞA VE DEVİRE HAZIR ESERLERİ DİNLEYEBİLİRSİNİZ";
+        nowPlaying.textContent="Seçili şarkı yok";
+        footerDesc.innerHTML="Siyah Altın Prodüksiyon, Serkan Kaynar tarafından kurulan; arabesk, pop ve özgün müzik üretimleri yapan bağımsız bir prodüksiyon platformudur. Bu sitede yer alan tüm eserlerin söz ve müzik hakları eser sahibine, Serkan Kaynar'a aittir. Yetkisiz kişiler tarafından izinsiz ticari amaçla kullanılamaz, kopyalanamaz, çoğaltılamaz. Tüm hakları saklıdır! Ziyaretçi Sayısı: "+visits;
+        footerContacts.innerHTML="📞 WhatsApp: 0507 416 36 05 | 📧 skaynar578@gmail.com | 📸 @siyahaltinproduksiyonsk <span class='year'>2026</span>";
+    }
 }
 </script>
 
