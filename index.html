@@ -16,127 +16,88 @@ body{
 header{ padding:25px 15px; position:relative; }
 .sub{ font-size:18px; font-weight:bold; margin:6px 0; }
 .header-main-title{
-    font-size:38px;font-weight:900;letter-spacing:8px;
+    font-size:38px;font-weight:900;letter-spacing:8px;margin-bottom:5px;
     color:#ffd700;text-shadow:0 0 15px #ffd700;
-    max-width:90%;margin:auto;
 }
 .header-sub-title{
-    font-size:28px;font-weight:700;
+    font-size:28px;font-weight:700;margin-bottom:5px;
     color:#ffd700;text-shadow:0 0 8px #ffd700;
 }
 .professional-title{
-    font-size:32px;font-weight:800;
+    font-size:32px;font-weight:800;margin-bottom:15px;
     color:#ffd700;text-shadow:0 0 12px #ffd700,0 0 22px #ffd700;
 }
 .sk-title{
-    font-size:32px;font-weight:500;
-    color:#ffd700;text-shadow:0 0 4px #ffd700,0 0 8px #ffd700;
-    margin:10px auto 15px;
+    font-size:32px;font-weight:500;color:#ffd700;
+    text-shadow:0 0 4px #ffd700,0 0 8px #ffd700;
+    margin:10px auto 15px auto;
     display:flex;justify-content:center;gap:6px;
 }
-.language-switch{
-    position:absolute;top:15px;right:20px;
-    font-weight:bold;font-size:14px;
-}
-.language-switch span{cursor:pointer;text-decoration:underline;}
+.language-switch{position:absolute;top:15px;right:20px;font-weight:bold;}
 .player-box-container{max-width:450px;margin:50px auto 20px;}
-.player-description{
-    font-weight:bold;font-size:16px;
-    color:#ffd700;text-shadow:0 0 8px #ffd700;
-}
+.player-description{font-weight:bold;color:#ffd700;margin-bottom:10px;}
 .player-box{
-    border:1px solid #d4af37;
-    padding:20px;border-radius:14px;
-    box-shadow:0 0 20px rgba(212,175,55,.3);
+    border:1px solid #d4af37;padding:20px;border-radius:14px;
+    box-shadow:0 0 20px rgba(212,175,55,0.3);
 }
 .player-box.playing{animation:playerGlow 1s infinite alternate;}
 audio{width:100%;}
 .category{
-    margin:20px auto;max-width:420px;
-    border:1px solid #d4af37;
+    margin:20px auto;max-width:420px;border:1px solid #d4af37;
     padding:12px;border-radius:12px;
 }
-.category h3{cursor:pointer;margin:0;display:flex;gap:6px;}
+.category h3{cursor:pointer;display:flex;gap:6px;}
 .track-list{display:none;margin-top:10px;}
 .track-list div{
-    padding:6px;cursor:pointer;
-    border-bottom:1px solid #333;
+    padding:6px;cursor:pointer;border-bottom:1px solid #333;
     display:flex;gap:6px;
 }
-.track-list div:hover{background:#1a1a1a;}
-footer{
-    padding:25px 15px;font-size:14px;
-    max-width:900px;margin:auto;text-align:left;
-}
-.fixed-buttons{
-    position:fixed;bottom:20px;right:20px;
-    display:flex;flex-direction:column;gap:10px;
-}
-.fixed-buttons a{
-    padding:10px 14px;border-radius:6px;
-    font-weight:bold;color:#000;text-decoration:none;
-}
-.whatsapp-btn{background:#25D366;}
-.message-btn{background:#d4af37;}
+footer{padding:25px 15px;max-width:900px;margin:30px auto;text-align:left;}
+.fixed-buttons{position:fixed;bottom:20px;right:20px;display:flex;flex-direction:column;gap:10px;}
+.whatsapp-btn{background:#25D366;padding:10px;border-radius:6px;color:#000;}
+.message-btn{background:#d4af37;padding:10px;border-radius:6px;color:#000;}
 @keyframes playerGlow{
     from{box-shadow:0 0 20px rgba(212,175,55,.5);}
     to{box-shadow:0 0 50px rgba(212,175,55,1);}
 }
-.icon-shake{display:inline-block;}
 </style>
 </head>
 
 <body>
 
 <header>
-<div class="language-switch">
-<span onclick="setLanguage('tr')">TR</span> |
-<span onclick="setLanguage('en')">EN</span>
-</div>
-
-<h1 class="header-main-title">Siyah Altın Prodüksiyon</h1>
-<div class="sk-title"><span>S</span><span>K</span></div>
-<h2 class="header-sub-title">BLACK GOLD PRODUCTION</h2>
-<div class="professional-title">PROFESYONEL</div>
-
-<div class="sub">Hazır Şarkılar • Besteler</div>
-<div class="sub">Satışa ve Devire Hazır Eserler</div>
-<div class="sub">Özel talepler doğrultusunda özgün çalışmalar hazırlanır.</div>
+    <h1 class="header-main-title">Siyah Altın Prodüksiyon</h1>
+    <div class="sk-title">SK</div>
+    <h2 class="header-sub-title">BLACK GOLD PRODUCTION</h2>
+    <div class="professional-title">PROFESYONEL</div>
 </header>
 
 <section>
 <div class="player-box-container">
-<div class="player-description">SATIŞA VE DEVİRE HAZIR ESERLER</div>
-<div class="player-box" id="playerBox">
-<div id="nowPlaying">Seçili şarkı yok</div>
-<audio id="audioPlayer" controls></audio>
-</div>
+    <div class="player-description">SATIŞA VE DEVİRE HAZIR ESERLER</div>
+    <div class="player-box" id="playerBox">
+        <div id="nowPlaying">Seçili şarkı yok</div>
+        <audio id="audioPlayer" controls></audio>
+    </div>
 </div>
 
-<!-- POP -->
 <div class="category">
-<h3 onclick="toggleList('pop')"><span class="icon-shake">🎧</span> Pop</h3>
+<h3 onclick="toggleList('pop')">🎧 Pop</h3>
 <div class="track-list" id="pop">
-<div onclick="playTrack('Korkuyorum','mp3.korkuyorum.mp3')"><span>🎧</span> Korkuyorum</div>
-
-<!-- EKLENEN ŞARKI -->
-<div onclick="playTrack('Masal','masal.pop.mp3.mp3')"><span>🎧</span> Masal</div>
-
+    <div onclick="playTrack('Korkuyorum','mp3.korkuyorum.mp3')">🎧 Korkuyorum</div>
+    <div onclick="playTrack('Masal','masal.pop.mp3.mp3')">🎧 Masal</div>
 </div>
 </div>
+
 </section>
 
 <footer>
-<p>
-📞 WhatsApp: 0507 416 36 05 <br>
-📧 skaynar578@gmail.com <br>
-📸 @siyahaltinproduksiyonsk <b>2026</b>
-</p>
+<p>📞 0507 416 36 05 | 📧 skaynar578@gmail.com | 2026</p>
 </footer>
 
 <div class="fixed-buttons">
-<a class="whatsapp-btn" href="https://wa.me/905074163605" target="_blank">WhatsApp</a>
-<a class="message-btn" href="https://wa.me/905074163605?text=Merhaba" target="_blank">Mesaj Gönder</a>
+<a class="whatsapp-btn" href="https://wa.me/905074163605">WhatsApp</a>
+<a class="message-btn" href="https://wa.me/905074163605?text=Merhaba">Mesaj</a>
 </div>
 
 <script>
@@ -146,17 +107,14 @@ const playerBox=document.getElementById("playerBox");
 
 function playTrack(name,file){
     player.src=file;
-    nowPlaying.textContent="Çalan Şarkı: "+name;
+    nowPlaying.textContent="Çalan: "+name;
     player.play();
     playerBox.classList.add("playing");
 }
-player.addEventListener("pause",()=>playerBox.classList.remove("playing"));
-
 function toggleList(id){
     const el=document.getElementById(id);
     el.style.display=el.style.display==="block"?"none":"block";
 }
-function setLanguage(lang){}
 </script>
 
 </body>
