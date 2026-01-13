@@ -6,7 +6,6 @@
 <title>BLACK GOLD PRODUCTION</title>
 
 <style>
-/* --- CSS AYNEN --- */
 body{
     margin:0;
     font-family:Arial, Helvetica, sans-serif;
@@ -15,7 +14,11 @@ body{
     text-align:center;
 }
 header{ padding:25px 15px; position:relative; }
-.sub{ font-size:18px; font-weight:bold; margin:6px 0; }
+.sub{
+    font-size:18px;
+    font-weight:bold;
+    margin:6px 0;
+}
 .header-main-title{
     font-size:38px;
     font-weight:900;
@@ -23,57 +26,151 @@ header{ padding:25px 15px; position:relative; }
     margin-bottom:5px;
     color:#ffd700;
     text-shadow: 0 0 15px #ffd700;
+    max-width:90%;
+    margin-left:auto;
+    margin-right:auto;
 }
 .header-sub-title{
     font-size:28px;
     font-weight:700;
     margin-bottom:5px;
     color:#ffd700;
+    text-shadow: 0 0 8px #ffd700;
 }
 .professional-title{
     font-size:32px;
     font-weight:800;
     margin-bottom:15px;
     color:#ffd700;
+    text-shadow:0 0 12px #ffd700,0 0 22px #ffd700;
 }
+
+.sk-title{
+    font-size:32px; 
+    font-weight:500;
+    color:#ffd700;
+    text-shadow:0 0 4px #ffd700, 0 0 8px #ffd700; 
+    margin:10px auto 15px auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:6px; 
+}
+
+.sk-s, .sk-k{ display:inline-block; }
+
+.language-switch{
+    position:absolute;
+    top:15px;
+    right:20px;
+    font-weight:bold;
+    font-size:14px;
+}
+.language-switch span{
+    cursor:pointer;
+    margin:0 5px;
+    text-decoration:underline;
+}
+.language-switch span:hover{ color:#ffd700; }
+
+.player-box-container{
+    max-width:450px;
+    margin:50px auto 20px auto;
+}
+.player-description{
+    font-weight:bold;
+    font-size:16px;
+    color:#ffd700;
+    text-transform:uppercase;
+    text-shadow:0 0 8px #ffd700;
+    margin-bottom:10px;
+}
+.player-box{
+    border:1px solid #d4af37;
+    padding:20px;
+    border-radius:14px;
+    box-shadow:0 0 20px rgba(212,175,55,0.3);
+    transition:0.3s, box-shadow 0.5s;
+}
+.player-box.playing{ animation:playerGlow 1s infinite alternate; }
+#nowPlaying{ font-weight:bold; margin-bottom:10px; transition:0.3s; }
+audio{ width:100%; height:32px; }
+
 .category{
     margin:20px auto;
     max-width:420px;
     border:1px solid #d4af37;
     padding:12px;
     border-radius:12px;
+    box-shadow:0 0 15px rgba(212,175,55,0.1);
+    transition:0.3s;
 }
+.category:hover{ box-shadow:0 0 25px rgba(212,175,55,0.25); }
 .category h3{
     cursor:pointer;
     margin:0;
     display:flex;
     align-items:center;
     gap:6px;
+    font-weight:bold;
 }
-.track-list{ display:none; margin-top:10px; }
+.track-list{
+    display:none;
+    margin-top:10px;
+}
 .track-list div{
     padding:6px;
     cursor:pointer;
     border-bottom:1px solid #333;
     display:flex;
+    align-items:center;
     gap:6px;
 }
+
 .icon-shake{ display:inline-block; }
 </style>
 </head>
 
 <body>
 
+<header>
+    <div class="language-switch">
+        <span onclick="setLanguage('tr')">TR</span> | 
+        <span onclick="setLanguage('en')">EN</span>
+    </div>
+
+    <h1 class="header-main-title">
+        <span style="text-transform:capitalize;">Siyah Altın </span><span style="text-transform:uppercase;">P</span>rodüksiyon
+    </h1>
+
+    <div class="sk-title">
+        <span class="sk-s">S</span>
+        <span class="sk-k">K</span>
+    </div>
+
+    <h2 class="header-sub-title">BLACK GOLD PRODUCTION</h2>
+    <div class="professional-title">PROFESYONEL</div>
+
+    <div class="sub">Hazır Şarkılar • Besteler</div>
+    <div class="sub">Satışa ve Devire Hazır Eserler</div>
+    <div class="sub">Özel talepler doğrultusunda özgün çalışmalar hazırlanır.</div>
+</header>
+
 <section>
+
+<div class="player-box-container">
+    <div class="player-description">SATIŞA VE DEVİRE HAZIR ESERLERİ DİNLEYEBİLİRSİNİZ</div>
+    <div class="player-box" id="playerBox">
+        <div id="nowPlaying">Seçili şarkı yok</div>
+        <audio id="audioPlayer" controls></audio>
+    </div>
+</div>
 
 <div class="category">
     <h3 onclick="toggleList('pop')"><span class="icon-shake">🎧</span> Pop</h3>
     <div class="track-list" id="pop">
         <div onclick="playTrack('Korkuyorum','mp3.korkuyorum.mp3')">🎧 Korkuyorum</div>
-
-        <!-- SADECE BU SATIR DEĞİŞTİ -->
         <div onclick="playTrack('Masal','masal-pop-mp3.mp3')">🎧 Masal</div>
-
         <div onclick="playTrack('Bu Geçer','bu-gecer.mp3.mp3')">🎧 Bu Geçer</div>
         <div onclick="playTrack('Buhadi Gidelim','buhadi-gidelim-pop.mp3')">🎧 Buhadi Gidelim</div>
     </div>
@@ -82,10 +179,12 @@ header{ padding:25px 15px; position:relative; }
 </section>
 
 <script>
-const player=new Audio();
+const player=document.getElementById("audioPlayer");
+const nowPlaying=document.getElementById("nowPlaying");
 
 function playTrack(name,file){
     player.src=file;
+    nowPlaying.textContent="Çalan Şarkı: "+name;
     player.play();
 }
 function toggleList(id){
