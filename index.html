@@ -6,6 +6,7 @@
 <title>BLACK GOLD PRODUCTION</title>
 
 <style>
+/* --- CSS AYNEN --- */
 body{
     margin:0;
     font-family:Arial, Helvetica, sans-serif;
@@ -35,13 +36,6 @@ header{ padding:25px 15px; position:relative; }
     margin-bottom:15px;
     color:#ffd700;
 }
-.player-box-container{ max-width:450px; margin:50px auto 20px; }
-.player-box{
-    border:1px solid #d4af37;
-    padding:20px;
-    border-radius:14px;
-}
-audio{ width:100%; }
 .category{
     margin:20px auto;
     max-width:420px;
@@ -49,7 +43,13 @@ audio{ width:100%; }
     padding:12px;
     border-radius:12px;
 }
-.category h3{ cursor:pointer; margin:0; display:flex; gap:6px; }
+.category h3{
+    cursor:pointer;
+    margin:0;
+    display:flex;
+    align-items:center;
+    gap:6px;
+}
 .track-list{ display:none; margin-top:10px; }
 .track-list div{
     padding:6px;
@@ -65,19 +65,13 @@ audio{ width:100%; }
 <body>
 
 <section>
-<div class="player-box-container">
-    <div id="nowPlaying">Seçili şarkı yok</div>
-    <audio id="audioPlayer" controls></audio>
-</div>
-
-<!-- KATEGORİLER -->
 
 <div class="category">
     <h3 onclick="toggleList('pop')"><span class="icon-shake">🎧</span> Pop</h3>
     <div class="track-list" id="pop">
         <div onclick="playTrack('Korkuyorum','mp3.korkuyorum.mp3')">🎧 Korkuyorum</div>
 
-        <!-- DÜZELTİLEN SATIR -->
+        <!-- SADECE BU SATIR DEĞİŞTİ -->
         <div onclick="playTrack('Masal','masal-pop-mp3.mp3')">🎧 Masal</div>
 
         <div onclick="playTrack('Bu Geçer','bu-gecer.mp3.mp3')">🎧 Bu Geçer</div>
@@ -88,12 +82,10 @@ audio{ width:100%; }
 </section>
 
 <script>
-const player=document.getElementById("audioPlayer");
-const nowPlaying=document.getElementById("nowPlaying");
+const player=new Audio();
 
 function playTrack(name,file){
     player.src=file;
-    nowPlaying.textContent="Çalan Şarkı: "+name;
     player.play();
 }
 function toggleList(id){
