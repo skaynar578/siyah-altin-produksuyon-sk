@@ -264,8 +264,12 @@ footer .contacts span.year{
 
     <div class="category">
         <h3 onclick="toggleList('hiphop')"><span class="icon-shake">🎧</span> <span id="cat-hiphop">Yeni Nesil Hip Hop</span></h3>
-        <div class="track-list" id="hiphop"  ></div>
-    </div><div class="track-list" id="hiphop" yangin-gibi-hip-hop.tanıtım.mp3 ></div>
+        <div class="track-list" id="hiphop">
+            <div onclick="playTrack('Yangın Gibi Hip Hop','yangin-gibi-hip-hop.tanıtım.mp3')">
+                <span>🎧</span> <span id="track-hiphop">Yangın Gibi Hip Hop</span>
+            </div>
+        </div>
+    </div>
 
 </section>
 
@@ -348,11 +352,4 @@ function setLanguage(lang){
         skTitle.innerHTML="<span class='sk-s'>S</span><span class='sk-k'>K</span>";
         playerDesc.textContent="SATIŞA VE DEVİRE HAZIR ESERLERİ DİNLEYEBİLİRSİNİZ";
         nowPlaying.textContent="Seçili şarkı yok";
-        footerDesc.innerHTML="Siyah Altın Prodüksiyon, Serkan Kaynar tarafından kurulan; arabesk, pop ve özgün müzik üretimleri yapan bağımsız bir prodüksiyon platformudur. Bu sitede yer alan tüm eserlerin söz ve müzik hakları eser sahibine, Serkan Kaynar'a aittir. Yetkisiz kişiler tarafından izinsiz ticari amaçla kullanılamaz, kopyalanamaz, çoğaltılamaz. Tüm hakları saklıdır! Ziyaretçi Sayısı: "+visits;
-        footerContacts.innerHTML="📞 WhatsApp: 0507 416 36 05 | 📧 skaynar578@gmail.com | 📸 @siyahaltinproduksiyonsk <span class='year'>2026</span>";
-    }
-}
-</script>
-
-</body>
-</html>
+        footerDesc.innerHTML="Siyah Altın Prodüksiyon, Serkan Kaynar tarafından kurulan; arabesk, pop ve özgün müzik üretimleri yapan bağımsız bir prodüksiyon platformudur. Bu sitede yer alan tüm eserlerin söz ve müzik hakları eser sahibine, Serkan Kaynar'a aittir. Yetkisiz kişiler tarafından izinsiz ticari amaçla kullanılamaz, kopy
