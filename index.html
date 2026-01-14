@@ -80,6 +80,7 @@ header{ padding:25px 15px; position:relative; }
         <span onclick="setLanguage('en')">EN</span>
     </div>
 
+    <!-- SADECE BURADA "MÜZİK" EKLENDİ -->
     <h1 class="header-main-title">
         <span style="text-transform:capitalize;">Siyah Altın Müzik </span><span style="text-transform:uppercase;">P</span>rodüksiyon
     </h1>
@@ -99,10 +100,11 @@ header{ padding:25px 15px; position:relative; }
 <script>
 function setLanguage(lang){
     if(lang==='en'){
-        document.querySelector(".header-main-title").innerHTML =
+        headerMainTitle.innerHTML =
         "<span style='text-transform:capitalize;'>Black Gold </span><span style='text-transform:uppercase;'>P</span>roduction";
     }else{
-        document.querySelector(".header-main-title").innerHTML =
+        /* SADECE BURADA "MÜZİK" EKLENDİ */
+        headerMainTitle.innerHTML =
         "<span style='text-transform:capitalize;'>Siyah Altın Müzik </span><span style='text-transform:uppercase;'>P</span>rodüksiyon";
     }
 }
