@@ -127,90 +127,28 @@ audio{ width:100%; height:32px; }
     transform:translateX(3px);
     transition:0.3s;
 }
-footer{
-    padding:25px 15px;
-    font-size:14px;
-    line-height:1.6;
-    max-width:900px;
-    margin:30px auto 0 auto;
-    text-align:left;
-}
-footer p{ margin:6px 0; }
-footer .description{ font-size:13px; color:#f0e68c; }
-footer .contacts{ font-weight:bold; font-size:16px; }
-footer .contacts span.year{
-    font-weight:900;
-    color:#ffd700;
-    margin-left:8px;
-}
-.fixed-buttons{
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-    z-index:999;
-}
-.fixed-buttons a{
-    text-decoration:none;
-    padding:10px 14px;
-    border-radius:6px;
-    font-weight:bold;
-    font-size:14px;
-    color:#0b0b0b;
-    transition:0.3s;
-}
-.fixed-buttons a:hover{
-    box-shadow:0 0 15px #d4af37;
-    transform:scale(1.05);
-}
-.whatsapp-btn{ background:#25D366; }
-.message-btn{ background:#d4af37; }
 @keyframes fadeInList{
     from{opacity:0; transform:translateY(-10px);}
     to{opacity:1; transform:translateY(0);}
-}
-@keyframes shakeIcon{
-    0%{transform:rotate(0deg);}
-    25%{transform:rotate(10deg);}
-    50%{transform:rotate(-10deg);}
-    75%{transform:rotate(10deg);}
-    100%{transform:rotate(0);}
 }
 @keyframes playerGlow{
     0%{box-shadow:0 0 20px rgba(212,175,55,0.5);}
     50%{box-shadow:0 0 35px rgba(212,175,55,0.8);}
     100%{box-shadow:0 0 50px rgba(212,175,55,1);}
 }
-.icon-shake{ display:inline-block; animation:shakeIcon 0.6s ease; }
+.icon-shake{ display:inline-block; }
 </style>
 </head>
 
 <body>
 
 <header>
-    <div class="language-switch">
-        <span onclick="setLanguage('tr')">TR</span> | 
-        <span onclick="setLanguage('en')">EN</span>
-    </div>
-    <h1 class="header-main-title">
-        <span style="text-transform:capitalize;">Siyah Altın müzik </span><span style="text-transform:uppercase;">P</span>rodüksiyon
-    </h1>
-    <div class="sk-title">
-        <span class="sk-s">S</span>
-        <span class="sk-k">K</span>
-    </div>
-    <h2 class="header-sub-title" id="header-sub-title">BLACK GOLD PRODUCTION</h2>
-    <div class="professional-title">PROFESYONEL</div>
-    <div class="sub" id="sub1">Hazır Şarkılar • Besteler</div>
-    <div class="sub" id="sub2">Satışa ve Devire Hazır Eserler</div>
-    <div class="sub" id="sub3">Özel talepler doğrultusunda özgün çalışmalar hazırlanır.</div>
+    <h1 class="header-main-title">Siyah Altın Prodüksiyon</h1>
 </header>
 
 <section>
     <div class="player-box-container">
-        <div class="player-description" id="playerDesc">SATIŞA VE DEVİRE HAZIR ESERLERİ DİNLEYEBİLİRSİNİZ</div>
+        <div class="player-description">SATIŞA VE DEVİRE HAZIR ESERLERİ DİNLEYEBİLİRSİNİZ</div>
         <div class="player-box" id="playerBox">
             <div id="nowPlaying">Seçili şarkı yok</div>
             <audio id="audioPlayer" controls></audio>
@@ -218,19 +156,17 @@ footer .contacts span.year{
     </div>
 
     <div class="category">
-        <h3 onclick="toggleList('slowpop')"><span class="icon-shake">🎧</span> <span id="cat-slowpop">Slow Pop</span></h3>
+        <h3 onclick="toggleList('slowpop')"><span class="icon-shake">🎧</span> Slow Pop</h3>
         <div class="track-list" id="slowpop">
             <div onclick="playTrack('Kırık Düşler – Slow Pop','kirik-dusler.mp3.mp3')">
-                <span>🎧</span> <span id="track-slowpop">Kırık Düşler – Slow Pop</span>
+                <span>🎧</span> Kırık Düşler – Slow Pop
             </div>
 
-            <!-- SADECE EKLENEN ŞARKI -->
             <div onclick="playTrack('İz Kalır Benden – Tanıtım','iz-kalır-benden.tanitim.mp3')">
-                <span>🎧</span> <span>İz Kalır Benden – Tanıtım</span>
+                <span>🎧</span> İz Kalır Benden – Tanıtım
             </div>
         </div>
     </div>
-
 </section>
 
 <script>
