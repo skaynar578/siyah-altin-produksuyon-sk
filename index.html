@@ -14,7 +14,11 @@ body{
     text-align:center;
 }
 header{ padding:25px 15px; position:relative; }
-.sub{ font-size:18px; font-weight:bold; margin:6px 0; }
+.sub{
+    font-size:18px;
+    font-weight:bold;
+    margin:6px 0;
+}
 .header-main-title{
     font-size:38px;
     font-weight:900;
@@ -23,7 +27,8 @@ header{ padding:25px 15px; position:relative; }
     color:#ffd700;
     text-shadow:0 0 15px #ffd700;
     max-width:90%;
-    margin:auto;
+    margin-left:auto;
+    margin-right:auto;
 }
 .header-sub-title{
     font-size:28px;
@@ -40,14 +45,15 @@ header{ padding:25px 15px; position:relative; }
     text-shadow:0 0 12px #ffd700,0 0 22px #ffd700;
 }
 .sk-title{
-    font-size:32px;
+    font-size:32px; 
     font-weight:500;
     color:#ffd700;
-    text-shadow:0 0 4px #ffd700,0 0 8px #ffd700;
-    margin:10px auto 15px;
+    text-shadow:0 0 4px #ffd700, 0 0 8px #ffd700; 
+    margin:10px auto 15px auto;
     display:flex;
+    align-items:center;
     justify-content:center;
-    gap:6px;
+    gap:6px; 
 }
 .language-switch{
     position:absolute;
@@ -68,48 +74,50 @@ header{ padding:25px 15px; position:relative; }
 <body>
 
 <header>
-<div class="language-switch">
-<span onclick="setLanguage('tr')">TR</span> |
-<span onclick="setLanguage('en')">EN</span>
-</div>
+    <div class="language-switch">
+        <span onclick="setLanguage('tr')">TR</span> | 
+        <span onclick="setLanguage('en')">EN</span>
+    </div>
 
-<h1 class="header-main-title">
-<span style="text-transform:capitalize;">Siyah Altın </span>
-<span style="text-transform:uppercase;">M</span>üzik Prodüksiyon
-</h1>
+    <h1 class="header-main-title">
+        <span style="text-transform:capitalize;">Siyah Altın </span>
+        <span style="text-transform:uppercase;">M</span>ÜZİK Prodüksiyon
+    </h1>
 
-<div class="sk-title">
-<span>S</span><span>K</span>
-</div>
+    <div class="sk-title">
+        <span>S</span>
+        <span>K</span>
+    </div>
 
-<h2 class="header-sub-title" id="header-sub-title">BLACK GOLD PRODUCTION</h2>
-<div class="professional-title">PROFESYONEL</div>
-<div class="sub" id="sub1">Hazır Şarkılar • Besteler</div>
-<div class="sub" id="sub2">Satışa ve Devire Hazır Eserler</div>
-<div class="sub" id="sub3">Özel talepler doğrultusunda özgün çalışmalar hazırlanır.</div>
+    <h2 class="header-sub-title" id="header-sub-title">BLACK GOLD PRODUCTION</h2>
+    <div class="professional-title">PROFESYONEL</div>
+
+    <div class="sub" id="sub1">Hazır Şarkılar • Besteler</div>
+    <div class="sub" id="sub2">Satışa ve Devire Hazır Eserler</div>
+    <div class="sub" id="sub3">Özel talepler doğrultusunda özgün çalışmalar hazırlanır.</div>
 </header>
 
 <footer>
-<p class="description" id="footerDesc">
-Siyah Altın Müzik Prodüksiyon, Serkan Kaynar tarafından kurulan; arabesk, pop ve özgün müzik üretimleri yapan bağımsız bir prodüksiyon platformudur. 
-Bu sitede yer alan tüm eserlerin söz ve müzik hakları eser sahibine aittir. 
-Yetkisiz kullanım yasaktır. Tüm hakları saklıdır!
-</p>
+    <p class="description" id="footerDesc">
+        Siyah Altın MÜZİK Prodüksiyon, Serkan Kaynar tarafından kurulan; arabesk, pop ve özgün müzik üretimleri yapan bağımsız bir prodüksiyon platformudur.
+        Bu sitede yer alan tüm eserlerin söz ve müzik hakları eser sahibine aittir.
+        Yetkisiz kullanım yasaktır. Tüm hakları saklıdır!
+    </p>
 </footer>
 
 <script>
 function setLanguage(lang){
-if(lang==='en'){
-document.querySelector(".header-main-title").innerHTML=
-"<span style='text-transform:capitalize;'>Black Gold </span><span style='text-transform:uppercase;'>M</span>usic Production";
-document.getElementById("footerDesc").textContent=
-"Black Gold Music Production, founded by Serkan Kaynar; an independent production platform producing arabesque, pop and original music. All rights reserved.";
-}else{
-document.querySelector(".header-main-title").innerHTML=
-"<span style='text-transform:capitalize;'>Siyah Altın </span><span style='text-transform:uppercase;'>M</span>üzik Prodüksiyon";
-document.getElementById("footerDesc").textContent=
-"Siyah Altın Müzik Prodüksiyon, Serkan Kaynar tarafından kurulan; arabesk, pop ve özgün müzik üretimleri yapan bağımsız bir prodüksiyon platformudur. Tüm hakları saklıdır.";
-}
+    if(lang==='en'){
+        document.querySelector(".header-main-title").innerHTML=
+        "<span style='text-transform:capitalize;'>Black Gold </span><span style='text-transform:uppercase;'>M</span>usic Production";
+        document.getElementById("footerDesc").textContent=
+        "Black Gold Music Production, founded by Serkan Kaynar; an independent production platform producing arabesque, pop and original music. All rights reserved.";
+    }else{
+        document.querySelector(".header-main-title").innerHTML=
+        "<span style='text-transform:capitalize;'>Siyah Altın </span><span style='text-transform:uppercase;'>M</span>ÜZİK Prodüksiyon";
+        document.getElementById("footerDesc").textContent=
+        "Siyah Altın MÜZİK Prodüksiyon, Serkan Kaynar tarafından kurulan; arabesk, pop ve özgün müzik üretimleri yapan bağımsız bir prodüksiyon platformudur. Tüm hakları saklıdır.";
+    }
 }
 </script>
 
