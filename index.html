@@ -137,9 +137,11 @@ footer{
     <div class="category">
         <h3 onclick="toggleList('slowpop')">🎧 Slow Pop</h3>
         <div class="track-list" id="slowpop">
-            <div onclick="playTrack('Kırık Düşler – Slow Pop','kirik-dusler.mp3.mp3')">🎧 Kırık Düşler – Slow Pop</div>
+            <div onclick="playTrack('Kırık Düşler – Slow Pop','kirik-dusler.mp3.mp3')">
+                🎧 Kırık Düşler – Slow Pop
+            </div>
 
-            <!-- YENİ EKLENEN ŞARKI -->
+            <!-- SADECE EKLENEN ŞARKI -->
             <div onclick="playTrack('İaz Kalır Benden – Tanıtım','iaz-kalir-benden.tanitim.mp3')">
                 🎧 İaz Kalır Benden – Tanıtım
             </div>
@@ -170,4 +172,22 @@ function playTrack(name,file){
         player.paused ? player.play() : player.pause();
     }else{
         player.src=file;
-        nowPlaying.textContent="
+        nowPlaying.textContent="Çalan Şarkı: "+name;
+        player.play();
+    }
+    player.paused ? playerBox.classList.remove("playing") : playerBox.classList.add("playing");
+}
+
+player.addEventListener('pause',()=>playerBox.classList.remove("playing"));
+player.addEventListener('play',()=>playerBox.classList.add("playing"));
+
+function toggleList(id){
+    const el=document.getElementById(id);
+    el.style.display = el.style.display==="block" ? "none" : "block";
+}
+
+function setLanguage(lang){}
+</script>
+
+</body>
+</html>
