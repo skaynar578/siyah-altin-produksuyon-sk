@@ -217,6 +217,7 @@ footer .contacts span.year{
         </div>
     </div>
 
+    <!-- Yeniler Mix -->
     <div class="category">
         <h3 onclick="toggleList('yeniler')"><span class="icon-shake">🎧</span> <span id="cat-yeniler">Yeniler Mix</span></h3>
         <div class="track-list" id="yeniler">
@@ -224,6 +225,7 @@ footer .contacts span.year{
         </div>
     </div>
 
+    <!-- Yeni Nesil Arabesk -->
     <div class="category">
         <h3 onclick="toggleList('arabesk')"><span class="icon-shake">🎧</span> <span id="cat-arabesk">Yeni Nesil Arabesk</span></h3>
         <div class="track-list" id="arabesk">
@@ -231,6 +233,7 @@ footer .contacts span.year{
         </div>
     </div>
 
+    <!-- Arabesk Pop Karışımı -->
     <div class="category">
         <h3 onclick="toggleList('arabeskpop')"><span class="icon-shake">🎧</span> <span id="cat-arabeskpop">Arabesk Pop Karışımı</span></h3>
         <div class="track-list" id="arabeskpop">
@@ -238,6 +241,7 @@ footer .contacts span.year{
         </div>
     </div>
 
+    <!-- Türkü -->
     <div class="category">
         <h3 onclick="toggleList('turku')"><span class="icon-shake">🎧</span> <span id="cat-turku">Türkü</span></h3>
         <div class="track-list" id="turku">
@@ -245,6 +249,7 @@ footer .contacts span.year{
         </div>
     </div>
 
+    <!-- Pop -->
     <div class="category">
         <h3 onclick="toggleList('pop')"><span class="icon-shake">🎧</span> <span id="cat-pop">Pop</span></h3>
         <div class="track-list" id="pop">
@@ -255,18 +260,13 @@ footer .contacts span.year{
         </div>
     </div>
 
+    <!-- Slow Pop -->
     <div class="category">
         <h3 onclick="toggleList('slowpop')"><span class="icon-shake">🎧</span> <span id="cat-slowpop">Slow Pop</span></h3>
         <div class="track-list" id="slowpop">
             <div onclick="playTrack('Kırık Düşler – Slow Pop','kirik-dusler.mp3.mp3')"><span>🎧</span> <span id="track-slowpop">Kırık Düşler – Slow Pop</span></div>
-            <!-- EKLENEN ŞARKI -->
             <div onclick="playTrack('İz Kalır Benden – Tanıtım','iz-kalir-benden.tanitim.mp3')"><span>🎧</span> <span>İz Kalır Benden – Tanıtım</span></div>
         </div>
-    </div>
-
-    <div class="category">
-        <h3 onclick="toggleList('hiphop')"><span class="icon-shake">🎧</span> <span id="cat-hiphop">Yeni Nesil Hip Hop</span></h3>
-        <div class="track-list" id="hiphop"></div>
     </div>
 
 </section>
@@ -350,4 +350,5 @@ function setLanguage(lang){
         skTitle.innerHTML="<span class='sk-s'>S</span><span class='sk-k'>K</span>";
         playerDesc.textContent="SATIŞA VE DEVİRE HAZIR ESERLERİ DİNLEYEBİLİRSİNİZ";
         nowPlaying.textContent="Seçili şarkı yok";
-        footerDesc.innerHTML="Siyah Altın Prodüksiyon, Serkan Kaynar tarafından kurulan; arabesk, pop ve özgün müzik üretimleri yapan bağımsız bir prodüksiyon platformudur. Bu sitede yer alan tüm eserlerin söz ve müzik hakları eser sahibine, Serkan Kaynar'a aittir. Yetkisiz
+        footerDesc.innerHTML="Siyah Altın Prodüksiyon, Serkan Kaynar tarafından kurulan; arabesk, pop ve özgün müzik üretimleri yapan bağımsız bir prodüksiyon platformudur. Bu sitede yer alan tüm eserlerin söz ve müzik hakları eser sahibine, Serkan Kaynar'a aittir. Yetkisiz kişiler tarafından izinsiz ticari amaçla kullanılamaz, kopyalanamaz, çoğaltılamaz. Tüm hakları saklıdır! Ziyaretçi Sayısı: "+visits;
+        footerContacts.innerHTML="📞
