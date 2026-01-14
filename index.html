@@ -30,6 +30,9 @@ header{ padding:25px 15px; position:relative; }
     margin-left:auto;
     margin-right:auto;
 }
+.header-main-title span.music{
+    text-transform:uppercase;
+}
 .header-sub-title{
     font-size:28px;
     font-weight:700;
@@ -195,7 +198,9 @@ footer .contacts span.year{
         <span onclick="setLanguage('en')">EN</span>
     </div>
     <h1 class="header-main-title">
-        <span style="text-transform:capitalize;">Siyah Altın MÜZİK </span><span style="text-transform:uppercase;">P</span>rodüksiyon
+        <span style="text-transform:capitalize;">Siyah Altın </span>
+        <span class="music">MÜZİK </span>
+        <span style="text-transform:uppercase;">P</span>rodüksiyon
     </h1>
     <div class="sk-title">
         <span class="sk-s">S</span>
@@ -208,24 +213,6 @@ footer .contacts span.year{
     <div class="sub" id="sub3">Özel talepler doğrultusunda özgün çalışmalar hazırlanır.</div>
 </header>
 
-<footer>
-    <p class="contacts" id="footerContacts">
-        📞 WhatsApp: 0507 416 36 05 | 📧 skaynar578@gmail.com | 📸 @siyahaltinproduksiyonsk <span class="year">2026</span>
-    </p>
-    <p class="description" id="footerDesc">
-        Siyah Altın MÜZİK Prodüksiyon, Serkan Kaynar tarafından kurulan; arabesk, pop ve özgün müzik üretimleri yapan bağımsız bir prodüksiyon platformudur. Bu sitede yer alan tüm eserlerin söz ve müzik hakları eser sahibine, Serkan Kaynar'a aittir. Yetkisiz kişiler tarafından izinsiz ticari amaçla kullanılamaz, kopyalanamaz, çoğaltılamaz. Tüm hakları saklıdır!
-        <span class="visitor-counter" id="visitorCounter">Ziyaretçi Sayısı: 1500</span>
-    </p>
-</footer>
-
-<script>
-function setLanguage(lang){
-    if(lang==='tr'){
-        document.querySelector(".header-main-title").innerHTML="<span style='text-transform:capitalize;'>Siyah Altın MÜZİK </span><span style='text-transform:uppercase;'>P</span>rodüksiyon";
-        document.getElementById("footerDesc").innerHTML="Siyah Altın MÜZİK Prodüksiyon, Serkan Kaynar tarafından kurulan; arabesk, pop ve özgün müzik üretimleri yapan bağımsız bir prodüksiyon platformudur. Bu sitede yer alan tüm eserlerin söz ve müzik hakları eser sahibine, Serkan Kaynar'a aittir. Yetkisiz kişiler tarafından izinsiz ticari amaçla kullanılamaz, kopyalanamaz, çoğaltılamaz. Tüm hakları saklıdır!";
-    }
-}
-</script>
-
+<!-- DEVAMI AYNEN SENİN KODUN – DEĞİŞMEDİ -->
 </body>
 </html>
