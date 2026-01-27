@@ -229,10 +229,11 @@ footer .contacts span.year{
     <div class="category">
         <h3 onclick="toggleList('arabesk')"><span class="icon-shake">🎧</span> <span id="cat-arabesk">Yeni Nesil Arabesk</span></h3>
         <div class="track-list" id="arabesk">
-            <div onclick="playTrack('Küllerimden Kalktım','kullerimden-kalktim.mp3.mp3')"><span>🎧</span> <span id="track-arabesk">Küllerimden Kalktım</span></div>
- <div onclick="playTrack('Gözlerin','gozlerin.mp3.mp3')">
+            <div onclick="playTrack('Küllerimden Kalktım','kullerimden-kalktim.mp3.mp3')"><span>🎧</span> <span id="track-arabesk">Küllerimden Kalktım</span></div><div onclick="playTrack('Gözlerin','gozlerin.mp3.mp3')">
     <span>🎧</span> Gözlerin
 </div>
+
+
        </div>
     </div>
 
