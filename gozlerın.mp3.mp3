@@ -215,11 +215,35 @@ footer .contacts span.year{
         <div class="player-description" id="playerDesc">SATIŞA VE DEVİRE HAZIR ESERLERİ DİNLEYEBİLİRSİNİZ</div>
         <div class="player-box" id="playerBox">
             <div id="nowPlaying">Seçili şarkı yok</div>
-            <audio id="audioPlayer" controls></audio><div onclick="playTrack('Gözlerin','gozlerin.mp3.mp3')">
-    <span>🎧</span> Gözlerin
+            <audio id="audioPlayer" controls></audio>
+        </div>
+    </div>
+
+    <div class="category">
+        <h3 onclick="toggleList('yeniler')"><span class="icon-shake">🎧</span> <span id="cat-yeniler">Yeniler Mix</span></h3>
+        <div class="track-list" id="yeniler">
+            <div onclick="playTrack('Yeniler Mix','1.mp3.mp3')"><span>🎧</span> <span id="track-yeniler">Yeniler Mix</span></div>
+        </div>
+    </div>
+
+    <div class="category">
+        <h3 onclick="toggleList('arabesk')"><span class="icon-shake">🎧</span> <span id="cat-arabesk">Yeni Nesil Arabesk</span></h3>
+        <div class="track-list" id="arabesk">
+            <div onclick="playTrack('Küllerimden Kalktım','kullerimden-kalktim.mp3.mp3')"><span>🎧</span> <span id="track-arabesk">Küllerimden Kalktım</span><<div class="category">
+    <h3 onclick="toggleList('arabesk')">
+        <span class="icon-shake">🎧</span>
+        <span id="cat-arabesk">Yeni Nesil Arabesk</span>
+    </h3>
+
+    <div class="track-list" id="arabesk">
+        <div onclick="playTrack('Küllerimden Kalktım','kullerimden-kalktim.mp3.mp3')">
+            <span>🎧</span> Küllerimden Kalktım
+        </div>
+    </div>
 </div>
 
-</div>
+        </div>
+    </div>
 
     <div class="category">
         <h3 onclick="toggleList('arabeskpop')"><span class="icon-shake">🎧</span> <span id="cat-arabeskpop">Arabesk Pop Karışımı</span></h3>
