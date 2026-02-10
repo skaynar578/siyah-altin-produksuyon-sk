@@ -1,1 +1,376 @@
-https://github.com/skaynar578/siyah-altin-produksuyon-sk/edit/main/index.html
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BLACK GOLD PRODUCTION</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#0b0b0b;
+    color:#d4af37;
+    text-align:center;
+}
+header{ padding:25px 15px; position:relative; }
+.sub{
+    font-size:18px;
+    font-weight:bold;
+    margin:6px 0;
+}
+.header-main-title{
+    font-size:38px;
+    font-weight:900;
+    letter-spacing:8px;
+    margin-bottom:5px;
+    color:#ffd700;
+    text-shadow: 0 0 15px #ffd700;
+    max-width:90%;
+    margin-left:auto;
+    margin-right:auto;
+}
+.header-sub-title{
+    font-size:28px;
+    font-weight:700;
+    margin-bottom:5px;
+    color:#ffd700;
+    text-shadow: 0 0 8px #ffd700;
+}
+.professional-title{
+    font-size:32px;
+    font-weight:800;
+    margin-bottom:15px;
+    color:#ffd700;
+    text-shadow:0 0 12px #ffd700,0 0 22px #ffd700;
+}
+.sk-title{
+    font-size:32px; 
+    font-weight:500;
+    color:#ffd700;
+    text-shadow:0 0 4px #ffd700, 0 0 8px #ffd700; 
+    margin:10px auto 15px auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:6px; 
+}
+.sk-s, .sk-k{ display:inline-block; }
+.language-switch{
+    position:absolute;
+    top:15px;
+    right:20px;
+    font-weight:bold;
+    font-size:14px;
+}
+.language-switch span{
+    cursor:pointer;
+    margin:0 5px;
+    text-decoration:underline;
+}
+.language-switch span:hover{ color:#ffd700; }
+.player-box-container{
+    max-width:450px;
+    margin:50px auto 20px auto;
+}
+.player-description{
+    font-weight:bold;
+    font-size:16px;
+    color:#ffd700;
+    text-transform:uppercase;
+    text-shadow:0 0 8px #ffd700;
+    margin-bottom:10px;
+}
+.player-box{
+    border:1px solid #d4af37;
+    padding:20px;
+    border-radius:14px;
+    box-shadow:0 0 20px rgba(212,175,55,0.3);
+    transition:0.3s, box-shadow 0.5s;
+}
+.player-box.playing{ animation:playerGlow 1s infinite alternate; }
+#nowPlaying{ font-weight:bold; margin-bottom:10px; transition:0.3s; }
+audio{ width:100%; height:32px; }
+.category{
+    margin:20px auto;
+    max-width:420px;
+    border:1px solid #d4af37;
+    padding:12px;
+    border-radius:12px;
+    box-shadow:0 0 15px rgba(212,175,55,0.1);
+    transition:0.3s;
+}
+.category:hover{ box-shadow:0 0 25px rgba(212,175,55,0.25); }
+.category h3{
+    cursor:pointer;
+    margin:0;
+    display:flex;
+    align-items:center;
+    gap:6px;
+    font-weight:bold;
+}
+.track-list{
+    display:none;
+    margin-top:10px;
+    animation:fadeInList 0.4s ease-in-out;
+}
+.track-list div{
+    padding:6px;
+    cursor:pointer;
+    border-bottom:1px solid #333;
+    display:flex;
+    align-items:center;
+    gap:6px;
+}
+.track-list div:hover{
+    background:#1a1a1a;
+    transform:translateX(3px);
+    transition:0.3s;
+}
+footer{
+    padding:25px 15px;
+    font-size:14px;
+    line-height:1.6;
+    max-width:900px;
+    margin:30px auto 0 auto;
+    text-align:left;
+}
+footer p{ margin:6px 0; }
+footer .description{ font-size:13px; color:#f0e68c; }
+footer .contacts{ font-weight:bold; font-size:16px; }
+footer .contacts span.year{
+    font-weight:900;
+    color:#ffd700;
+    margin-left:8px;
+}
+.fixed-buttons{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    z-index:999;
+}
+.fixed-buttons a{
+    text-decoration:none;
+    padding:10px 14px;
+    border-radius:6px;
+    font-weight:bold;
+    font-size:14px;
+    color:#0b0b0b;
+    transition:0.3s;
+}
+.fixed-buttons a:hover{
+    box-shadow:0 0 15px #d4af37;
+    transform:scale(1.05);
+}
+.whatsapp-btn{ background:#25D366; }
+.message-btn{ background:#d4af37; }
+@keyframes fadeInList{
+    from{opacity:0; transform:translateY(-10px);}
+    to{opacity:1; transform:translateY(0);}
+}
+@keyframes shakeIcon{
+    0%{transform:rotate(0deg);}
+    25%{transform:rotate(10deg);}
+    50%{transform:rotate(-10deg);}
+    75%{transform:rotate(10deg);}
+    100%{transform:rotate(0);}
+}
+@keyframes playerGlow{
+    0%{box-shadow:0 0 20px rgba(212,175,55,0.5);}
+    50%{box-shadow:0 0 35px rgba(212,175,55,0.8);}
+    100%{box-shadow:0 0 50px rgba(212,175,55,1);}
+}
+.icon-shake{ display:inline-block; animation:shakeIcon 0.6s ease; }
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="language-switch">
+        <span onclick="setLanguage('tr')">TR</span> | 
+        <span onclick="setLanguage('en')">EN</span>
+    </div>
+    <h1 class="header-main-title">
+        <span style="text-transform:capitalize;">Siyah Altın müzik </span><span style="text-transform:uppercase;">P</span>rodüksiyon
+    </h1>
+    <div class="sk-title">
+        <span class="sk-s">S</span>
+        <span class="sk-k">K</span>
+    </div>
+    <h2 class="header-sub-title" id="header-sub-title"></h2>
+    <div class="professional-title">PROFESYONEL</div>
+    <div class="sub" id="sub1">Hazır Şarkılar • Besteler</div>
+    <div class="sub" id="sub2">Satışa ve Devire Hazır Eserler</div>
+    <div class="sub" id="sub3">Özel talepler doğrultusunda özgün çalışmalar hazırlanır.
+
+   Eserler yapay zeka kullanılarak seslendirilmiştir.</div>
+</header>
+
+<section>
+    <div class="player-box-container">
+        <div class="player-description" id="playerDesc">SATIŞA VE DEVİRE HAZIR ESERLERİ DİNLEYEBİLİRSİNİZ</div>
+        <div class="player-box" id="playerBox">
+            <div id="nowPlaying">Seçili şarkı yok</div>
+            <audio id="audioPlayer" controls></audio>
+        </div>
+    </div>
+
+    <div class="category">
+        <h3 onclick="toggleList('yeniler')"><span class="icon-shake">🎧</span> <span id="cat-yeniler">Yeniler Mix</span></h3>
+        <div class="track-list" id="yeniler">
+            <div onclick="playTrack('Yeniler Mix','1.mp3.mp3')"><span>🎧</span> <span id="track-yeniler">Yeniler Mix</span></div>
+        </div>
+    </div>
+
+    <div class="category">
+        <h3 onclick="toggleList('arabesk')"><span class="icon-shake">🎧</span> <span id="cat-arabesk">Yeni Nesil Arabesk</span></h3>
+        <div class="track-list" id="arabesk">
+            <div onclick="playTrack('Küllerimden Kalktım','kullerimden-kalktim.mp3.mp3')"><span>🎧</span> <span id="track-arabesk">Küllerimden Kalktım</span></div>
+        </div>
+    </div>
+
+    <div class="category">
+        <h3 onclick="toggleList('arabeskpop')"><span class="icon-shake">🎧</span> <span id="cat-arabeskpop">Arabesk Pop Karışımı</span></h3>
+        <div class="track-list" id="arabeskpop">
+            <div onclick="playTrack('Dünya Benim Olurdu','dunya-benim-olurdu.mp3.mp3')"><span>🎧</span> <span id="track-arabeskpop">Dünya Benim Olurdu</span></div>
+        </div>
+    </div>
+
+    <div class="category">
+        <h3 onclick="toggleList('turku')"><span class="icon-shake">🎧</span> <span id="cat-turku">Türkü</span></h3>
+        <div class="track-list" id="turku">
+            <div onclick="playTrack('Buda Geçer','buda-gecer-turku.mp3.mp3')"><span>🎧</span> <span id="track-turku">Buda Geçer</span></div>
+        </div>
+    </div>
+
+    <div class="category">
+        <h3 onclick="toggleList('pop')"><span class="icon-shake">🎧</span> <span id="cat-pop">Pop</span></h3>
+        <div class="track-list" id="pop"><div onclick="playTrack('sen-ve-ben.mp3','sen-ve-ben.mp3')"><span>🎧</span> sen-ve-ben</div>
+
+<div onclick="playTrack('Aşkın Rüyası','askin-rüyasi-pop.mp3')">
+    <span>🎧</span>Askin rüyasi
+</div>
+
+            <div onclick="playTrack('Korkuyorum','mp3.korkuyorum.mp3')"><span>🎧</span> <span id="track-pop">Korkuyorum</span></div>
+            <div onclick="playTrack('Masal','masal-pop-mp3.mp3')"><span>🎧</span> <span id="track-pop-masal">Masal</span></div>
+            <div onclick="playTrack('Buda Geçer','buda-gecer.mp3.mp3')"><span>🎧</span> <span id="track-pop-gecer">Bu Geçer</span></div>
+            <div onclick="playTrack('Hadi Gidelim','hadi-gidelim-pop.mp3')"><span>🎧</span> <span id="track-pop-buhadi">Hadi Gidelim</span></div>
+        </div>
+    </div>
+
+    <div class="category">
+        <h3 onclick="toggleList('slowpop')"><span class="icon-shake">🎧</span> <span id="cat-slowpop">Slow Pop</span></h3>
+        <div class="track-list" id="slowpop">
+            <div onclick="playTrack('Kırık Düşler','kirik-dusler.mp3.mp3')"><span>🎧</span> <span id="track-slowpop">Kırık Düşler</span></div>
+      <div onclick="playTrack('iz-kalir-benden.mp3','iz-kalir-benden.mp3')"><span>🎧</span> iz-kalir-benden.mp3</div>
+ 
+ </div>
+    </div>
+<div class="category">
+    <h3 onclick="toggleList('hiphop')">
+        <span class="icon-shake">🎧</span>
+        <span id="cat-hiphop">Yeni Nesil Hip Hop</span>
+    </h3>
+
+    <div class="track-list" id="hiphop">
+        <div onclick="playTrack('Yangın Gibi','yangin-gibi-hip-hop.tanıtım.mp3')">
+            <span>🎧</span> yangin-gibi-hip-hop
+        </div>
+    </div>
+</div>
+
+
+</section>
+
+<footer>
+    <p class="contacts" id="footerContacts">
+        📞 WhatsApp: 0507 416 36 05 | 📧 skaynar578@gmail.com | 📸 @siyahaltinproduksiyonsk <span class="year">2026</span>
+    </p>
+    <p class="description" id="footerDesc">
+        Siyah Altın Prodüksiyon, Serkan Kaynar tarafından kurulan; arabesk, pop ve özgün müzik üretimleri yapan bağımsız bir prodüksiyon platformudur. Bu sitede yer alan tüm eserlerin söz ve müzik hakları eser sahibine, Serkan Kaynar'a aittir. Yetkisiz kişiler tarafından izinsiz ticari amaçla kullanılamaz, kopyalanamaz, çoğaltılamaz. Tüm hakları saklıdır!
+        <span class="visitor-counter" id="visitorCounter">Ziyaretçi Sayısı: 1500</span>
+    </p>
+</footer>
+
+<div class="fixed-buttons">
+    <a class="whatsapp-btn" href="https://wa.me/905074163605" target="_blank">WhatsApp</a>
+    <a class="message-btn" href="https://wa.me/905074163605?text=Merhaba%20bilgi%20almak%20istiyorum" target="_blank">Mesaj Gönder</a>
+</div>
+
+<script>
+const player=document.getElementById("audioPlayer");
+const nowPlaying=document.getElementById("nowPlaying");
+const playerBox=document.getElementById("playerBox");
+const headerMainTitle=document.querySelector(".header-main-title");
+const headerSubTitle=document.getElementById("header-sub-title");
+const sub1=document.getElementById("sub1");
+const sub2=document.getElementById("sub2");
+const sub3=document.getElementById("sub3");
+const professionalTitle=document.querySelector(".professional-title");
+const skTitle=document.querySelector(".sk-title");
+const playerDesc=document.getElementById("playerDesc");
+const footerDesc=document.getElementById("footerDesc");
+const footerContacts=document.getElementById("footerContacts");
+const visitorCounter=document.getElementById("visitorCounter");
+
+let visits=localStorage.getItem('visits')?parseInt(localStorage.getItem('visits')):1500;
+visits++; localStorage.setItem('visits',visits);
+visitorCounter.textContent="Ziyaretçi Sayısı: "+visits;
+
+function playTrack(name,file){
+    if(player.src.includes(file)){ player.paused?player.play():player.pause(); }
+    else{
+        player.src=file;
+        nowPlaying.textContent="Çalan Şarkı: "+name;
+        nowPlaying.style.color="#ffd700";
+        setTimeout(()=>{nowPlaying.style.color="#d4af37"},500);
+        player.play();
+    }
+    player.paused?playerBox.classList.remove("playing"):playerBox.classList.add("playing");
+}
+player.addEventListener('play',()=>playerBox.classList.add("playing"));
+player.addEventListener('pause',()=>playerBox.classList.remove("playing"));
+
+function toggleList(id){
+    const el=document.getElementById(id);
+    el.style.display=el.style.display==="block"?"none":"block";
+    const icon=el.previousElementSibling.querySelector(".icon-shake");
+    icon.classList.remove("icon-shake"); void icon.offsetWidth; icon.classList.add("icon-shake");
+}
+
+function setLanguage(lang){
+    if(lang==='en'){
+        headerMainTitle.innerHTML="<span style='text-transform:capitalize;'>Black Gold </span><span style='text-transform:uppercase;'>P</span>roduction";
+        headerSubTitle.textContent="BLACK GOLD PRODUCTION";
+        sub1.textContent="Ready Songs • Compositions";
+        sub2.textContent="Available for Sale & License Transfer";
+        sub3.textContent="Custom works are prepared according to special requests.";
+        professionalTitle.textContent="PROFESSIONAL";
+        skTitle.innerHTML="<span class='sk-s'>S</span><span class='sk-k'>K</span>";
+        playerDesc.textContent="LISTEN TO READY-TO-SELL & LICENSED SONGS";
+        nowPlaying.textContent="No track selected";
+        footerDesc.textContent="Black Gold Production, founded by Serkan Kaynar; an independent production platform producing arabesque, pop and original music. All songs on this site belong to their authors. Unauthorized commercial use, copying or distribution is prohibited. All rights reserved! Ziyaretçi Sayısı: "+visits;
+        footerContacts.innerHTML="📞 WhatsApp: 0507 416 36 05 | 📧 skaynar578@gmail.com | 📸 @blackgoldproductionsk <span class='year'>2026</span>";
+    }else{
+        headerMainTitle.innerHTML="<span style='text-transform:capitalize;'>Siyah Altın </span><span style='text-transform:uppercase;'>P</span>rodüksiyon";
+        headerSubTitle.textContent="BLACK GOLD PRODUCTION";
+        sub1.textContent="Hazır Şarkılar • Besteler";
+        sub2.textContent="Satışa ve Devire Hazır Eserler";
+        sub3.textContent="Özel talepler doğrultusunda özgün çalışmalar hazırlanır.";
+        professionalTitle.textContent="PROFESYONEL";
+        skTitle.innerHTML="<span class='sk-s'>S</span><span class='sk-k'>K</span>";
+        playerDesc.textContent="SATIŞA VE DEVİRE HAZIR ESERLERİ DİNLEYEBİLİRSİNİZ";
+        nowPlaying.textContent="Seçili şarkı yok";
+        footerDesc.innerHTML="Siyah Altın Prodüksiyon, Serkan Kaynar tarafından kurulan; arabesk, pop ve özgün müzik üretimleri yapan bağımsız bir prodüksiyon platformudur. Bu sitede yer alan tüm eserlerin söz ve müzik hakları eser sahibine, Serkan Kaynar'a aittir. Yetkisiz kişiler tarafından izinsiz ticari amaçla kullanılamaz, kopyalanamaz, çoğaltılamaz. Tüm hakları saklıdır!:Ziyaretçi Sayısı: "+visits;
+        footerContacts.innerHTML="📞 WhatsApp: 0507 416 36 05 | 📧 skaynar578@gmail.com | 📸 @siyahaltinproduksiyonsk <span class='year'>2026</span>";
+    }
+}
+</script>
+
+</body>
+</html>
