@@ -215,135 +215,58 @@ footer .contacts span.year{
         <div class="player-description" id="playerDesc">SATIŞA VE DEVİRE HAZIR ESERLERİ DİNLEYEBİLİRSİNİZ</div>
         <div class="player-box" id="playerBox">
             <div id="nowPlaying">Seçili şarkı yok</div>
-            <audio id="audioPlayer" controls controlslist="nodownload"></audio>
-
+            <audio id="audioPlayer" controls></audio>
         </div>
     </div>
 
     <div class="category">
         <h3 onclick="toggleList('yeniler')"><span class="icon-shake">🎧</span> <span id="cat-yeniler">Yeniler Mix</span></h3>
         <div class="track-list" id="yeniler">
-            <div onclick="playTrack('Yeniler Mix','1.mp3.mp3')"><span>🎧</span> <span id="track-yeniler">MİXLER</span></div>
+            <div onclick="playTrack('Yeniler Mix','1.mp3.mp3')"><span>🎧</span> <span id="track-yeniler">Yeniler Mix</span></div>
         </div>
     </div>
 
     <div class="category">
         <h3 onclick="toggleList('arabesk')"><span class="icon-shake">🎧</span> <span id="cat-arabesk">Yeni Nesil Arabesk</span></h3>
         <div class="track-list" id="arabesk">
-            <div onclick="playTrack('Küllerimden Kalktım','kullerimden-kalktim.mp3.mp3')"><span>🎧</span> <span id="track-arabesk">KÜLLERİMDEN KALKTIM</span></div>
-
-            <div onclick="playTrack('Seni Gördüm Ya','seni-gordum-ya.mp3')">
-    <span>🎧</span> SENİ GÖRDÜM YA
-</div>
-
+            <div onclick="playTrack('Küllerimden Kalktım','kullerimden-kalktim.mp3.mp3')"><span>🎧</span> <span id="track-arabesk">Küllerimden Kalktım</span></div>
         </div>
     </div>
-<div class="category">
-    <h3 onclick="toggleList('arabeskpop')">
-        <span class="icon-shake">🎧</span> 
-        <span id="cat-arabeskpop">Arabesk Pop Karışımı</span>
-    </h3>
 
-    <div class="track-list" id="arabeskpop">
-        <div onclick="playTrack('Dünya Benim Olurdu','dünya.benim.olurdu.mp3.mp3')">
-            <span>🎧</span> DÜNYA BENİM OLURDU
+    <div class="category">
+        <h3 onclick="toggleList('arabeskpop')"><span class="icon-shake">🎧</span> <span id="cat-arabeskpop">Arabesk Pop Karışımı</span></h3>
+        <div class="track-list" id="arabeskpop">
+            <div onclick="playTrack('Dünya Benim Olurdu','dunya-benim-olurdu.mp3.mp3')"><span>🎧</span> <span id="track-arabeskpop">Dünya Benim Olurdu</span></div>
         </div>
     </div>
-</div>
 
- <div class="category">
-    <h3 onclick="toggleList('turku')">
-        <span class="icon-shake">🎧</span> 
-        <span id="cat-turku">Türkü</span>
-    </h3>
-
-    <div class="track-list" id="turku">
-        <div onclick="playTrack('Buda Geçer','buda.geçer.türkü.mp3')">
-            <span>🎧</span> BUDA GEÇER
+    <div class="category">
+        <h3 onclick="toggleList('turku')"><span class="icon-shake">🎧</span> <span id="cat-turku">Türkü</span></h3>
+        <div class="track-list" id="turku">
+            <div onclick="playTrack('Buda Geçer','buda-gecer-turku.mp3.mp3')"><span>🎧</span> <span id="track-turku">Buda Geçer</span></div>
         </div>
     </div>
-</div>
-<div class="category">
-    <h3 onclick="toggleList('pop')">
-        <span class="icon-shake">🎧</span> 
-        <span id="cat-pop">Pop</span>
-    </h3>
 
-    <div class="track-list" id="pop">
+    <div class="category">
+        <h3 onclick="toggleList('pop')"><span class="icon-shake">🎧</span> <span id="cat-pop">Pop</span></h3>
+        <div class="track-list" id="pop"><div onclick="playTrack('sen-ve-ben.mp3','sen-ve-ben.mp3')"><span>🎧</span> sen-ve-ben</div>
 
-       <div onclick="playTrack('SENSİZLİGE MAHKUMUM.mp3','SENSİZLİGE MAHKUMUM.mp3')">
-    <span>🎧</span> SENSİZLİGE MAHKUMUM
+<div onclick="playTrack('Aşkın Rüyası','askin-rüyasi-pop.mp3')">
+    <span>🎧</span>Askin rüyasi
 </div>
 
-     
-</div>   
-        <div onclick="playTrack('sen.ve.ben.mp3','sen.ve.ben.mp3')">
-            <span>🎧</span> SEN VE BEN
+            <div onclick="playTrack('Korkuyorum','mp3.korkuyorum.mp3')"><span>🎧</span> <span id="track-pop">Korkuyorum</span></div>
+            <div onclick="playTrack('Masal','masal-pop-mp3.mp3')"><span>🎧</span> <span id="track-pop-masal">Masal</span></div>
+            <div onclick="playTrack('Buda Geçer','buda-gecer.mp3.mp3')"><span>🎧</span> <span id="track-pop-gecer">Bu Geçer</span></div>
+            <div onclick="playTrack('Hadi Gidelim','hadi-gidelim-pop.mp3')"><span>🎧</span> <span id="track-pop-buhadi">Hadi Gidelim</span></div>
         </div>
-
-        <div onclick="playTrack('askın ruyası versıyon.mp3','askın ruyası versıyon.mp3')">
-    <span>🎧</span> AŞKIN RÜYASI
-</div>
-
-<div onclick="playTrack('KORKUYORUM.mp3','KORKUYORUM.mp3')">
-    <span>🎧</span> KORKUYORUM
-</div>
-
-        <div onclick="playTrack('MASAL..mp3','MASAL..mp3')">
-    <span>🎧</span> MASAL
-</div>
-
-<div onclick="playTrack('askin.golgesinde.mp3.mp3','askin.golgesinde.mp3.mp3')">
-    <span>🎧</span> AŞKIN GÖLGESİNDE
-</div>
-
-
-        
-<div onclick="playTrack('BUDA GECER.mp3','BUDA GECER.mp3')">
-    <span>🎧</span> BUDA GECER
-</div>
-
-<div onclick="playTrack('HADİ GİDELİM.mp3','HAD%C4%B0%20G%C4%B0DEL%C4%B0M.mp3')">
-    <span>🎧</span> HADİ GİDELİM
-</div>
-
-
-    </div>
-</div>
-
     </div>
 
-<div class="category">
-    <h3 onclick="toggleList('slowpop')">
-        <span class="icon-shake">🎧</span> 
-        <span id="cat-slowpop">Slow Pop</span>
-    </h3>
-
-    <div class="track-list" id="slowpop">
-
-        <div onclick="playTrack('BİR BİR AŞK.mp3','B%C4%B0R%20B%C4%B0R%20A%C5%9EK.mp3')">
-            <span>🎧</span> BİR BİR AŞK
-        </div>
-
-
-       <div onclick="playTrack('İZ KALIR BENDEN.mp3','İZ KALIR BENDEN.mp3')">
-    <span>🎧</span> İZ KALIR BENDEN
-</div>
-
-        <div onclick="playTrack('GECEYE SOR.mp3','GECEYE SOR.mp3')">
-    <span>🎧</span> GECEYE SOR
-</div>
- 
-
-        <div onclick="playTrack('Kırık Düşler','kirik-dusler.mp3.mp3')">
-            <span>🎧</span> KIRIK DÜŞLER
-        </div>
-
-       
-        
-    </div>
-</div>
-
+    <div class="category">
+        <h3 onclick="toggleList('slowpop')"><span class="icon-shake">🎧</span> <span id="cat-slowpop">Slow Pop</span></h3>
+        <div class="track-list" id="slowpop">
+            <div onclick="playTrack('Kırık Düşler','kirik-dusler.mp3.mp3')"><span>🎧</span> <span id="track-slowpop">Kırık Düşler</span></div>
+      <div onclick="playTrack('iz-kalir-benden.mp3','iz-kalir-benden.mp3')"><span>🎧</span> iz-kalir-benden.mp3</div>
  
  </div>
     </div>
@@ -353,12 +276,9 @@ footer .contacts span.year{
         <span id="cat-hiphop">Yeni Nesil Hip Hop</span>
     </h3>
 
-    <div class="track-list" id="hiphop"><div onclick="playTrack('Gururuma Kadar','GURURUMA KADAR.mp3')">
-    <span>🎧</span> GURURUMA KADAR
-</div>
-
+    <div class="track-list" id="hiphop">
         <div onclick="playTrack('Yangın Gibi','yangin-gibi-hip-hop.tanıtım.mp3')">
-            <span>🎧</span> YANGIN GİBİ
+            <span>🎧</span> yangin-gibi-hip-hop
         </div>
     </div>
 </div>
@@ -371,7 +291,7 @@ footer .contacts span.year{
         📞 WhatsApp: 0507 416 36 05 | 📧 skaynar578@gmail.com | 📸 @siyahaltinproduksiyonsk <span class="year">2026</span>
     </p>
     <p class="description" id="footerDesc">
-        Siyah Altın Prodüksiyon, Serkan Kaynar tarafından kurulan; arabesk, pop ve özgün müzik üretimleri yapan bağımsız bir prodüksiyon platformudur. Bu sitede yer alan tüm eserler tescillenmiştir eserlerin söz ve müzik hakları eser sahibine, Serkan Kaynar'a aittir. Yetkisiz kişiler tarafından izinsiz halka açık herhangi bir yerde ve herhangi bir platformda ticari amaçla kullanılamaz, kopyalanamaz, çoğaltılamaz. Tüm hakları saklıdır!
+        Siyah Altın Prodüksiyon, Serkan Kaynar tarafından kurulan; arabesk, pop ve özgün müzik üretimleri yapan bağımsız bir prodüksiyon platformudur. Bu sitede yer alan tüm eserlerin söz ve müzik hakları eser sahibine, Serkan Kaynar'a aittir. Yetkisiz kişiler tarafından izinsiz ticari amaçla kullanılamaz, kopyalanamaz, çoğaltılamaz. Tüm hakları saklıdır!
         <span class="visitor-counter" id="visitorCounter">Ziyaretçi Sayısı: 1500</span>
     </p>
 </footer>
@@ -446,11 +366,7 @@ function setLanguage(lang){
         playerDesc.textContent="SATIŞA VE DEVİRE HAZIR ESERLERİ DİNLEYEBİLİRSİNİZ";
         nowPlaying.textContent="Seçili şarkı yok";
         footerDesc.innerHTML="Siyah Altın Prodüksiyon, Serkan Kaynar tarafından kurulan; arabesk, pop ve özgün müzik üretimleri yapan bağımsız bir prodüksiyon platformudur. Bu sitede yer alan tüm eserlerin söz ve müzik hakları eser sahibine, Serkan Kaynar'a aittir. Yetkisiz kişiler tarafından izinsiz ticari amaçla kullanılamaz, kopyalanamaz, çoğaltılamaz. Tüm hakları saklıdır!:Ziyaretçi Sayısı: "+visits;
-       footerContacts.innerHTML =
-"📞 WhatsApp: 0507 416 36 05 " +
-"<a href='https://wa.me/905074163605?text=Merhaba,%20bilgi%20almak%20istiyorum.' style='margin-left:6px;'>Bilgi Al</a> | " +
-"📧 skaynar578@gmail.com | 📸 @siyahaltinproduksiyonsk <span class='year'>2026</span>";
-
+        footerContacts.innerHTML="📞 WhatsApp: 0507 416 36 05 | 📧 skaynar578@gmail.com | 📸 @siyahaltinproduksiyonsk <span class='year'>2026</span>";
     }
 }
 </script>
