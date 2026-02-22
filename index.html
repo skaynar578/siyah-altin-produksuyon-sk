@@ -211,11 +211,13 @@ footer .contacts span.year{
 <br> YASAL UYARI ! YAYINLANAN TÜM ESERLER TESCİLLENMİŞTİR ! </header>
 
 <section>
-    <div class="player-box-container">
-        <div class="player-description" id="playerDesc">SATIŞA VE DEVİRE HAZIR ESERLERİ DİNLEYEBİLİRSİNİZ</div>
-        <div class="player-box" id="playerBox">
-            <div id="nowPlaying">Seçili şarkı yok</div>
-            <audio id="audioPlayer" controls controlslist="nodownload"></audio>
+    <div class="player-box" id="playerBox">
+    <div id="nowPlaying">Seçili şarkı yok</div>
+    <div id="mediaContainer">
+        <audio id="audioPlayer" controls controlslist="nodownload" style="width:100%; display:none;"></audio>
+        <video id="videoPlayer" controls style="width:100%; display:none; border-radius:12px;"></video>
+    </div>
+</div>
 
         </div>
     </div>
