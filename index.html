@@ -213,7 +213,7 @@ footer .contacts span.year{
 
     <div class="player-box" id="playerBox" style="width:250px; height:250px; margin:0 auto; border-radius:12px; overflow:hidden;">
     <div id="nowPlaying" style="font-size:14px; font-weight:bold; margin-bottom:6px;">Seçili şarkı yok</div>
-   <video id="audioPlayer" width="200" height="200" controls controlslist="nodownload"></video>
+    <video id="mediaPlayer" controls controlslist="nodownload" style="width:100%; height:100%; object-fit:cover;"></video>
 </div>
     
 </div>
@@ -224,53 +224,63 @@ footer .contacts span.year{
     <h3 onclick="toggleList('mixler')"><span class="icon-shake">🎧</span> <span id="cat-mixler">MİXLER</span></h3>
     <div class="track-list" id="mixler">
         <div onclick="playTrack('MİXLER 1','MİXLER1.mp4')">
-            <span>🎧</span> MİXLER 1
+            <span>🎧</span> MİXLER 1 (Video)
         </div>
-       <div onclick="playTrack('MİXLER 2','MIX 2.mp4')">
-    <span>🎧</span> MİXLER 2
+        <div onclick="playTrack('MİXLER 2','MİXLER2.mp4')">
+            <span>🎧</span> MİXLER 2 (Video)
+        </div>
+        <div onclick="playTrack('MİXLER 2 MP3','MİXLER 2 MP3.mp3')">
+            <span>🎧</span> MİXLER 2 MP3 (Ses)
+        </div>
+    </div>
 </div>
         </div>
-    
+    </div>
+</div>
+        </div>
+
+    </div>
+</div>
+
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+    </div>
+</div>
+
+</div>
+
+</div>
    
             
     </div>
 
+    <div class="category">
+        <h3 onclick="toggleList('arabesk')"><span class="icon-shake">🎧</span> <span id="cat-arabesk">Yeni Nesil Arabesk</span></h3>
+        <div class="track-list" id="arabesk">
+            <div onclick="playTrack('Küllerimden Kalktım','kullerimden-kalktim.mp3.mp3')"><span>🎧</span> <span id="track-arabesk">KÜLLERİMDEN KALKTIM</span></div>
+
+            <div onclick="playTrack('Seni Gördüm Ya','seni-gordum-ya.mp3')">
+    <span>🎧</span> SENİ GÖRDÜM YA
+</div>
+
+        </div>
+    </div>
 <div class="category">
-    <h3 onclick="toggleList('arabesk')">
-        <span class="icon-shake">🎧</span>
-        <span id="cat-arabesk">Yeni Nesil Arabesk</span>
+    <h3 onclick="toggleList('arabeskpop')">
+        <span class="icon-shake">🎧</span> 
+        <span id="cat-arabeskpop">Arabesk Pop Karışımı</span>
     </h3>
 
-    <div class="track-list" id="arabesk">
-        <div onclick="playTrack('KÜLLERİMDEN KALKTIM','KÜLLERİMDEN KALKTIM.mp4')">
-            <span>🎧</span> KÜLLERİMDEN KALKTIM
-        </div>
-
-        <div onclick="playTrack('SENİ GÖRDÜM YA','SENI GORDUMYA.mp4')">
-            <span>🎧</span> SENİ GÖRDÜM YA
-        </div>
-    </div>
-</div>
-    </div>
-</div>
-</div>
-
-    </div>
-
-        </div>
-    </div>
-</div>
-
-    </div>
-</div>
-
-        </div>
-    </div>
-</div>
-        </div>
-    </div>
-</div>
-</div>
+    <div class="track-list" id="arabeskpop">
+        <div onclick="playTrack('Dünya Benim Olurdu','dünya.benim.olurdu.mp3.mp3')">
+            <span>🎧</span> DÜNYA BENİM OLURDU
         </div>
     </div>
 </div>
