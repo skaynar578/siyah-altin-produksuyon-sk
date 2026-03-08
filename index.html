@@ -187,13 +187,16 @@ footer .contacts span.year{
 </style>
 </head>
 
-<!-- Sabit Video Player (Ana Player boyutunda, sağda sabit) -->
+<body>
+
+<!-- Sabit Video Player (Ana Player boyutunda ve hizasında) -->
 <video id="fixedPlayer" autoplay muted loop style="
     position:fixed;
-    top:100px;        /* header altından başlıyor */
-    right:20px;       /* sayfanın sağında sabit */
-    width:450px;      /* ana player ile aynı genişlik */
-    height:250px;     /* ana player ile aynı yükseklik */
+    top:150px;           /* header altından başlıyor */
+    left:50%;            /* ortalanmış, ana player hizasında */
+    transform:translateX(-50%);
+    width:450px;         /* ana player ile aynı genişlik */
+    height:250px;        /* ana player ile aynı yükseklik */
     object-fit:cover;
     border:3px solid #d4af37;
     border-radius:12px;
