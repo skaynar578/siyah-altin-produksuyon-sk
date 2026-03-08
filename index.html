@@ -189,35 +189,11 @@ footer .contacts span.year{
 
 <body>
 
-<!-- Sabit Video Player (Ana Player boyutunda ve hizasında) -->
-<video id="fixedPlayer" autoplay muted loop style="
-    position:fixed;
-    top:150px;           /* header altından başlıyor */
-    left:50%;            /* ortalanmış, ana player hizasında */
-    transform:translateX(-50%);
-    width:450px;         /* ana player ile aynı genişlik */
-    height:250px;        /* ana player ile aynı yükseklik */
-    object-fit:cover;
-    border:3px solid #d4af37;
-    border-radius:12px;
-    box-shadow:0 0 25px rgba(212,175,55,0.7);
-    z-index:9999;
-">
-    <source src="clip1.mp4" type="video/mp4">
-</video>
-
-<script>
-// Sabit Player Playlist
-const fixedPlayer = document.getElementById("fixedPlayer");
-const fixedClips = ["clip1.mp4","clip2.mp4","clip3.mp4"];
-let fixedIndex = 0;
-
-fixedPlayer.addEventListener("ended", ()=>{
-    fixedIndex = (fixedIndex + 1) % fixedClips.length;
-    fixedPlayer.src = fixedClips[fixedIndex];
-    fixedPlayer.play();
-});
-</script>
+<header>
+    <div class="language-switch">
+        <span onclick="setLanguage('tr')">TR</span> | 
+        <span onclick="setLanguage('en')">EN</span>
+    </div>
     <h1 class="header-main-title">
         <span style="text-transform:capitalize;">Siyah Altın müzik </span><span style="text-transform:uppercase;">P</span>rodüksiyon
     </h1>
