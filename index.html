@@ -189,6 +189,43 @@ footer .contacts span.year{
 
 <body>
 
+<!-- BURAYA EKLEYECEĞİZ -->
+<video id="leftFixedPlayer" autoplay muted loop style="
+    position:fixed;
+    top:200px;
+    left:20px;
+    width:450px;
+    height:250px;
+    object-fit:cover;
+    border:3px solid #d4af37;
+    border-radius:12px;
+    box-shadow:0 0 25px rgba(212,175,55,0.7);
+    z-index:9999;
+">
+    <source src="ad1.mp4" type="video/mp4">
+</video>
+
+<script>
+const leftPlayer = document.getElementById("leftFixedPlayer");
+const leftClips = ["ad1.mp4","ad2.mp4","ad3.mp4"];
+let leftIndex = 0;
+
+leftPlayer.addEventListener("ended", ()=>{
+    leftIndex = (leftIndex + 1) % leftClips.length;
+    leftPlayer.src = leftClips[leftIndex];
+    leftPlayer.play();
+});
+</script>
+<!-- EKLEME BİTTİ -->
+
+<header>
+    <div class="language-switch">
+        <span onclick="setLanguage('tr')">TR</span> | 
+        <span onclick="setLanguage('en')">EN</span>
+    </div>
+    ...
+</header>    
+
 <header>
     <div class="language-switch">
         <span onclick="setLanguage('tr')">TR</span> | 
