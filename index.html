@@ -13,6 +13,25 @@ body{
     color:#d4af37;
     text-align:center;
 }
+
+body::before,
+body::after{
+    content:"";
+    position:fixed;
+    top:0;
+    width:2px;
+    height:100%;
+    background:#d4af37;
+    box-shadow:0 0 10px #d4af37;
+}
+
+body::before{
+    left:20px;
+}
+
+body::after{
+    right:20px;
+}
 header{ padding:25px 15px; position:relative; }
 .sub{
     font-size:18px;
