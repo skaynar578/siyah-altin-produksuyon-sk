@@ -189,11 +189,87 @@ footer .contacts span.year{
 
 <body>
 
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BLACK GOLD PRODUCTION</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#0b0b0b;
+    color:#d4af37;
+    text-align:center;
+}
+header{ padding:25px 15px; position:relative; }
+.sub{
+    font-size:18px;
+    font-weight:bold;
+    margin:6px 0;
+}
+/* ... Mevcut CSS'in geri kalanı ... */
+</style>
+</head>
+
+<body>
+
+<!-- Sol Mini TV Player -->
+<video id="miniTV" autoplay muted loop style="
+    position:fixed;
+    top:50px;
+    left:10px;
+    width:150px;
+    height:90px;
+    object-fit:cover;
+    border:3px solid #d4af37;
+    border-radius:8px;
+    box-shadow:0 0 15px rgba(212,175,55,0.7);
+    z-index:9999;
+">
+    <source src="clip1.mp4" type="video/mp4">
+</video>
+
 <header>
     <div class="language-switch">
         <span onclick="setLanguage('tr')">TR</span> | 
         <span onclick="setLanguage('en')">EN</span>
     </div>
+    <h1 class="header-main-title">
+        <span style="text-transform:capitalize;">Siyah Altın müzik </span><span style="text-transform:uppercase;">P</span>rodüksiyon
+    </h1>
+    <!-- Header geri kalanı buraya -->
+</header>
+
+<!-- Sayfa içeriğin devamı ... -->
+
+<script>
+// Mevcut JS kodların buraya
+
+// --- Mini TV Player Scroll ve Playlist ---
+const miniTV = document.getElementById("miniTV");
+const startTop = 50; // başlangıç üst boşluk
+
+window.addEventListener('scroll', ()=>{
+    const scrollY = window.scrollY;
+    miniTV.style.top = (startTop + scrollY) + "px";
+});
+
+// Video playlist
+const clips = ["clip1.mp4","clip2.mp4","clip3.mp4"];
+let currentClip = 0;
+
+miniTV.addEventListener("ended", ()=>{
+    currentClip = (currentClip+1) % clips.length;
+    miniTV.src = clips[currentClip];
+    miniTV.play();
+});
+</script>
+
+</body>
+</html>
     <h1 class="header-main-title">
         <span style="text-transform:capitalize;">Siyah Altın müzik </span><span style="text-transform:uppercase;">P</span>rodüksiyon
     </h1>
