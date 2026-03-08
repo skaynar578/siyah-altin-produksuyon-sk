@@ -189,6 +189,7 @@ footer .contacts span.year{
 
 <body>
 
+<!-- Sol Sabit Player -->
 <video id="leftFixedPlayer" autoplay muted loop style="
     position:fixed;
     top:200px;
@@ -202,7 +203,29 @@ footer .contacts span.year{
     z-index:9999;
 ">
     <source src="ad1.mp4" type="video/mp4">
+    Tarayıcınız video desteklemiyor.
 </video>
+
+<script>
+const leftPlayer = document.getElementById("leftFixedPlayer");
+const leftClips = ["ad1.mp4","ad2.mp4","ad3.mp4"]; // buraya reklam videoları
+let leftIndex = 0;
+
+// Videolar sırayla oynasın
+leftPlayer.addEventListener("ended", ()=>{
+    leftIndex = (leftIndex + 1) % leftClips.length;
+    leftPlayer.src = leftClips[leftIndex];
+    leftPlayer.play();
+});
+</script>
+
+<!-- Buradan sonra header ve diğer içerikler -->
+<header>
+    <div class="language-switch">
+        <span onclick="setLanguage('tr')">TR</span> | 
+        <span onclick="setLanguage('en')">EN</span>
+    </div>
+</header>
 
 <script>
 const leftPlayer = document.getElementById("leftFixedPlayer");
