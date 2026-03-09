@@ -188,14 +188,16 @@ footer .contacts span.year{
 </head>
 
 <body>
+<body>
+
 <!-- Sol Sabit Player (Reklamlar) -->
-<div style="position:fixed; top:150px; left:20px; z-index:10000; text-align:center; width:450px;">
+<div style="position:fixed; top:150px; left:20px; z-index:10000; text-align:center; width:250px;">
     <div style="color:#ffd700; font-weight:bold; font-size:16px; margin-bottom:6px; text-shadow:0 0 5px #ffd700;">
         SPONSOR / REKLAM
     </div>
     <video id="leftFixedPlayer" autoplay muted loop style="
-        width:450px;
-        height:250px;
+        width:250px;
+        height:140px;
         object-fit:cover;
         border:3px solid #d4af37;
         border-radius:12px;
@@ -206,20 +208,37 @@ footer .contacts span.year{
     </video>
 </div>
 
+<!-- Orta Sabit Player (Ana Player) -->
+<div style="position:fixed; top:150px; left:50%; transform:translateX(-50%); z-index:10000; text-align:center; width:450px;">
+    <div style="color:#ffd700; font-weight:bold; font-size:16px; margin-bottom:6px; text-shadow:0 0 5px #ffd700;">
+        ANA PLAYER
+    </div>
+    <video id="centerPlayer" controls controlslist="nodownload" style="
+        width:450px;
+        height:250px;
+        border:3px solid #d4af37;
+        border-radius:12px;
+        box-shadow:0 0 25px rgba(212,175,55,0.7);
+    ">
+        <source src="song1.mp4" type="video/mp4">
+        Tarayıcınız video desteklemiyor.
+    </video>
+</div>
+
 <!-- Sağ Sabit Player (Tanıtım) -->
-<div style="position:fixed; top:150px; right:20px; z-index:10000; text-align:center; width:450px;">
+<div style="position:fixed; top:150px; right:20px; z-index:10000; text-align:center; width:250px;">
     <div style="color:#ffd700; font-weight:bold; font-size:16px; margin-bottom:6px; text-shadow:0 0 5px #ffd700;">
         TANITIM / ÖZEL İÇERİK
     </div>
     <video id="rightFixedPlayer" autoplay muted loop style="
-        width:450px;
-        height:250px;
+        width:250px;
+        height:140px;
         object-fit:cover;
         border:3px solid #d4af37;
         border-radius:12px;
         box-shadow:0 0 25px rgba(212,175,55,0.7);
     ">
-        <source src="ad1.mp4" type="video/mp4">
+        <source src="promo1.mp4" type="video/mp4">
         Tarayıcınız video desteklemiyor.
     </video>
 </div>
@@ -237,7 +256,7 @@ leftPlayer.addEventListener("ended", ()=>{
 
 // Sağ Player Playlist
 const rightPlayer = document.getElementById("rightFixedPlayer");
-const rightClips = ["ad1.mp4","ad2.mp4","ad3.mp4"];
+const rightClips = ["promo1.mp4","promo2.mp4","promo3.mp4"];
 let rightIndex = 0;
 rightPlayer.addEventListener("ended", ()=>{
     rightIndex = (rightIndex + 1) % rightClips.length;
