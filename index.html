@@ -189,6 +189,82 @@ footer .contacts span.year{
 
 <body>
 
+  <body>
+
+<!-- Sol Sabit Player (Reklamlar) -->
+<div style="position:fixed; top:250px; left:20px; z-index:10000; text-align:center; width:250px;">
+    <div style="color:#ffd700; font-weight:bold; font-size:16px; margin-bottom:6px; text-shadow:0 0 5px #ffd700;">
+        SPONSOR / REKLAM
+    </div>
+    <video id="leftFixedPlayer" autoplay muted loop style="
+        width:250px;
+        height:140px;
+        object-fit:cover;
+        border:3px solid #d4af37;
+        border-radius:12px;
+        box-shadow:0 0 25px rgba(212,175,55,0.7);
+    ">
+        <source src="ad1.mp4" type="video/mp4">
+        Tarayıcınız video desteklemiyor.
+    </video>
+</div>
+
+<!-- Orta Sabit Player (Ana Player) -->
+<div style="position:fixed; top:250px; left:50%; transform:translateX(-50%); z-index:10000; text-align:center; width:450px;">
+    <div style="color:#ffd700; font-weight:bold; font-size:16px; margin-bottom:6px; text-shadow:0 0 5px #ffd700;">
+        ANA PLAYER
+    </div>
+    <video id="centerPlayer" controls controlslist="nodownload" style="
+        width:450px;
+        height:250px;
+        border:3px solid #d4af37;
+        border-radius:12px;
+        box-shadow:0 0 25px rgba(212,175,55,0.7);
+    ">
+        <source src="song1.mp4" type="video/mp4">
+        Tarayıcınız video desteklemiyor.
+    </video>
+</div>
+
+<!-- Sağ Sabit Player (Tanıtım) -->
+<div style="position:fixed; top:250px; right:20px; z-index:10000; text-align:center; width:250px;">
+    <div style="color:#ffd700; font-weight:bold; font-size:16px; margin-bottom:6px; text-shadow:0 0 5px #ffd700;">
+        TANITIM / ÖZEL İÇERİK
+    </div>
+    <video id="rightFixedPlayer" autoplay muted loop style="
+        width:250px;
+        height:140px;
+        object-fit:cover;
+        border:3px solid #d4af37;
+        border-radius:12px;
+        box-shadow:0 0 25px rgba(212,175,55,0.7);
+    ">
+        <source src="promo1.mp4" type="video/mp4">
+        Tarayıcınız video desteklemiyor.
+    </video>
+</div>
+
+<script>
+// Sol Player Playlist
+const leftPlayer = document.getElementById("leftFixedPlayer");
+const leftClips = ["ad1.mp4","ad2.mp4","ad3.mp4"];
+let leftIndex = 0;
+leftPlayer.addEventListener("ended", ()=>{
+    leftIndex = (leftIndex + 1) % leftClips.length;
+    leftPlayer.src = leftClips[leftIndex];
+    leftPlayer.play();
+});
+
+// Sağ Player Playlist
+const rightPlayer = document.getElementById("rightFixedPlayer");
+const rightClips = ["promo1.mp4","promo2.mp4","promo3.mp4"];
+let rightIndex = 0;
+rightPlayer.addEventListener("ended", ()=>{
+    rightIndex = (rightIndex + 1) % rightClips.length;
+    rightPlayer.src = rightClips[rightIndex];
+    rightPlayer.play();
+});
+</script>  
 <header>
     <div class="language-switch">
         <span onclick="setLanguage('tr')">TR</span> | 
