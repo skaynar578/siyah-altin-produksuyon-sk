@@ -189,21 +189,37 @@ footer .contacts span.year{
 
 <body>
 
-  <!-- Orta Ana Player (mevcut player) -->
+  <!-- Sol Sabit Player -->
+<video id="leftFixedPlayer" autoplay muted loop style="
+    position:fixed;
+    top:250px;
+    left:20px;
+    width:450px;
+    height:250px;
+    object-fit:cover;
+    border:3px solid #d4af37;
+    border-radius:12px;
+    box-shadow:0 0 25px rgba(212,175,55,0.7);
+    z-index:9999;
+">
+    <source src="ad1.mp4" type="video/mp4">
+    Tarayıcınız video desteklemiyor.
+</video>
+
+<!-- Orta Ana Player (mevcut) -->
 <div id="centerPlayerContainer" style="
     position:fixed;
-    top:250px;             /* header altından başlıyor */
+    top:250px;
     left:50%;
     transform:translateX(-50%);
-    width:450px;           /* ana player genişliği */
-    height:250px;          /* ana player yüksekliği */
+    width:450px;
+    height:250px;
     z-index:10000;
     text-align:center;
 ">
     <div style="color:#ffd700; font-weight:bold; font-size:16px; margin-bottom:6px; text-shadow:0 0 5px #ffd700;">
         ANA PLAYER
     </div>
-
     <video id="audioPlayer" controls controlslist="nodownload" style="
         width:100%;
         height:100%;
@@ -214,7 +230,24 @@ footer .contacts span.year{
         <source src="song1.mp4" type="video/mp4">
         Tarayıcınız video desteklemiyor.
     </video>
-</div>  
+</div>
+
+<!-- Sağ Sabit Player -->
+<video id="rightFixedPlayer" autoplay muted loop style="
+    position:fixed;
+    top:250px;
+    right:20px;
+    width:450px;
+    height:250px;
+    object-fit:cover;
+    border:3px solid #d4af37;
+    border-radius:12px;
+    box-shadow:0 0 25px rgba(212,175,55,0.7);
+    z-index:9999;
+">
+    <source src="ad2.mp4" type="video/mp4">
+    Tarayıcınız video desteklemiyor.
+</video>  
 <header>
     <div class="language-switch">
         <span onclick="setLanguage('tr')">TR</span> | 
