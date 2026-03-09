@@ -242,29 +242,20 @@ YASAL UYARI ! YAYINLANAN TÜM ESERLER TESCİLLENMİŞTİR !
     </div>
 
     <div class="category">
-    <h3 onclick="toggleList('arabesk')">
-        <span class="icon-shake">🎧</span> 
-        <span id="cat-arabesk">Yeni Nesil Arabesk</span>
-    </h3>
-    <div class="track-list" id="arabesk">
+        <h3 onclick="toggleList('arabesk')"><span class="icon-shake">🎧</span> <span id="cat-arabesk">Yeni Nesil Arabesk</span></h3>
+        <div class="track-list" id="arabesk">
 
-        <div onclick="playTrack('YANGINLARA','YANGINLARA.mp4')">
-            <span>🎬</span> YANGINLARA
-        </div>
+<div onclick="playTrack('YOLLAR BENDEN UZUN','YOLLAR.BENDEN.UZUN.mp4')">
+    <span>🎬</span> YOLLAR BENDEN UZUN
+</div>
+            
+            <div onclick="playTrack('Küllerimden Kalktım Video','k%C3%BCllerimden%20kalktim.mp4')">
+    <span>🎬</span> KÜLLERİMDEN KALKTIM
 
-        <div onclick="playTrack('YOLLAR BENDEN UZUN','YOLLAR.BENDEN.UZUN.mp4')">
-            <span>🎬</span> YOLLAR BENDEN UZUN
-        </div>
+</div>
 
-        <div onclick="playTrack('Küllerimden Kalktım','küllerimden kalktim.mp4')">
-            <span>🎬</span> KÜLLERİMDEN KALKTIM
-        </div>
-
-        <div onclick="playTrack('Seni Gördüm Ya','seni.gördumya.mp4')">
-            <span>🎬</span> SENİ GÖRDÜM YA
-        </div>
-
-    </div>
+ <div onclick="playTrack('Seni Gördüm Ya Video','seni.g%C3%B6rdumya.mp4')">
+    <span>🎬</span> SENİ GÖRDÜM YA
 </div>
 
         </div>
@@ -277,11 +268,7 @@ YASAL UYARI ! YAYINLANAN TÜM ESERLER TESCİLLENMİŞTİR !
 
     <div class="track-list" id="arabeskpop">
 
-     <div onclick="playTrack('Kalbim Yolda','KALBİM YOLDA.mp4')">
-            <span>🎬</span> KALBİM YOLDA
-        </div> 
-        
-        <div onclick="playTrack('Dünya Benim Olurdu Video','d%C3%BCnya.benim.olurdu.mp4')">
+      <div onclick="playTrack('Dünya Benim Olurdu Video','d%C3%BCnya.benim.olurdu.mp4')">
     <span>🎬</span> DÜNYA BENİM OLURDU</div>
 
     </div>
@@ -294,25 +281,18 @@ YASAL UYARI ! YAYINLANAN TÜM ESERLER TESCİLLENMİŞTİR !
 <div class="category">
     <h3 onclick="toggleList('turku')">
         <span class="icon-shake">🎧</span> 
-        <span id="cat-turku">Yeni Nesil Türküler</span>
+        <span id="cat-turku">Türkü</span>
     </h3>
 
     <div class="track-list" id="turku">
 
         <div onclick="playTrack('ÖLESİM GELDİ','OLESIM GELDI.mp4')">
-    <span>🎬</span> ÖLESİM GELDİ
-</div>
+            <span>🎬</span> ÖLESİM GELDİ
+        </div>
 
-
-<div onclick="playTrack('YAKTIN BENİ YAR','YAKTIN BENİ YAR.mp4')">
-    <span>🎬</span> YAKTIN BENİ YAR
-</div>
-        
         <div onclick="playTrack('Buda Geçer Video','buda.gecer.mp4')">
             <span>🎬</span> BUDA GEÇER
         </div>
-    </div>
-</div>
 
     </div>
 </div>
@@ -331,10 +311,6 @@ YASAL UYARI ! YAYINLANAN TÜM ESERLER TESCİLLENMİŞTİR !
 
     <div class="track-list" id="pop">
 
-<div onclick="playTrack('KOŞA KOŞA','KOŞA KOŞA.mp4')">
-    <span>🎬</span> KOŞA KOŞA
-</div>
-        
   <div onclick="playTrack('Dumanı Tüter Video','DUMANI.TÜTER.mp4')">
     <span>🎬</span> DUMANI TÜTER
 </div>  
@@ -342,9 +318,7 @@ YASAL UYARI ! YAYINLANAN TÜM ESERLER TESCİLLENMİŞTİR !
 <div onclick="playTrack('SEN GÜLÜNCE','SEN.GULUNCE.mp4')">
     <span>🎬</span> SEN GÜLÜNCE
 </div>
-
-
-        
+     
         <div onclick="playTrack('Dokunma Kalbime Video','DOKUNMA.KALBİME.mp4')">
     <span>🎬</span> DOKUNMA KALBİME
 </div>
@@ -616,19 +590,11 @@ function setLanguage(lang){
         playerDesc.textContent="SATIŞA VE DEVİRE HAZIR ESERLERİ DİNLEYEBİLİRSİNİZ";
         nowPlaying.textContent="Seçili şarkı yok";
         footerDesc.innerHTML="Siyah Altın Prodüksiyon, Serkan Kaynar tarafından kurulan; arabesk, pop ve özgün müzik üretimleri yapan bağımsız bir prodüksiyon platformudur. Bu sitede yer alan tüm eserlerin söz ve müzik hakları eser sahibine, Serkan Kaynar'a aittir. Yetkisiz kişiler tarafından izinsiz ticari amaçla kullanılamaz, kopyalanamaz, çoğaltılamaz. Tüm hakları saklıdır!:Ziyaretçi Sayısı: "+visits;
-    footerContacts.innerHTML =
-"<div style='display:flex;gap:15px;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:10px;'>"+
+       footerContacts.innerHTML =
+"📞 WhatsApp: 0507 416 36 05 " +
+"<a href='https://wa.me/905074163605?text=Merhaba,%20bilgi%20almak%20istiyorum.' style='margin-left:6px;'>Bilgi Al</a> | " +
+"📧 skaynar578@gmail.com | 📸 @siyahaltinproduksiyonsk <span class='year'>2026</span>";
 
-"<a href='https://wa.me/905074163605?text=Merhaba,%20bilgi%20almak%20istiyorum.' target='_blank' "+
-"style='background:#25D366;color:white;padding:10px 18px;border-radius:25px;text-decoration:none;font-weight:bold;'>"+
-"📲 WhatsApp İletişim</a>"+
-
-"<a href='mailto:skaynar578@gmail.com' "+
-"style='background:#d4af37;color:black;padding:10px 18px;border-radius:25px;text-decoration:none;font-weight:bold;'>"+
-"✉️ E-posta Gönder</a>"+
-
-"<span style='color:white;'>📸 @siyahaltinproduksiyonsk</span>"+
-
-"<span class='year'>2026</span>"+
-
-"</div>";
+    }
+}
+</script>
