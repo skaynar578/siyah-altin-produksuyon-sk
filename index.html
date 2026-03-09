@@ -187,111 +187,93 @@ footer .contacts span.year{
 </style>
 </head>
 
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Siyah Altın Prodüksiyon</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: #0b0b0b;
+        color: #d4af37;
+        text-align: center;
+    }
+    .fixed-player {
+        position: fixed;
+        top: 150px;
+        width: 450px;
+        text-align: center;
+        z-index: 10000;
+    }
+    .player-title {
+        color: #ffd700;
+        font-weight: bold;
+        font-size: 16px;
+        margin-bottom: 6px;
+        text-shadow: 0 0 5px #ffd700;
+    }
+    video {
+        width: 450px;
+        height: 250px;
+        object-fit: cover;
+        border: 3px solid #d4af37;
+        border-radius: 12px;
+        box-shadow: 0 0 25px rgba(212,175,55,0.7);
+    }
+    .now-playing {
+        color: #ffd700;
+        font-weight: bold;
+        margin-top: 5px;
+    }
+    header {
+        padding: 20px 0;
+    }
+    .language-switch span {
+        cursor: pointer;
+    }
+    .header-main-title {
+        font-size: 36px;
+        margin: 5px 0;
+    }
+    .sk-title {
+        font-size: 48px;
+        font-weight: bold;
+    }
+    .professional-title {
+        font-size: 24px;
+        margin: 10px 0;
+    }
+    .sub {
+        margin: 6px 0;
+        font-size: 18px;
+    }
+    .gold-glow {
+        text-shadow: 0 0 5px #ffd700;
+    }
+</style>
+</head>
 <body>
-<!-- Sol Sabit Player (Reklamlar) -->
-<div style="position:fixed; top:150px; left:20px; z-index:10000; text-align:center; width:450px;">
-    <div style="color:#ffd700; font-weight:bold; font-size:16px; margin-bottom:6px; text-shadow:0 0 5px #ffd700;">
-        SPONSOR / REKLAM
-    </div>
-    <video id="leftFixedPlayer" autoplay muted loop style="
-        width:450px;
-        height:250px;
-        object-fit:cover;
-        border:3px solid #d4af37;
-        border-radius:12px;
-        box-shadow:0 0 25px rgba(212,175,55,0.7);
-    ">
+
+<!-- Sol Player -->
+<div class="fixed-player" style="left:20px;">
+    <div class="player-title">SPONSOR / REKLAM</div>
+    <video id="leftFixedPlayer" autoplay muted loop>
         <source src="ad1.mp4" type="video/mp4">
         Tarayıcınız video desteklemiyor.
     </video>
+    <div id="leftNowPlaying" class="now-playing">Şu an oynayan: ad1.mp4</div>
 </div>
 
-<!-- Sağ Sabit Player (Tanıtım) -->
-<div style="position:fixed; top:150px; right:20px; z-index:10000; text-align:center; width:450px;">
-    <div style="color:#ffd700; font-weight:bold; font-size:16px; margin-bottom:6px; text-shadow:0 0 5px #ffd700;">
-        TANITIM / ÖZEL İÇERİK
-    </div>
-    <video id="rightFixedPlayer" autoplay muted loop style="
-        width:450px;
-        height:250px;
-        object-fit:cover;
-        border:3px solid #d4af37;
-        border-radius:12px;
-        box-shadow:0 0 25px rgba(212,175,55,0.7);
-    ">
+<!-- Sağ Player -->
+<div class="fixed-player" style="right:20px;">
+    <div class="player-title">TANITIM / ÖZEL İÇERİK</div>
+    <video id="rightFixedPlayer" autoplay muted loop>
         <source src="ad1.mp4" type="video/mp4">
         Tarayıcınız video desteklemiyor.
     </video>
-</div>
-
-<script>
-// Sol Player Playlist
-const leftPlayer = document.getElementById("leftFixedPlayer");
-const leftClips = ["ad1.mp4","ad2.mp4","ad3.mp4"];
-let leftIndex = 0;
-leftPlayer.addEventListener("ended", ()=>{
-    leftIndex = (leftIndex + 1) % leftClips.length;
-    leftPlayer.src = leftClips[leftIndex];
-    leftPlayer.play();
-});
-
-<!-- Sağ Player HTML kısmı -->
-<div style="position:fixed; top:150px; right:20px; z-index:10000; text-align:center; width:450px;">
-    <div style="color:#ffd700; font-weight:bold; font-size:16px; margin-bottom:6px; text-shadow:0 0 5px #ffd700;">
-        TANITIM / ÖZEL İÇERİK
-    </div>
-    <video id="rightFixedPlayer" autoplay muted loop style="
-        width:450px;
-        height:250px;
-        object-fit:cover;
-        border:3px solid #d4af37;
-        border-radius:12px;
-        box-shadow:0 0 25px rgba(212,175,55,0.7);
-    ">
-        <source src="ad1.mp4" type="video/mp4">
-        Tarayıcınız video desteklemiyor.
-    </video>
-    <div id="rightNowPlaying" style="color:#ffd700; font-weight:bold; margin-top:6px;">
-        Şu an oynayan: ad1.mp4
-    </div>
-</div>
-
-<!-- Sol Sabit Player (Reklamlar) -->
-<div style="position:fixed; top:150px; left:20px; z-index:10000; text-align:center; width:450px;">
-    <div style="color:#ffd700; font-weight:bold; font-size:16px; margin-bottom:6px; text-shadow:0 0 5px #ffd700;">
-        SPONSOR / REKLAM
-    </div>
-    <video id="leftFixedPlayer" autoplay muted loop style="
-        width:450px;
-        height:250px;
-        object-fit:cover;
-        border:3px solid #d4af37;
-        border-radius:12px;
-        box-shadow:0 0 25px rgba(212,175,55,0.7);
-    ">
-        <source src="ad1.mp4" type="video/mp4">
-        Tarayıcınız video desteklemiyor.
-    </video>
-    <div id="leftNowPlaying" style="color:#ffd700; font-weight:bold; margin-top:6px;">Şu an oynayan: ad1.mp4</div>
-</div>
-
-<!-- Sağ Sabit Player (Tanıtım) -->
-<div style="position:fixed; top:150px; right:20px; z-index:10000; text-align:center; width:450px;">
-    <div style="color:#ffd700; font-weight:bold; font-size:16px; margin-bottom:6px; text-shadow:0 0 5px #ffd700;">
-        TANITIM / ÖZEL İÇERİK
-    </div>
-    <video id="rightFixedPlayer" autoplay muted loop style="
-        width:450px;
-        height:250px;
-        object-fit:cover;
-        border:3px solid #d4af37;
-        border-radius:12px;
-        box-shadow:0 0 25px rgba(212,175,55,0.7);
-    ">
-        <source src="ad1.mp4" type="video/mp4">
-        Tarayıcınız video desteklemiyor.
-    </video>
-    <div id="rightNowPlaying" style="color:#ffd700; font-weight:bold; margin-top:6px;">Şu an oynayan: ad1.mp4</div>
+    <div id="rightNowPlaying" class="now-playing">Şu an oynayan: ad1.mp4</div>
 </div>
 
 <script>
@@ -308,100 +290,6 @@ leftPlayer.addEventListener("ended", () => {
     leftPlayer.play();
 });
 
-<!-- Sağ Sabit Player (Tanıtım) -->
-<div style="position:fixed; top:150px; right:20px; z-index:10000; text-align:center; width:450px;">
-    <div style="color:#ffd700; font-weight:bold; font-size:16px; margin-bottom:6px; text-shadow:0 0 5px #ffd700;">
-        TANITIM / ÖZEL İÇERİK
-    </div>
-    <video id="rightFixedPlayer" autoplay muted loop style="
-        width:450px;
-        height:250px;
-        object-fit:cover;
-        border:3px solid #d4af37;
-        border-radius:12px;
-        box-shadow:0 0 25px rgba(212,175,55,0.7);
-    ">
-        <source src="ad1.mp4" type="video/mp4">
-        Tarayıcınız video desteklemiyor.
-    </video>
-    <div id="rightNowPlaying" style="color:#ffd700; font-weight:bold; margin-top:5px;">
-        Şu an oynayan: ad1.mp4
-    </div>
-</div>
-
-<!-- Sağ Sabit Player (Tanıtım) -->
-<div style="position:fixed; top:150px; right:20px; z-index:10000; text-align:center; width:450px;">
-    <div style="color:#ffd700; font-weight:bold; font-size:16px; margin-bottom:6px; text-shadow:0 0 5px #ffd700;">
-        TANITIM / ÖZEL İÇERİK
-    </div>
-    <video id="rightFixedPlayer" autoplay muted loop style="
-        width:450px;
-        height:250px;
-        object-fit:cover;
-        border:3px solid #d4af37;
-        border-radius:12px;
-        box-shadow:0 0 25px rgba(212,175,55,0.7);
-    ">
-        <source src="ad1.mp4" type="video/mp4">
-        Tarayıcınız video desteklemiyor.
-    </video>
-    <div id="rightNowPlaying" style="color:#ffd700; font-weight:bold; margin-top:5px;">
-        Şu an oynayan: ad1.mp4
-    </div>
-</div>
-
-<!-- Sağ Sabit Player (Tanıtım) -->
-<div style="position:fixed; top:150px; right:20px; z-index:10000; text-align:center; width:450px;">
-    <div style="color:#ffd700; font-weight:bold; font-size:16px; margin-bottom:6px; text-shadow:0 0 5px #ffd700;">
-        TANITIM / ÖZEL İÇERİK
-    </div>
-    <video id="rightFixedPlayer" autoplay muted loop style="
-        width:450px;
-        height:250px;
-        object-fit:cover;
-        border:3px solid #d4af37;
-        border-radius:12px;
-        box-shadow:0 0 25px rgba(212,175,55,0.7);
-    ">
-        <source src="ad1.mp4" type="video/mp4">
-        Tarayıcınız video desteklemiyor.
-  <!-- Sağ Sabit Player (Tanıtım) -->
-<div style="position:fixed; top:150px; right:20px; z-index:10000; text-align:center; width:450px;">
-    <div style="color:#ffd700; font-weight:bold; font-size:16px; margin-bottom:6px; text-shadow:0 0 5px #ffd700;">
-        TANITIM / ÖZEL İÇERİK
-    </div>
-    <video id="rightFixedPlayer" autoplay muted loop style="
-        width:450px;
-        height:250px;
-        object-fit:cover;
-        border:3px solid #d4af37;
-        border-radius:12px;
-        box-shadow:0 0 25px rgba(212,175,55,0.7);
-    ">
-        <source src="ad1.mp4" type="video/mp4">
-        Tarayıcınız video desteklemiyor.
-  <!-- Sağ Sabit Player (Tanıtım) -->
-<div style="position:fixed; top:150px; right:20px; z-index:10000; text-align:center; width:450px;">
-    <div style="color:#ffd700; font-weight:bold; font-size:16px; margin-bottom:6px; text-shadow:0 0 5px #ffd700;">
-        TANITIM / ÖZEL İÇERİK
-    </div>
-    <video id="rightFixedPlayer" autoplay muted loop style="
-        width:450px;
-        height:250px;
-        object-fit:cover;
-        border:3px solid #d4af37;
-        border-radius:12px;
-        box-shadow:0 0 25px rgba(212,175,55,0.7);
-    ">
-        <source src="ad1.mp4" type="video/mp4">
-        Tarayıcınız video desteklemiyor.
-    </video>
-    <div id="rightNowPlaying" style="color:#ffd700; font-weight:bold; margin-top:5px;">
-        Şu an oynayan: ad1.mp4
-    </div>
-</div>
-
-<script>
 // --- SAĞ PLAYER ---
 const rightPlayer = document.getElementById("rightFixedPlayer");
 const rightNowPlaying = document.getElementById("rightNowPlaying");
@@ -417,10 +305,6 @@ rightPlayer.addEventListener("ended", () => {
 </script>
 
 <header>
-    <!-- Header içeriğin buraya gelecek -->
-</header>
-    <!-- Buraya header içeriğin gelecek -->
-</header>
     <div class="language-switch">
         <span onclick="setLanguage('tr')">TR</span> | 
         <span onclick="setLanguage('en')">EN</span>
@@ -432,14 +316,23 @@ rightPlayer.addEventListener("ended", () => {
         <span class="sk-s">S</span>
         <span class="sk-k">K</span>
     </div>
-    <h2 class="header-sub-title" id="header-sub-title"></h2>
     <div class="professional-title">PROFESYONEL</div>
     <div class="sub gold-glow" id="sub1">Hazır Şarkılar • Besteler</div>
-<div class="sub gold-glow" id="sub2">Satışa ve Devire Hazır Eserler</div>
-<div class="sub gold-glow" id="sub3">
-Özel talepler doğrultusunda özgün çalışmalar hazırlanır.<br>
-<br>Eserler yapay zeka kullanılarak seslendirilmiştir.
-</div>
+    <div class="sub gold-glow" id="sub2">Satışa ve Devire Hazır Eserler</div>
+    <div class="sub gold-glow" id="sub3">
+        Özel talepler doğrultusunda özgün çalışmalar hazırlanır.<br><br>
+        Eserler yapay zeka kullanılarak seslendirilmiştir.
+    </div>
+</header>
+
+<script>
+function setLanguage(lang){
+    alert("Dil değiştir: " + lang);
+}
+</script>
+
+</body>
+</html>
 
 <br>
 
