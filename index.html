@@ -276,12 +276,22 @@ footer .contacts span.year{
     <div id="rightNowPlaying" class="now-playing">Şu an oynayan: ad1.mp4</div>
 </div>
 
+<!-- Sağ Player -->
+<div class="fixed-player" style="right:20px;">
+    <div class="player-title">TANITIM / ÖZEL İÇERİK</div>
+    <video id="rightFixedPlayer" autoplay muted loop>
+        <source src="KALBIM YOLDA TANITIM.mp4" type="video/mp4">
+        Tarayıcınız video desteklemiyor.
+    </video>
+    <div id="rightNowPlaying" class="now-playing">Şu an oynayan: KALBIM YOLDA TANITIM.mp4</div>
+</div>
+
 <script>
 // --- SAĞ PLAYER ---
 const rightPlayer = document.getElementById("rightFixedPlayer");
 const rightNowPlaying = document.getElementById("rightNowPlaying");
 
-// Yeni klipleri buraya ekledik
+// Klip listesi
 const rightClips = [
     "ad1.mp4",
     "ad2.mp4",
@@ -289,6 +299,22 @@ const rightClips = [
     "tanitim.mp4",
     "KALBIM YOLDA TANITIM.mp4"
 ];
+
+let rightIndex = rightClips.indexOf("KALBIM YOLDA TANITIM.mp4"); // başlangıç indeksi
+
+// İlk video ayarlanıyor ve oynatılıyor
+rightPlayer.src = rightClips[rightIndex];
+rightNowPlaying.textContent = "Şu an oynayan: " + rightClips[rightIndex];
+rightPlayer.play().catch(()=>{}); // autoplay engellenirse sessiz hata
+
+// Video bittiğinde sıradaki klibe geç
+rightPlayer.addEventListener("ended", () => {
+    rightIndex = (rightIndex + 1) % rightClips.length;
+    rightPlayer.src = rightClips[rightIndex];
+    rightNowPlaying.textContent = "Şu an oynayan: " + rightClips[rightIndex];
+    rightPlayer.play().catch(()=>{});
+});
+</script>
 
 let rightIndex = 0;
 
