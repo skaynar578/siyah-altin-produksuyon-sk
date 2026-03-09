@@ -276,56 +276,6 @@ footer .contacts span.year{
     <div id="rightNowPlaying" class="now-playing">Şu an oynayan: ad1.mp4</div>
 </div>
 
-<!-- Sağ Player -->
-<div class="fixed-player" style="right:20px;">
-    <div class="player-title">TANITIM / ÖZEL İÇERİK</div>
-    <video id="rightFixedPlayer" autoplay muted loop>
-        <source src="KALBIM YOLDA TANITIM.mp4" type="video/mp4">
-        Tarayıcınız video desteklemiyor.
-    </video>
-    <div id="rightNowPlaying" class="now-playing">Şu an oynayan: KALBIM YOLDA TANITIM.mp4</div>
-</div>
-
-<script>
-// --- SAĞ PLAYER ---
-const rightPlayer = document.getElementById("rightFixedPlayer");
-const rightNowPlaying = document.getElementById("rightNowPlaying");
-
-// Klip listesi
-const rightClips = [
-    "ad1.mp4",
-    "ad2.mp4",
-    "ad3.mp4",
-    "tanitim.mp4",
-    "KALBIM YOLDA TANITIM.mp4"
-];
-
-let rightIndex = rightClips.indexOf("KALBIM YOLDA TANITIM.mp4"); // başlangıç indeksi
-
-// İlk video ayarlanıyor ve oynatılıyor
-rightPlayer.src = rightClips[rightIndex];
-rightNowPlaying.textContent = "Şu an oynayan: " + rightClips[rightIndex];
-rightPlayer.play().catch(()=>{}); // autoplay engellenirse sessiz hata
-
-// Video bittiğinde sıradaki klibe geç
-rightPlayer.addEventListener("ended", () => {
-    rightIndex = (rightIndex + 1) % rightClips.length;
-    rightPlayer.src = rightClips[rightIndex];
-    rightNowPlaying.textContent = "Şu an oynayan: " + rightClips[rightIndex];
-    rightPlayer.play().catch(()=>{});
-});
-</script>
-
-let rightIndex = 0;
-
-// Videolar sırayla oynasın
-rightPlayer.addEventListener("ended", () => {
-    rightIndex = (rightIndex + 1) % rightClips.length;
-    rightPlayer.src = rightClips[rightIndex];
-    rightNowPlaying.textContent = "Şu an oynayan: " + rightClips[rightIndex];
-    rightPlayer.play();
-});
-</script>
 <script>
 // --- SOL PLAYER ---
 const leftPlayer = document.getElementById("leftFixedPlayer");
@@ -340,17 +290,59 @@ leftPlayer.addEventListener("ended", () => {
     leftPlayer.play();
 });
 
+<!-- Sol Player -->
+<div class="fixed-player" style="left:20px;">
+    <div class="player-title">SPONSOR / REKLAM</div>
+    <video id="leftFixedPlayer" autoplay loop controls>
+        <source src="ad1.mp4" type="video/mp4">
+        Tarayıcınız video desteklemiyor.
+    </video>
+    <div id="leftNowPlaying" class="now-playing">Şu an oynayan: ad1.mp4</div>
+</div>
+
+<!-- Sağ Player -->
+<div class="fixed-player" style="right:20px;">
+    <div class="player-title">TANITIM / ÖZEL İÇERİK</div>
+    <video id="rightFixedPlayer" autoplay loop controls>
+        <source src="KALBIM YOLDA TANITIM.mp4" type="video/mp4">
+        Tarayıcınız video desteklemiyor.
+    </video>
+    <div id="rightNowPlaying" class="now-playing">Şu an oynayan: KALBİM YOLDA TANITIM.mp4</div>
+</div>
+
+<script>
+// --- SOL PLAYER ---
+const leftPlayer = document.getElementById("leftFixedPlayer");
+const leftNowPlaying = document.getElementById("leftNowPlaying");
+const leftClips = ["ad1.mp4","ad2.mp4","ad3.mp4"];
+let leftIndex = 0;
+
+leftPlayer.src = leftClips[leftIndex];
+leftNowPlaying.textContent = "Şu an oynayan: " + leftClips[leftIndex];
+leftPlayer.play().catch(()=>{console.log("Sol player autoplay engellendi.");});
+
+leftPlayer.addEventListener("ended", () => {
+    leftIndex = (leftIndex + 1) % leftClips.length;
+    leftPlayer.src = leftClips[leftIndex];
+    leftNowPlaying.textContent = "Şu an oynayan: " + leftClips[leftIndex];
+    leftPlayer.play().catch(()=>{});
+});
+
 // --- SAĞ PLAYER ---
 const rightPlayer = document.getElementById("rightFixedPlayer");
 const rightNowPlaying = document.getElementById("rightNowPlaying");
-const rightClips = ["ad1.mp4","ad2.mp4","ad3.mp4","tanitim.mp4"];
+const rightClips = ["ad1.mp4","ad2.mp4","ad3.mp4","tanitim.mp4","KALBİM YOLDA TANITIM.mp4"];
 let rightIndex = 0;
+
+rightPlayer.src = rightClips[rightIndex];
+rightNowPlaying.textContent = "Şu an oynayan: " + rightClips[rightIndex];
+rightPlayer.play().catch(()=>{console.log("Sağ player autoplay engellendi.");});
 
 rightPlayer.addEventListener("ended", () => {
     rightIndex = (rightIndex + 1) % rightClips.length;
     rightPlayer.src = rightClips[rightIndex];
     rightNowPlaying.textContent = "Şu an oynayan: " + rightClips[rightIndex];
-    rightPlayer.play();
+    rightPlayer.play().catch(()=>{});
 });
 </script>
 
