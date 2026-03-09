@@ -285,47 +285,7 @@ function setLanguage(lang){
 </script>
 
 </body>
-<!-- Sabit İletişim Butonları -->
-<div class="fixed-buttons">
-    <a href="https://wa.me/905074163605?text=Merhaba,%20bilgi%20almak%20istiyorum." target="_blank" class="whatsapp-btn">
-        📞 WhatsApp
-    </a>
-    <a href="mailto:skaynar578@gmail.com" class="message-btn">
-        📧 E-mail
-    </a>
-</div>
-
-<style>
-.fixed-buttons{
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-    z-index:9999;
-}
-.fixed-buttons a{
-    text-decoration:none;
-    padding:12px 20px;
-    border-radius:8px;
-    font-weight:bold;
-    font-size:18px;
-    color:#0b0b0b;
-    text-align:center;
-    transition:0.3s;
-}
-.fixed-buttons a:hover{
-    box-shadow:0 0 20px #ffd700;
-    transform:scale(1.05);
-}
-.whatsapp-btn{
-    background:#25D366;
-}
-.message-btn{
-    background:#d4af37;
-}
-</style>
+</html>
 
 <br>
 
@@ -742,53 +702,7 @@ function setLanguage(lang){
         playerDesc.textContent="SATIŞA VE DEVİRE HAZIR ESERLERİ DİNLEYEBİLİRSİNİZ";
         nowPlaying.textContent="Seçili şarkı yok";
         footerDesc.innerHTML="Siyah Altın Prodüksiyon, Serkan Kaynar tarafından kurulan; arabesk, pop ve özgün müzik üretimleri yapan bağımsız bir prodüksiyon platformudur. Bu sitede yer alan tüm eserlerin söz ve müzik hakları eser sahibine, Serkan Kaynar'a aittir. Yetkisiz kişiler tarafından izinsiz ticari amaçla kullanılamaz, kopyalanamaz, çoğaltılamaz. Tüm hakları saklıdır!:Ziyaretçi Sayısı: "+visits;
-       footerContacts.innerHTML =<!-- Mobil için WhatsApp ve E-mail Butonları -->
-<div class="mobile-fixed-buttons">
-    <a href="https://wa.me/905074163605?text=Merhaba,%20bilgi%20almak%20istiyorum." target="_blank" class="mobile-whatsapp-btn">
-        📞
-    </a>
-    <a href="mailto:skaynar578@gmail.com" class="mobile-email-btn">
-        📧
-    </a>
-</div>
-
-<style>
-/* Mobil butonlar: Ziyaretçi sayısının yanına yerleştirilecek */
-.mobile-fixed-buttons{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    max-width:200px;
-    margin:10px auto 0 auto;
-}
-.mobile-fixed-buttons a{
-    text-decoration:none;
-    padding:6px 10px;
-    border-radius:6px;
-    font-weight:bold;
-    font-size:16px;
-    color:#0b0b0b;
-    text-align:center;
-    transition:0.3s;
-}
-.mobile-fixed-buttons a:hover{
-    box-shadow:0 0 10px #ffd700;
-    transform:scale(1.1);
-}
-.mobile-whatsapp-btn{
-    background:#25D366;
-}
-.mobile-email-btn{
-    background:#d4af37;
-}
-
-/* Sadece mobilde göster, masaüstünde gizle */
-@media(min-width:768px){
-    .mobile-fixed-buttons{
-        display:none;
-    }
-}
-</style>
+       footerContacts.innerHTML =
 "📞 WhatsApp: 0507 416 36 05 " +
 "<a href='https://wa.me/905074163605?text=Merhaba,%20bilgi%20almak%20istiyorum.' style='margin-left:6px;'>Bilgi Al</a> | " +
 "📧 skaynar578@gmail.com | 📸 @siyahaltinproduksiyonsk <span class='year'>2026</span>";
