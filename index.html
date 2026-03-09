@@ -270,44 +270,19 @@ footer .contacts span.year{
 <div class="fixed-player" style="right:20px;">
     <div class="player-title">TANITIM / ÖZEL İÇERİK</div>
     <video id="rightFixedPlayer" autoplay muted loop>
-        <source src="ad1.mp4" type="video/mp4">
-        Tarayıcınız video desteklemiyor.
-    </video>
-    <div id="rightNowPlaying" class="now-playing">Şu an oynayan: ad1.mp4</div>
-</div>
-
-<script>
-// --- SOL PLAYER ---
-const leftPlayer = document.getElementById("leftFixedPlayer");
-const leftNowPlaying = document.getElementById("leftNowPlaying");
-const leftClips = ["ad1.mp4","ad2.mp4","ad3.mp4"];
-let leftIndex = 0;
-
-leftPlayer.addEventListener("ended", () => {
-    leftIndex = (leftIndex + 1) % leftClips.length;
-    leftPlayer.src = leftClips[leftIndex];
-    leftNowPlaying.textContent = "Şu an oynayan: " + leftClips[leftIndex];
-    leftPlayer.play();
-});
-
-<!-- Sol Player -->
-<div class="fixed-player" style="left:20px;">
-    <div class="player-title">SPONSOR / REKLAM</div>
-    <video id="leftFixedPlayer" autoplay loop controls>
-        <source src="ad1.mp4" type="video/mp4">
-        Tarayıcınız video desteklemiyor.
-    </video>
-    <div id="leftNowPlaying" class="now-playing">Şu an oynayan: ad1.mp4</div>
-</div>
-
-<!-- Sağ Player -->
-<div class="fixed-player" style="right:20px;">
-    <div class="player-title">TANITIM / ÖZEL İÇERİK</div>
-    <video id="rightFixedPlayer" autoplay loop controls>
         <source src="KALBIM YOLDA TANITIM.mp4" type="video/mp4">
         Tarayıcınız video desteklemiyor.
     </video>
     <div id="rightNowPlaying" class="now-playing">Şu an oynayan: KALBİM YOLDA TANITIM.mp4</div>
+</div>
+
+<!-- Orta Player -->
+<div class="player-box" style="max-width:450px; margin: 200px auto 50px auto;">
+    <video id="middlePlayer" controls style="width:100%; border-radius:12px;">
+        <source src="" type="video/mp4">
+        Tarayıcınız video desteklemiyor.
+    </video>
+    <div id="middleNowPlaying" style="color:#ffd700; font-weight:bold; margin-top:5px;">Seçili şarkı yok</div>
 </div>
 
 <script>
@@ -331,7 +306,7 @@ leftPlayer.addEventListener("ended", () => {
 // --- SAĞ PLAYER ---
 const rightPlayer = document.getElementById("rightFixedPlayer");
 const rightNowPlaying = document.getElementById("rightNowPlaying");
-const rightClips = ["ad1.mp4","ad2.mp4","ad3.mp4","tanitim.mp4","KALBİM YOLDA TANITIM.mp4"];
+const rightClips = ["ad1.mp4","ad2.mp4","ad3.mp4","tanitim.mp4","KALBIM YOLDA TANITIM.mp4"];
 let rightIndex = 0;
 
 rightPlayer.src = rightClips[rightIndex];
@@ -344,6 +319,33 @@ rightPlayer.addEventListener("ended", () => {
     rightNowPlaying.textContent = "Şu an oynayan: " + rightClips[rightIndex];
     rightPlayer.play().catch(()=>{});
 });
+
+// --- ORTA PLAYER ---
+const middlePlayer = document.getElementById("middlePlayer");
+const middleNowPlaying = document.getElementById("middleNowPlaying");
+
+// Orta player çalınca sağ ve sol sessiz, durunca tekrar sesli
+middlePlayer.addEventListener("play", () => {
+    leftPlayer.muted = true;
+    rightPlayer.muted = true;
+});
+middlePlayer.addEventListener("pause", () => {
+    leftPlayer.muted = false;
+    rightPlayer.muted = false;
+});
+middlePlayer.addEventListener("ended", () => {
+    leftPlayer.muted = false;
+    rightPlayer.muted = false;
+});
+
+// Orta playera track atama fonksiyonu
+function playMiddleTrack(name, file){
+    middlePlayer.src = file;
+    middleNowPlaying.textContent = "Çalan Şarkı: " + name;
+    middlePlayer.play().catch(()=>{});
+}
+
+// Örnek kullanım: playMiddleTrack('Kalbim Yolda Tanıtım','KALBIM YOLDA TANITIM.mp4');
 </script>
 
 <header>
