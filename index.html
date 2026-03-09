@@ -277,6 +277,30 @@ footer .contacts span.year{
 </div>
 
 <script>
+// --- SAĞ PLAYER ---
+const rightPlayer = document.getElementById("rightFixedPlayer");
+const rightNowPlaying = document.getElementById("rightNowPlaying");
+
+// Yeni klipleri buraya ekledik
+const rightClips = [
+    "ad1.mp4",
+    "ad2.mp4",
+    "ad3.mp4",
+    "tanitim.mp4",
+    "KALBIM YOLDA TANITIM.mp4"
+];
+
+let rightIndex = 0;
+
+// Videolar sırayla oynasın
+rightPlayer.addEventListener("ended", () => {
+    rightIndex = (rightIndex + 1) % rightClips.length;
+    rightPlayer.src = rightClips[rightIndex];
+    rightNowPlaying.textContent = "Şu an oynayan: " + rightClips[rightIndex];
+    rightPlayer.play();
+});
+</script>
+<script>
 // --- SOL PLAYER ---
 const leftPlayer = document.getElementById("leftFixedPlayer");
 const leftNowPlaying = document.getElementById("leftNowPlaying");
