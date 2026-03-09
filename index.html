@@ -256,53 +256,6 @@ footer .contacts span.year{
 </head>
 <body>
 
-<!-- Sol Player -->
-<div class="fixed-player" style="left:20px;">
-    <div class="player-title">SPONSOR / REKLAM</div>
-    <video id="leftFixedPlayer" autoplay muted loop>
-        <source src="ad1.mp4" type="video/mp4">
-        Tarayıcınız video desteklemiyor.
-    </video>
-    <div id="leftNowPlaying" class="now-playing">Şu an oynayan: ad1.mp4</div>
-</div>
-
-<!-- Sağ Player -->
-<div class="fixed-player" style="right:20px;">
-    <div class="player-title">TANITIM / ÖZEL İÇERİK</div>
-    <video id="rightFixedPlayer" autoplay muted loop>
-        <source src="ad1.mp4" type="video/mp4">
-        Tarayıcınız video desteklemiyor.
-    </video>
-    <div id="rightNowPlaying" class="now-playing">Şu an oynayan: ad1.mp4</div>
-</div>
-
-<script>
-// --- SOL PLAYER ---
-const leftPlayer = document.getElementById("leftFixedPlayer");
-const leftNowPlaying = document.getElementById("leftNowPlaying");
-const leftClips = ["ad1.mp4","ad2.mp4","ad3.mp4"];
-let leftIndex = 0;
-
-leftPlayer.addEventListener("ended", () => {
-    leftIndex = (leftIndex + 1) % leftClips.length;
-    leftPlayer.src = leftClips[leftIndex];
-    leftNowPlaying.textContent = "Şu an oynayan: " + leftClips[leftIndex];
-    leftPlayer.play();
-});
-
-// --- SAĞ PLAYER ---
-const rightPlayer = document.getElementById("rightFixedPlayer");
-const rightNowPlaying = document.getElementById("rightNowPlaying");
-const rightClips = ["ad1.mp4","ad2.mp4","ad3.mp4","tanitim.mp4"];
-let rightIndex = 0;
-
-rightPlayer.addEventListener("ended", () => {
-    rightIndex = (rightIndex + 1) % rightClips.length;
-    rightPlayer.src = rightClips[rightIndex];
-    rightNowPlaying.textContent = "Şu an oynayan: " + rightClips[rightIndex];
-    rightPlayer.play();
-});
-</script>
 
 <header>
     <div class="language-switch">
@@ -310,7 +263,7 @@ rightPlayer.addEventListener("ended", () => {
         <span onclick="setLanguage('en')">EN</span>
     </div>
     <h1 class="header-main-title">
-        <span style="text-transform:capitalize;">Siyah Altın müzik </span><span style="text-transform:uppercase;">P</span>rodüksiyon
+           <span style="text-transform:capitalize;">Siyah Altın müzik </span><span style="text-transform:uppercase;">P</span>rodüksiyon
     </h1>
     <div class="sk-title">
         <span class="sk-s">S</span>
