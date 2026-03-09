@@ -188,73 +188,63 @@ footer .contacts span.year{
 </head>
 
 <body>
+<!-- Sol Sabit Player (Reklamlar) -->
+<div style="position:fixed; top:150px; left:20px; z-index:10000; text-align:center; width:450px;">
+    <div style="color:#ffd700; font-weight:bold; font-size:16px; margin-bottom:6px; text-shadow:0 0 5px #ffd700;">
+        SPONSOR / REKLAM
+    </div>
+    <video id="leftFixedPlayer" autoplay muted loop style="
+        width:450px;
+        height:250px;
+        object-fit:cover;
+        border:3px solid #d4af37;
+        border-radius:12px;
+        box-shadow:0 0 25px rgba(212,175,55,0.7);
+    ">
+        <source src="ad1.mp4" type="video/mp4">
+        Tarayıcınız video desteklemiyor.
+    </video>
+</div>
 
-   <!-- Sol Sabit Player -->
-<video id="leftFixedPlayer" autoplay muted loop style="
-    position:fixed;
-    top:200px;
-    left:20px;
-    width:450px;
-    height:250px;
-    object-fit:cover;
-    border:3px solid #d4af37;
-    border-radius:12px;
-    box-shadow:0 0 25px rgba(212,175,55,0.7);
-    z-index:9999;
-">
-    <source src="ad1.mp4" type="video/mp4">
-    Tarayıcınız video desteklemiyor.
-</video>
-
-<!-- Sağ Sabit Player -->
-<video id="rightFixedPlayer" autoplay muted loop style="
-    position:fixed;
-    top:200px;
-    right:20px;
-    width:450px;
-    height:250px;
-    object-fit:cover;
-    border:3px solid #d4af37;
-    border-radius:12px;
-    box-shadow:0 0 25px rgba(212,175,55,0.7);
-    z-index:9999;
-">
-    <source src="tanitim1.mp4" type="video/mp4">
-    Tarayıcınız video desteklemiyor.
-</video>
+<!-- Sağ Sabit Player (Tanıtım) -->
+<div style="position:fixed; top:150px; right:20px; z-index:10000; text-align:center; width:450px;">
+    <div style="color:#ffd700; font-weight:bold; font-size:16px; margin-bottom:6px; text-shadow:0 0 5px #ffd700;">
+        TANITIM / ÖZEL İÇERİK
+    </div>
+    <video id="rightFixedPlayer" autoplay muted loop style="
+        width:450px;
+        height:250px;
+        object-fit:cover;
+        border:3px solid #d4af37;
+        border-radius:12px;
+        box-shadow:0 0 25px rgba(212,175,55,0.7);
+    ">
+        <source src="ad1.mp4" type="video/mp4">
+        Tarayıcınız video desteklemiyor.
+    </video>
+</div>
 
 <script>
+// Sol Player Playlist
 const leftPlayer = document.getElementById("leftFixedPlayer");
-const rightPlayer = document.getElementById("rightFixedPlayer");
-
-// Sol player playlist
 const leftClips = ["ad1.mp4","ad2.mp4","ad3.mp4"];
 let leftIndex = 0;
-
-// Sağ player playlist
-const rightClips = ["tanitim1.mp4","tanitim2.mp4","tanitim3.mp4"];
-let rightIndex = 0;
-
-// Sol player sırayla oynatma
 leftPlayer.addEventListener("ended", ()=>{
     leftIndex = (leftIndex + 1) % leftClips.length;
     leftPlayer.src = leftClips[leftIndex];
     leftPlayer.play();
 });
 
-// Sağ player sırayla oynatma
+// Sağ Player Playlist
+const rightPlayer = document.getElementById("rightFixedPlayer");
+const rightClips = ["ad1.mp4","ad2.mp4","ad3.mp4"];
+let rightIndex = 0;
 rightPlayer.addEventListener("ended", ()=>{
     rightIndex = (rightIndex + 1) % rightClips.length;
     rightPlayer.src = rightClips[rightIndex];
     rightPlayer.play();
 });
-
-// Sayfa yüklendiğinde otomatik başlat
-window.addEventListener('load', ()=>{
-    leftPlayer.play();
-    rightPlayer.play();
-});
-</script> 
+</script>
 <header>
     <div class="language-switch">
         <span onclick="setLanguage('tr')">TR</span> | 
