@@ -188,67 +188,63 @@ footer .contacts span.year{
 </head>
 
 <body>
-<!-- Sol Sabit Player -->
-<video id="leftFixedPlayer" autoplay muted loop style="
-    position:fixed;
-    top:200px;          /* header altından başlıyor */
-    left:20px;          /* solda sabit */
-    width:450px;        /* ana player ile aynı genişlik */
-    height:250px;       /* ana player ile aynı yükseklik */
-    object-fit:cover;
-    border:3px solid #d4af37;
-    border-radius:12px;
-    box-shadow:0 0 25px rgba(212,175,55,0.7);
-    z-index:9999;
-">
-    <source src="ad4.mp4" type="video/mp4">
-    Tarayıcınız video desteklemiyor.
-</video>
+<!-- Sol Sabit Player (Reklamlar) -->
+<div style="position:fixed; top:150px; left:20px; z-index:10000; text-align:center; width:450px;">
+    <div style="color:#ffd700; font-weight:bold; font-size:16px; margin-bottom:6px; text-shadow:0 0 5px #ffd700;">
+        SPONSOR / REKLAM
+    </div>
+    <video id="leftFixedPlayer" autoplay muted loop style="
+        width:450px;
+        height:250px;
+        object-fit:cover;
+        border:3px solid #d4af37;
+        border-radius:12px;
+        box-shadow:0 0 25px rgba(212,175,55,0.7);
+    ">
+        <source src="ad1.mp4" type="video/mp4">
+        Tarayıcınız video desteklemiyor.
+    </video>
+</div>
+
+<!-- Sağ Sabit Player (Tanıtım) -->
+<div style="position:fixed; top:150px; right:20px; z-index:10000; text-align:center; width:450px;">
+    <div style="color:#ffd700; font-weight:bold; font-size:16px; margin-bottom:6px; text-shadow:0 0 5px #ffd700;">
+        TANITIM / ÖZEL İÇERİK
+    </div>
+    <video id="rightFixedPlayer" autoplay muted loop style="
+        width:450px;
+        height:250px;
+        object-fit:cover;
+        border:3px solid #d4af37;
+        border-radius:12px;
+        box-shadow:0 0 25px rgba(212,175,55,0.7);
+    ">
+        <source src="ad1.mp4" type="video/mp4">
+        Tarayıcınız video desteklemiyor.
+    </video>
+</div>
 
 <script>
-// Sol Sabit Player Playlist
+// Sol Player Playlist
 const leftPlayer = document.getElementById("leftFixedPlayer");
-const leftClips = ["ad4.mp4","ad5.mp4","ad6.mp4"]; // buraya sol player videolarını ekle
+const leftClips = ["ad1.mp4","ad2.mp4","ad3.mp4"];
 let leftIndex = 0;
-
-// Videolar sırayla oynasın
 leftPlayer.addEventListener("ended", ()=>{
     leftIndex = (leftIndex + 1) % leftClips.length;
     leftPlayer.src = leftClips[leftIndex];
     leftPlayer.play();
 });
-</script>
-<!-- Sağ Sabit Player -->
-<video id="rightFixedPlayer" autoplay muted loop style="
-    position:fixed;
-    top:200px;          /* header altından başlıyor */
-    right:20px;         /* sağda sabit */
-    width:450px;        /* ana player ile aynı genişlik */
-    height:250px;       /* ana player ile aynı yükseklik */
-    object-fit:cover;
-    border:3px solid #d4af37;
-    border-radius:12px;
-    box-shadow:0 0 25px rgba(212,175,55,0.7);
-    z-index:9999;
-">
-    <source src="ad1.mp4" type="video/mp4">
-    Tarayıcınız video desteklemiyor.
-</video>
 
-<script>
-// Sağ Sabit Player Playlist
+// Sağ Player Playlist
 const rightPlayer = document.getElementById("rightFixedPlayer");
-const rightClips = ["ad1.mp4","ad2.mp4","ad3.mp4"]; // buraya reklam veya klip dosyalarını ekle
+const rightClips = ["ad1.mp4","ad2.mp4","ad3.mp4"];
 let rightIndex = 0;
-
-// Videolar sırayla oynasın
 rightPlayer.addEventListener("ended", ()=>{
     rightIndex = (rightIndex + 1) % rightClips.length;
     rightPlayer.src = rightClips[rightIndex];
     rightPlayer.play();
 });
 </script>
-
 <header>
     <div class="language-switch">
         <span onclick="setLanguage('tr')">TR</span> | 
@@ -264,14 +260,16 @@ rightPlayer.addEventListener("ended", ()=>{
     <h2 class="header-sub-title" id="header-sub-title"></h2>
     <div class="professional-title">PROFESYONEL</div>
     <div class="sub gold-glow" id="sub1">Hazır Şarkılar • Besteler</div>
-    <div class="sub gold-glow" id="sub2">Satışa ve Devire Hazır Eserler</div>
-    <div class="sub gold-glow" id="sub3">
-        Özel talepler doğrultusunda özgün çalışmalar hazırlanır.<br><br>
-        Eserler yapay zeka kullanılarak seslendirilmiştir.<br>
+<div class="sub gold-glow" id="sub2">Satışa ve Devire Hazır Eserler</div>
+<div class="sub gold-glow" id="sub3">
+Özel talepler doğrultusunda özgün çalışmalar hazırlanır.<br>
+<br>Eserler yapay zeka kullanılarak seslendirilmiştir.
+</div>
 
 <br>
+
 <div class="gold-glow warning">
-YASAL UYARI YAYINLANAN TÜM ESERLER TESCİLLENMİŞTİR!
+YASAL UYARI ! YAYINLANAN TÜM ESERLER TESCİLLENMİŞTİR !
 </div>
 <section>
     <div class="player-box-container">
