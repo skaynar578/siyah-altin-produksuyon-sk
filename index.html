@@ -189,11 +189,58 @@ footer .contacts span.year{
 
 <body>
 
+<!-- Sağ Sabit Player -->
+<video id="rightFixedPlayer" autoplay muted loop style="
+    position:fixed;
+    top:200px;          /* header altından başlıyor */
+    right:20px;         /* sağda sabit */
+    width:450px;        /* ana player ile aynı genişlik */
+    height:250px;       /* ana player ile aynı yükseklik */
+    object-fit:cover;
+    border:3px solid #d4af37;
+    border-radius:12px;
+    box-shadow:0 0 25px rgba(212,175,55,0.7);
+    z-index:9999;
+">
+    <source src="ad1.mp4" type="video/mp4">
+    Tarayıcınız video desteklemiyor.
+</video>
+
+<script>
+// Sağ Sabit Player Playlist
+const rightPlayer = document.getElementById("rightFixedPlayer");
+const rightClips = ["ad1.mp4","ad2.mp4","ad3.mp4"]; // buraya reklam veya klip dosyalarını ekle
+let rightIndex = 0;
+
+// Videolar sırayla oynasın
+rightPlayer.addEventListener("ended", ()=>{
+    rightIndex = (rightIndex + 1) % rightClips.length;
+    rightPlayer.src = rightClips[rightIndex];
+    rightPlayer.play();
+});
+</script>
+
 <header>
     <div class="language-switch">
         <span onclick="setLanguage('tr')">TR</span> | 
         <span onclick="setLanguage('en')">EN</span>
     </div>
+    <h1 class="header-main-title">
+        <span style="text-transform:capitalize;">Siyah Altın müzik </span><span style="text-transform:uppercase;">P</span>rodüksiyon
+    </h1>
+    <div class="sk-title">
+        <span class="sk-s">S</span>
+        <span class="sk-k">K</span>
+    </div>
+    <h2 class="header-sub-title" id="header-sub-title"></h2>
+    <div class="professional-title">PROFESYONEL</div>
+    <div class="sub gold-glow" id="sub1">Hazır Şarkılar • Besteler</div>
+    <div class="sub gold-glow" id="sub2">Satışa ve Devire Hazır Eserler</div>
+    <div class="sub gold-glow" id="sub3">
+        Özel talepler doğrultusunda özgün çalışmalar hazırlanır.<br><br>
+        Eserler yapay zeka kullanılarak seslendirilmiştir.
+    </div>
+</header>
     <h1 class="header-main-title">
         <span style="text-transform:capitalize;">Siyah Altın müzik </span><span style="text-transform:uppercase;">P</span>rodüksiyon
     </h1>
