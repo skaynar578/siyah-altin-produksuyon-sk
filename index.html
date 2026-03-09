@@ -189,7 +189,7 @@ footer .contacts span.year{
 
 <body>
 
-  <!-- Sol Sabit Player -->
+   <!-- Sol Sabit Reklam Player -->
 <video id="leftFixedPlayer" autoplay muted loop style="
     position:fixed;
     top:250px;
@@ -206,8 +206,8 @@ footer .contacts span.year{
     Tarayıcınız video desteklemiyor.
 </video>
 
-<!-- Orta Ana Player (mevcut) -->
-<div id="centerPlayerContainer" style="
+<!-- Orta Ana Player -->
+<div class="player-box-container" style="
     position:fixed;
     top:250px;
     left:50%;
@@ -215,24 +215,26 @@ footer .contacts span.year{
     width:450px;
     height:250px;
     z-index:10000;
-    text-align:center;
 ">
-    <div style="color:#ffd700; font-weight:bold; font-size:16px; margin-bottom:6px; text-shadow:0 0 5px #ffd700;">
-        ANA PLAYER
+    <div class="player-description" id="playerDesc">SATIŞA VE DEVİRE HAZIR ESERLERİN  
+       <br>    
+       KISA TANITIMLARINI DİNLEYEBİLİRSİNİZ
     </div>
-    <video id="audioPlayer" controls controlslist="nodownload" style="
-        width:100%;
-        height:100%;
-        border:3px solid #d4af37;
-        border-radius:12px;
-        box-shadow:0 0 25px rgba(212,175,55,0.7);
-    ">
-        <source src="song1.mp4" type="video/mp4">
-        Tarayıcınız video desteklemiyor.
-    </video>
+    <div class="player-box" id="playerBox">
+        <div id="nowPlaying">Seçili şarkı yok</div>
+        <video id="audioPlayer" controls controlslist="nodownload" style="
+            width:100%;
+            height:100%;
+            border-radius:12px;
+            border:3px solid #d4af37;
+            box-shadow:0 0 25px rgba(212,175,55,0.7);
+        ">
+            Tarayıcınız media player desteklemiyor.
+        </video>
+    </div>
 </div>
 
-<!-- Sağ Sabit Player -->
+<!-- Sağ Sabit Tanıtım Player -->
 <video id="rightFixedPlayer" autoplay muted loop style="
     position:fixed;
     top:250px;
@@ -247,7 +249,47 @@ footer .contacts span.year{
 ">
     <source src="ad2.mp4" type="video/mp4">
     Tarayıcınız video desteklemiyor.
-</video>  
+</video>
+
+<script>
+// Sol Player Playlist
+const leftPlayer = document.getElementById("leftFixedPlayer");
+const leftClips = ["ad1.mp4","ad2.mp4","ad3.mp4"];
+let leftIndex = 0;
+leftPlayer.addEventListener("ended", ()=>{
+    leftIndex = (leftIndex + 1) % leftClips.length;
+    leftPlayer.src = leftClips[leftIndex];
+    leftPlayer.play();
+});
+
+// Sağ Player Playlist
+const rightPlayer = document.getElementById("rightFixedPlayer");
+const rightClips = ["ad2.mp4","ad3.mp4","ad1.mp4"];
+let rightIndex = 0;
+rightPlayer.addEventListener("ended", ()=>{
+    rightIndex = (rightIndex + 1) % rightClips.length;
+    rightPlayer.src = rightClips[rightIndex];
+    rightPlayer.play();
+});
+
+// Ana Player Kontrol
+const player=document.getElementById("audioPlayer");
+const nowPlaying=document.getElementById("nowPlaying");
+const playerBox=document.getElementById("playerBox");
+function playTrack(name,file){
+    if(player.src.includes(file)){ player.paused?player.play():player.pause(); }
+    else{
+        player.src=file;
+        nowPlaying.textContent="Çalan Şarkı: "+name;
+        nowPlaying.style.color="#ffd700";
+        setTimeout(()=>{nowPlaying.style.color="#d4af37"},500);
+        player.play();
+    }
+    player.paused?playerBox.classList.remove("playing"):playerBox.classList.add("playing");
+}
+player.addEventListener('play',()=>playerBox.classList.add("playing"));
+player.addEventListener('pause',()=>playerBox.classList.remove("playing"));
+</script> 
 <header>
     <div class="language-switch">
         <span onclick="setLanguage('tr')">TR</span> | 
