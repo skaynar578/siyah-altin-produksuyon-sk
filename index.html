@@ -187,122 +187,7 @@ footer .contacts span.year{
 </style>
 </head>
 
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-<meta charset="UTF-8">
-<title>Siyah Altın Prodüksiyon</title>
-<style>
-    body {
-        margin: 0;
-        font-family: Arial, Helvetica, sans-serif;
-        background: #0b0b0b;
-        color: #d4af37;
-        text-align: center;
-    }
-    .fixed-player {
-        position: fixed;
-        top: 150px;
-        width: 450px;
-        text-align: center;
-        z-index: 10000;
-    }
-    .player-title {
-        color: #ffd700;
-        font-weight: bold;
-        font-size: 16px;
-        margin-bottom: 6px;
-        text-shadow: 0 0 5px #ffd700;
-    }
-    video {
-        width: 450px;
-        height: 250px;
-        object-fit: cover;
-        border: 3px solid #d4af37;
-        border-radius: 12px;
-        box-shadow: 0 0 25px rgba(212,175,55,0.7);
-    }
-    .now-playing {
-        color: #ffd700;
-        font-weight: bold;
-        margin-top: 5px;
-    }
-    header {
-        padding: 20px 0;
-    }
-    .language-switch span {
-        cursor: pointer;
-    }
-    .header-main-title {
-        font-size: 36px;
-        margin: 5px 0;
-    }
-    .sk-title {
-        font-size: 48px;
-        font-weight: bold;
-    }
-    .professional-title {
-        font-size: 24px;
-        margin: 10px 0;
-    }
-    .sub {
-        margin: 6px 0;
-        font-size: 18px;
-    }
-    .gold-glow {
-        text-shadow: 0 0 5px #ffd700;
-    }
-</style>
-</head>
 <body>
-
-<!-- Sol Player -->
-<div class="fixed-player" style="left:20px;">
-    <div class="player-title">SPONSOR / REKLAM</div>
-    <video id="leftFixedPlayer" autoplay muted loop>
-        <source src="ad1.mp4" type="video/mp4">
-        Tarayıcınız video desteklemiyor.
-    </video>
-    <div id="leftNowPlaying" class="now-playing">Şu an oynayan: ad1.mp4</div>
-</div>
-
-<!-- Sağ Player -->
-<div class="fixed-player" style="right:20px;">
-    <div class="player-title">TANITIM / ÖZEL İÇERİK</div>
-    <video id="rightFixedPlayer" autoplay muted loop>
-        <source src="ad1.mp4" type="video/mp4">
-        Tarayıcınız video desteklemiyor.
-    </video>
-    <div id="rightNowPlaying" class="now-playing">Şu an oynayan: ad1.mp4</div>
-</div>
-
-<script>
-// --- SOL PLAYER ---
-const leftPlayer = document.getElementById("leftFixedPlayer");
-const leftNowPlaying = document.getElementById("leftNowPlaying");
-const leftClips = ["ad1.mp4","ad2.mp4","ad3.mp4"];
-let leftIndex = 0;
-
-leftPlayer.addEventListener("ended", () => {
-    leftIndex = (leftIndex + 1) % leftClips.length;
-    leftPlayer.src = leftClips[leftIndex];
-    leftNowPlaying.textContent = "Şu an oynayan: " + leftClips[leftIndex];
-    leftPlayer.play();
-});
-
-// --- SAĞ PLAYER ---
-const rightPlayer = document.getElementById("rightFixedPlayer");
-const rightNowPlaying = document.getElementById("rightNowPlaying");
-const rightClips = ["ad1.mp4","ad2.mp4","ad3.mp4","tanitim.mp4"];
-let rightIndex = 0;
-
-rightPlayer.addEventListener("ended", () => {
-    rightIndex = (rightIndex + 1) % rightClips.length;
-    rightPlayer.src = rightClips[rightIndex];
-    rightNowPlaying.textContent = "Şu an oynayan: " + rightClips[rightIndex];
-    rightPlayer.play();
-});
-</script>
 
 <header>
     <div class="language-switch">
@@ -316,23 +201,14 @@ rightPlayer.addEventListener("ended", () => {
         <span class="sk-s">S</span>
         <span class="sk-k">K</span>
     </div>
+    <h2 class="header-sub-title" id="header-sub-title"></h2>
     <div class="professional-title">PROFESYONEL</div>
     <div class="sub gold-glow" id="sub1">Hazır Şarkılar • Besteler</div>
-    <div class="sub gold-glow" id="sub2">Satışa ve Devire Hazır Eserler</div>
-    <div class="sub gold-glow" id="sub3">
-        Özel talepler doğrultusunda özgün çalışmalar hazırlanır.<br><br>
-        Eserler yapay zeka kullanılarak seslendirilmiştir.
-    </div>
-</header>
-
-<script>
-function setLanguage(lang){
-    alert("Dil değiştir: " + lang);
-}
-</script>
-
-</body>
-</html>
+<div class="sub gold-glow" id="sub2">Satışa ve Devire Hazır Eserler</div>
+<div class="sub gold-glow" id="sub3">
+Özel talepler doğrultusunda özgün çalışmalar hazırlanır.<br>
+<br>Eserler yapay zeka kullanılarak seslendirilmiştir.
+</div>
 
 <br>
 
@@ -341,23 +217,14 @@ YASAL UYARI ! YAYINLANAN TÜM ESERLER TESCİLLENMİŞTİR !
 </div>
 <section>
     <div class="player-box-container">
-        <div class="player-description" id="playerDesc">
-            SATIŞA VE DEVİRE HAZIR ESERLERİN<br>    
-            KISA TANITIMLARINI DİNLEYEBİLİRSİNİZ
-        </div>
+        <div class="player-description" id="playerDesc">SATIŞA VE DEVİRE HAZIR ESERLERİN  
+           <br>    
+       KISA TANITIMLARINI DİNLEYEBİLİRSİNİZ</div>
         <div class="player-box" id="playerBox">
             <div id="nowPlaying">Seçili şarkı yok</div>
-            <video id="audioPlayer" controls controlslist="nodownload" style="
-                width:100%; 
-                border-radius:8px; 
-                border:none; 
-                box-shadow:none;
-            ">
-                Tarayıcınız media player desteklemiyor.
-            </video>
-        </div>
-    </div>
-</section>
+      <video id="audioPlayer" controls controlslist="nodownload" style="width:100%; border-radius:8px;">
+    Tarayıcınız media player desteklemiyor.
+</video>
 
         </div>
     </div>
