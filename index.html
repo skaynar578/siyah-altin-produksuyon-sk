@@ -188,56 +188,42 @@ footer .contacts span.year{
 </head>
 
 <body>
-
-   <!-- Sol Sabit Reklam Player -->
-<video id="leftFixedPlayer" autoplay muted loop style="
-    position:fixed;
-    top:250px;
-    left:20px;
-    width:450px;
-    height:250px;
-    object-fit:cover;
-    border:3px solid #d4af37;
-    border-radius:12px;
-    box-shadow:0 0 25px rgba(212,175,55,0.7);
-    z-index:9999;
-">
-    <source src="ad1.mp4" type="video/mp4">
-    Tarayıcınız video desteklemiyor.
-</video>
-    <div class="player-description" id="playerDesc">SATIŞA VE DEVİRE HAZIR ESERLERİN  
-       <br>    
-       KISA TANITIMLARINI DİNLEYEBİLİRSİNİZ
+<!-- Sol Sabit Player (Reklamlar) -->
+<div style="position:fixed; top:150px; left:20px; z-index:10000; text-align:center; width:450px;">
+    <div style="color:#ffd700; font-weight:bold; font-size:16px; margin-bottom:6px; text-shadow:0 0 5px #ffd700;">
+        SPONSOR / REKLAM
     </div>
-    <div class="player-box" id="playerBox">
-        <div id="nowPlaying">Seçili şarkı yok</div>
-        <video id="audioPlayer" controls controlslist="nodownload" style="
-            width:100%;
-            height:100%;
-            border-radius:12px;
-            border:3px solid #d4af37;
-            box-shadow:0 0 25px rgba(212,175,55,0.7);
-        ">
-            Tarayıcınız media player desteklemiyor.
-        </video>
-    </div>
+    <video id="leftFixedPlayer" autoplay muted loop style="
+        width:450px;
+        height:250px;
+        object-fit:cover;
+        border:3px solid #d4af37;
+        border-radius:12px;
+        box-shadow:0 0 25px rgba(212,175,55,0.7);
+    ">
+        <source src="ad1.mp4" type="video/mp4">
+        Tarayıcınız video desteklemiyor.
+    </video>
 </div>
 
-<!-- Sağ Sabit Tanıtım Player -->
-<video id="rightFixedPlayer" autoplay muted loop style="
-    position:fixed;
-    top:250px;
-    right:20px;
-    width:450px;
-    height:250px;
-    object-fit:cover;
-    border:3px solid #d4af37;
-    border-radius:12px;
-    box-shadow:0 0 25px rgba(212,175,55,0.7);
-    z-index:9999;
-">
-    <source src="ad2.mp4" type="video/mp4">
-    Tarayıcınız video desteklemiyor.
+<!-- Sağ Sabit Player (Tanıtım) -->
+<div style="position:fixed; top:150px; right:20px; z-index:10000; text-align:center; width:450px;">
+    <div style="color:#ffd700; font-weight:bold; font-size:16px; margin-bottom:6px; text-shadow:0 0 5px #ffd700;">
+        TANITIM / ÖZEL İÇERİK
+    </div>
+    <video id="rightFixedPlayer" autoplay muted loop style="
+        width:450px;
+        height:250px;
+        object-fit:cover;
+        border:3px solid #d4af37;
+        border-radius:12px;
+        box-shadow:0 0 25px rgba(212,175,55,0.7);
+    ">
+        <source src="ad1.mp4" type="video/mp4">
+        Tarayıcınız video desteklemiyor.
+    </video>
+</div>
+
 <script>
 // Sol Player Playlist
 const leftPlayer = document.getElementById("leftFixedPlayer");
@@ -251,32 +237,14 @@ leftPlayer.addEventListener("ended", ()=>{
 
 // Sağ Player Playlist
 const rightPlayer = document.getElementById("rightFixedPlayer");
-const rightClips = ["ad2.mp4","ad3.mp4","ad1.mp4"];
+const rightClips = ["ad1.mp4","ad2.mp4","ad3.mp4"];
 let rightIndex = 0;
 rightPlayer.addEventListener("ended", ()=>{
     rightIndex = (rightIndex + 1) % rightClips.length;
     rightPlayer.src = rightClips[rightIndex];
     rightPlayer.play();
 });
-
-// Ana Player Kontrol
-const player=document.getElementById("audioPlayer");
-const nowPlaying=document.getElementById("nowPlaying");
-const playerBox=document.getElementById("playerBox");
-function playTrack(name,file){
-    if(player.src.includes(file)){ player.paused?player.play():player.pause(); }
-    else{
-        player.src=file;
-        nowPlaying.textContent="Çalan Şarkı: "+name;
-        nowPlaying.style.color="#ffd700";
-        setTimeout(()=>{nowPlaying.style.color="#d4af37"},500);
-        player.play();
-    }
-    player.paused?playerBox.classList.remove("playing"):playerBox.classList.add("playing");
-}
-player.addEventListener('play',()=>playerBox.classList.add("playing"));
-player.addEventListener('pause',()=>playerBox.classList.remove("playing"));
-</script> 
+</script>
 <header>
     <div class="language-switch">
         <span onclick="setLanguage('tr')">TR</span> | 
