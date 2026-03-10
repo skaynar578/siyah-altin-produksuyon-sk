@@ -184,41 +184,8 @@ footer .contacts span.year{
     100%{box-shadow:0 0 50px rgba(212,175,55,1);}
 }
 .icon-shake{ display:inline-block; animation:shakeIcon 0.6s ease; }
-</style><style>
-.icon-shake{ display:inline-block; animation:shakeIcon 0.6s ease; }
-
-/* footer iletişim stili */
-.footer-contacts {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    align-items: center;
-    font-weight: bold;
-    font-size: 14px;
-    gap: 10px;
-}
-
-.footer-contacts a.whatsapp {
-    color: #25D366;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-.footer-contacts a.email {
-    color: #d4af37;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-@media screen and (max-width: 600px) {
-    .footer-contacts {
-        flex-direction: column;
-        text-align: center;
-    }
-}
 </style>
 </head>
-
 <body>
 
 <header>
@@ -236,353 +203,52 @@ footer .contacts span.year{
     <h2 class="header-sub-title" id="header-sub-title"></h2>
     <div class="professional-title">PROFESYONEL</div>
     <div class="sub gold-glow" id="sub1">Hazır Şarkılar • Besteler</div>
-<div class="sub gold-glow" id="sub2">Satışa ve Devire Hazır Eserler</div>
-<div class="sub gold-glow" id="sub3">
-Özel talepler doğrultusunda özgün çalışmalar hazırlanır.<br>
-<br>Eserler yapay zeka kullanılarak seslendirilmiştir.
-</div>
+    <div class="sub gold-glow" id="sub2">Satışa ve Devire Hazır Eserler</div>
+    <div class="sub gold-glow" id="sub3">
+        Özel talepler doğrultusunda özgün çalışmalar hazırlanır.<br>
+        <br>Eserler yapay zeka kullanılarak seslendirilmiştir.
+    </div>
+</header>
 
-<br>
-
-<div class="gold-glow warning">
-YASAL UYARI ! YAYINLANAN TÜM ESERLER TESCİLLENMİŞTİR !
-</div>
 <section>
     <div class="player-box-container">
-        <div class="player-description" id="playerDesc">SATIŞA VE DEVİRE HAZIR ESERLERİN  
-           <br>    
-       KISA TANITIMLARINI DİNLEYEBİLİRSİNİZ</div>
+        <div class="player-description" id="playerDesc">SATIŞA VE DEVİRE HAZIR ESERLERİ DİNLEYEBİLİRSİNİZ</div>
         <div class="player-box" id="playerBox">
             <div id="nowPlaying">Seçili şarkı yok</div>
-      <video id="audioPlayer" controls controlslist="nodownload" style="width:100%; border-radius:8px;">
-    Tarayıcınız media player desteklemiyor.
-</video>
-
+            <video id="audioPlayer" controls controlslist="nodownload" style="width:100%; border-radius:8px;">
+                Tarayıcınız media player desteklemiyor.
+            </video>
         </div>
     </div>
-
-    <div class="category">
-        <h3 onclick="toggleList('yeniler')"><span class="icon-shake">🎧</span> <span id="cat-yeniler">MİX</span></h3>
-        <div class="track-list" id="yeniler">
-       <div onclick="playTrack('MIXLER 1','mixler1.mp4')">
-    <span>🎬</span> MIXLER 1
-</div><div onclick="playTrack('MIXLER 2','mixler2.mp4')">
-    <span>🎬</span> MIXLER 2
-</div>
-</div>
-        </div>
-    </div>
-
-    <div class="category">
-    <h3 onclick="toggleList('arabesk')">
-        <span class="icon-shake">🎧</span> 
-        <span id="cat-arabesk">Yeni Nesil Arabesk</span>
-    </h3>
-    <div class="track-list" id="arabesk">
-
-        <div onclick="playTrack('YANGINLARA','YANGINLARA.mp4')">
-            <span>🎬</span> YANGINLARA
-        </div>
-
-        <div onclick="playTrack('YOLLAR BENDEN UZUN','YOLLAR.BENDEN.UZUN.mp4')">
-            <span>🎬</span> YOLLAR BENDEN UZUN
-        </div>
-
-        <div onclick="playTrack('Küllerimden Kalktım','küllerimden kalktim.mp4')">
-            <span>🎬</span> KÜLLERİMDEN KALKTIM
-        </div>
-
-        <div onclick="playTrack('Seni Gördüm Ya','seni.gördumya.mp4')">
-            <span>🎬</span> SENİ GÖRDÜM YA
-        </div>
-
-    </div>
-</div>
-
-        </div>
-    </div>
-<div class="category">
-    <h3 onclick="toggleList('arabeskpop')">
-        <span class="icon-shake">🎧</span> 
-        <span id="cat-arabeskpop">Arabesk Pop Harmanı</span>
-    </h3>
-
-    <div class="track-list" id="arabeskpop">
-
-     <div onclick="playTrack('Kalbim Yolda','KALBİM YOLDA.mp4')">
-            <span>🎬</span> KALBİM YOLDA
-        </div> 
-        
-        <div onclick="playTrack('Dünya Benim Olurdu Video','d%C3%BCnya.benim.olurdu.mp4')">
-    <span>🎬</span> DÜNYA BENİM OLURDU</div>
-
-    </div>
-</div>
-    </div>
-</div>
-    </div>
-</div>
-
-<div class="category">
-    <h3 onclick="toggleList('turku')">
-        <span class="icon-shake">🎧</span> 
-        <span id="cat-turku">Yeni Nesil Türküler</span>
-    </h3>
-
-    <div class="track-list" id="turku">
-
-        <div onclick="playTrack('ÖLESİM GELDİ','OLESIM GELDI.mp4')">
-    <span>🎬</span> ÖLESİM GELDİ
-</div>
-
-
-<div onclick="playTrack('YAKTIN BENİ YAR','YAKTIN BENİ YAR.mp4')">
-    <span>🎬</span> YAKTIN BENİ YAR
-</div>
-        
-        <div onclick="playTrack('Buda Geçer Video','buda.gecer.mp4')">
-            <span>🎬</span> BUDA GEÇER
-        </div>
-    </div>
-</div>
-
-    </div>
-</div>
-
-    </div>
-</div>
-        </div>
-    </div>
-</div>
-
-<div class="category">
-    <h3 onclick="toggleList('pop')">
-        <span class="icon-shake">🎧</span> 
-        <span id="cat-pop">Pop</span>
-    </h3>
-
-    <div class="track-list" id="pop">
-
-<div onclick="playTrack('KOŞA KOŞA','KOŞA KOŞA.mp4')">
-    <span>🎬</span> KOŞA KOŞA
-</div>
-        
-  <div onclick="playTrack('Dumanı Tüter Video','DUMANI.TÜTER.mp4')">
-    <span>🎬</span> DUMANI TÜTER
-</div>  
-
-<div onclick="playTrack('SEN GÜLÜNCE','SEN.GULUNCE.mp4')">
-    <span>🎬</span> SEN GÜLÜNCE
-</div>
-
-
-        
-        <div onclick="playTrack('Dokunma Kalbime Video','DOKUNMA.KALBİME.mp4')">
-    <span>🎬</span> DOKUNMA KALBİME
-</div>
-
-        <div onclick="playTrack('Sensizliğe Mahkumum Video','SENSIZLIGE.MAHKUMUM.mp4')">
-    <span>🎬</span> SENSİZLİĞE MAHKUMUM
-</div>
-
-<div onclick="playTrack('Bitti Bu Aşkın Defteri Video','bitti.bu.aşkin.defteri.mp4')">
-    <span>🎬</span> BİTTİ BU AŞKIN DEFTERİ
-</div>
-       
-<div onclick="playTrack('Sen İste Video','SEN.ISTE.mp4')">
-    <span>🎬</span> SEN İSTE
-</div>
-
-   <div onclick="playTrack('Masal Video','MASAL..mp4')">
-    <span>🎬</span> MASAL
-</div>
-
-  <div onclick="playTrack('Aynı Sokakta Unuttum Seni Video','AYNI.SOKAKTA.UNUTTUM.SENI.mp4')">
-    <span>🎬</span> AYNI SOKAKTA UNUTTUM SENİ
-</div>
-
-        <div onclick="playTrack('Sen ve Ben Video','SEN.VE.BEN.mp4')">
-    <span>🎬</span> SEN VE BEN
-</div>
-
-       <div onclick="playTrack('Aşkın Rüyası Video','ASKIN.RUYASI.mp4')">
-    <span>🎬</span> AŞKIN RÜYASI
-</div>
-
-<div onclick="playTrack('Dön Ne Olur Video','DON.NE.OLUR.mp4')">
-    <span>🎬</span> DÖN NE OLUR
-</div>
-
-    
-<div onclick="playTrack('Siler miyim Video','SILERMIYIM.mp4')">
-    <span>🎬</span> SİLER MİYİM
-</div>
-
-      
-<div onclick="playTrack('Buda Geçer Video','BUDA.GECER.mp4')">
-    <span>🎬</span> BU DA GEÇER
-</div>
-
-    <div onclick="playTrack('Yıkık Yollar Video','YIKIK.YOLLAR.mp4')">
-    <span>🎬</span> YIKIK YOLLAR
-</div>
-        
-<div onclick="playTrack('Hadi Gidelim Video','HADI.GIDELIM.mp4')">
-    <span>🎬</span> HADI GİDELİM
-</div>
-
-        <div onclick="playTrack('Yanımda Kal Video','YANIMDA.KAL.mp4')">
-    <span>🎬</span> YANIMDA KAL
-</div>
-
-       <div onclick="playTrack('Geceye Sor Remix Video','GECEYE.SOR.REMIX.mp4')">
-    <span>🎬</span> GECEYE SOR (REMIX
-</div> 
-
-    </div>
-</div>
-
-    </div>
-
-<div class="category">
-    <h3 onclick="toggleList('slowpop')">
-        <span class="icon-shake">🎧</span> 
-        <span id="cat-slowpop">Slow Pop</span>
-    </h3>
-
-    <div class="track-list" id="slowpop">
-
-<div onclick="playTrack('KIRILIR İNSAN SEVERKEN','KIRILIR.INSAN.SEVERKEN.mp4')">
-    <span>🎬</span> KIRILIR İNSAN SEVERKEN
-</div>
-        
-      <div onclick="playTrack('Bir Bir Ask Video','BIR.BIR.ASK.mp4')">
-    <span>🎬</span> BİR BİR AŞK
-</div>
-
-<div onclick="playTrack('Dusler ve Yollar Video','DUSLER.VE.YOLLAR..mp4')">
-    <span>🎬</span> DÜŞLER VE YOLLAR
-</div>
-
-       <div onclick="playTrack('Iz Kalir Benden Video','IZ.KALIR.BENDEN.mp4')">
-    <span>🎬</span> İZ KALIR BENDEN
-</div>
-
-<div onclick="playTrack('Yıkık Yollar Slow Versiyon','YIKIK.YOLLAR.SLOW.VERSIYON.mp4')">
-    <span>🎬</span> YIKIK YOLLAR (SLOW VERSİYON)
-</div>
-        
-      <div onclick="playTrack('Geceye Sor Slow Versiyon Video','GECEYE.SOR.SLOW.VERSIYON.mp4')">
-    <span>🎬</span> GECEYE SOR (SLOW VERSİYON)
-</div>
- 
-       <div onclick="playTrack('Kirik Dusler Video','KIRIK.DÜŞLER.mp4')">
-    <span>🎬</span> KIRIK DÜŞLER
-</div>
-
-       
-        
-    </div>
-</div>
-
- 
- </div>
-</div>
-
-<div class="category">
-    <h3 onclick="toggleList('hiphop')">
-        <span class="icon-shake">🎧</span>
-        <span id="cat-hiphop">Yeni Nesil Hip Hop</span>
-    </h3>
-
-    <div class="track-list" id="hiphop">
-        <div onclick="playTrack('Gururuma Kadar Video','GURURUMA.KADAR.mp4')">
-            <span>🎬</span> GURURUMA KADAR
-        </div>
-       
-    <div onclick="playTrack('Yangin Gibi Video','YANGIN.GIBI.mp4')">
-    <span>🎬</span> YANGIN GİBİ
-</div>
-  
-    </div>
-    </div>
-</div>
-
-    <!-- FİLM MÜZİKLERİ KATEGORİSİ EKLENDİ -->
-<div class="category">
-    <h3 onclick="toggleList('filmmuzikleri')">
-        <span class="icon-shake">🎬</span> 
-        <span id="cat-film">Film Müzikleri</span>
-    </h3>
-
-    <div class="track-list" id="filmmuzikleri">
-
-     <div onclick="playTrack('F1 Video','F1.mp4')">
-    <span>🎬</span> F1
-</div>
-
-<div onclick="playTrack('F2 Video','F2.mp4')">
-    <span>🎬</span> F2
-</div>
-
-        <div onclick="playTrack('F3 (Video)','F3.mp4')">
-    <span>🎬</span> F3
-</div>
-        
-   <video id="videoPlayer" width="100%" controls style="display:none; border-radius:12px;">
-    <source id="videoSource" src="" type="video/mp4">
-</video>
-
-<div onclick="playTrack('F4 (Video)','F4.mp4')">
-    <span>🎬</span> F4 
-</div>
-        
-    </div>
-</div>
-
-
-
 </section>
 
 <section>
-
 <p class="description" id="footerDesc">
-
-    <strong style="font-size:18px; color:#d4af37; letter-spacing:1px;">
-      
-    </strong><br><br>
-
-    Siyah Altın Prodüksiyon, Serkan Kaynar tarafından kurulan; 
-    arabesk, pop ve özgün müzik üretimleri yapan bağımsız bir prodüksiyon platformudur.
-    
-    <br><br>
-
-  <span style="color:#ff4d4d; font-weight:bold;">
-    Bu sitede yer alan tüm eserler tescillenmiştir.
+Siyah Altın Prodüksiyon, Serkan Kaynar tarafından kurulan; arabesk, pop ve özgün müzik üretimleri yapan bağımsız bir prodüksiyon platformudur.
+<br><br>
+<span style="color:#ff4d4d; font-weight:bold;">
+Bu sitede yer alan tüm eserler tescillenmiştir.
 </span>
 Eserlerin söz ve müzik hakları eser sahibine, 
 <strong style="color:#ff4d4d;">Serkan Kaynar</strong>'a aittir.
-    <br><br>
+<br><br>
+Yetkisiz kişiler tarafından izinsiz şekilde herhangi bir platformda 
+ticari amaçla kullanılamaz, kopyalanamaz ve çoğaltılamaz.
+<br><br>
+<strong style="color:#ffffff; font-size:16px;">
+Tüm hakları saklıdır !
+</strong>
+<br><br>
+<span class="visitor-counter" id="visitorCounter" 
+style="display:inline-block; padding:8px 14px; background:#111; 
+border:1px solid #d4af37; border-radius:8px; 
+box-shadow:0 0 10px rgba(212,175,55,0.4); font-weight:bold;">
+Ziyaretçi Sayısı: 1500
+</span>
+</p>
 
-    Yetkisiz kişiler tarafından izinsiz şekilde herhangi bir platformda 
-    ticari amaçla kullanılamaz, kopyalanamaz ve çoğaltılamaz.
+<div id="footerContacts" class="contacts"></div>
 
-    <br><br>
-
-    <strong style="color:#ffffff; font-size:16px;">
-        Tüm hakları saklıdır !
-    </strong>
-
-    <br><br>
-
-    <span class="visitor-counter" id="visitorCounter" 
-    style="display:inline-block; padding:8px 14px; background:#111; 
-    border:1px solid #d4af37; border-radius:8px; 
-    box-shadow:0 0 10px rgba(212,175,55,0.4); font-weight:bold;">
-        Ziyaretçi Sayısı: 1500
-    </span>
-
-</p>  
 <script>
 const player=document.getElementById("audioPlayer");
 const nowPlaying=document.getElementById("nowPlaying");
@@ -603,6 +269,13 @@ let visits=localStorage.getItem('visits')?parseInt(localStorage.getItem('visits'
 visits++; localStorage.setItem('visits',visits);
 visitorCounter.textContent="Ziyaretçi Sayısı: "+visits;
 
+function toggleList(id){
+    const el=document.getElementById(id);
+    el.style.display=el.style.display==="block"?"none":"block";
+    const icon=el.previousElementSibling.querySelector(".icon-shake");
+    icon.classList.remove("icon-shake"); void icon.offsetWidth; icon.classList.add("icon-shake");
+}
+
 function playTrack(name,file){
     if(player.src.includes(file)){ player.paused?player.play():player.pause(); }
     else{
@@ -616,13 +289,6 @@ function playTrack(name,file){
 }
 player.addEventListener('play',()=>playerBox.classList.add("playing"));
 player.addEventListener('pause',()=>playerBox.classList.remove("playing"));
-
-function toggleList(id){
-    const el=document.getElementById(id);
-    el.style.display=el.style.display==="block"?"none":"block";
-    const icon=el.previousElementSibling.querySelector(".icon-shake");
-    icon.classList.remove("icon-shake"); void icon.offsetWidth; icon.classList.add("icon-shake");
-}
 
 function setLanguage(lang){
     if(lang==='en'){
@@ -648,7 +314,7 @@ function setLanguage(lang){
         playerDesc.textContent="SATIŞA VE DEVİRE HAZIR ESERLERİ DİNLEYEBİLİRSİNİZ";
         nowPlaying.textContent="Seçili şarkı yok";
         footerDesc.innerHTML="Siyah Altın Prodüksiyon, Serkan Kaynar tarafından kurulan; arabesk, pop ve özgün müzik üretimleri yapan bağımsız bir prodüksiyon platformudur. Bu sitede yer alan tüm eserlerin söz ve müzik hakları eser sahibine, Serkan Kaynar'a aittir. Yetkisiz kişiler tarafından izinsiz ticari amaçla kullanılamaz, kopyalanamaz, çoğaltılamaz. Tüm hakları saklıdır!:Ziyaretçi Sayısı: "+visits;
-       footerContacts.innerHTML = `
+        footerContacts.innerHTML = `
 📞 Numara: <strong>0507 416 36 05</strong> | 
 <a href="https://wa.me/905074163605?text=Merhaba,%20bilgi%20almak%20istiyorum." target="_blank" style="color:#25D366; font-weight:bold; text-decoration:none;">WhatsApp</a> | 
 📧 <a href="mailto:skaynar578@gmail.com" style="color:#d4af37; font-weight:bold; text-decoration:none;">E-mail</a> | 
@@ -657,3 +323,6 @@ function setLanguage(lang){
     }
 }
 </script>
+
+</body>
+</html>
