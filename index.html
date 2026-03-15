@@ -629,50 +629,43 @@ function playTrack(name,file){
 }
 player.addEventListener('play',()=>playerBox.classList.add("playing"));
 player.addEventListener('pause',()=>playerBox.classList.remove("playing"));
+
 function toggleList(id){
-    const el = document.getElementById(id);
-    el.style.display = el.style.display === "block" ? "none" : "block";
-    const icon = el.previousElementSibling.querySelector(".icon-shake");
-    icon.classList.remove("icon-shake"); 
-    void icon.offsetWidth; 
-    icon.classList.add("icon-shake");
+    const el=document.getElementById(id);
+    el.style.display=el.style.display==="block"?"none":"block";
+    const icon=el.previousElementSibling.querySelector(".icon-shake");
+    icon.classList.remove("icon-shake"); void icon.offsetWidth; icon.classList.add("icon-shake");
 }
 
 function setLanguage(lang){
-    let visits = 3500; // Ziyaretçi sayısı
+    if(lang==='en'){
+        headerMainTitle.innerHTML="<span style='text-transform:capitalize;'>Black Gold </span><span style='text-transform:uppercase;'>P</span>roduction";
+        headerSubTitle.textContent="BLACK GOLD PRODUCTION";
+        sub1.textContent="Ready Songs • Compositions";
+        sub2.textContent="Available for Sale & License Transfer";
+        sub3.textContent="Custom works are prepared according to special requests.";
+        professionalTitle.textContent="PROFESSIONAL";
+        skTitle.innerHTML="<span class='sk-s'>S</span><span class='sk-k'>K</span>";
+        playerDesc.textContent="LISTEN TO READY-TO-SELL & LICENSED SONGS";
+        nowPlaying.textContent="No track selected";
+        footerDesc.textContent="Black Gold Production, founded by Serkan Kaynar; an independent production platform producing arabesque, pop and original music. All songs on this site belong to their authors. Unauthorized commercial use, copying or distribution is prohibited. All rights reserved! Ziyaretçi Sayısı: "+visits;
+        footerContacts.innerHTML="📞 WhatsApp: 0507 416 36 05 | 📧 skaynar578@gmail.com | 📸 @blackgoldproductionsk <span class='year'>2026</span>";
+    }else{
+        headerMainTitle.innerHTML="<span style='text-transform:capitalize;'>Siyah Altın </span><span style='text-transform:uppercase;'>P</span>rodüksiyon";
+        headerSubTitle.textContent="BLACK GOLD PRODUCTION";
+        sub1.textContent="Hazır Şarkılar • Besteler";
+        sub2.textContent="Satışa ve Devire Hazır Eserler";
+        sub3.textContent="Özel talepler doğrultusunda özgün çalışmalar hazırlanır.";
+        professionalTitle.textContent="PROFESYONEL";
+        skTitle.innerHTML="<span class='sk-s'>S</span><span class='sk-k'>K</span>";
+        playerDesc.textContent="SATIŞA VE DEVİRE HAZIR ESERLERİ DİNLEYEBİLİRSİNİZ";
+        nowPlaying.textContent="Seçili şarkı yok";
+        footerDesc.innerHTML="Siyah Altın Prodüksiyon, Serkan Kaynar tarafından kurulan; arabesk, pop ve özgün müzik üretimleri yapan bağımsız bir prodüksiyon platformudur. Bu sitede yer alan tüm eserlerin söz ve müzik hakları eser sahibine, Serkan Kaynar'a aittir. Yetkisiz kişiler tarafından izinsiz ticari amaçla kullanılamaz, kopyalanamaz, çoğaltılamaz. Tüm hakları saklıdır!:footerDesc.textContent = "Black Gold Production, founded by Serkan Kaynar; an independent production platform producing arabesque, pop and original music. All songs on this site belong to their authors. Unauthorized commercial use, copying or distribution is prohibited. All rights reserved! Ziyaretçi Sayısı: 3530";
+       footerContacts.innerHTML =
+"📞 WhatsApp: 0507 416 36 05 " +
+"<a href='https://wa.me/905074163605?text=Merhaba,%20bilgi%20almak%20istiyorum.' style='margin-left:6px;'>Bilgi Al</a> | " +
+"📧 skaynar578@gmail.com | 📸 @siyahaltinproduksiyonsk <span class='year'>2026</span>";
 
-    if(lang === 'en'){
-        // Header & sub titles
-        headerMainTitle.innerHTML = "<span style='text-transform:capitalize;'>Black Gold </span><span style='text-transform:uppercase;'>P</span>roduction";
-        headerSubTitle.textContent = "BLACK GOLD PRODUCTION";
-        sub1.textContent = "Ready Songs • Compositions";
-        sub2.textContent = "Available for Sale & License Transfer";
-        sub3.textContent = "Custom works are prepared according to special requests.";
-        professionalTitle.textContent = "PROFESSIONAL";
-        skTitle.innerHTML = "<span class='sk-s'>S</span><span class='sk-k'>K</span>";
-        playerDesc.textContent = "LISTEN TO READY-TO-SELL & LICENSED SONGS";
-        nowPlaying.textContent = "No track selected";
-
-        // Footer
-        footerDesc.textContent = "Black Gold Production, founded by Serkan Kaynar; an independent production platform producing arabesque, pop and original music. All songs on this site belong to their authors. Unauthorized commercial use, copying or distribution is prohibited. All rights reserved! Ziyaretçi Sayısı: " + visits;
-
-        footerContacts.innerHTML = "📞 WhatsApp: <a href='https://wa.me/905074163605?text=Merhaba,%20bilgi%20almak%20istiyorum.'>0507 416 36 05</a> | 📧 skaynar578@gmail.com | 📸 @blackgoldproduksiyonsk <span class='year'>2026</span>";
-
-    } else {
-        // Türkçe versiyon
-        headerMainTitle.innerHTML = "<span style='text-transform:capitalize;'>Siyah Altın </span><span style='text-transform:uppercase;'>P</span>rodüksiyon";
-        headerSubTitle.textContent = "BLACK GOLD PRODUCTION";
-        sub1.textContent = "Hazır Şarkılar • Besteler";
-        sub2.textContent = "Satışa ve Devire Hazır Eserler";
-        sub3.textContent = "Özel talepler doğrultusunda özgün çalışmalar hazırlanır.";
-        professionalTitle.textContent = "PROFESYONEL";
-        skTitle.innerHTML = "<span class='sk-s'>S</span><span class='sk-k'>K</span>";
-        playerDesc.textContent = "SATIŞA VE DEVİRE HAZIR ESERLERİ DİNLEYEBİLİRSİNİZ";
-        nowPlaying.textContent = "Seçili şarkı yok";
-
-        // Footer
-        footerDesc.textContent = "Black Gold Production, founded by Serkan Kaynar; an independent production platform producing arabesque, pop and original music. All songs on this site belong to their authors. Unauthorized commercial use, copying or distribution is prohibited. All rights reserved! Ziyaretçi Sayısı: " + visits;
-
-        footerContacts.innerHTML = "📞 WhatsApp: <a href='https://wa.me/905074163605?text=Merhaba,%20bilgi%20almak%20istiyorum.'>0507 416 36 05</a> | 📧 skaynar578@gmail.com | 📸 @siyahaltinproduksiyonsk <span class='year'>2026</span>";
     }
 }
+</script>
