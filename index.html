@@ -316,6 +316,30 @@ function playTrackVideo(name, file) {
     nowPlaying.textContent = "Çalan Şarkı: " + name;
 }
 </script>
+
+    </div>
+</div>
+
+<script>
+function playTrackVideo(name, file) {
+    const video = document.getElementById("videoPlayer");
+    const source = document.getElementById("videoSource");
+    const nowPlaying = document.getElementById("nowPlaying");
+
+    // Kaynağı güncelle
+    source.src = file;
+    video.load();
+
+    // Video player görünür yap
+    video.style.display = "block";
+
+    // Oynat
+    video.play();
+
+    // Şarkı adını göster
+    nowPlaying.textContent = "Çalan Şarkı: " + name;
+}
+</script>
  
 </div>
 
