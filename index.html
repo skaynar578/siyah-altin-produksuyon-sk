@@ -282,17 +282,50 @@ YASAL UYARI ! YAYINLANAN TÜM ESERLER TESCİLLENMİŞTİR !
     </div>
 </div>
 
- <div class="category">
+<!-- ✅ YENİ KATEGORİ: Mahkumlar ve Sevdikleri -->
+<div class="category">
     <h3 onclick="toggleList('mahkum')">
         <span class="icon-shake">🎧</span>
         <span id="cat-mahkum">Mahkumlar ve Sevdikleri</span>
     </h3>
 
-    <div class="track-list" id="mahkum">     
-
+    <div class="track-list" id="mahkum">
         <div onclick="playTrack('Kader Mahkumu','DEMİR KAPI VİDEO.mp4')">
-    <span>🎬</span> DEMİR KAPI
+            <span>🎬</span> DEMİR KAPI
+        </div>
+        <!-- İleride buraya yeni şarkılar ekleyebilirsin -->
+    </div>
 </div>
+
+<script>
+// Video ve ses oynatma fonksiyonu güncellenmiş hâli
+function playTrack(name, file){
+    const player = document.getElementById("audioPlayer"); // Video player
+    const nowPlaying = document.getElementById("nowPlaying");
+    const playerBox = document.getElementById("playerBox");
+
+    if(player.src.includes(file)){
+        player.paused ? player.play() : player.pause();
+    } else {
+        player.src = file;
+        player.load();  // Video dosyası için gerekli
+        player.play();
+        nowPlaying.textContent = "Çalan Şarkı: " + name;
+        nowPlaying.style.color="#ffd700";
+        setTimeout(()=>{nowPlaying.style.color="#d4af37"},500);
+    }
+
+    player.paused ? playerBox.classList.remove("playing") : playerBox.classList.add("playing");
+}
+
+// Liste aç/kapa animasyonu
+function toggleList(id){
+    const el = document.getElementById(id);
+    el.style.display = el.style.display === "block" ? "none" : "block";
+    const icon = el.previousElementSibling.querySelector(".icon-shake");
+    icon.classList.remove("icon-shake"); void icon.offsetWidth; icon.classList.add("icon-shake");
+}
+</script> 
         
       
     </div>
