@@ -280,7 +280,6 @@ YASAL UYARI ! YAYINLANAN TÜM ESERLER TESCİLLENMİŞTİR !
     </div>
 </div>
 
-
 <!-- ✅ YENİ KATEGORİ: Mahkumlar ve Sevdikleri -->
 <div class="category">
     <h3 onclick="toggleList('mahkum')">
@@ -290,8 +289,34 @@ YASAL UYARI ! YAYINLANAN TÜM ESERLER TESCİLLENMİŞTİR !
 
     <div class="track-list" id="mahkum">
 
-        <div onclick="playTrack('Kader Mahkumu','KADER%20MAHKUMU%20DEM%C4%B0R%20KAPI%20V%C4%B0DEO.mp4')">
-    <span>🎬</span> DEMİR KAPI
+        <div onclick="playTrackVideo('Kader Mahkumu','KADER MAHKUMU DEMİR KAPI VİDEO.mp4')">
+            <span>🎬</span> DEMİR KAPI
+        </div>
+
+    </div>
+</div>
+
+<script>
+function playTrackVideo(name, file) {
+    const video = document.getElementById("videoPlayer");
+    const source = document.getElementById("videoSource");
+    const nowPlaying = document.getElementById("nowPlaying");
+
+    // Kaynağı güncelle
+    source.src = file;
+    video.load();
+
+    // Video player görünür yap
+    video.style.display = "block";
+
+    // Oynat
+    video.play();
+
+    // Şarkı adını göster
+    nowPlaying.textContent = "Çalan Şarkı: " + name;
+}
+</script>
+ 
 </div>
 
     </div>
