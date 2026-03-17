@@ -253,7 +253,8 @@ YASAL UYARI ! YAYINLANAN TÜM ESERLER TESCİLLENMİŞTİR !
 </div>
         </div>
     </div>
-<div class="category">
+
+ <div class="category">
     <h3 onclick="toggleList('arabesk')">
         <span class="icon-shake">🎧</span> 
         <span id="cat-arabesk">Yeni Nesil Arabesk</span>
@@ -261,13 +262,14 @@ YASAL UYARI ! YAYINLANAN TÜM ESERLER TESCİLLENMİŞTİR !
 
     <div class="track-list" id="arabesk">
         
+  
         <div onclick="playTrack('Küllerimden Kalktım','küllerimden kalktim.mp4')">
-            <span>🎬</span> KÜLLERİMDEN KALKTIM
-        </div>
+    <span>🎬</span> KÜLLERİMDEN KALKTIM
+</div>
 
-        <div onclick="playTrack('Seni Gördüm Ya','seni.gördumya.mp4')">
-            <span>🎬</span> SENİ GÖRDÜM YA
-        </div>
+<div onclick="playTrack('Seni Gördüm Ya','seni.gördumya.mp4')">
+    <span>🎬</span> SENİ GÖRDÜM YA
+</div>
 
         <div onclick="playTrack('YANGINLARA','YANGINLARA.mp4')">
             <span>🎬</span> YANGINLARA
@@ -279,78 +281,7 @@ YASAL UYARI ! YAYINLANAN TÜM ESERLER TESCİLLENMİŞTİR !
 
     </div>
 </div>
-
-<!-- ✅ YENİ KATEGORİ: Mahkumlar ve Sevdikleri -->
-<div class="category">
-    <h3 onclick="toggleList('mahkum')">
-        <span class="icon-shake">🎧</span> 
-        <span id="cat-mahkum">Mahkumlar ve Sevdikleri</span>
-    </h3>
-
-    <div class="track-list" id="mahkum">
-
-        <div onclick="playTrackVideo('Kader Mahkumu','KADER MAHKUMU DEMİR KAPI VİDEO.mp4')">
-            <span>🎬</span> DEMİR KAPI
-        </div>
-
-    </div>
-</div>
-
-<script>
-function playTrackVideo(name, file) {
-    const video = document.getElementById("videoPlayer");
-    const source = document.getElementById("videoSource");
-    const nowPlaying = document.getElementById("nowPlaying");
-
-    // Kaynağı güncelle
-    source.src = file;
-    video.load();
-
-    // Video player görünür yap
-    video.style.display = "block";
-
-    // Oynat
-    video.play();
-
-    // Şarkı adını göster
-    nowPlaying.textContent = "Çalan Şarkı: " + name;
-}
-</script>
-
-    </div>
-</div>
-
-<script>
-function playTrackVideo(name, file) {
-    const video = document.getElementById("videoPlayer");
-    const source = document.getElementById("videoSource");
-    const nowPlaying = document.getElementById("nowPlaying");
-
-    // Kaynağı güncelle
-    source.src = file;
-    video.load();
-
-    // Video player görünür yap
-    video.style.display = "block";
-
-    // Oynat
-    video.play();
-
-    // Şarkı adını göster
-    nowPlaying.textContent = "Çalan Şarkı: " + name;
-}
-</script>
- 
-</div>
-
-    </div>
-</div>
-    </div>
-</div>
-        </div>
-
-    </div>
-</div>
+      
 
        
     </div>
@@ -519,12 +450,12 @@ function playTrackVideo(name, file) {
     </div>
 
 <div class="category">
-    <h3 onclick="toggleList('slow')">
+    <h3 onclick="toggleList('slowpop')">
         <span class="icon-shake">🎧</span> 
-        <span id="cat-slow">Slow </span>
+        <span id="cat-slowpop">Slow Pop</span>
     </h3>
 
-    <div class="track-list" id="slow">
+    <div class="track-list" id="slowpop">
 
    <div onclick="playTrack('Yarim Kaldın İçimde','YARIM KALDIN ICIMDE.mp4')">
     <span>🎬</span> YARiM KALDIN İÇİMDE
@@ -545,7 +476,8 @@ function playTrackVideo(name, file) {
     <div onclick="playTrack('Kalbim Yalan Söylemez Tanıtım','KALBİM YALAN SÖYLEMEZ TANITIM.mp4')">
     <span>🎬</span> KALBİM YALAN SÖYLEMEZ
 </div>   
-            
+        
+        
        <div onclick="playTrack('Iz Kalir Benden Video','IZ.KALIR.BENDEN.mp4')">
     <span>🎬</span> İZ KALIR BENDEN
 </div>
@@ -558,13 +490,10 @@ function playTrackVideo(name, file) {
     <span>🎬</span> GECEYE SOR (SLOW VERSİYON)
 </div>
  
-   <div onclick="playTrack('GURURUMA KADAR VERSIYON TANITIM', 'GURURUMA KADAR VERSIYON TANITIM.mp4')">
-    <span>🎬</span> GURURUMA KADAR VERSIYON
-</div> 
-        
-        <div onclick="playTrack('Dusler ve Yollar Video','DUSLER.VE.YOLLAR..mp4')">
+   <div onclick="playTrack('Dusler ve Yollar Video','DUSLER.VE.YOLLAR..mp4')">
     <span>🎬</span> DÜŞLER VE YOLLAR
 </div>
+  
         
         <div onclick="playTrack('Kirik Dusler Video','KIRIK.DÜŞLER.mp4')">
     <span>🎬</span> KIRIK DÜŞLER
