@@ -593,86 +593,62 @@ function toggleList(id){
     </div>
 </div>
 
-<!-- FİLM MÜZİKLERİ KATEGORİSİ -->
+    <!-- FİLM MÜZİKLERİ KATEGORİSİ EKLENDİ -->
 <div class="category">
-    <h3 onclick="toggleList('filmmuzikleri')" style="cursor:pointer;">
-        <span class="icon-shake">🎬</span>
-        <span id="cat-film">Dizi Film ve Altyapı Müzikleri</span>
+    <h3 onclick="toggleList('filmmuzikleri')">
+        <span class="icon-shake">🎬</span> 
+        <span id="cat-film">Dizi Film ve altyapı Müzikleri</span>
     </h3>
 
-    <div class="track-list" id="filmmuzikleri" style="display:block;">
-        <div onclick="playTrack('Ritmix Altyapı','RITIMLI ALTYAPI V.mp4')">
-            <span>🎬</span> RİTİMLİ
-        </div>
+    <div class="track-list" id="filmmuzikleri">
 
-        <div onclick="playTrack('F1 Video','F1.mp4')">
-            <span>🎬</span> F1
-        </div>
-
-        <div onclick="playTrack('F2 Video','F2.mp4')">
-            <span>🎬</span> F2
-        </div>
-
-        <div onclick="playTrack('F3 Video','F3.mp4')">
-            <span>🎬</span> F3
-        </div>
-
-        <div onclick="playTrack('F4 Video','F4.mp4')">
-            <span>🎬</span> F4
-        </div>
-
-        <div onclick="playTrack('F5 Video','F 5 V.mp4')">
-            <span>🎬</span> F5
-        </div>
-
-        <div onclick="playTrack('F6 Video','F 6 V.mp4')">
-            <span>🎬</span> F6
-        </div>
-
-        <div onclick="playTrack('F7 Video','F 7 V.mp4')">
-            <span>🎬</span> F7
-        </div>
-
-        <div onclick="playTrack('F8 Video','F 8 V.mp4')">
-            <span>🎬</span> F8
-        </div>
-
-        <div onclick="playTrack('F9 Video','F 9 V.mp4')">
-            <span>🎬</span> F9
-        </div>
-
-        <div onclick="playTrack('F10 Video','F 10 V.mp4')">
-            <span>🎬</span> F10
-        </div>
-
-        <div onclick="playTrack('F11 Video','F 11 V.mp4')">
-            <span>🎬</span> F11
-        </div>
-    </div>
+     <div onclick="playTrack('F1 Video','F1.mp4')">
+    <span>🎬</span> F1
 </div>
 
-<!-- Video Player Alanı -->
-<video id="videoPlayer" width="100%" controls style="border-radius:12px; margin-top:10px;"></video>
+<div onclick="playTrack('F2 Video','F2.mp4')">
+    <span>🎬</span> F2
+</div>
 
-<script>
-// Kategori aç/kapa
-function toggleList(id) {
-    var x = document.getElementById(id);
-    if (x.style.display === "none" || x.style.display === "") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-}
+        <div onclick="playTrack('F3 (Video)','F3.mp4')">
+    <span>🎬</span> F3
+</div>
+        
+   <video id="videoPlayer" width="100%" controls style="display:none; border-radius:12px;">
+    <source id="videoSource" src="" type="video/mp4">
+</video>
 
-// Video oynatma fonksiyonu
-function playTrack(name, file) {
-    var player = document.getElementById('videoPlayer');
-    player.src = file;
-    player.play();
-    console.log('Çalıyor: ' + name);
-}
-</script>
+<div onclick="playTrack('F4 (Video)','F4.mp4')">
+    <span>🎬</span> F4 
+</div>
+
+    <div onclick="playTrack('F 5 V','F 5 V.mp4')">
+     <span>🎬</span> F 5 
+    </div>
+        
+<div onclick="playTrack('F 6 V','F 6 V.mp4')">
+   <span>🎬</span> F 6 
+    </div>
+        
+<div onclick="playTrack('F 7 V','F 7 V.mp4')">
+    <span>🎬</span> F 7 
+    </div>
+        
+<div onclick="playTrack('F 8 V','F 8 V.mp4')">
+    <span>🎬</span> F 8 
+     </div>
+
+<div onclick="playTrack('F 9 V','F 9 V.mp4')">
+  <span>🎬</span> F 9 
+</div>
+        
+<div onclick="playTrack('F 10 V','F 10 V.mp4')">
+    <span>🎬</span> F 10 
+    </div>
+       
+<div onclick="playTrack('F 11 V','F 11 V.mp4')">
+    <span>🎬</span> F 11 
+    </div>
 
         
 </div>
