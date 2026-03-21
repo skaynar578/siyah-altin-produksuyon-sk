@@ -387,6 +387,24 @@ function toggleList(id){
     </div>
 
 
+   <div class="category">
+    <h3 onclick="toggleList('altyapi')">
+        <span class="icon-shake">🎧</span>
+        <span id="cat-altyapi">Altyapı</span>
+    </h3>
+
+    <div class="track-list" id="altyapi">
+        <!-- Altyapı şarkıları buraya eklenecek -->
+        <div onclick="playTrack('Altyapı 1','dosya_adı_1.mp4')">
+            <span>🎬</span> ALTYAPI 1
+        </div>
+        <div onclick="playTrack('Altyapı 2','dosya_adı_2.mp4')">
+            <span>🎬</span> ALTYAPI 2
+        </div>
+        <div onclick="playTrack('Altyapı 3','dosya_adı_3.mp4')">
+            <span>🎬</span> ALTYAPI 3
+        </div>
+        <!-- Daha fazla altyapı eklemek için bu satırları çoğaltabilirsiniz -->
     </div>
 </div> 
 </div>
@@ -495,7 +513,7 @@ function toggleList(id){
 <div class="category">
     <h3 onclick="toggleList('slowpop')">
         <span class="icon-shake">🎧</span> 
-        <span id="cat-slowpop">Slow</span>
+        <span id="cat-slowpop">Slow Pop</span>
     </h3>
 
     <div class="track-list" id="slowpop">
@@ -574,7 +592,7 @@ function toggleList(id){
 <div class="category">
     <h3 onclick="toggleList('filmmuzikleri')">
         <span class="icon-shake">🎬</span> 
-        <span id="cat-film"> Dizi Film ve & altyapı Müzikleri</span>
+        <span id="cat-film">Film Müzikleri</span>
     </h3>
 
     <div class="track-list" id="filmmuzikleri">
@@ -739,8 +757,7 @@ function setLanguage(lang){
         skTitle.innerHTML="<span class='sk-s'>S</span><span class='sk-k'>K</span>";
         playerDesc.textContent="SATIŞA VE DEVİRE HAZIR ESERLERİ DİNLEYEBİLİRSİNİZ";
         nowPlaying.textContent="Seçili şarkı yok";
-        footerDesc.innerHTML="Siyah Altın Prodüksiyon, Serkan Kaynar tarafından kurulan; arabesk, pop ve özgün müzik üretimleri yapan bağımsız bir prodüksiyon platformudur. Bu sitede yer alan tüm eserlerin söz ve müzik hakları eser sahibine, Serkan Kaynar'a aittir. Yetkisiz kişiler tarafından izinsiz ticari amaçla kullanılamaz, kopyalanamaz, çoğaltılamaz.
-<br>            2026 Tüm hakları saklıdır!:Ziyaretçi Sayısı: "+visits;
+        footerDesc.innerHTML="Siyah Altın Prodüksiyon, Serkan Kaynar tarafından kurulan; arabesk, pop ve özgün müzik üretimleri yapan bağımsız bir prodüksiyon platformudur. Bu sitede yer alan tüm eserlerin söz ve müzik hakları eser sahibine, Serkan Kaynar'a aittir. Yetkisiz kişiler tarafından izinsiz ticari amaçla kullanılamaz, kopyalanamaz, çoğaltılamaz. Tüm hakları saklıdır!:Ziyaretçi Sayısı: "+visits;
        footerContacts.innerHTML =
 "📞 WhatsApp: 0507 416 36 05 " +
 "<a href='https://wa.me/905074163605?text=Merhaba,%20bilgi%20almak%20istiyorum.' style='margin-left:6px;'>Bilgi Al</a> | " +
