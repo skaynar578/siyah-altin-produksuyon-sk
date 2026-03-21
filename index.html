@@ -243,8 +243,8 @@ YASAL UYARI ! YAYINLANAN TÜM ESERLER TESCİLLENMİŞTİR !
     </div>
 
     <div class="category">
-        <h3 onclick="toggleList('MİXLER')"><span class="icon-shake">🎧</span> <span id="cat-yeniler">MİX</span></h3>
-        <div class="track-list" id="MİXLER">
+        <h3 onclick="toggleList('yeniler')"><span class="icon-shake">🎧</span> <span id="cat-yeniler">MİX</span></h3>
+        <div class="track-list" id="yeniler">
        <div onclick="playTrack('MIXLER 1','mixler1.mp4')">
     <span>🎬</span> MIXLER 1
 </div><div onclick="playTrack('MIXLER 2','mixler2.mp4')">
@@ -255,9 +255,9 @@ YASAL UYARI ! YAYINLANAN TÜM ESERLER TESCİLLENMİŞTİR !
     </div>
 
  <div class="category">
-    <h3 onclick="toggleList('YENİ NESİL ARABESK')">
+    <h3 onclick="toggleList('arabesk')">
         <span class="icon-shake">🎧</span> 
-        <span id="cat-YENİ NESİL ARABESK">YENİ NESİL ARABESK</span>
+        <span id="cat-arabesk">Yeni Nesil Arabesk</span>
     </h3>
 
     <div class="track-list" id="arabesk">
@@ -282,11 +282,11 @@ YASAL UYARI ! YAYINLANAN TÜM ESERLER TESCİLLENMİŞTİR !
     </div>
 </div>
 
-<!-- ✅ YENİ KATEGORİ: MAHKUMLAR VE SEVDİKLERİ -->
+<!-- ✅ YENİ KATEGORİ: Mahkumlar ve Sevdikleri -->
 <div class="category">
     <h3 onclick="toggleList('mahkum')">
         <span class="icon-shake">🎧</span>
-        <span id="cat-mahkum">MAHKUMLAR VE SEVDİKLERİ</span>
+        <span id="cat-mahkum">Mahkumlar ve Sevdikleri</span>
     </h3>
 
     <div class="track-list" id="mahkum">
@@ -336,12 +336,12 @@ function toggleList(id){
 </div>
 
        <div class="category">
-    <h3 onclick="toggleList('ARABESK-POP HARMANI')">
+    <h3 onclick="toggleList('arabeskpop')">
         <span class="icon-shake">🎧</span> 
-        <span id="cat-ARABESK-POP HARMANI">ARABESK-POP HARMANI</span>
+        <span id="cat-arabeskpop">Arabesk Pop Harmanı</span>
     </h3>
 
-    <div class="track-list" id="ARABESK-POP HARMANI">
+    <div class="track-list" id="arabeskpop">
 
         <div onclick="playTrack('ATEŞİNDE KALDIM TANITIM','ATESINDE KALDIM TANITIM.mp4')">
      <span>🎬</span> ATEŞİNDE KALDIM
@@ -365,9 +365,9 @@ function toggleList(id){
 </div>
 
 <div class="category">
-    <h3 onclick="toggleList('TÜRKÜ')">
+    <h3 onclick="toggleList('turku')">
         <span class="icon-shake">🎧</span> 
-        <span id="cat-TÜRKÜ">YENİ NESİL TÜRKÜLER</span>
+        <span id="cat-turku">Yeni Nesil Türküler</span>
     </h3>
 
     <div class="track-list" id="turku">
@@ -387,13 +387,32 @@ function toggleList(id){
     </div>
 
 
+   <div class="category">
+    <h3 onclick="toggleList('altyapi')">
+        <span class="icon-shake">🎧</span>
+        <span id="cat-altyapi">Altyapı</span>
+    </h3>
+
+    <div class="track-list" id="altyapi">
+        <!-- Altyapı şarkıları buraya eklenecek -->
+        <div onclick="playTrack('Altyapı 1','dosya_adı_1.mp4')">
+            <span>🎬</span> ALTYAPI 1
+        </div>
+        <div onclick="playTrack('Altyapı 2','dosya_adı_2.mp4')">
+            <span>🎬</span> ALTYAPI 2
+        </div>
+        <div onclick="playTrack('Altyapı 3','dosya_adı_3.mp4')">
+            <span>🎬</span> ALTYAPI 3
+        </div>
+        <!-- Daha fazla altyapı eklemek için bu satırları çoğaltabilirsiniz -->
+    </div>
 </div> 
 </div>
 
 <div class="category">
-    <h3 onclick="toggleList('POP')">
+    <h3 onclick="toggleList('pop')">
         <span class="icon-shake">🎧</span> 
-        <span id="cat-POP">POP</span>
+        <span id="cat-pop">Pop</span>
     </h3>
 
     <div class="track-list" id="pop">
@@ -492,12 +511,12 @@ function toggleList(id){
     </div>
 
 <div class="category">
-    <h3 onclick="toggleList('slow')">
+    <h3 onclick="toggleList('slowpop')">
         <span class="icon-shake">🎧</span> 
-        <span id="cat-slowpop">SLOW</span>
+        <span id="cat-slowpop">Slow Pop</span>
     </h3>
 
-    <div class="track-list" id="SLOW">
+    <div class="track-list" id="slowpop">
 
    <div onclick="playTrack('Yarim Kaldın İçimde','YARIM KALDIN ICIMDE.mp4')">
     <span>🎬</span> YARiM KALDIN İÇİMDE
@@ -553,7 +572,7 @@ function toggleList(id){
 <div class="category">
     <h3 onclick="toggleList('hiphop')">
         <span class="icon-shake">🎧</span>
-        <span id="cat-hiphop">YENİ NESİL HİP HOP</span>
+        <span id="cat-hiphop">Yeni Nesil Hip Hop</span>
     </h3>
 
     <div class="track-list" id="hiphop">
@@ -573,7 +592,7 @@ function toggleList(id){
 <div class="category">
     <h3 onclick="toggleList('filmmuzikleri')">
         <span class="icon-shake">🎬</span> 
-        <span id="cat-film">ATL YAPILAR VE FİLM MÜZİKLERİ</span>
+        <span id="cat-film">Film Müzikleri</span>
     </h3>
 
     <div class="track-list" id="filmmuzikleri">
