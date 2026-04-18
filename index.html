@@ -236,10 +236,12 @@ YASAL UYARI ! YAYINLANAN TÜM ESERLER TESCİLLENMİŞTİR !
         <div class="player-box" id="playerBox">
             <div id="nowPlaying">Seçili şarkı yok</div>
       <video id="audioPlayer" controls controlslist="nodownload" style="width:100%; border-radius:8px;">
-    Tarayıcınız media player desteklemiyor.
 </video>
 
-        </div>
+        </div>const buyBtn = document.getElementById("buyBtn");
+const phone = "905074163605";
+const message = encodeURIComponent("Merhaba, '" + name + "' altyapısını satın almak istiyorum.");
+buyBtn.href = "https://wa.me/" + phone + "?text=" + message;
     </div>
 
     <div class="category">
