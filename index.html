@@ -232,54 +232,13 @@ YASAL UYARI ! YAYINLANAN TÜM ESERLER TESCİLLENMİŞTİR !
     text-shadow: 0 0 4px #d4af55;  /* Hafif parıltı */
     margin-bottom: 12px;
 }
-<div class="player-box" id="playerBox">
-    <div id="nowPlaying">Seçili şarkı yok</div>
+</style>
+        <div class="player-box" id="playerBox">
+            <div id="nowPlaying">Seçili şarkı yok</div>
+      <video id="audioPlayer" controls controlslist="nodownload" style="width:100%; border-radius:8px;">
+    Tarayıcınız media player desteklemiyor.
+</video>
 
-    <video id="audioPlayer" controls controlslist="nodownload" style="width:100%; border-radius:8px;"></video>
-
-    <a id="buyBtn" target="_blank" style="
-    display:block;
-    margin-top:10px;
-    padding:12px;
-    background:#25D366;
-    color:white;
-    text-align:center;
-    border-radius:8px;
-    text-decoration:none;
-    font-weight:bold;
-    ">
-    💬 WhatsApp'tan Satın Al
-    </a>
-</div>
-
-<script>
-let currentTrack = "";
-
-function playTrack(name, file){
-    const player = document.getElementById("audioPlayer");
-    const nowPlaying = document.getElementById("nowPlaying");
-    const playerBox = document.getElementById("playerBox");
-    const buyBtn = document.getElementById("buyBtn");
-
-    player.src = file;
-    player.play();
-
-    nowPlaying.textContent = "Çalan Şarkı: " + name;
-
-    currentTrack = name;
-
-    const phone = "905074163605";
-    const message = encodeURIComponent("Merhaba, '" + name + "' altyapısını satın almak istiyorum.");
-
-    buyBtn.href = "https://wa.me/" + phone + "?text=" + message;
-
-    playerBox.classList.add("playing");
-
-    player.onpause = () => playerBox.classList.remove("playing");
-    player.onplay = () => playerBox.classList.add("playing");
-}
-</script>
-        
         </div>
     </div>
 
