@@ -187,6 +187,15 @@ footer .contacts span.year{
 </style>
 </head>
 
+<script>
+function updateBuyButton(name){
+    const buyBtn = document.getElementById("buyBtn");
+    const phone = "905074163605";
+    const message = encodeURIComponent("Merhaba, '" + name + "' altyapısını satın almak istiyorum.");
+    buyBtn.href = "https://wa.me/" + phone + "?text=" + message;
+}
+</script>
+    
 <body>
 
 <header>
