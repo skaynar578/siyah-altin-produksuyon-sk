@@ -256,11 +256,7 @@ YASAL UYARI ! YAYINLANAN TÜM ESERLER TESCİLLENMİŞTİR !<br><br>İZİNSİZ T�
 
     <div class="track-list" id="yeniyayinlar">
  
-<div onclick="playTrack('BELALI YARIM RMX', 'belali_yarim_rmx.mp3')">
-    <span>🎵</span> BELALI YARIM RMX SÖZ MÜZİK: SK
-</div>
-        
-        <div onclick="playTrack('Belalı Yarim','BELALI.YARiM.mp3')">
+ <div onclick="playTrack('Belalı Yarim','BELALI.YARiM.mp3')">
     <span>🎵</span> BELALI YARIM söz müzik: SK
 </div>
         
@@ -825,47 +821,9 @@ function playTrack(name,file){
     }
     player.paused?playerBox.classList.remove("playing"):playerBox.classList.add("playing");
 }
+player.addEventListener('play',()=>playerBox.classList.add("playing"));
+player.addEventListener('pause',()=>playerBox.classList.remove("playing"));
 
-player.paused
-  ? playerBox.classList.remove("playing")
-  : playerBox.classList.add("playing");
-
-player.addEventListener('play', () => {
-    playerBox.classList.add("playing");
-
-    // eski yorum varsa sil
-    const eski = document.getElementById("canliYorum");
-    if (eski) eski.remove();
-
-    const yorum = document.createElement("div");
-    yorum.id = "canliYorum";
-    yorum.innerText = "🎧 Şarkı çalıyor... yorumlar açıldı!";
-
-    yorum.style.position = "fixed";
-    yorum.style.bottom = "20px";
-    yorum.style.left = "50%";
-    yorum.style.transform = "translateX(-50%)";
-    yorum.style.background = "rgba(0,0,0,0.7)";
-    yorum.style.color = "#ffd700";
-    yorum.style.padding = "6px 12px";
-    yorum.style.borderRadius = "8px";
-    yorum.style.fontSize = "13px";
-    yorum.style.zIndex = "9999";
-
-    document.body.appendChild(yorum);
-
-    setTimeout(() => {
-        yorum.remove();
-    }, 3000);
-});
-
-player.addEventListener('pause', () => {
-    playerBox.classList.remove("playing");
-
-    const eski = document.getElementById("canliYorum");
-    if (eski) eski.remove();
-});    
-    
 function toggleList(id){
     const el=document.getElementById(id);
     el.style.display=el.style.display==="block"?"none":"block";
