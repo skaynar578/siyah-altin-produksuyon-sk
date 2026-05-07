@@ -187,34 +187,7 @@ footer .contacts span.year{
 </style>
 </head>
 
-<body
-let aktifSarki = "";
-
-function yorumPanelAc(sarkiAdi){
-    aktifSarki = sarkiAdi;
-    document.getElementById("yorumPanel").style.display = "block";
-    document.getElementById("yorumBaslik").innerText = sarkiAdi + " - Yorum Yap";
-}
-
-function yorumKapat(){
-    document.getElementById("yorumPanel").style.display = "none";
-}
-
-function yorumGonder(){
-    let isim = document.getElementById("yorumIsim").value;
-    let mesaj = document.getElementById("yorumMesaj").value;
-
-    if(!isim || !mesaj){
-        alert("Boş bırakma!");
-        return;
-    }
-
-    alert("Yorum gönderildi ✔️\n\nŞarkı: " + aktifSarki + "\nİsim: " + isim + "\nMesaj: " + mesaj);
-
-    document.getElementById("yorumIsim").value = "";
-    document.getElementById("yorumMesaj").value = "";
-}
-</script>>
+<body>
 
 <header>
     <div class="language-switch">
@@ -282,8 +255,8 @@ YASAL UYARI ! YAYINLANAN TÜM ESERLER TESCİLLENMİŞTİR !<br><br>İZİNSİZ T�
     </h3>
 
     <div class="track-list" id="yeniyayinlar">
-
-  <div onclick="playTrack('Belalı Yarım','BELALI.YARIM.mp3'); yorumPanelAc('Belalı Yarım')">
+ 
+ <div onclick="playTrack('Belalı Yarim','BELALI.YARiM.mp3')">
     <span>🎵</span> BELALI YARIM söz müzik: SK
 </div>
         
