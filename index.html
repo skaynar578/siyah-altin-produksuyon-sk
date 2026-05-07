@@ -187,7 +187,34 @@ footer .contacts span.year{
 </style>
 </head>
 
-<body>
+<body <script>
+let aktifSarki = "";
+
+function yorumPanelAc(sarkiAdi){
+    aktifSarki = sarkiAdi;
+    document.getElementById("yorumPanel").style.display = "block";
+    document.getElementById("yorumBaslik").innerText = sarkiAdi + " - Yorum Yap";
+}
+
+function yorumKapat(){
+    document.getElementById("yorumPanel").style.display = "none";
+}
+
+function yorumGonder(){
+    let isim = document.getElementById("yorumIsim").value;
+    let mesaj = document.getElementById("yorumMesaj").value;
+
+    if(!isim || !mesaj){
+        alert("Boş bırakma!");
+        return;
+    }
+
+    alert("Yorum gönderildi ✔️\n\nŞarkı: " + aktifSarki + "\nİsim: " + isim + "\nMesaj: " + mesaj);
+
+    document.getElementById("yorumIsim").value = "";
+    document.getElementById("yorumMesaj").value = "";
+}
+</script>>
 
 <header>
     <div class="language-switch">
