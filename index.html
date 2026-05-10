@@ -219,6 +219,118 @@ footer .contacts span.year{
 
 <body>
 
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Siyah Altın Müzik</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial;
+    background:#0f0f0f;
+    color:white;
+}
+
+/* Takip kutusu */
+.follow-box{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#111;
+    border:1px solid gold;
+    padding:15px;
+    border-radius:12px;
+    width:220px;
+    box-shadow:0 0 10px rgba(255,215,0,0.3);
+}
+
+.follow-box button{
+    width:100%;
+    padding:10px;
+    margin-top:10px;
+    background:gold;
+    border:none;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+/* Bildirim */
+.notify{
+    position:fixed;
+    top:20px;
+    right:20px;
+    background:#1a1a1a;
+    border-left:4px solid gold;
+    padding:15px;
+    display:none;
+    animation:slide 0.5s ease;
+}
+
+@keyframes slide{
+    from{transform:translateX(100px); opacity:0;}
+    to{transform:translateX(0); opacity:1;}
+}
+</style>
+</head>
+
+<body>
+
+<h1 style="text-align:center;margin-top:50px;">Siyah Altın Prodüksiyon</h1>
+
+<p style="text-align:center;">Yeni şarkılardan haberdar ol</p>
+
+<!-- TAKİP PANELİ -->
+<div class="follow-box">
+    <div id="status">Henüz takip etmiyorsun</div>
+    <button onclick="follow()">TAKİP ET</button>
+    <button onclick="unfollow()" style="background:#444;color:white;">TAKİBİ BIRAK</button>
+</div>
+
+<!-- BİLDİRİM -->
+<div class="notify" id="notify">Yeni şarkı yüklendi 🎵</div>
+
+<script>
+
+// TAKİP ET
+function follow(){
+    localStorage.setItem("follow","true");
+    document.getElementById("status").innerText = "Takip ediyorsun ✅";
+    alert("Artık yeni şarkılardan haberdar olacaksın!");
+}
+
+// TAKİBİ BIRAK
+function unfollow(){
+    localStorage.removeItem("follow");
+    document.getElementById("status").innerText = "Henüz takip etmiyorsun";
+}
+
+// SAYFA AÇILINCA DURUM
+if(localStorage.getItem("follow")){
+    document.getElementById("status").innerText = "Takip ediyorsun ✅";
+}
+
+// YENİ ŞARKI BİLDİRİMİ (örnek sistem)
+function newSongAdded(){
+    if(localStorage.getItem("follow")){
+        let n = document.getElementById("notify");
+        n.style.display = "block";
+
+        setTimeout(()=>{
+            n.style.display = "none";
+        },4000);
+    }
+}
+
+/* TEST: sayfa açılınca örnek bildirim */
+setTimeout(newSongAdded, 2000);
+
+</script>
+
+</body>
+</html>
+    
 <header>
     <div class="language-switch">
         <span onclick="setLanguage('tr')">TR</span> | 
