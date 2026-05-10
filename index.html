@@ -9,6 +9,19 @@
 body{
     
 <script>
+
+function follow(){
+    localStorage.setItem("follow","1");
+    document.getElementById("status").innerText = "Takip ediyorsun ✅";
+}
+
+function unfollow(){
+    localStorage.removeItem("follow");
+    document.getElementById("status").innerText = "Henüz takip etmiyorsun";
+}
+
+if(localStorage.getItem("follow")){
+    document.getElementById("status").innerText = "Takip ediyorsun ✅";
 }
 
 function newSong(){
