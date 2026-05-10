@@ -6,7 +6,42 @@
 <title>BLACK GOLD PRODUCTION 2026 </title>
 
 <style>
-body{
+
+<script>
+// Firebase config (buraya kendi bilgini koyacaksın)
+const firebaseConfig = {
+  apiKey: "BURAYA",
+  authDomain: "BURAYA",
+  projectId: "BURAYA"
+};
+
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+
+// TAKİP ET
+function follow(){
+    db.collection("followers").add({
+        time: new Date()
+    });
+
+    document.getElementById("status").innerText = "Takip ediyorsun ✅";
+}
+
+// TAKİBİ BIRAK (sadece ekrandan kaldırır)
+function unfollow(){
+    document.getElementById("status").innerText = "Henüz takip etmiyorsun";
+}
+
+// SAYI GÖSTER
+function getFollowers(){
+    db.collection("followers").get().then(snap => {
+        console.log("Takipçi sayısı:", snap.size);
+    });
+}
+
+</script>
+    
+    body{
     
 <script>
 
