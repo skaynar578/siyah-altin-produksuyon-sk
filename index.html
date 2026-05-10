@@ -253,20 +253,21 @@ body{
 
 </script>
 
-</body><body>
-
-<!-- SABİT VİDEO -->
-<div class="sabit-video">
-    <video controls autoplay muted loop>
-        <source src="video.mp4" type="video/mp4">
-    </video>
+<div onclick="playVideo('BELALI YARIM','BELALI.YARIM.REMİX.V.mp4')">
+    🎬 BELALI YARIM REMİX
 </div>
 
-<div onclick="playVideo('BELALI YARIM REMİX','BELALI.YARIM.REMİX.V.mp4')">
-    <span>🎬</span> BELALI YARIM REMİX tanıtım
-</div>
-    
-    
+<video id="player" controls style="display:none; width:250px; position:fixed; bottom:20px; left:20px; z-index:9999; background:black;"></video>
+
+<script>
+function playVideo(name, file){
+    const player = document.getElementById("player");
+    player.src = file;
+    player.style.display = "block";
+    player.play();
+}
+</script>
+      
 </body>
 </html>
     
