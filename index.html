@@ -277,54 +277,11 @@ body{
 
 <body>
 
-<h1 style="text-align:center;margin-top:50px;">Siyah Altın Prodüksiyon</h1>
 
 <p style="text-align:center;">Yeni şarkılardan haberdar ol</p>
 
-<!-- TAKİP PANELİ -->
-<div class="follow-box">
-    <div id="status">Henüz takip etmiyorsun</div>
-    <button onclick="follow()">TAKİP ET</button>
-    <button onclick="unfollow()" style="background:#444;color:white;">TAKİBİ BIRAK</button>
-</div>
-
-<!-- BİLDİRİM -->
-<div class="notify" id="notify">Yeni şarkı yüklendi 🎵</div>
-
 <script>
 
-// TAKİP ET
-function follow(){
-    localStorage.setItem("follow","true");
-    document.getElementById("status").innerText = "Takip ediyorsun ✅";
-    alert("Artık yeni şarkılardan haberdar olacaksın!");
-}
-
-// TAKİBİ BIRAK
-function unfollow(){
-    localStorage.removeItem("follow");
-    document.getElementById("status").innerText = "Henüz takip etmiyorsun";
-}
-
-// SAYFA AÇILINCA DURUM
-if(localStorage.getItem("follow")){
-    document.getElementById("status").innerText = "Takip ediyorsun ✅";
-}
-
-// YENİ ŞARKI BİLDİRİMİ (örnek sistem)
-function newSongAdded(){
-    if(localStorage.getItem("follow")){
-        let n = document.getElementById("notify");
-        n.style.display = "block";
-
-        setTimeout(()=>{
-            n.style.display = "none";
-        },4000);
-    }
-}
-
-/* TEST: sayfa açılınca örnek bildirim */
-setTimeout(newSongAdded, 2000);
 
 </script>
 
