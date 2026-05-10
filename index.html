@@ -8,34 +8,7 @@
 <style>
 body{
     
-<script>
 
-function follow(){
-    localStorage.setItem("follow","1");
-    document.getElementById("status").innerText = "Takip ediyorsun ✅";
-}
-
-function unfollow(){
-    localStorage.removeItem("follow");
-    document.getElementById("status").innerText = "Henüz takip etmiyorsun";
-}
-
-if(localStorage.getItem("follow")){
-    document.getElementById("status").innerText = "Takip ediyorsun ✅";
-}
-
-function newSong(){
-    if(localStorage.getItem("follow")){
-        document.getElementById("notify").style.display = "block";
-        setTimeout(()=>{
-            document.getElementById("notify").style.display = "none";
-        },3000);
-    }
-}
-
-setTimeout(newSong, 1500);
-
-</script>
     
     margin:0;
     font-family:Arial, Helvetica, sans-serif;
@@ -279,25 +252,34 @@ body{
 
 <h1 style="text-align:center;margin-top:50px;">Siyah Altın Prodüksiyon</h1>
 
-<p style="text-align:center;">Yeni şarkılardan haberdar ol</p>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Siyah Altın Müzik</title>
+</head>
 
-<!-- TAKİP PANELİ -->
-<div class="follow-box">
-    <div id="status">Henüz takip etmiyorsun</div>
-    <button onclick="follow()">TAKİP ET</button>
-    <button onclick="unfollow()" style="background:#444;color:white;">TAKİBİ BIRAK</button>
-</div>
+<body style="background:#111;color:white;font-family:Arial;">
+
+<h2>Siyah Altın Prodüksiyon</h2>
+
+<!-- TAKİP DURUMU -->
+<div id="status">Henüz takip etmiyorsun</div>
+
+<button onclick="follow()">TAKİP ET</button>
+<button onclick="unfollow()">TAKİBİ BIRAK</button>
 
 <!-- BİLDİRİM -->
-<div class="notify" id="notify">Yeni şarkı yüklendi 🎵</div>
+<div id="notify" style="display:none;position:fixed;top:20px;right:20px;background:black;color:gold;padding:10px;border:1px solid gold;">
+Yeni şarkı geldi 🎵
+</div>
 
 <script>
 
 // TAKİP ET
 function follow(){
-    localStorage.setItem("follow","true");
+    localStorage.setItem("follow","1");
     document.getElementById("status").innerText = "Takip ediyorsun ✅";
-    alert("Artık yeni şarkılardan haberdar olacaksın!");
 }
 
 // TAKİBİ BIRAK
@@ -306,27 +288,32 @@ function unfollow(){
     document.getElementById("status").innerText = "Henüz takip etmiyorsun";
 }
 
-// SAYFA AÇILINCA DURUM
-if(localStorage.getItem("follow")){
-    document.getElementById("status").innerText = "Takip ediyorsun ✅";
+// SAYFA AÇILINCA DURUM KONTROL
+window.onload = function(){
+    if(localStorage.getItem("follow")){
+        document.getElementById("status").innerText = "Takip ediyorsun ✅";
+    }
 }
 
-// YENİ ŞARKI BİLDİRİMİ (örnek sistem)
-function newSongAdded(){
+// YENİ ŞARKI BİLDİRİMİ
+function newSong(){
     if(localStorage.getItem("follow")){
         let n = document.getElementById("notify");
         n.style.display = "block";
 
         setTimeout(()=>{
             n.style.display = "none";
-        },4000);
+        },3000);
     }
 }
 
-/* TEST: sayfa açılınca örnek bildirim */
-setTimeout(newSongAdded, 2000);
+// TEST (1.5 saniye sonra bildirim)
+setTimeout(newSong,1500);
 
 </script>
+
+</body>
+</html>
 
 </body>
 </html>
