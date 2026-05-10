@@ -7,14 +7,6 @@
 
 <style>
 body{
-
-<!-- SOL SABİT VİDEO OYNATICI -->
-<div class="sabit-video">
-    <video controls autoplay muted loop>
-        <source src="video.mp4" type="video/mp4">
-        Tarayıcın video desteklemiyor.
-    </video>
-</div>
     
 <script>
 
@@ -219,7 +211,22 @@ footer .contacts span.year{
 <meta charset="UTF-8">
 <title>Siyah Altın Müzik</title>
 
-<style>
+<style>.sabit-video {
+    position: fixed;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 220px;
+    z-index: 9999;
+    background: black;
+    border: 2px solid gold;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.sabit-video video {
+    width: 100%;
+}
 body{
     margin:0;
     font-family:Arial;
@@ -237,7 +244,6 @@ body{
 
 <body>
 
-
 <p style="text-align:center;">Yeni şarkılardan haberdar ol</p>
 
    <br> serkan_kaynartiktok.com/...
@@ -246,6 +252,15 @@ body{
 
 
 </script>
+
+</body><body>
+
+<!-- SABİT VİDEO -->
+<div class="sabit-video">
+    <video controls autoplay muted loop>
+        <source src="video.mp4" type="video/mp4">
+    </video>
+</div>
 
 </body>
 </html>
