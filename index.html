@@ -211,22 +211,7 @@ footer .contacts span.year{
 <meta charset="UTF-8">
 <title>Siyah Altın Müzik</title>
 
-<style>.sabit-video {
-    position: fixed;
-    left: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 220px;
-    z-index: 9999;
-    background: black;
-    border: 2px solid gold;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.sabit-video video {
-    width: 100%;
-}
+<style>
 body{
     margin:0;
     font-family:Arial;
@@ -242,7 +227,29 @@ body{
 </style>
 </head>
 
-<body>
+<body><div style="
+position: fixed;
+left: 15px;
+top: 50%;
+transform: translateY(-50%);
+width: 180px;
+height: 120px;
+background: black;
+border: 2px solid gold;
+color: gold;
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+font-weight: bold;
+font-size: 14px;
+border-radius: 10px;
+z-index: 9999;
+">
+BELALI YARIM<br>
+TANITIM
+</div>
+
 
 <p style="text-align:center;">Yeni şarkılardan haberdar ol</p>
 
@@ -253,21 +260,6 @@ body{
 
 </script>
 
-<div onclick="playVideo('BELALI YARIM','BELALI.YARIM.REMİX.V.mp4')">
-    🎬 BELALI YARIM REMİX
-</div>
-
-<video id="player" controls style="display:none; width:250px; position:fixed; bottom:20px; left:20px; z-index:9999; background:black;"></video>
-
-<script>
-function playVideo(name, file){
-    const player = document.getElementById("player");
-    player.src = file;
-    player.style.display = "block";
-    player.play();
-}
-</script>
-      
 </body>
 </html>
     
