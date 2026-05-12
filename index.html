@@ -244,13 +244,48 @@ body{
 </body>
 </html>
     
-<header>
-    <div class="language-switch">
-        <span onclick="setLanguage('tr')">TR</span> | 
-        <span onclick="setLanguage('en')">EN</span>
-   <h1 class="header-main-title">
-    Siyah Altın müzik Prodüksiyon 2026
-</h1>
+<header>.header-logo-row{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    margin:20px auto;
+}
+
+.side-logo{
+    width:40px;
+    height:40px;
+    object-fit:contain;
+}
+
+.left-logo{
+    animation: floatLeft 2s infinite ease-in-out;
+}
+
+.right-logo{
+    animation: floatRight 2s infinite ease-in-out;
+}
+
+@keyframes floatLeft{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-5px);}
+}
+
+@keyframes floatRight{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(5px);}
+}
+    <div class="header-logo-row">
+
+    <img src="logo.png" class="side-logo left-logo">
+
+    <h1 class="header-main-title">
+        Siyah Altın müzik Prodüksiyon 2026
+    </h1>
+
+    <img src="logo.png" class="side-logo right-logo">
+
+</div>
     </div>
     <h2 class="header-sub-title" id="header-sub-title"></h2>
     <div class="professional-title">PROFESYONEL<br> <div style="text-align:center; font-weight:bold; color:gold; text-shadow:0 0 4px gold; font-size:14px;">
