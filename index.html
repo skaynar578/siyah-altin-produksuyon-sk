@@ -312,14 +312,38 @@ YASAL UYARI ! YAYINLANAN TÜM ESERLER TESCİLLENMİŞTİR !<br><br>İZİNSİZ T�
 }
 </style>
 
-<video id="audioPlayer"
-       controls
-       autoplay
-       loop
-       playsinline
-       style="width:100%; border-radius:8px;">
-    <source src="BU.GECE.CLUP.mp3" type="audio/mpeg">
-</video>
+<style>
+.player-glow {
+    border-radius: 10px;
+    box-shadow: 0 0 10px gold, 0 0 20px gold, 0 0 40px #ffcc00;
+    overflow: hidden;
+    animation: glowAnim 2s infinite alternate;
+}
+
+@keyframes glowAnim {
+    from { box-shadow: 0 0 10px gold; }
+    to { box-shadow: 0 0 25px #ffd700, 0 0 50px #ffae00; }
+}
+</style>
+
+<div class="player-glow">
+    <video id="audioPlayer"
+           controls
+           autoplay
+           loop
+           playsinline
+           style="width:100%; display:block;">
+        <source src="BU.GECE.CLUP.mp3" type="audio/mpeg">
+    </video>
+</div>
+
+<script>
+window.addEventListener("load", function () {
+    const player = document.getElementById("audioPlayer");
+    player.volume = 1.0;
+    player.play().catch(() => {});
+});
+</script>
 
 <script>
 window.addEventListener("load", function () {
