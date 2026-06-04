@@ -328,26 +328,7 @@ YASAL UYARI ! YAYINLANAN TÜM ESERLER TESCİLLENMİŞTİR !<br><br>İZİNSİZ T�
 window.addEventListener("load", function () {
     const player = document.getElementById("audioPlayer");
 
-    player.volume = 1.0;
-
-    player.play().then(() => {
-        console.log("Oynatma başladı");
-    }).catch((e) => {
-        console.log("Autoplay engellendi:", e);
-    });
-});
-</script>
-
-<script>
-window.onload = function () {
-    const player = document.getElementById("audioPlayer");
-    player.volume = 1.0;
-    player.play().catch(function(e) {
-        console.log("Tarayıcı otomatik oynatmayı engelledi.");
-    });
-};
-</script>
-
+    
 
 
 <div class="category">
