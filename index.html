@@ -319,24 +319,24 @@ YASAL UYARI ! YAYINLANAN TÜM ESERLER TESCİLLENMİŞTİR !<br><br>İZİNSİZ T�
        autoplay
        loop
        playsinline
+       muted
        style="width:100%; border-radius:8px; background:black;">
     <source src="BU.GECE.CLUP.mp4" type="video/mp4">
 </video>
-```
-
-</div>
 
 <script>
-window.onload = function () {
+window.addEventListener("load", function () {
     const player = document.getElementById("audioPlayer");
+
     player.volume = 1.0;
 
-    player.play().catch(function(error) {
-        console.log("Otomatik oynatma engellendi:", error);
+    player.play().then(() => {
+        console.log("Oynatma başladı");
+    }).catch((e) => {
+        console.log("Autoplay engellendi:", e);
     });
-};
+});
 </script>
-
 
 <script>
 window.onload = function () {
