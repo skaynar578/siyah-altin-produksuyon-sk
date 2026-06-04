@@ -324,11 +324,20 @@ YASAL UYARI ! YAYINLANAN TÜM ESERLER TESCİLLENMİŞTİR !<br><br>İZİNSİZ T�
     from { box-shadow: 0 0 10px gold; }
     to { box-shadow: 0 0 25px #ffd700, 0 0 50px #ffae00; }
 }
+<style>
+.player-glow {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 10px gold, 0 0 30px #ffcc00;
+}
 </style>
 
 <div class="player-glow">
-    <video id="audioPlayer" controls autoplay playsinline style="width:100%;">
-        <source src="BU.GECE.CLUP.mp3" type="audio/mpeg">
+    <video id="audioPlayer"
+           controls
+           autoplay
+           playsinline
+           style="width:100%;">
     </video>
 </div>
 
@@ -346,43 +355,25 @@ const playlist = [
 let current = 0;
 const player = document.getElementById("audioPlayer");
 
+// ŞARKI ÇAL
 function playTrack(index) {
     current = index;
     player.src = playlist[current];
     player.play();
 }
 
-// ŞARKI BİTİNCE OTOMATİK SONRAKİ
+// BİTİNCE SONRAKİ
 player.addEventListener("ended", function () {
     current++;
     if (current >= playlist.length) current = 0;
+    playTrack(current);
+});
+
+// SİTE AÇILINCA
+window.addEventListener("load", function () {
     player.src = playlist[current];
-    player.play();
-});
-
-window.addEventListener("load", function () {
     player.volume = 1.0;
     player.play().catch(() => {});
-});
-</script>
-
-<script>
-window.addEventListener("load", function () {
-    const player = document.getElementById("audioPlayer");
-    player.volume = 1.0;
-    player.play().catch(() => {});
-});
-</script>
-
-<script>
-window.addEventListener("load", function () {
-    const player = document.getElementById("audioPlayer");
-
-    player.volume = 1.0; // SES AÇIK BAŞLAR
-
-    player.play().catch(function (err) {
-        console.log("Otomatik başlatma engellendi:", err);
-    });
 });
 </script>
 
