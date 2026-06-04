@@ -312,15 +312,23 @@ YASAL UYARI ! YAYINLANAN TÜM ESERLER TESCİLLENMİŞTİR !<br><br>İZİNSİZ T�
 }
 </style>
 
-      <video id="audioPlayer"
-       autoplay
-       loop
-       muted
-       controls
-       controlslist="nodownload"
-       style="width:100%; border-radius:8px;">
-    <source src="BU.GECE.CLUP.mp3" type="audio/mpeg">
-</video>  
+    <div class="player-box" id="playerBox">
+    <div id="nowPlaying">🎵 Şu An Çalıyor: BU GECE CLUP</div>
+
+    <audio id="audioPlayer" autoplay loop>
+        <source src="BU.GECE.CLUP.mp3" type="audio/mpeg">
+    </audio>
+</div>
+
+<script>
+window.onload = function () {
+    const player = document.getElementById("audioPlayer");
+    player.volume = 1.0;
+    player.play().catch(function(e) {
+        console.log("Tarayıcı otomatik oynatmayı engelledi.");
+    });
+};
+</script>
 
 
 
