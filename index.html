@@ -332,48 +332,111 @@ YASAL UYARI ! YAYINLANAN TÜM ESERLER TESCİLLENMİŞTİR !<br><br>İZİNSİZ T�
 }
 </style>
 
+<style>
+body{
+    background:#0b0b0b;
+    color:white;
+    font-family:Arial;
+}
+
+/* PLAYER */
+.player-glow{
+    border-radius:14px;
+    overflow:hidden;
+    box-shadow:0 0 15px gold,0 0 40px #ffcc00;
+    margin-bottom:15px;
+}
+
+/* NOW PLAYING */
+.now-playing{
+    text-align:center;
+    font-weight:bold;
+    color:gold;
+    margin:10px 0;
+    text-shadow:0 0 10px gold;
+}
+
+/* EQUALIZER */
+.eq{
+    display:flex;
+    justify-content:center;
+    gap:4px;
+    margin:10px 0;
+}
+
+.eq div{
+    width:5px;
+    height:10px;
+    background:gold;
+    animation:beat 0.8s infinite;
+}
+
+.eq div:nth-child(2){animation-delay:.2s;}
+.eq div:nth-child(3){animation-delay:.4s;}
+.eq div:nth-child(4){animation-delay:.6s;}
+
+@keyframes beat{
+    0%,100%{height:8px;}
+    50%{height:25px;}
+}
+
+/* LIST */
+.track{
+    padding:10px;
+    margin:5px 0;
+    background:#1a1a1a;
+    border-radius:8px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.track:hover{
+    background:gold;
+    color:black;
+}
+</style>
+
+<div class="now-playing" id="nowPlaying">🎵 BU GECE CLUP ÇALIYOR</div>
+
 <div class="player-glow">
-    <video id="audioPlayer"
-           controls
-           autoplay
-           playsinline
-           style="width:100%;">
-    </video>
+    <video id="audioPlayer" controls autoplay playsinline style="width:100%;"></video>
 </div>
 
-<div>
-    <button onclick="playTrack(0)">BU GECE CLUP</button>
-    <button onclick="playTrack(1)">ZIR DELİ</button>
+<div class="eq">
+    <div></div><div></div><div></div><div></div>
 </div>
+
+<!-- PLAYLIST -->
+<div class="track" onclick="playTrack(0)">▶ BU GECE CLUP</div>
+<div class="track" onclick="playTrack(1)">▶ ZIR DELİ</div>
 
 <script>
 const playlist = [
-    "BU.GECE.CLUP.mp3",
-    "ZIR.DELİ.POP.mp3"
+    {name:"BU GECE CLUP", file:"BU.GECE.CLUP.mp3"},
+    {name:"ZIR DELİ", file:"ZIR.DELİ.POP.mp3"}
 ];
 
 let current = 0;
 const player = document.getElementById("audioPlayer");
+const now = document.getElementById("nowPlaying");
 
-// ŞARKI ÇAL
-function playTrack(index) {
-    current = index;
-    player.src = playlist[current];
+function playTrack(i){
+    current = i;
+    player.src = playlist[i].file;
     player.play();
+    now.innerHTML = "🎵 " + playlist[i].name + " ÇALIYOR";
 }
 
-// BİTİNCE SONRAKİ
-player.addEventListener("ended", function () {
+player.addEventListener("ended",()=>{
     current++;
-    if (current >= playlist.length) current = 0;
+    if(current>=playlist.length) current=0;
     playTrack(current);
 });
 
-// SİTE AÇILINCA
-window.addEventListener("load", function () {
-    player.src = playlist[current];
+window.addEventListener("load",()=>{
+    player.src = playlist[0].file;
     player.volume = 1.0;
-    player.play().catch(() => {});
+    player.play().catch(()=>{});
 });
 </script>
 
