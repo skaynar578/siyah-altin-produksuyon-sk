@@ -327,15 +327,44 @@ YASAL UYARI ! YAYINLANAN TÜM ESERLER TESCİLLENMİŞTİR !<br><br>İZİNSİZ T�
 </style>
 
 <div class="player-glow">
-    <video id="audioPlayer"
-           controls
-           autoplay
-           loop
-           playsinline
-           style="width:100%; display:block;">
+    <video id="audioPlayer" controls autoplay playsinline style="width:100%;">
         <source src="BU.GECE.CLUP.mp3" type="audio/mpeg">
     </video>
 </div>
+
+<div>
+    <button onclick="playTrack(0)">BU GECE CLUP</button>
+    <button onclick="playTrack(1)">ZIR DELİ</button>
+</div>
+
+<script>
+const playlist = [
+    "BU.GECE.CLUP.mp3",
+    "ZIR.DELİ.POP.mp3"
+];
+
+let current = 0;
+const player = document.getElementById("audioPlayer");
+
+function playTrack(index) {
+    current = index;
+    player.src = playlist[current];
+    player.play();
+}
+
+// ŞARKI BİTİNCE OTOMATİK SONRAKİ
+player.addEventListener("ended", function () {
+    current++;
+    if (current >= playlist.length) current = 0;
+    player.src = playlist[current];
+    player.play();
+});
+
+window.addEventListener("load", function () {
+    player.volume = 1.0;
+    player.play().catch(() => {});
+});
+</script>
 
 <script>
 window.addEventListener("load", function () {
@@ -1407,8 +1436,8 @@ style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;pa
     </div>
 </div>
 
-    <div style="text-align:center; font-size:14px; color:#FFD700; font-weight:bold;">
-Serkan Kaynar · Söz, müzik ve dijital içerik üreten bağımsız sanatçı
+   <br> <div style="text-align:center; font-size:14px; color:#FFD700; font-weight:bold;">
+<br>Serkan Kaynar · Söz, müzik ve dijital içerik üreten bağımsız sanatçı
 </div>
     
 <section>
