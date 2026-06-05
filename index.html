@@ -1549,8 +1549,13 @@ const footerDesc=document.getElementById("footerDesc");
 const footerContacts=document.getElementById("footerContacts");
 const visitorCounter=document.getElementById("visitorCounter");
 
-let visits=localStorage.getItem('visits')?parseInt(localStorage.getItem('visits')):1500;
-visits++; localStorage.setItem('visits',visits);
+let visits=localStorage.getItem('visits')
+? parseInt(localStorage.getItem('visits'))
+: 5135;
+
+visits++;
+localStorage.setItem('visits', visits);
+
 visitorCounter.textContent="Ziyaretçi Sayısı: "+visits;
 
 function playTrack(name,file){
