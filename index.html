@@ -1526,7 +1526,20 @@ style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;pa
     İLETİŞİM: Whatsapp 05074163605 SERKAN KAYNAR 
      <br> <br> MAİL: skaynar578@gmail.com
     <br><br>
-   
+
+<script>
+let visits = localStorage.getItem("visits")
+    ? parseInt(localStorage.getItem("visits"))
+    : 5152;
+
+visits++;
+
+localStorage.setItem("visits", visits);
+
+document.getElementById("visitorCounter").textContent =
+"Ziyaretçi Girişi: " + visits;
+</script>
+    
 <p class="contacts" id="footerContacts"></p> <!-- BURASI EKLENDİ -->
 </section>
 
