@@ -1527,18 +1527,6 @@ style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;pa
      <br> <br> MAİL: skaynar578@gmail.com
     <br><br>
 
-<script>
-let visits = localStorage.getItem("visits")
-    ? parseInt(localStorage.getItem("visits"))
-    : 5152;
-
-visits++;
-
-localStorage.setItem("visits", visits);
-
-document.getElementById("visitorCounter").textContent =
-"Ziyaretçi Girişi: " + visits;
-</script>
     
 <p class="contacts" id="footerContacts"></p> <!-- BURASI EKLENDİ -->
 </section>
@@ -1560,14 +1548,6 @@ const footerDesc=document.getElementById("footerDesc");
 const footerContacts=document.getElementById("footerContacts");
 const visitorCounter=document.getElementById("visitorCounter");
 
-let visits=localStorage.getItem('visits')
-? parseInt(localStorage.getItem('visits'))
-: 5135;
-
-visits++;
-localStorage.setItem('visits', visits);
-
-visitorCounter.textContent="Ziyaretçi Sayısı: "+visits;
 
 function playTrack(name,file){
     if(player.src.includes(file)){ player.paused?player.play():player.pause(); }
