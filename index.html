@@ -1696,8 +1696,7 @@ style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;pa
 
       
     </div>
-</div>
-    
+
 <div class="category">
     <h3 onclick="toggleList('siir_sozlu')">
         <span class="icon-shake">📝</span>
@@ -1705,10 +1704,83 @@ style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;pa
     </h3>
 
     <div class="track-list" id="siir_sozlu">
-        <!-- BURAYA ŞİİRLER -->
+
+        <div class="poem-item" onclick="togglePoem('sessizce_gittin')">
+            <span>📖</span> SESSİZCE GİTTİN
+        </div>
+
+        <div class="poem-content" id="sessizce_gittin">
+
+            <p>Bir gece...<br>
+            sessizce gittin.</p>
+
+            <p>Ardında,<br>
+            suskun bir ev kaldı.</p>
+
+            <p>Duvarlarda hâlâ sesin var.</p>
+
+            <p>Bazen...<br>
+            sanki birazdan kapı açılacak<br>
+            ve sen geleceksin gibi.</p>
+
+            <p>Ama gelmiyorsun.</p>
+
+            <p>Ben de her gece<br>
+            aynı yerde oturup<br>
+            seni düşünmeye devam ediyorum.</p>
+
+            <p>İnsan...<br>
+            birini kaybedince<br>
+            sadece onu kaybetmiyor galiba.</p>
+
+            <p>Kendisinden de<br>
+            bir parça bırakıyor geride.</p>
+
+            <p>Ben senden sonra<br>
+            bunu öğrendim.</p>
+
+            <p>Bazı insanlar gider...</p>
+
+            <p>Ama gitmeleri,<br>
+            onları kalbimizden götürmeye yetmiyor.</p>
+
+        </div>
+
     </div>
 </div>
 
+<style>
+.poem-item {
+    padding: 12px 15px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.poem-content {
+    display: none;
+    padding: 18px;
+    line-height: 1.9;
+    text-align: center;
+}
+
+.poem-content p {
+    margin: 0 0 18px;
+}
+</style>
+
+<script>
+function togglePoem(id) {
+    const el = document.getElementById(id);
+
+    if (el.style.display === "block") {
+        el.style.display = "none";
+    } else {
+        el.style.display = "block";
+    }
+}
+</script>
+
+    
 <div class="category">
     <p class="description" id="footerDesc">
 
