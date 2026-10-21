@@ -2120,89 +2120,139 @@ function setLanguage(lang){
     }
 }
 
-// Sayaçlar ve şarkı başına beğeniler
+```html
+<!-- Sayaçlar ve şarkı başına beğeniler -->
+<script>
 (function initSkCounters(){
   const visitorKey = "sk_site_visitors_v1";
   const totalPlayKey = "sk_total_plays_v1";
   const totalLikeKey = "sk_total_likes_v1";
+
   const readNumber = key => {
     const value = Number(localStorage.getItem(key));
     return Number.isFinite(value) && value >= 0 ? value : 0;
   };
-  const writeNumber = (key, value) => localStorage.setItem(key, String(value));
-  // Başlangıç değeri 12.550; bundan sonra bu tarayıcıdaki ziyaretlerde artar.
-  if (localStorage.getItem(visitorKey) === null) writeNumber(visitorKey, 12550);
+
+  const writeNumber = (key, value) =>
+    localStorage.setItem(key, String(value));
+
+  // Ziyaretçi sayacı: 12.550 başlangıç
+  if (localStorage.getItem(visitorKey) === null) {
+    writeNumber(visitorKey, 12550);
+  }
   writeNumber(visitorKey, readNumber(visitorKey) + 1);
 
-  // İlk kurulumda ziyaretçi sayısına göre yaklaşık oranlar. Bunlar gerçek ölçüm değil, tahmini başlangıç değerleridir.
-  const visitorBaseline = readNumber(visitorKey);
-  if (localStorage.getItem(totalPlayKey) === null || readNumber(totalPlayKey) === 0) writeNumber(totalPlayKey, Math.round(visitorBaseline * 0.70));
-  if (localStorage.getItem(totalLikeKey) === null || readNumber(totalLikeKey) < 12255) writeNumber(totalLikeKey, 12255);
+  // Dinlenme sayısını yalnızca bir kez 12.510 olarak düzelt
+  if (localStorage.getItem("sk_play_fixed_v1") === null) {
+    writeNumber(totalPlayKey, 12510);
+    localStorage.setItem("sk_play_fixed_v1", "1");
+  }
+
+  // Beğeni sayacı
+  if (
+    localStorage.getItem(totalLikeKey) === null ||
+    readNumber(totalLikeKey) < 12255
+  ) {
+    writeNumber(totalLikeKey, 12255);
+  }
 
   const fmt = value => Number(value).toLocaleString("tr-TR");
+
   function refreshStats(){
     const visitorEl = document.getElementById("skVisitorCount");
     const playEl = document.getElementById("skPlayCount");
     const likeEl = document.getElementById("skLikeCount");
-    if(visitorEl) visitorEl.textContent = fmt(readNumber(visitorKey));
-    if(playEl) playEl.textContent = fmt(readNumber(totalPlayKey));
-    if(likeEl) likeEl.textContent = fmt(readNumber(totalLikeKey));
+
+    if (visitorEl) {
+      visitorEl.textContent = fmt(readNumber(visitorKey));
+    }
+    if (playEl) {
+      playEl.textContent = fmt(readNumber(totalPlayKey));
+    }
+    if (likeEl) {
+      likeEl.textContent = fmt(readNumber(totalLikeKey));
+    }
   }
 
-  // Her şarkı satırına beğen butonu ekle; buton şarkıyı başlatmaz.
+  // Her şarkı satırına beğeni butonu ekle
   document.querySelectorAll('[onclick*="playTrack("]').forEach((track, index) => {
-    if(track.querySelector(".sk-like-btn")) return;
+    if (track.querySelector(".sk-like-btn")) return;
+
     const raw = track.getAttribute("onclick") || "";
     const match = raw.match(/playTrack\(\s*['"]([^'"]+)['"]\s*,\s*['"]([^'"]+)['"]/);
-    const identity = match ? (match[1] + "|" + match[2]) : (track.textContent.trim() + "|" + index);
-    const id = Array.from(identity).reduce((hash, char) => ((hash * 31) + char.charCodeAt(0)) >>> 0, 7).toString(36);
+
+    const identity = match
+      ? (match[1] + "|" + match[2])
+      : (track.textContent.trim() + "|" + index);
+
+    const id = Array.from(identity).reduce(
+      (hash, char) => ((hash * 31) + char.charCodeAt(0)) >>> 0,
+      7
+    ).toString(36);
+
     const likeKey = "sk_liked_" + id;
     const songLikeKey = "sk_song_likes_" + id;
+
     const button = document.createElement("button");
     button.type = "button";
     button.className = "sk-like-btn";
+
     const updateButton = () => {
       const liked = localStorage.getItem(likeKey) === "1";
       button.classList.toggle("is-liked", liked);
       button.textContent = liked ? "❤️ Beğenildi" : "❤️ Beğen";
     };
+
     updateButton();
+
     button.addEventListener("click", event => {
       event.preventDefault();
       event.stopPropagation();
-      if(localStorage.getItem(likeKey) === "1"){
+
+      if (localStorage.getItem(likeKey) === "1") {
         localStorage.removeItem(likeKey);
-        writeNumber(totalLikeKey, Math.max(0, readNumber(totalLikeKey) - 1));
-        writeNumber(songLikeKey, Math.max(0, readNumber(songLikeKey) - 1));
+        writeNumber(
+          totalLikeKey,
+          Math.max(0, readNumber(totalLikeKey) - 1)
+        );
+        writeNumber(
+          songLikeKey,
+          Math.max(0, readNumber(songLikeKey) - 1)
+        );
       } else {
         localStorage.setItem(likeKey, "1");
         writeNumber(totalLikeKey, readNumber(totalLikeKey) + 1);
         writeNumber(songLikeKey, readNumber(songLikeKey) + 1);
       }
+
       updateButton();
       refreshStats();
     });
+
     track.appendChild(button);
   });
 
-  // Gerçek oynatma başladığında bir kez say; duraklatıp devam etmek tekrar sayılmaz.
+  // Şarkı çalınca toplam dinlenmeyi artır
   let lastCountedTrack = "";
   const audio = document.getElementById("audioPlayer");
-  if(audio){
+
+  if (audio) {
     audio.addEventListener("play", () => {
       const trackKey = audio.currentSrc || audio.src || "unknown-track";
-      if(trackKey && trackKey !== lastCountedTrack){
+
+      if (trackKey && trackKey !== lastCountedTrack) {
         lastCountedTrack = trackKey;
         writeNumber(totalPlayKey, readNumber(totalPlayKey) + 1);
         refreshStats();
       }
     });
-    audio.addEventListener("ended", () => { lastCountedTrack = ""; });
+
+    audio.addEventListener("ended", () => {
+      lastCountedTrack = "";
+    });
   }
+
   refreshStats();
 })();
-
 </script>
-
-</body>
-</html>
+```
