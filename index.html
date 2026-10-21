@@ -7,22 +7,6 @@
 
 <style>
 body{
-    
-<script>
-    
-function newSong(){
-    if(localStorage.getItem("follow")){
-        document.getElementById("notify").style.display = "block";
-        setTimeout(()=>{
-            document.getElementById("notify").style.display = "none";
-        },3000);
-    }
-}
-
-setTimeout(newSong, 1500);
-
-</script>
-    
     margin:0;
     font-family:Arial, Helvetica, sans-serif;
     background:#0b0b0b;
@@ -44,7 +28,7 @@ header{ padding:25px 15px; position:relative; }
     text-shadow: 0 0 15px #ffd700;
     max-width:90%;
     margin-left:auto;
-    margin-right:auto;a
+    margin-right:auto;
 }
 .header-sub-title{
     font-size:28px;
@@ -203,57 +187,8 @@ footer .contacts span.year{
 </style>
 </head>
 
-<!-- SIYAH ALTIN - SAYFA KAYMASINI AZALTMA -->
-<style>
-html {
-  overflow-anchor: none;
-  scroll-behavior: auto;
-}
-
-.sk-counter-panel {
-  overflow-anchor: none;
-}
-</style>
-
 <body>
 
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-<meta charset="UTF-8">
-<title>Siyah Altın Müzik</title>
-
-<style>
-body{
-    margin:0;
-    font-family:Arial;
-    background:#0f0f0f;
-    color:white;
-
-}
-
-@keyframes slide{
-    from{transform:translateX(100px); opacity:0;}
-    to{transform:translateX(0); opacity:1;}
-}
-</style>
-</head>
-
-<body>
-
-
-<p style="text-align:center;">İLETİŞİM İÇİN
-    siyahaltin.com@gmail.com!</p>
-
- 
-<script>
-
-
-</script>
-
-</body>
-</html>
-    
 <header>
     <div class="language-switch">
         <span onclick="setLanguage('tr')">TR</span> | 
@@ -2039,22 +1974,38 @@ function togglePoem(id) {
 
     
 
-<!-- Siyah Altın Prodüksiyon: Sayaç paneli -->
+<!-- Siyah Altın Prodüksiyon: zarif sayaç paneli -->
 <style>
-#skStatsPanel{max-width:650px;margin:24px auto;padding:16px;background:#111;border:1px solid #d4af37;border-radius:12px;color:#ffd700;text-align:center;box-shadow:0 0 18px rgba(212,175,55,.18)}
-#skStatsPanel h3{margin:0 0 12px}
-.sk-stats-grid{display:flex;justify-content:center;flex-wrap:wrap;gap:10px}
-.sk-stat{min-width:110px;padding:10px 12px;background:#1b1b1b;border:1px solid #705a2c;border-radius:8px}
-.sk-stat strong{display:block;font-size:21px;margin-top:5px}
-.sk-like-btn{display:inline-block;margin:5px 0 5px 8px;padding:5px 9px;background:#17130a;border:1px solid #d4af37;border-radius:6px;color:#ffd700;cursor:pointer;font-weight:bold;font-size:12px}
-.sk-like-btn.is-liked{color:#ff7185;border-color:#ff7185}
+#skStatsPanel {
+  box-sizing: border-box;
+  width: min(92%, 520px);
+  margin: 24px auto;
+  padding: 16px 18px;
+  background: linear-gradient(145deg, #121212, #0c0c0c);
+  border: 1px solid rgba(212,175,55,.55);
+  border-radius: 14px;
+  color: #e8c95a;
+  text-align: center;
+  box-shadow: 0 5px 18px rgba(0,0,0,.22);
+}
+#skStatsPanel h3 { margin: 0 0 13px; font-size: 13px; font-weight: 600; letter-spacing: 1.5px; color: #d4af37; }
+.sk-stats-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.sk-stat { min-width: 0; padding: 10px 5px; background: rgba(255,255,255,.025); border: 1px solid rgba(212,175,55,.20); border-radius: 10px; color: #bdb7a0; font-size: 11px; line-height: 1.4; }
+.sk-stat strong { display: block; margin-top: 5px; color: #f3d66b; font-size: clamp(16px, 4vw, 20px); font-weight: 700; font-variant-numeric: tabular-nums; }
+.sk-like-btn { display: inline-block; margin: 5px 0 5px 8px; padding: 5px 9px; background: #17130a; border: 1px solid rgba(212,175,55,.55); border-radius: 999px; color: #e8c95a; cursor: pointer; font-size: 11px; }
+.sk-like-btn.is-liked { color: #ff7185; border-color: #ff7185; }
+/* Daha sakin hareket: titreşime yol açabilen sürekli animasyonları kapat */
+html { overflow-anchor: none; scroll-behavior: auto; }
+.eq div, .player-glow, .player-box.playing, #skStatsPanel, #skStatsPanel * { animation: none !important; }
+.eq div { height: 10px !important; }
+@media (max-width: 360px) { .sk-stats-grid { gap: 5px; } .sk-stat { padding: 9px 2px; font-size: 10px; } }
 </style>
-<div id="skStatsPanel">
+<div id="skStatsPanel" aria-label="Site istatistikleri">
   <h3>🖤 SİYAH ALTIN PRODÜKSİYON</h3>
   <div class="sk-stats-grid">
     <div class="sk-stat">👥 Ziyaretçi<strong id="skVisitorCount">12.550</strong></div>
     <div class="sk-stat">🎧 Dinlenme<strong id="skPlayCount">0</strong></div>
-    <div class="sk-stat">❤️ Beğeni<strong id="skLikeCount">0</strong></div>
+    <div class="sk-stat">❤️ Beğeni<strong id="skLikeCount">12.255</strong></div>
   </div>
 </div>
 
@@ -2183,6 +2134,11 @@ function setLanguage(lang){
   if (localStorage.getItem(visitorKey) === null) writeNumber(visitorKey, 12550);
   writeNumber(visitorKey, readNumber(visitorKey) + 1);
 
+  // İlk kurulumda ziyaretçi sayısına göre yaklaşık oranlar. Bunlar gerçek ölçüm değil, tahmini başlangıç değerleridir.
+  const visitorBaseline = readNumber(visitorKey);
+  if (localStorage.getItem(totalPlayKey) === null || readNumber(totalPlayKey) === 0) writeNumber(totalPlayKey, Math.round(visitorBaseline * 0.70));
+  if (localStorage.getItem(totalLikeKey) === null || readNumber(totalLikeKey) < 12255) writeNumber(totalLikeKey, 12255);
+
   const fmt = value => Number(value).toLocaleString("tr-TR");
   function refreshStats(){
     const visitorEl = document.getElementById("skVisitorCount");
@@ -2247,3 +2203,6 @@ function setLanguage(lang){
 })();
 
 </script>
+
+</body>
+</html>
