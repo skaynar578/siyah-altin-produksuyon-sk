@@ -1,1 +1,2139 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BLACK GOLD PRODUCTION 2026 </title>
 
+<style>
+body{
+    
+<script>
+    
+function newSong(){
+    if(localStorage.getItem("follow")){
+        document.getElementById("notify").style.display = "block";
+        setTimeout(()=>{
+            document.getElementById("notify").style.display = "none";
+        },3000);
+    }
+}
+
+setTimeout(newSong, 1500);
+
+</script>
+    
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#0b0b0b;
+    color:#d4af37;
+    text-align:center;
+}
+header{ padding:25px 15px; position:relative; }
+.sub{
+    font-size:18px;
+    font-weight:bold;
+    margin:6px 0;
+}
+.header-main-title{
+    font-size:38px;
+    font-weight:900;
+    letter-spacing:8px;
+    margin-bottom:5px;
+    color:#ffd700;
+    text-shadow: 0 0 15px #ffd700;
+    max-width:90%;
+    margin-left:auto;
+    margin-right:auto;a
+}
+.header-sub-title{
+    font-size:28px;
+    font-weight:700;
+    margin-bottom:5px;
+    color:#ffd700;
+    text-shadow: 0 0 8px #ffd700;
+}
+.professional-title{
+    font-size:32px;
+    font-weight:800;
+    margin-bottom:15px;
+    color:#ffd700;
+    text-shadow:0 0 12px #ffd700,0 0 22px #ffd700;
+}
+.sk-title{
+    font-size:32px; 
+    font-weight:500;
+    color:#ffd700;
+    text-shadow:0 0 4px #ffd700, 0 0 8px #ffd700; 
+    margin:10px auto 15px auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:6px; 
+}
+.sk-s, .sk-k{ display:inline-block; }
+.language-switch{
+    position:absolute;
+    top:15px;
+    right:20px;
+    font-weight:bold;
+    font-size:14px;
+}
+.language-switch span{
+    cursor:pointer;
+    margin:0 5px;
+    text-decoration:underline;
+}
+.language-switch span:hover{ color:#ffd700; }
+.player-box-container{
+    max-width:450px;
+    margin:50px auto 20px auto;
+}
+.player-description{
+    font-weight:bold;
+    font-size:16px;
+    color:#ffd700;
+    text-transform:uppercase;
+    text-shadow:0 0 8px #ffd700;
+    margin-bottom:10px;
+}
+.player-box{
+    border:1px solid #d4af37;
+    padding:20px;
+    border-radius:14px;
+    box-shadow:0 0 20px rgba(212,175,55,0.3);
+    transition:0.3s, box-shadow 0.5s;
+}
+.player-box.playing{ animation:playerGlow 1s infinite alternate; }
+#nowPlaying{ font-weight:bold; margin-bottom:10px; transition:0.3s; }
+audio{ width:100%; height:32px; }
+.category{
+    margin:20px auto;
+    max-width:420px;
+    border:1px solid #d4af37;
+    padding:12px;
+    border-radius:12px;
+    box-shadow:0 0 15px rgba(212,175,55,0.1);
+    transition:0.3s;
+}
+.category:hover{ box-shadow:0 0 25px rgba(212,175,55,0.25); }
+.category h3{
+    cursor:pointer;
+    margin:0;
+    display:flex;
+    align-items:center;
+    gap:6px;
+    font-weight:bold;
+}
+.track-list{
+    display:none;
+    margin-top:10px;
+    animation:fadeInList 0.4s ease-in-out;
+}
+.track-list div{
+    padding:6px;
+    cursor:pointer;
+    border-bottom:1px solid #333;
+    display:flex;
+    align-items:center;
+    gap:6px;
+}
+.track-list div:hover{
+    background:#1a1a1a;
+    transform:translateX(3px);
+    transition:0.3s;
+}
+footer{
+    padding:25px 15px;
+    font-size:14px;
+    line-height:1.6;
+    max-width:900px;
+    margin:30px auto 0 auto;
+    text-align:left;
+}
+footer p{ margin:6px 0; }
+footer .description{ font-size:13px; color:#f0e68c; }
+footer .contacts{ font-weight:bold; font-size:16px; }
+footer .contacts span.year{
+    font-weight:900;
+    color:#ffd700;
+    margin-left:8px;
+}
+.fixed-buttons{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    z-index:999;
+}
+.fixed-buttons a{
+    text-decoration:none;
+    padding:10px 14px;
+    border-radius:6px;
+    font-weight:bold;
+    font-size:14px;
+    color:#0b0b0b;
+    transition:0.3s;
+}
+.fixed-buttons a:hover{
+    box-shadow:0 0 15px #d4af37;
+    transform:scale(1.05);
+}
+.whatsapp-btn{ background:#25D366; }
+.message-btn{ background:#d4af37; }
+@keyframes fadeInList{
+    from{opacity:0; transform:translateY(-10px);}
+    to{opacity:1; transform:translateY(0);}
+}
+@keyframes shakeIcon{
+    0%{transform:rotate(0deg);}
+    25%{transform:rotate(10deg);}
+    50%{transform:rotate(-10deg);}
+    75%{transform:rotate(10deg);}
+    100%{transform:rotate(0);}
+}
+@keyframes playerGlow{
+    0%{box-shadow:0 0 20px rgba(212,175,55,0.5);}
+    50%{box-shadow:0 0 35px rgba(212,175,55,0.8);}
+    100%{box-shadow:0 0 50px rgba(212,175,55,1);}
+}
+.icon-shake{ display:inline-block; animation:shakeIcon 0.6s ease; }
+</style>
+</head>
+
+<body>
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Siyah Altın Müzik</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial;
+    background:#0f0f0f;
+    color:white;
+
+}
+
+@keyframes slide{
+    from{transform:translateX(100px); opacity:0;}
+    to{transform:translateX(0); opacity:1;}
+}
+</style>
+</head>
+
+<body>
+
+
+<p style="text-align:center;">İLETİŞİM İÇİN
+    siyahaltin.com@gmail.com!</p>
+
+ 
+<script>
+
+
+</script>
+
+</body>
+</html>
+    
+<header>
+    <div class="language-switch">
+        <span onclick="setLanguage('tr')">TR</span> | 
+        <span onclick="setLanguage('en')">EN</span>
+    </div>
+    <h1 class="header-main-title">
+        <span style="text-transform:capitalize;">Siyah Altın müzik </span><span style="text-transform:uppercase;">P</span>rodüksiyon 2026
+    </h1>
+<div class="sk-title">
+    <span class="sk-s">S</span>
+    <span class="sk-k"> K</span>
+</div>
+
+<div class="professional-title" style="
+    text-align:center;
+    font-size:15px;
+    color:#d4af37;
+    font-weight:500;
+    line-height:1.6;
+    margin-top:8px;
+    letter-spacing:0.5px;">
+    
+    <div style="text-align:center; font-size:18px; color:#FFD700; font-weight:700; line-height:1.8; letter-spacing:0.5px; text-shadow:0 0 6px rgba(255,215,0,0.4);">
+
+    Serkan Kaynar · Söz, müzik ve dijital içerik üreten bağımsız sanatçı
+    <br>
+
+    <span style="font-size:15px; opacity:1; color:#ffffff; font-weight:600;">
+        Senaryo Yazarı · Senarist
+    </span>
+
+</div>
+
+<h2 class="header-sub-title" id="header-sub-title"></h2>
+
+<br>
+
+YENİ NESİL ÇALIŞMALAR<br>
+
+<br>
+
+<br>
+
+<div style="
+    text-align:center;
+    font-weight:bold;
+    font-size:14px;
+    letter-spacing:1px;
+">
+
+    <span style="color:#ffd700;">PROFESYONEL</span>
+    <span style="color:#ffffff;"> YAPIM VE YAYIN HİZMETLERİ</span>
+
+</div>
+
+<br><br>
+
+
+</div>
+</strong>
+    <div class="sub gold-glow" id="sub1">Hazır Şarkılar • Besteler</div>
+<div class="sub gold-glow" id="sub2">Satışa ve Devire Hazır Eserler</div>
+<div class="sub gold-glow" id="sub3">
+Özel talepler doğrultusunda özgün çalışmalar hazırlanır.<br>
+<br>
+</div>
+
+<br>
+
+<div class="gold-glow warning">
+YASAL UYARI ! YAYINLANAN TÜM ESERLER TESCİLLENMİŞTİR !<br><br>İZİNSİZ TİCARİ KULLANIM YASAKTIR, LİSANS VE DEVİR İÇİN İLETİŞİME GEÇİLMESİ ZORUNLUDUR.
+</div>
+<section>
+    <div class="player-box-container">
+      <div class="player-description" id="playerDesc">
+    LİSANS VE DEVİRE HAZIR ESERLER<br>
+</div>
+
+<style>
+#playerDesc {
+    font-weight: 600;
+    font-size: 16px;          /* Büyük harf yerine orta boy */
+    line-height: 1.6;         /* Satırlar arasına nefes */
+    color: #ffd700;           /* Parlak ama göz yormayan altın */
+    text-transform: none;     /* Büyük harf kapalı */
+    text-shadow: 0 0 4px #d4af55;  /* Hafif parıltı */
+    margin-bottom: 12px;
+}
+</style>
+
+<style>
+.player-glow {
+    border-radius: 10px;
+    box-shadow: 0 0 10px gold, 0 0 20px gold, 0 0 40px #ffcc00;
+    overflow: hidden;
+    animation: glowAnim 2s infinite alternate;
+}
+
+@keyframes glowAnim {
+    from { box-shadow: 0 0 10px gold; }
+    to { box-shadow: 0 0 25px #ffd700, 0 0 50px #ffae00; }
+}
+<style>
+.player-glow {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 10px gold, 0 0 30px #ffcc00;
+}
+</style>
+
+<style>
+body{
+    background:#0b0b0b;
+    color:white;
+    font-family:Arial;
+}
+
+/* PLAYER */
+.player-glow{
+    border-radius:14px;
+    overflow:hidden;
+    box-shadow:0 0 15px gold,0 0 40px #ffcc00;
+    margin-bottom:15px;
+}
+
+/* NOW PLAYING */
+.now-playing{
+    text-align:center;
+    font-weight:bold;
+    color:gold;
+    margin:10px 0;
+    text-shadow:0 0 10px gold;
+}
+
+/* EQUALIZER */
+.eq{
+    display:flex;
+    justify-content:center;
+    gap:4px;
+    margin:10px 0;
+}
+
+.eq div{
+    width:5px;
+    height:10px;
+    background:gold;
+    animation:beat 0.8s infinite;
+}
+
+.eq div:nth-child(2){animation-delay:.2s;}
+.eq div:nth-child(3){animation-delay:.4s;}
+.eq div:nth-child(4){animation-delay:.6s;}
+
+@keyframes beat{
+    0%,100%{height:8px;}
+    50%{height:25px;}
+}
+
+/* LIST */
+.track{
+    padding:10px;
+    margin:5px 0;
+    background:#1a1a1a;
+    border-radius:8px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.track:hover{
+    background:gold;
+    color:black;
+}
+</style>
+
+<div class="now-playing" id="nowPlaying">🎵 BU GECE CLUP ÇALIYOR</div>
+
+        
+<div class="player-glow">
+    <video id="audioPlayer" controls autoplay playsinline style="width:100%;"></video>
+</div>
+
+<div class="eq">
+    <div></div><div></div><div></div><div></div>
+</div>
+
+
+<script>
+const playlist = [
+    {name:"BU GECE CLUP", file:"BU.GECE.CLUP.mp3"},
+    {name:"ZIR DELİ", file:"ZIR.DELİ.POP.mp3"}
+];
+
+let current = 0;
+const player = document.getElementById("audioPlayer");
+const now = document.getElementById("nowPlaying");
+
+function playTrack(i){
+    current = i;
+    player.src = playlist[i].file;
+    player.play();
+    now.innerHTML = "🎵 " + playlist[i].name + " ÇALIYOR";
+}
+
+player.addEventListener("ended",()=>{
+    current++;
+    if(current>=playlist.length) current=0;
+    playTrack(current);
+});
+
+window.addEventListener("load",()=>{
+    player.src = playlist[0].file;
+    player.volume = 1.0;
+    player.play().catch(()=>{});
+});
+</script>
+
+
+<div class="category">
+    <h3 onclick="toggleList('yeniyayinlar')">
+        <span class="icon-shake">🆕</span>
+        <span>Yeni Yayınlar</span>
+    </h3>
+
+    <div class="track-list" id="yeniyayinlar">
+
+<div onclick="playTrack('GEL BU GECE SK','GEL.BU.GECE.mp3')">
+    <span>🎵</span> GEL BU GECE SK SÖZ müzik düzenleme: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=GEL%20BU%20GECE%20SK%20lisans%C4%B1%20ve%20devri%20i%C3%A7in%20sat%C4%B1n%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+
+        
+<div onclick="playTrack('UNUTAMAZSIN SK','UNUTAMAZSIN (1).mp3')">
+    <span>🎵</span> UNUTAMAZSIN SK SÖZ müzik düzenleme: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=UNUTAMAZSIN%20SK%20lisans%C4%B1%20ve%20devri%20i%C3%A7in%20sat%C4%B1n%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+        
+        <div onclick="playTrack('GÜMBÜR GÜMBÜR POP','GÜMBÜR.GÜMBÜR.POP.mp3')">
+    <span>🎵</span> GÜMBÜR GÜMBÜR POP SÖZ müzik düzenleme: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=G%C3%9CMB%C3%9CR%20G%C3%9CMB%C3%9CR%20POP%20lisans%C4%B1%20ve%20devri%20i%C3%A7in%20sat%C4%B1n%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+
+
+<div onclick="playTrack('TIK TIK','TIK.TIK.mp3')">
+    <span>🎵</span> TIK TIK SÖZ müzik düzenleme: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=TIK%20TIK%20lisans%C4%B1%20ve%20devri%20i%C3%A7in%20sat%C4%B1n%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+
+
+<div onclick="playTrack('ÇAT ÇAT 1','ÇAT.ÇAT 1.mp3')">
+    <span>🎵</span> ÇAT ÇAT 1 SÖZ müzik düzenleme: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=%C3%87AT%20%C3%87AT%201%20lisans%C4%B1%20ve%20devri%20i%C3%A7in%20sat%C4%B1n%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+
+
+<div onclick="playTrack('AĞZINA BİBER SÜRERİM','AGZINA.BIBER.Sürerim.mp3')">
+    <span>🎵</span> AĞZINA BİBER SÜRERİM SÖZ müzik düzenleme: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=A%C4%9EZINA%20B%C4%B0BER%20S%C3%9CRER%C4%B0M%20lisans%C4%B1%20ve%20devri%20i%C3%A7in%20sat%C4%B1n%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+
+
+<div onclick="playTrack('BOŞVER','boşver.mp3')">
+    <span>🎵</span> BOŞVER SÖZ müzik düzenleme: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=BO%C5%9EVER%20lisans%C4%B1%20ve%20devri%20i%C3%A7in%20sat%C4%B1n%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+
+<div onclick="playTrack('ÇAY MI KAHVE Mİ','ÇAYMI.KAHVEMİ.mp3')">
+    <span>🎵</span> ÇAY MI KAHVE Mİ SÖZ müzik düzenleme: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=%C3%87AY%20MI%20KAHVE%20M%C4%B0%20lisans%C4%B1%20ve%20devri%20i%C3%A7in%20sat%C4%B1n%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+
+
+<div onclick="playTrack('YANDIM YANDIM','YANDIM.YANDIM.mp3')">
+    <span>🎵</span> YANDIM YANDIM SÖZ müzik düzenleme: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=YANDIM%20YANDIM%20lisans%C4%B1%20ve%20devri%20i%C3%A7in%20sat%C4%B1n%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+
+
+<div onclick="playTrack('VUR GİTSİN','VUR.GITSIN.mp3')">
+    <span>🎵</span> VUR GİTSİN SÖZ müzik düzenleme: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=VUR%20G%C4%B0TS%C4%B0N%20lisans%C4%B1%20ve%20devri%20i%C3%A7in%20sat%C4%B1n%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+
+
+<div onclick="playTrack('NE OLACAK','NE.OLACAK.mp3')">
+    <span>🎵</span> NE OLACAK SÖZ müzik düzenleme: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=NE%20OLACAK%20lisans%C4%B1%20ve%20devri%20i%C3%A7in%20sat%C4%B1n%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+
+
+<div onclick="playTrack('KAFAYI YEDİM','KAFAYI.YEDİM.mp3')">
+    <span>🎵</span> KAFAYI YEDİM SÖZ müzik düzenleme: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=KAFAYI%20YED%C4%B0M%20lisans%C4%B1%20ve%20devri%20i%C3%A7in%20sat%C4%B1n%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+        
+        <div onclick="playTrack('YARIM KALANIM','1.YARIM.KALANIM.HALAY...mp3')">
+    <span>🎵</span> YARIM KALANIM SÖZ müzik düzenleme: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=YARIM%20KALANIM%20lisans%C4%B1%20ve%20devri%20i%C3%A7in%20sat%C4%B1n%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+
+
+<div onclick="playTrack('YİNE DÜŞTÜM','1.3YİNE.DÜŞTÜM.mp3')">
+    <span>🎵</span> YİNE DÜŞTÜM SÖZ müzik düzenleme: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Y%C4%B0NE%20D%C3%9C%C5%9ET%C3%9CM%20lisans%C4%B1%20ve%20devri%20i%C3%A7in%20sat%C4%B1n%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+
+
+<div onclick="playTrack('YANDI BU YÜREK','YANDI.BU.YÜREK.RITIM.VERS.mp3')">
+    <span>🎵</span> YANDI BU YÜREK SÖZ müzik düzenleme: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=YANDI%20BU%20Y%C3%9CREK%20lisans%C4%B1%20ve%20devri%20i%C3%A7in%20sat%C4%B1n%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+
+
+<div onclick="playTrack('KADERİME YAZILDIN SEN','KADERIME.YAZILDIN.SEN.ABESK.RTIIMLI.mp3')">
+    <span>🎵</span> KADERİME YAZILDIN SEN SÖZ müzik düzenleme: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=KADER%C4%B0ME%20YAZILDIN%20SEN%20lisans%C4%B1%20ve%20devri%20i%C3%A7in%20sat%C4%B1n%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+
+
+<div onclick="playTrack('ALIŞAMADIM','ALISAMADIM.mp3')">
+    <span>🎵</span> ALIŞAMADIM SÖZ müzik düzenleme: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=ALI%C5%9EAMADIM%20lisans%C4%B1%20ve%20devri%20i%C3%A7in%20sat%C4%B1n%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+
+        
+
+<div onclick="playTrack('Köprüde Dans','Köprüde.Dans.(1).mp3')">
+
+<span>🎵</span> KÖPRÜDE DANS söz müzik: SK
+
+</div>
+
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+
+target="_blank"
+
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+
+Şarkının lisansı ve devri için iletişim
+
+</a>
+
+        
+<div onclick="playTrack('GELDE','GELDE.mp3')">
+    <span>🎵</span> GELDE SÖZ müzik düzenleme: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=GELDE%20lisans%C4%B1%20ve%20devri%20i%C3%A7in%20sat%C4%B1n%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+
+      <div onclick="playTrack('Ben Kalırım Yeni','BEN.KALIRIM.YENİ.mp3')">
+        <span>🎵</span> BEN KALIRIM (YENİ) söz müzik: SK
+    </div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+<div onclick="playTrack('DÖN ARTIK','DÖN.ARTIK.mp3')">
+    <span>🎵</span> DÖN ARTIK SÖZ müzik düzenleme: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=D%C3%96N%20ARTIK%20lisans%C4%B1%20ve%20devri%20i%C3%A7in%20sat%C4%B1n%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+<div onclick="playTrack('GEL POP','GEL.POP.mp3')">
+    <span>🎵</span> GEL SÖZ müzik düzenleme: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=GEL%20POP%20lisans%C4%B1%20ve%20devri%20i%C3%A7in%20sat%C4%B1n%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+
+
+<div onclick="playTrack('AYNI GÖK YÜZÜ','AYNI.GÖK YÜZÜ.mp3')">
+    <span>🎵</span> AYNI GÖK YÜZÜ SÖZ müzik düzenleme: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=AYNI%20G%C3%96K%20Y%C3%9CZ%C3%9C%20lisans%C4%B1%20ve%20devri%20i%C3%A7in%20sat%C4%B1n%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+
+<div onclick="playTrack('YİNE DÜŞTÜM DARMADAĞIN','YİNE.DÜŞTTÜM.DARMADAGIN1.mp3')">
+    <span>🎵</span> YİNE DÜŞTÜM SÖZ müzik düzenleme: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Y%C4%B0NE%20D%C3%9C%C5%9ET%C3%9CM%20DARMADA%C4%9EIN%20lisans%C4%B1%20ve%20devri%20i%C3%A7in%20sat%C4%B1n%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+
+<div onclick="playTrack('YARIM KALAN AŞK','YARIM.KALAN.AŞK.mp3')">
+    <span>🎵</span> YARIM KALAN AŞK SÖZ müzik düzenleme: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=YARIM%20KALAN%20A%C5%9EK%20lisans%C4%B1%20ve%20devri%20i%C3%A7in%20sat%C4%B1n%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+
+<div onclick="playTrack('KENDİMİ YAKALADIM','KENDİMİ.YAKALADIM.mp3')">
+    <span>🎵</span> KENDİMİ YAKALADIM SÖZ müzik düzenleme: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=KEND%C4%B0M%C4%B0%20YAKALADIM%20lisans%C4%B1%20ve%20devri%20i%C3%A7in%20sat%C4%B1n%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+
+<div onclick="playTrack('EKSİLEN GÖLGE','EKSİLEN.GÖLGE.mp3')">
+    <span>🎵</span> EKSİLEN GÖLGE SÖZ müzik düzenleme: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=EKS%C4%B0LEN%20G%C3%96LGE%20lisans%C4%B1%20ve%20devri%20i%C3%A7in%20sat%C4%B1n%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+
+<div onclick="playTrack('AKIŞA GEL','AKIŞA.GEL.mp3')">
+    <span>🎵</span> AKIŞA GEL SÖZ müzik düzenleme: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=AKI%C5%9EA%20GEL%20lisans%C4%B1%20ve%20devri%20i%C3%A7in%20sat%C4%B1n%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+
+    
+<div onclick="playTrack('ANNE','ANNE.mp3')">
+    <span>🎵</span> ANNE SÖZ müzik düzenleme: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=ANNE%20lisans%C4%B1%20ve%20devri%20i%C3%A7in%20sat%C4%B1n%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+
+        
+<div onclick="playTrack('YİNE SLOW ROCK','YİNE.SLOW.ROCK.mp3')">
+    <span>🎵</span> YİNE SLOW ROCK SÖZ müzik düzenleme: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Y%C4%B0NE%20SLOW%20ROCK%20lisans%C4%B1%20ve%20devri%20i%C3%A7in%20sat%C4%B1n%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+        
+<div onclick="playTrack('00 ALTYAPI','00.ALTYAPI.mp3')">
+    <span>🎵</span> 00 ALTYAPI müzik düzenleme: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=00%20Altyapi%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+
+<div onclick="playTrack('001 ALTYAPI','001.ALTYAPI.mp3')">
+    <span>🎵</span> 001 ALTYAPI müzik düzenleme: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=001%20Altyapi%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+<div onclick="playTrack('YARIM KALDI VERSİYON','YARIM.KALDI.VERSIYON.SLOW.mp3')">
+    <span>🎵</span> YARIM KALDI VERSİYON söz müzik: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Yarim%20Kaldi%20Versiyon%20şarkısının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+
+<div onclick="playTrack('YARIM KALDIN','YARIM.KALDIN.SLOW1.mp3')">
+    <span>🎵</span> YARIM KALDIN söz müzik: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Yarim%20Kaldin%20şarkısının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+
+        
+<div onclick="playTrack('DARMADAĞIN 1','DARMADAGIN.1.mp3')">
+    <span>🎵</span> DARMADAĞIN 1 söz müzik: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Darmadagin%201%20şarkısının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+
+<div onclick="playTrack('DARMADAĞIN VERSİYON','DARMADAGIN.VERSYN.mp3')">
+    <span>🎵</span> DARMADAĞIN VERSİYON söz müzik: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Darmadagin%20Versiyon%20şarkısının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+
+<div onclick="playTrack('SAYAMADIM 1','SAYAMADIM.1.mp3')">
+    <span>🎵</span> SAYAMADIM 1 söz müzik: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Sayamadim%201%20şarkısının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+
+<div onclick="playTrack('SAYAMADIM POP VERSİYON','SAYAMADIM.POP.VERS.mp3')">
+    <span>🎵</span> SAYAMADIM POP VERSİYON söz müzik: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Sayamadim%20Pop%20Versiyon%20şarkısının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+             
+   <div onclick="playTrack('ZIR DELİ','ZIR.DELİ.POP.mp3')">
+    <span>🎵</span> ZIR DELİ söz müzik: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Hoppa%20Geceler%20şarkısının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>       
+
+<div onclick="playTrack('BU GECE POP','BU.GECE.POP.mp3')">
+    <span>🎵</span> BU GECE söz müzik: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Hoppa%20Geceler%20şarkısının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>       
+        
+<div onclick="playTrack('BU GECE CLUP','BU.GECE.CLUP.mp3')">
+    <span>🎵</span> BU GECE CLUP söz müzik: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Hoppa%20Geceler%20şarkısının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>       
+        
+        
+        <div onclick="playTrack('Halay Başı','HALAY.BAŞI.POP.mp3')">
+    <span>🎵</span> HALAY BAŞI (POP MÜZİK) söz müzik: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Halay%20Başı%20şarkısının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+
+
+ <div onclick="playTrack('Hoppa Geceler','HOPPA.GECELER.CLUP.HALAY.mp3')">
+    <span>🎵</span> HOPPA GECELER (CLUB HALAY) söz müzik: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Hoppa%20Geceler%20şarkısının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>       
+        
+        <div onclick="playTrack('GECE BENİ BULDU','GECE. BENİ.BULDU.POP.mp3')">
+    <span>🎵</span>GECE BENİ BULDU söz müzik: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+        
+    <div onclick="playTrack('Ağır Ağır 1','AGIR.AGIR 1.mp3')">
+        <span>🎵</span> AĞIR AĞIR 1 söz müzik: SK
+    </div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+         
+        <div onclick="playTrack('Geceye Mahkûmum','GECEYE.MAHKÜMUM.1.mp3')">
+    <span>🎵</span>GECEYE MAHKÜM söz müzik: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+       <div onclick="playTrack('Gel Benimle','GEL BENİMLE.mp3')">
+    <span>🎵</span> GEL BENİMLE söz müzik: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+        <div onclick="playTrack('Kalbim Sende Kaldı S','KALBİM.SENDE.KALDI S.mp3')">
+    <span>🎵</span>KALBİM SENDE.S söz müzik: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+    <div onclick="playTrack('Belalı Yarim','BELALI.YARiM.mp3')">
+    <span>🎵</span> BELALI YARIM söz müzik: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+        <div onclick="playTrack('Geceye Karış Benimle','GECEYE KARIS BENIMLE SLOW.mp3')">
+    <span>🎵</span>GECEYE KARIŞ S söz müzik: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+            <div onclick="playTrack('Gece Bizim','GECE.BİZİM.POP.mp3')">
+    <span>🎵</span> GECE BİZİM söz müzik: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+        <div onclick="playTrack('Sensiz Yollar 2','SENSİZ.YOLLAR 2.mp3')">
+    <span>🎵</span> SENSİZ YOLLAR 2 söz müzik: SK
+</div>  
+        
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+   
+     <div onclick="playTrack('Koşa Koşa','KOŞA.KOŞA.mp3')">
+    <span>🎵</span> KOŞA KOŞA söz müzik: SK
+</div>   
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+        <div onclick="playTrack('Yarım Kaldı Geceler 1','YARIIM.KALDI.GECELER 1.mp3')">
+    <span>🎵</span> YARIM KALDI 1 söz müzik: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+       <div onclick="playTrack('Koşa Koşa HipHop Vers','KOŞA..KOŞA.hiphop.vers..mp3')">
+    <span>🎵</span> KOŞA KOŞA.VERS söz müzik: SK
+</div> 
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+        <div onclick="playTrack('Yangınlara','YANGINLARA.mp3')">
+    <span>🎵</span> YANGINLARA söz müzik: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+        <div onclick="playTrack('Yaz Gecesi','YAZ.GECESİ.mp3')">
+    <span>🎵</span> YAZ GECESİ söz müzik: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+        <div onclick="playTrack('Anlarsın Bir Gün Beni','ANLARSIN.BİGÜN.BENİ.SLOW.mp3')">
+    <span>🎵</span> ANLARSIN BİR GÜN söz müzik: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+        <div onclick="playTrack('Adını Söyle Bana','ADINI.SÖYLE.BANA..mp3')">
+    <span>🎵</span> ADINI SÖYLE BANA söz müzik: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+        <div onclick="playTrack('Yanımda Kal Bu Gece','YANIMDA KAL BU GECE POP.mp3')">
+    <span>🎵</span>YANIMDA KAL 2 söz müzik: SK
+</div> 
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+
+        
+    <div onclick="playTrack('Yandım İçimde','YANDIM İÇİMDE.mp3')">
+    <span>🎵</span> YANDIM İÇİMDE söz müzik: SK
+ </div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+    </div>
+</div>
+    <div class="track-list" id="yeniyayinlar">
+
+      
+
+
+
+    </div>
+</div>
+            
+        </div>
+    </div>
+
+    <div class="category">
+        <h3 onclick="toggleList('yeniler')"><span class="icon-shake">🎧</span> <span id="cat-yeniler">MİX</span></h3>
+        <div class="track-list" id="yeniler">
+       <div onclick="playTrack('MIXLER 1','mixler1.mp4')">
+    <span>🎬</span> MIXLER 1
+</div><div onclick="playTrack('MIXLER 2','mixler2.mp4')">
+    <span>🎬</span> MIXLER 2
+</div>
+</div>
+       
+   <div class="category">
+    <h3 onclick="toggleList('club_pop')">
+        <span class="icon-shake">🔥</span>
+        <span>CLUP </span>
+    </h3>
+
+    <div class="track-list" id="club_pop">
+
+        <!-- CLUB POP ŞARKILARI BURAYA EKLENECEK -->
+
+<div onclick="playTrack('Köprüde Dans','Köprüde.Dans.(1).mp3')">
+
+<span>🎵</span> KÖPRÜDE DANS söz müzik: SK
+
+</div>
+
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+
+target="_blank"
+
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+
+Şarkının lisansı ve devri için iletişim
+
+</a>
+
+        
+    </div>
+</div> 
+    
+    
+    </div>
+    </div>
+
+ <div class="category">
+    <h3 onclick="toggleList('arabesk')">
+        <span class="icon-shake">🎧</span> 
+        <span id="cat-arabesk">Yeni Nesil Arabesk</span>
+    </h3>
+
+    <div class="track-list" id="arabesk">
+        
+  <div onclick="playTrack('Küllerimden Kalktım','KÜLLERİMDEN KALKTIM.mp3')">
+    <span>🎵</span> KÜLLERİMDEN KALKTIM söz müzik: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+<div onclick="playTrack('Seni Gördüm Ya','seni gordumya.mp3')">
+    <span>🎵</span> SENİ GÖRDÜM YA' söz müzik: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+      <div onclick="playTrack('Yangınlara','YANGINLARA.mp3')">
+    <span>🎵</span> YANGINLARA söz müzik. SK
+</div>  
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+  <div onclick="playTrack('Yollar Benden Uzun','YOLLAR BENDEN UZUN..mp3')">
+    <span>🎵</span> YOLLAR BENDEN UZUN YAR söz müzik. SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+    </div>
+</div>
+
+<!-- ✅ YENİ KATEGORİ: Mahkumlar ve Sevdikleri -->
+<div class="category">
+    <h3 onclick="toggleList('mahkum')">
+        <span class="icon-shake">🎧</span>
+        <span id="cat-mahkum">Mahkumlar ve Sevdikleri</span>
+    </h3>
+
+    <div class="track-list" id="mahkum">
+    
+   <div onclick="playTrack('Kader Mahkumu','DEMİR KAPI VIDEO.mp4')">
+    <span>🎬</span> DEMİR KAPI söz müzik: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+    </div>
+</div>
+
+<script>
+// Video ve ses oynatma fonksiyonu güncellenmiş hâli
+function playTrack(name, file){
+    const player = document.getElementById("audioPlayer"); // Video player
+    const nowPlaying = document.getElementById("nowPlaying");
+    const playerBox = document.getElementById("playerBox");
+
+    if(player.src.includes(file)){
+        player.paused ? player.play() : player.pause();
+    } else {
+        player.src = file;
+        player.load();  // Video dosyası için gerekli
+        player.play();
+        nowPlaying.textContent = "Çalan Şarkı: " + name;
+        nowPlaying.style.color="#ffd700";
+        setTimeout(()=>{nowPlaying.style.color="#d4af37"},500);
+    }
+
+    player.paused ? playerBox.classList.remove("playing") : playerBox.classList.add("playing");
+}
+
+// Liste aç/kapa animasyonu
+function toggleList(id){
+    const el = document.getElementById(id);
+    el.style.display = el.style.display === "block" ? "none" : "block";
+    const icon = el.previousElementSibling.querySelector(".icon-shake");
+    icon.classList.remove("icon-shake"); void icon.offsetWidth; icon.classList.add("icon-shake");
+}
+</script> 
+        
+      
+    </div>
+</div>   
+       
+    </div>
+</div>
+
+       <div class="category">
+    <h3 onclick="toggleList('arabeskpop')">
+        <span class="icon-shake">🎧</span> 
+        <span id="cat-arabeskpop">Arabesk Pop Harmanı</span>
+    </h3>
+
+    <div class="track-list" id="arabeskpop">
+
+      <div onclick="playTrack('Kalbim Yolda','KALBIM YOLDA HARMAN.mp3')">
+    <span>🎵</span> KALBİM YOLDA söz müzik. SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+
+        
+<div onclick="playTrack('Ateşinde Kaldım','ATEŞİNDE KALDIM.mp3')">
+    <span>🎵</span> ATEŞİNDE KALDIM söz müzik: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+<div onclick="playTrack('Dünya Benim Olurdu','DUNYA BENIM OLURDU.mp3')">
+    <span>🎵</span> DÜNYA BENİM OLURDU söz müzik: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+    </div>
+</div>
+    </div>
+</div>
+    </div>
+</div>
+    </div>
+</div>
+
+<div class="category">
+    <h3 onclick="toggleList('turku')">
+        <span class="icon-shake">🎧</span> 
+        <span id="cat-turku">Yeni Nesil Türküler</span>
+    </h3>
+
+    <div class="track-list" id="turku">
+
+        <div onclick="playTrack('Ölesim Geldi','Ölesim_geldi.TÜRKÜ.mp3.mp3')" style="text-align:center; padding:8px 0;">
+            <div style="font-size:15px; font-weight:500;">
+                🎵 ÖLESİM GELDİ SÖZ MÜZİK: SK
+            </div>
+        </div>
+
+        <a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+        target="_blank"
+        style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+        Şarkının lisansı ve devri için iletişim
+        </a>
+
+        <div onclick="playTrack('Yaktın Beni Yar','YAKTIN BENİ YAR TÜRKÜ.mp3')">
+            <span>🎵</span> YAKTIN BENİ YAR söz müzik: SK
+        </div>
+
+        <a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+        target="_blank"
+        style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+        Şarkının lisansı ve devri için iletişim
+        </a>
+
+        <div onclick="playTrack('Buda Geçer','BUDA.GEÇER.TÜRKÜ.mp3')">
+            <span>🎵</span> BUDA GEÇER söz müzik: SK
+        </div>
+
+        <a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+        target="_blank"
+        style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+        Şarkının lisansı ve devri için iletişim
+        </a>
+
+    </div>
+</div>
+</a>
+
+    
+    </div>
+</div>   
+       
+    </div>
+</div>
+
+    
+<div class="category">
+    <h3 onclick="toggleList('pop')">
+        <span class="icon-shake">🎧</span> 
+        <span id="cat-pop">Pop</span>
+    </h3>
+
+    <div class="track-list" id="pop">
+      
+  <div onclick="playTrack('Yolunda Kaldım','YOLUNDA KALDIM.mp3')">
+    <span>🎵</span> YOLUNDA KALDIM söz müzik: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+<div onclick="playTrack('Geceyle Savaş','GECEYLE SAVAŞ POP.mp3')">
+    <span>🎵</span> GECEYLE SAVAŞ söz müzik: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+  <div onclick="playTrack('Dumanı Tüter','DUMANI TÜTER POP.mp3')">
+    <span>🎵</span> DUMANI TÜTER söz müzik: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+  <div onclick="playTrack('Göğsümde Yara','GÖGSÜMDE YARA POP 1.mp3')">
+    <span>🎵</span> GÖĞSÜMDE YARA söz müzik: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+<div onclick="playTrack('Koşa Koşa','koşa koşa POP (1).mp3')">
+    <span>🎵</span> KOŞA KOŞA SÖZ MÜZİK: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+<div onclick="playTrack('Sen Gülünce','SEN.GULUNCE.POP.ERKEK.VOKAL.mp3')">
+    <span>🎵</span> SEN GÜLÜNCE ERKEK VOKAL 2 söz müzik: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+<div onclick="playTrack('Sen Gülünce','SEN.GÜLÜNCE.KADIN.VOKAL.2.mp3')">
+    <span>🎵</span> SEN GÜLÜNCE KADIN VOKAL 2 söz müzik: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+<div onclick="playTrack('Dokunma Kalbime','DOKUNMA KALBİME ERKEK VOKAL..mp3')">
+    <span>🎵</span> DOKUNMA KALBİME söz müzik: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+<div onclick="playTrack('Bitti Bu Aşkın Defteri','BİTTİ.BU.AŞKIN.DEFTERİ.mp3')">
+<span>🎵</span> BİTTİ BU AŞKIN DEFTERİ söz müzik: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+<div onclick="playTrack('Sen İste','SEN.İSTE.ERKEK.VOKAL.mp3')">
+<span>🎵</span> SEN İSTE (ERKEK VOKAL söz müzik: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+  <div onclick="playTrack('Masal','MASAL..mp3')">
+<span>🎵</span> MASAL söz müzik: SK
+</div> 
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+<div onclick="playTrack('Aynı Sokakta Unuttum Seni','AYNI sokakta unuttum seni.mp3')">
+    <span>🎵</span> AYNI SOKAKTA UNUTTUM SENİ söz müzik: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+    <div onclick="playTrack('Sen ve Ben','sen.ve.ben.mp3')">
+<span>🎵</span> SEN VE BEN söz müzik: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+      <div onclick="playTrack('Aşkın Rüyası','AŞKIN RÜYASI.mp3')">
+    <span>🎵</span> AŞKIN RÜYASI POP söz müzik: SK
+</div>
+
+<div onclick="playTrack('Korkuyorum','KORKUYORUM POP.mp3')">
+    <span>🎵</span> KORKUYORUM söz müzik: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+<div onclick="playTrack('Siler miyim','SİLERMİYİM.mp3')">
+<span>🎵</span> SİLER MİYİM söz müzik: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+<div onclick="playTrack('Bu da Geçer','BUDA GEÇER POP.mp3')">
+    <span>🎵</span> BU DA GEÇER söz müzik: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+    <div onclick="playTrack('Yıkık Yollar','YIKIK.YOLLAR.POP.VERS..mp3')">
+<span>🎵</span> YIKIK YOLLAR (POP VERS.) söz müzik: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+<div onclick="playTrack('Hadi Gidelim','HADİ.GİDELİM.mp3')">
+<span>🎵</span> HADI GİDELİM söz müzik: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+       <div onclick="playTrack('Yanımda Kal','YANIMDA.KAL.mp3')">
+<span>🎵</span> YANIMDA KAL söz müzik: SK
+</div> 
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+      <div onclick="playTrack('Geceye Sor','geceye sor REMİX.mp3')">
+    <span>🎵</span> GECEYE SOR (REMIX) söz müzik. SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+    </div>
+</div>
+
+    </div>
+
+<div class="category">
+    <h3 onclick="toggleList('slowpop')">
+        <span class="icon-shake">🎧</span> 
+        <span id="cat-slowpop">Slow</span>
+    </h3>
+
+    <div class="track-list" id="slowpop">
+
+   <div onclick="playTrack('Yarim Kaldın İçimde','YARİM.KALDIN.İÇİMDE.mp3')">
+<span>🎵</span> YARİM KALDIN İÇİMDE söz müzik: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+       <div onclick="playTrack('Kalbim Kaldı Sende','KALBİM.KALDI.SENDE.mp3')">
+<span>🎵</span> KALBİM KALDI SENDE söz müzik: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+       <div onclick="playTrack('Kırılır İnsan Severken','KIRILIR.İNSAN.SEVERKEN.mp3')">
+<span>🎵</span> KIRILIR İNSAN SEVERKEN söz müzik: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+<div onclick="playTrack('Bir Bir Aşk','BİR BİR AŞK.mp3')">
+    <span>🎵</span> BİR BİR AŞK söz müzik: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+  <div onclick="playTrack('Kalbim Yalan Söylemez','KALBİM.YALAN.SÖYLEMEZ.1.mp3')">
+<span>🎵</span> KALBİM YALAN SÖYLEMEZ 1 söz müzik: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+ <div onclick="playTrack('İz Kalır Benden','İZ.KALIR.BENDEN.mp3')">
+<span>🎵</span> İZ KALIR BENDEN söz müzik: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+<div onclick="playTrack('Yıkık Yollar','YIKIK.YOLLAR.SLOW.VERSIYON.mp3')">
+<span>🎵</span> YIKIK YOLLAR (SLOW VERSİYON) söz müzik: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+<div onclick="playTrack('Geceye Sor','geceye sor versiyon.mp3')">
+    <span>🎵</span> GECEYE SOR (VERSİYON) söz müzik: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+<div onclick="playTrack('Gururuma Kadar','GURURUMA.KADAR.SLOW.VERS.mp3')">
+<span>🎵</span> GURURUMA KADAR VERSİYON söz müzik: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+<div onclick="playTrack('Düşler ve Yollar','DUSLER VE YOLLAR.mp3')">
+    <span>🎵</span> DÜŞLER VE YOLLAR SLOW söz müzik. SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+      <div onclick="playTrack('Kırık Düşler','KIRIK.DÜŞLER.mp3')">
+<span>🎵</span> KIRIK DÜŞLER söz müzik: SK
+</div>
+
+     <a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>   
+        
+    </div>
+</div>
+
+ 
+ </div>
+</div>
+
+<div class="category">
+    <h3 onclick="toggleList('hiphop')">
+        <span class="icon-shake">🎧</span>
+        <span id="cat-hiphop">Yeni Nesil Hip Hop</span>
+    </h3>
+
+    <div class="track-list" id="hiphop">
+
+        <div onclick="playTrack('Gururuma Kadar','GURURUMA.KADAR.mp3')">
+            <span>🎵</span> GURURUMA KADAR söz müzik: SK
+        </div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+      <div onclick="playTrack('Yangın Gibi','yangin-gibi-VERSİYON.mp3')">
+<span>🎵</span> YANGIN GİBİ (VERSİYON) söz müzik: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+    </div>
+</div>
+
+        
+    </div></div>
+</div> <!-- hiphop BİTTİ -->
+
+<!-- ✅ BURAYA EKLE -->
+<div class="category">
+    <h3 onclick="toggleList('slowrock')" style="cursor:pointer;">
+        <span class="icon-shake">🎸</span>
+        <span>Slow Rock</span>
+    </h3>
+
+    <div class="track-list" id="slowrock" style="display:none;">
+
+<div onclick="playTrack('Gelecektin','GELECEKTIN SLOW.ROCK.(2).mp3')">
+<span>🎵</span> GELECEKTİN (SLOW ROCK 2) söz müzik: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+
+<div onclick="playTrack('YİNE SLOW ROCK','YİNE.SLOW.ROCK.mp3')">
+    <span>🎵</span> YİNE SLOW ROCK müzik düzenleme: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Y%C4%B0NE%20SLOW%20ROCK%20lisans%C4%B1%20ve%20devri%20i%C3%A7in%20sat%C4%B1n%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+    </div>
+</div>
+    </div>
+</div>
+
+    <!-- FİLM MÜZİKLERİ KATEGORİSİ EKLENDİ -->
+<div class="category">
+    <h3 onclick="toggleList('filmmuzikleri')">
+        <span class="icon-shake">🎬</span> 
+        <span id="cat-film">Dizi Film ve altyapı Müzikleri</span>
+    </h3>
+
+    <div class="track-list" id="filmmuzikleri">
+
+  <div onclick="playTrack('Ritimli','RİTİMLİ.ALYAPI.mp3')">
+<span>🎵</span>ÖZGÜN RİTİMLİ altyapı yapım düzenleme: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+<div onclick="playTrack('F1','F1.mp3.mp3')">
+    <span>🎵</span> F1 müzik & düzenleme: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+<div onclick="playTrack('F2','F2.mp3')">
+    <span>🎵</span> F2 müzik & düzenleme: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+<div onclick="playTrack('F3','F3.mp3')">
+    <span>🎵</span> F3 müzik & düzenleme: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+<div onclick="playTrack('F4','F4.mp3')">
+    <span>🎵</span> F4 müzik & düzenleme: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+<div onclick="playTrack('F 5','F 5.mp3')">
+    <span>🎵</span> F 5 müzik & düzenleme: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+<div onclick="playTrack('F 6','F 6.mp3')">
+    <span>🎵</span> F 6 müzik & düzenleme: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+<div onclick="playTrack('F-7','F-7.mp3')">
+    <span>🎵</span> F7 müzik & düzenleme: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+<div onclick="playTrack('F 8','F 8.mp3')">
+    <span>🎵</span> F8 müzik & düzenleme: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+<div onclick="playTrack('F-9','F-9.mp3')">
+    <span>🎵</span> F9 müzik & düzenleme: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+<div onclick="playTrack('F-10','F-10.mp3')">
+    <span>🎵</span> F10 müzik & düzenleme: SK
+</div>
+
+<a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>
+        
+<div onclick="playTrack('F 11','F 11.mp3')">
+    <span>🎵</span> F11 müzik & düzenleme: SK
+</div>
+
+   <a href="https://wa.me/905074163605?text=Şarkının%20lisansı%20ve%20devri%20için%20satın%20almak%20istiyorum"
+target="_blank"
+style="display:inline-block;margin:5px 0 10px 0;background:#d4af37;color:#000;padding:6px 10px;border-radius:6px;font-size:12px;text-decoration:none;font-weight:bold;">
+Şarkının lisansı ve devri için iletişim
+</a>     
+        
+</div>
+</div>
+        
+    </div>
+</div>
+
+<div class="category">
+    <h3 onclick="toggleList('duygudan_sese')">
+        <span class="icon-shake">🎤</span>
+        <span>Duygudan Sese Yolculuk'Şiirler</span>
+    </h3>
+
+    <div class="track-list" id="duygudan_sese">
+
+      
+    </div>
+
+    <div class="category">
+    <h3 onclick="toggleList('siir_sozlu')">
+        <span class="icon-shake">📝</span>
+        <span>Duygudan Satırlara · Şiirler</span>
+    </h3>
+
+    <div class="track-list" id="siir_sozlu">
+
+        <div class="poem-item" onclick="togglePoem('sessizce_gittin')">
+            <span>📖</span> SESSİZCE GİTTİN
+        </div>
+
+        <div class="poem-content" id="sessizce_gittin">
+            <p>Bir gece...<br>
+            sessizce gittin.</p>
+
+            <p>Ardında,<br>
+            suskun bir ev kaldı.</p>
+
+            <p>Duvarlarda hâlâ sesin var.</p>
+
+            <p>Bazen...<br>
+            sanki birazdan kapı açılacak<br>
+            ve sen geleceksin gibi.</p>
+
+            <p>Ama gelmiyorsun.</p>
+
+            <p>Ben de her gece<br>
+            aynı yerde oturup<br>
+            seni düşünmeye devam ediyorum.</p>
+
+            <p>İnsan...<br>
+            birini kaybedince<br>
+            sadece onu kaybetmiyor galiba.</p>
+
+            <p>Kendisinden de<br>
+            bir parça bırakıyor geride.</p>
+
+            <p>Ben senden sonra<br>
+            bunu öğrendim.</p>
+
+            <p>Bazı insanlar gider...</p>
+
+            <p>Ama gitmeleri,<br>
+            onları kalbimizden götürmeye yetmiyor.</p>
+        </div>
+
+    </div>
+</div>
+
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+<style>
+.poem-item {
+    padding: 12px 15px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.poem-content {
+    display: none;
+    padding: 18px;
+    line-height: 1.9;
+    text-align: center;
+}
+
+.poem-content p {
+    margin: 0 0 18px;
+}
+</style>
+
+<script>
+function togglePoem(id) {
+    const el = document.getElementById(id);
+
+    if (el.style.display === "block") {
+        el.style.display = "none";
+    } else {
+        el.style.display = "block";
+    }
+}
+</script>
+
+    
+<div class="category">
+    <p class="description" id="footerDesc">
+
+        Siyah Altın Prodüksiyon, Serkan Kaynar tarafından kurulan; 
+        arabesk, pop ve özgün müzik üretimleri yapan bağımsız bir prodüksiyon platformudur.
+
+        <br><br>
+
+        <span style="color:#ff4d4d; font-weight:bold;">
+            Bu sitede yer alan tüm eserler tescillenmiştir.
+        </span>
+
+        <br><br>
+
+        (SK) logolu eserlerin tüm hakları eser sahibine, 
+        <strong style="color:#ff4d4d;">Serkan Kaynar</strong>'a aittir.
+
+        <br><br>
+
+        Yetkisiz kişiler tarafından izinsiz herhangi bir platformda 
+        ticari amaçla kullanılamaz, kopyalanamaz ve çoğaltılamaz.
+
+        <br><br>
+
+        <strong style="color:#ffffff; font-size:16px;">
+            Tüm hakları saklıdır!
+        </strong>
+    </p>
+</div>
+
+<div class="category">
+    <p class="description" id="footerContact">
+        <strong>İLETİŞİM:</strong> · Serkan Kaynar
+        <br><br>
+        <strong>MAİL:</strong> siyahaltin.com@gmail.com
+    </p>
+</div>
+    
+<p class="contacts" id="footerContacts"></p> <!-- BURASI EKLENDİ -->
+</section>
+
+</p>  
+<script>
+const player=document.getElementById("audioPlayer");
+const nowPlaying=document.getElementById("nowPlaying");
+const playerBox=document.getElementById("playerBox");
+const headerMainTitle=document.querySelector(".header-main-title");
+const headerSubTitle=document.getElementById("header-sub-title");
+const sub1=document.getElementById("sub1");
+const sub2=document.getElementById("sub2");
+const sub3=document.getElementById("sub3");
+const professionalTitle=document.querySelector(".professional-title");
+const skTitle=document.querySelector(".sk-title");
+const playerDesc=document.getElementById("playerDesc");
+const footerDesc=document.getElementById("footerDesc");
+const footerContacts=document.getElementById("footerContacts");
+const visitorCounter=document.getElementById("visitorCounter");
+
+
+function playTrack(name,file){
+    if(player.src.includes(file)){ player.paused?player.play():player.pause(); }
+    else{
+        player.src=file;
+        nowPlaying.textContent="Çalan Şarkı: "+name;
+        nowPlaying.style.color="#ffd700";
+        setTimeout(()=>{nowPlaying.style.color="#d4af37"},500);
+        player.play();
+    }
+    player.paused?playerBox.classList.remove("playing"):playerBox.classList.add("playing");
+}
+player.addEventListener('play',()=>playerBox.classList.add("playing"));
+player.addEventListener('pause',()=>playerBox.classList.remove("playing"));
+
+function toggleList(id){
+    const el=document.getElementById(id);
+    el.style.display=el.style.display==="block"?"none":"block";
+    const icon=el.previousElementSibling.querySelector(".icon-shake");
+    icon.classList.remove("icon-shake"); void icon.offsetWidth; icon.classList.add("icon-shake");
+}
+
+function setLanguage(lang){
+    if(lang==='en'){
+        headerMainTitle.innerHTML="<span style='text-transform:capitalize;'>Black Gold </span><span style='text-transform:uppercase;'>P</span>roduction";
+        headerSubTitle.textContent="BLACK GOLD PRODUCTION";
+        sub1.textContent="Ready Songs • Compositions";
+        sub2.textContent="Available for Sale & License Transfer";
+        sub3.textContent="Custom works are prepared according to special requests.";
+        professionalTitle.textContent="PROFESSIONAL";
+        skTitle.innerHTML="<span class='sk-s'>S</span><span class='sk-k'>K</span>";
+        playerDesc.textContent="LISTEN TO READY-TO-SELL & LICENSED SONGS";
+        nowPlaying.textContent="No track selected";
+        footerDesc.textContent="Black Gold Production, founded by Serkan Kaynar; an independent production platform producing arabesque, pop and original music. All songs on this site belong to their authors. Unauthorized commercial use, copying or distribution is prohibited. All rights reserved!
+        footerContacts.innerHTML="📞 WhatsApp: 0507 416 36 05 | 📧 skaynar578@gmail.com | 📸 @blackgoldproductionsk <span class='year'>2026</span>";
+    }else{
+        headerMainTitle.innerHTML="<span style='text-transform:capitalize;'>Siyah Altın </span><span style='text-transform:uppercase;'>P</span>rodüksiyon";
+        headerSubTitle.textContent="BLACK GOLD PRODUCTION";
+        sub1.textContent="Hazır Şarkılar • Besteler";
+        sub2.textContent="Satışa ve Devire Hazır Eserler";
+        sub3.textContent="Özel talepler doğrultusunda özgün çalışmalar hazırlanır.";
+        professionalTitle.textContent="PROFESYONEL";
+        skTitle.innerHTML="<span class='sk-s'>S</span><span class='sk-k'>K</span>";
+        playerDesc.textContent="SATIŞA VE DEVİRE HAZIR ESERLERİ DİNLEYEBİLİRSİNİZ";
+        nowPlaying.textContent="Seçili şarkı yok";
+        footerDesc.innerHTML="Siyah Altın Prodüksiyon, Serkan Kaynar tarafından kurulan; arabesk, pop ve özgün müzik üretimleri yapan bağımsız bir prodüksiyon platformudur. Bu sitede yer alan ( SK ) LOGO'LU eserlerin  Hakları Eser Sahibine, Serkan Kaynar'a aittir. Yetkisiz kişiler tarafından izinsiz ticari amaçla kullanılamaz, kopyalanamaz, çoğaltılamaz. Tüm hakları saklıdır!:
+       footerContacts.innerHTML =
+"<a href='https://wa.me/905074163605?text=Merhaba,%20bilgi%20almak%20istiyorum.' style='margin-left:6px;'>Bilgi Al</a> | " +
+"📧 siyahaltin.com@gmail.com | 📸 @siyahaltinproduksiyonsk <span class='year'>2026</span>";
+
+    }
+}
+</script>
