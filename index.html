@@ -2120,87 +2120,191 @@ function setLanguage(lang){
     }
 }
 
-// Sayaçlar ve şarkı başına beğeniler
-(function initSkCounters(){
+
+<script>
+(function initSkCounters() {
   const visitorKey = "sk_site_visitors_v1";
   const totalPlayKey = "sk_total_plays_v1";
   const totalLikeKey = "sk_total_likes_v1";
+
   const readNumber = key => {
     const value = Number(localStorage.getItem(key));
     return Number.isFinite(value) && value >= 0 ? value : 0;
   };
-  const writeNumber = (key, value) => localStorage.setItem(key, String(value));
-  // Başlangıç değeri 12.550; bundan sonra bu tarayıcıdaki ziyaretlerde artar.
-  if (localStorage.getItem(visitorKey) === null) writeNumber(visitorKey, 12550);
-  writeNumber(visitorKey, readNumber(visitorKey) + 1);
 
-  // İlk kurulumda ziyaretçi sayısına göre yaklaşık oranlar. Bunlar gerçek ölçüm değil, tahmini başlangıç değerleridir.
-  const visitorBaseline = readNumber(visitorKey);
-  if (localStorage.getItem(totalPlayKey) === null || readNumber(totalPlayKey) === 0) writeNumber(totalPlayKey, Math.round(visitorBaseline * 0.70));
-  if (localStorage.getItem(totalLikeKey) === null || readNumber(totalLikeKey) < 12255) writeNumber(totalLikeKey, 12255);
+  const writeNumber = (key, value) =>
+    localStorage.setItem(key, String(value));
+
+  // Başlangıç değerlerini yalnızca ilk kurulumda oluştur.
+  if (localStorage.getItem(visitorKey) === null)
+    writeNumber(visitorKey, 12550);
+
+  if (localStorage.getItem(totalPlayKey) === null)
+    writeNumber(totalPlayKey, 12510);
+
+  if (localStorage.getItem(totalLikeKey) === null)
+    writeNumber(totalLikeKey, 12255);
+
+  // Aynı tarayıcıda her sayfa yenilemesinde değil,
+  // günde bir kez ziyaretçi sayısını artır.
+  const today = new Date().toLocaleDateString("sv-SE");
+  const visitDayKey = "sk_visit_day_v1";
+
+  if (localStorage.getItem(visitDayKey) !== today) {
+    writeNumber(visitorKey, readNumber(visitorKey) + 1);
+    localStorage.setItem(visitDayKey, today);
+  }
 
   const fmt = value => Number(value).toLocaleString("tr-TR");
-  function refreshStats(){
+
+  function refreshStats() {
     const visitorEl = document.getElementById("skVisitorCount");
     const playEl = document.getElementById("skPlayCount");
     const likeEl = document.getElementById("skLikeCount");
-    if(visitorEl) visitorEl.textContent = fmt(readNumber(visitorKey));
-    if(playEl) playEl.textContent = fmt(readNumber(totalPlayKey));
-    if(likeEl) likeEl.textContent = fmt(readNumber(totalLikeKey));
+
+    if (visitorEl) visitorEl.textContent = fmt(readNumber(visitorKey));
+    if (playEl) playEl.textContent = fmt(readNumber(totalPlayKey));
+    if (likeEl) likeEl.textContent = fmt(readNumber(totalLikeKey));
   }
 
-  // Her şarkı satırına beğen butonu ekle; buton şarkıyı başlatmaz.
+  // Şarkı başına beğeni butonları
   document.querySelectorAll('[onclick*="playTrack("]').forEach((track, index) => {
-    if(track.querySelector(".sk-like-btn")) return;
+    if (track.querySelector(".sk-like-btn")) return;
+
     const raw = track.getAttribute("onclick") || "";
     const match = raw.match(/playTrack\(\s*['"]([^'"]+)['"]\s*,\s*['"]([^'"]+)['"]/);
-    const identity = match ? (match[1] + "|" + match[2]) : (track.textContent.trim() + "|" + index);
-    const id = Array.from(identity).reduce((hash, char) => ((hash * 31) + char.charCodeAt(0)) >>> 0, 7).toString(36);
+    const identity = match
+      ? match[1] + "|" + match[2]
+      : track.textContent.trim() + "|" + index;
+
+    const id = Array.from(identity).reduce(
+      (hash, char) => ((hash * 31) + char.charCodeAt(0)) >>> 0,
+      7
+    ).toString(36);
+
     const likeKey = "sk_liked_" + id;
     const songLikeKey = "sk_song_likes_" + id;
+
     const button = document.createElement("button");
     button.type = "button";
     button.className = "sk-like-btn";
+
     const updateButton = () => {
       const liked = localStorage.getItem(likeKey) === "1";
       button.classList.toggle("is-liked", liked);
       button.textContent = liked ? "❤️ Beğenildi" : "❤️ Beğen";
     };
+
     updateButton();
+
     button.addEventListener("click", event => {
       event.preventDefault();
       event.stopPropagation();
-      if(localStorage.getItem(likeKey) === "1"){
+
+      if (localStorage.getItem(likeKey) === "1") {
         localStorage.removeItem(likeKey);
-        writeNumber(totalLikeKey, Math.max(0, readNumber(totalLikeKey) - 1));
+        writeNumber(totalLikeKey, Math.max(12255, readNumber(totalLikeKey) - 1));
         writeNumber(songLikeKey, Math.max(0, readNumber(songLikeKey) - 1));
       } else {
         localStorage.setItem(likeKey, "1");
         writeNumber(totalLikeKey, readNumber(totalLikeKey) + 1);
         writeNumber(songLikeKey, readNumber(songLikeKey) + 1);
       }
+
       updateButton();
       refreshStats();
     });
+
     track.appendChild(button);
   });
 
-  // Gerçek oynatma başladığında bir kez say; duraklatıp devam etmek tekrar sayılmaz.
-  let lastCountedTrack = "";
+  // Gerçek ses oynatıcısı: şarkı başına bir dinlenme.
   const audio = document.getElementById("audioPlayer");
-  if(audio){
+  let lastCountedTrack = "";
+
+  if (audio && !audio.dataset.skCounterAttached) {
+    audio.dataset.skCounterAttached = "1";
+
     audio.addEventListener("play", () => {
-      const trackKey = audio.currentSrc || audio.src || "unknown-track";
-      if(trackKey && trackKey !== lastCountedTrack){
+      const trackKey = audio.currentSrc || audio.src;
+
+      if (trackKey && trackKey !== lastCountedTrack) {
         lastCountedTrack = trackKey;
         writeNumber(totalPlayKey, readNumber(totalPlayKey) + 1);
         refreshStats();
       }
     });
-    audio.addEventListener("ended", () => { lastCountedTrack = ""; });
+
+    audio.addEventListener("ended", () => {
+      lastCountedTrack = "";
+    });
+
+    audio.addEventListener("pause", () => {
+      // Duraklatma dinlenme sayısını artırmaz.
+    });
   }
+
   refreshStats();
 })();
+</script>
+
+<style>
+#skStatsPanel {
+  background: #111;
+  color: #fff;
+  border: 1px solid #b99a45;
+  border-radius: 12px;
+  padding: 16px;
+  margin: 16px 0;
+  text-align: center;
+}
+
+#skStatsPanel h3 {
+  color: #d8b65a;
+  margin: 0 0 14px;
+}
+
+.sk-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.sk-stat {
+  background: #202020;
+  border-radius: 8px;
+  padding: 12px 5px;
+  font-size: 13px;
+}
+
+.sk-stat strong {
+  display: block;
+  color: #e0bd61;
+  font-size: 20px;
+  margin-top: 6px;
+}
+
+.sk-like-btn {
+  background: #252525;
+  color: #e4c46c;
+  border: 1px solid #b99a45;
+  border-radius: 20px;
+  padding: 6px 12px;
+  margin: 6px;
+  cursor: pointer;
+}
+
+.sk-like-btn.is-liked {
+  background: #3a2020;
+}
+
+@media (max-width: 420px) {
+  .sk-stats-grid { gap: 5px; }
+  .sk-stat { font-size: 11px; }
+  .sk-stat strong { font-size: 16px; }
+}
+</style>
+
 
 </script>
 
