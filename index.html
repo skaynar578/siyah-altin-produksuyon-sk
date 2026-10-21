@@ -2130,7 +2130,7 @@ function setLanguage(lang){
     return Number.isFinite(value) && value >= 0 ? value : 0;
   };
   const writeNumber = (key, value) => localStorage.setItem(key, String(value));
-  // Başlangıç değeri 12.550; bundan sonra bu tarayıcıdaki ziyaretlerde artar.
+  // Başlangıç değeri 12000; bundan sonra bu tarayıcıdaki ziyaretlerde artar.
   if (localStorage.getItem(visitorKey) === null) writeNumber(visitorKey, 12550);
   writeNumber(visitorKey, readNumber(visitorKey) + 1);
 
