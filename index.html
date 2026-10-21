@@ -2136,23 +2136,21 @@ function setLanguage(lang){
   const writeNumber = (key, value) =>
     localStorage.setItem(key, String(value));
 
-  // Ziyaretçi sayacı: 12.550 başlangıç
+  // Ziyaretçi sayacı
   if (localStorage.getItem(visitorKey) === null) {
     writeNumber(visitorKey, 12550);
   }
   writeNumber(visitorKey, readNumber(visitorKey) + 1);
 
-  // Dinlenme sayısını yalnızca bir kez 12.510 olarak düzelt
-  if (localStorage.getItem("sk_play_fixed_v1") === null) {
+  // Dinlenme sayısını bir kez 12.510'a düzelt
+  if (localStorage.getItem("sk_play_fixed_v1") !== "1") {
     writeNumber(totalPlayKey, 12510);
     localStorage.setItem("sk_play_fixed_v1", "1");
   }
 
   // Beğeni sayacı
-  if (
-    localStorage.getItem(totalLikeKey) === null ||
-    readNumber(totalLikeKey) < 12255
-  ) {
+  if (localStorage.getItem(totalLikeKey) === null ||
+      readNumber(totalLikeKey) < 12255) {
     writeNumber(totalLikeKey, 12255);
   }
 
@@ -2163,18 +2161,12 @@ function setLanguage(lang){
     const playEl = document.getElementById("skPlayCount");
     const likeEl = document.getElementById("skLikeCount");
 
-    if (visitorEl) {
-      visitorEl.textContent = fmt(readNumber(visitorKey));
-    }
-    if (playEl) {
-      playEl.textContent = fmt(readNumber(totalPlayKey));
-    }
-    if (likeEl) {
-      likeEl.textContent = fmt(readNumber(totalLikeKey));
-    }
+    if (visitorEl) visitorEl.textContent = fmt(readNumber(visitorKey));
+    if (playEl) playEl.textContent = fmt(readNumber(totalPlayKey));
+    if (likeEl) likeEl.textContent = fmt(readNumber(totalLikeKey));
   }
 
-  // Her şarkı satırına beğeni butonu ekle
+  // Şarkı başına beğeni butonu
   document.querySelectorAll('[onclick*="playTrack("]').forEach((track, index) => {
     if (track.querySelector(".sk-like-btn")) return;
 
@@ -2182,8 +2174,8 @@ function setLanguage(lang){
     const match = raw.match(/playTrack\(\s*['"]([^'"]+)['"]\s*,\s*['"]([^'"]+)['"]/);
 
     const identity = match
-      ? (match[1] + "|" + match[2])
-      : (track.textContent.trim() + "|" + index);
+      ? match[1] + "|" + match[2]
+      : track.textContent.trim() + "|" + index;
 
     const id = Array.from(identity).reduce(
       (hash, char) => ((hash * 31) + char.charCodeAt(0)) >>> 0,
@@ -2211,14 +2203,8 @@ function setLanguage(lang){
 
       if (localStorage.getItem(likeKey) === "1") {
         localStorage.removeItem(likeKey);
-        writeNumber(
-          totalLikeKey,
-          Math.max(0, readNumber(totalLikeKey) - 1)
-        );
-        writeNumber(
-          songLikeKey,
-          Math.max(0, readNumber(songLikeKey) - 1)
-        );
+        writeNumber(totalLikeKey, Math.max(0, readNumber(totalLikeKey) - 1));
+        writeNumber(songLikeKey, Math.max(0, readNumber(songLikeKey) - 1));
       } else {
         localStorage.setItem(likeKey, "1");
         writeNumber(totalLikeKey, readNumber(totalLikeKey) + 1);
@@ -2232,7 +2218,7 @@ function setLanguage(lang){
     track.appendChild(button);
   });
 
-  // Şarkı çalınca toplam dinlenmeyi artır
+  // Gerçek şarkı oynatılınca dinlenme sayısını artır
   let lastCountedTrack = "";
   const audio = document.getElementById("audioPlayer");
 
