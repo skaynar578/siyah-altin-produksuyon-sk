@@ -7,6 +7,22 @@
 
 <style>
 body{
+    
+<script>
+    
+function newSong(){
+    if(localStorage.getItem("follow")){
+        document.getElementById("notify").style.display = "block";
+        setTimeout(()=>{
+            document.getElementById("notify").style.display = "none";
+        },3000);
+    }
+}
+
+setTimeout(newSong, 1500);
+
+</script>
+    
     margin:0;
     font-family:Arial, Helvetica, sans-serif;
     background:#0b0b0b;
@@ -28,7 +44,7 @@ header{ padding:25px 15px; position:relative; }
     text-shadow: 0 0 15px #ffd700;
     max-width:90%;
     margin-left:auto;
-    margin-right:auto;
+    margin-right:auto;a
 }
 .header-sub-title{
     font-size:28px;
@@ -189,6 +205,43 @@ footer .contacts span.year{
 
 <body>
 
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Siyah Altın Müzik</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial;
+    background:#0f0f0f;
+    color:white;
+
+}
+
+@keyframes slide{
+    from{transform:translateX(100px); opacity:0;}
+    to{transform:translateX(0); opacity:1;}
+}
+</style>
+</head>
+
+<body>
+
+
+<p style="text-align:center;">İLETİŞİM İÇİN
+    siyahaltin.com@gmail.com!</p>
+
+ 
+<script>
+
+
+</script>
+
+</body>
+</html>
+    
 <header>
     <div class="language-switch">
         <span onclick="setLanguage('tr')">TR</span> | 
@@ -1973,42 +2026,6 @@ function togglePoem(id) {
 </script>
 
     
-
-<!-- Siyah Altın Prodüksiyon: zarif sayaç paneli -->
-<style>
-#skStatsPanel {
-  box-sizing: border-box;
-  width: min(92%, 520px);
-  margin: 24px auto;
-  padding: 16px 18px;
-  background: linear-gradient(145deg, #121212, #0c0c0c);
-  border: 1px solid rgba(212,175,55,.55);
-  border-radius: 14px;
-  color: #e8c95a;
-  text-align: center;
-  box-shadow: 0 5px 18px rgba(0,0,0,.22);
-}
-#skStatsPanel h3 { margin: 0 0 13px; font-size: 13px; font-weight: 600; letter-spacing: 1.5px; color: #d4af37; }
-.sk-stats-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
-.sk-stat { min-width: 0; padding: 10px 5px; background: rgba(255,255,255,.025); border: 1px solid rgba(212,175,55,.20); border-radius: 10px; color: #bdb7a0; font-size: 11px; line-height: 1.4; }
-.sk-stat strong { display: block; margin-top: 5px; color: #f3d66b; font-size: clamp(16px, 4vw, 20px); font-weight: 700; font-variant-numeric: tabular-nums; }
-.sk-like-btn { display: inline-block; margin: 5px 0 5px 8px; padding: 5px 9px; background: #17130a; border: 1px solid rgba(212,175,55,.55); border-radius: 999px; color: #e8c95a; cursor: pointer; font-size: 11px; }
-.sk-like-btn.is-liked { color: #ff7185; border-color: #ff7185; }
-/* Daha sakin hareket: titreşime yol açabilen sürekli animasyonları kapat */
-html { overflow-anchor: none; scroll-behavior: auto; }
-.eq div, .player-glow, .player-box.playing, #skStatsPanel, #skStatsPanel * { animation: none !important; }
-.eq div { height: 10px !important; }
-@media (max-width: 360px) { .sk-stats-grid { gap: 5px; } .sk-stat { padding: 9px 2px; font-size: 10px; } }
-</style>
-<div id="skStatsPanel" aria-label="Site istatistikleri">
-  <h3>🖤 SİYAH ALTIN PRODÜKSİYON</h3>
-  <div class="sk-stats-grid">
-    <div class="sk-stat">👥 Ziyaretçi<strong id="skVisitorCount">12.550</strong></div>
-    <div class="sk-stat">🎧 Dinlenme<strong id="skPlayCount">0</strong></div>
-    <div class="sk-stat">❤️ Beğeni<strong id="skLikeCount">12.255</strong></div>
-  </div>
-</div>
-
 <div class="category">
     <p class="description" id="footerDesc">
 
@@ -2052,9 +2069,9 @@ html { overflow-anchor: none; scroll-behavior: auto; }
 
 </p>  
 <script>
-const mainAudioPlayer=document.getElementById("audioPlayer");
-const mainNowPlaying=document.getElementById("mainNowPlaying");
-const mainPlayerBox=document.getElementById("mainPlayerBox");
+const player=document.getElementById("audioPlayer");
+const nowPlaying=document.getElementById("nowPlaying");
+const playerBox=document.getElementById("playerBox");
 const headerMainTitle=document.querySelector(".header-main-title");
 const headerSubTitle=document.getElementById("header-sub-title");
 const sub1=document.getElementById("sub1");
@@ -2069,18 +2086,18 @@ const visitorCounter=document.getElementById("visitorCounter");
 
 
 function playTrack(name,file){
-    if(mainAudioPlayer.src.includes(file)){ mainAudioPlayer.paused?mainAudioPlayer.play():mainAudioPlayer.pause(); }
+    if(player.src.includes(file)){ player.paused?player.play():player.pause(); }
     else{
-        mainAudioPlayer.src=file;
-        mainNowPlaying.textContent="Çalan Şarkı: "+name;
-        mainNowPlaying.style.color="#ffd700";
-        setTimeout(()=>{mainNowPlaying.style.color="#d4af37"},500);
-        mainAudioPlayer.play();
+        player.src=file;
+        nowPlaying.textContent="Çalan Şarkı: "+name;
+        nowPlaying.style.color="#ffd700";
+        setTimeout(()=>{nowPlaying.style.color="#d4af37"},500);
+        player.play();
     }
-    mainAudioPlayer.paused?mainPlayerBox.classList.remove("playing"):mainPlayerBox.classList.add("playing");
+    player.paused?playerBox.classList.remove("playing"):playerBox.classList.add("playing");
 }
-mainAudioPlayer.addEventListener('play',()=>mainPlayerBox.classList.add("playing"));
-mainAudioPlayer.addEventListener('pause',()=>mainPlayerBox.classList.remove("playing"));
+player.addEventListener('play',()=>playerBox.classList.add("playing"));
+player.addEventListener('pause',()=>playerBox.classList.remove("playing"));
 
 function toggleList(id){
     const el=document.getElementById(id);
@@ -2099,8 +2116,8 @@ function setLanguage(lang){
         professionalTitle.textContent="PROFESSIONAL";
         skTitle.innerHTML="<span class='sk-s'>S</span><span class='sk-k'>K</span>";
         playerDesc.textContent="LISTEN TO READY-TO-SELL & LICENSED SONGS";
-        mainNowPlaying.textContent="No track selected";
-        footerDesc.textContent="Black Gold Production, founded by Serkan Kaynar; an independent production platform producing arabesque, pop and original music. All songs on this site belong to their authors. Unauthorized commercial use, copying or distribution is prohibited. All rights reserved!";
+        nowPlaying.textContent="No track selected";
+        footerDesc.textContent="Black Gold Production, founded by Serkan Kaynar; an independent production platform producing arabesque, pop and original music. All songs on this site belong to their authors. Unauthorized commercial use, copying or distribution is prohibited. All rights reserved!
         footerContacts.innerHTML="📞 WhatsApp: 0507 416 36 05 | 📧 skaynar578@gmail.com | 📸 @blackgoldproductionsk <span class='year'>2026</span>";
     }else{
         headerMainTitle.innerHTML="<span style='text-transform:capitalize;'>Siyah Altın </span><span style='text-transform:uppercase;'>P</span>rodüksiyon";
@@ -2111,98 +2128,12 @@ function setLanguage(lang){
         professionalTitle.textContent="PROFESYONEL";
         skTitle.innerHTML="<span class='sk-s'>S</span><span class='sk-k'>K</span>";
         playerDesc.textContent="SATIŞA VE DEVİRE HAZIR ESERLERİ DİNLEYEBİLİRSİNİZ";
-        mainNowPlaying.textContent="Seçili şarkı yok";
-        footerDesc.innerHTML="Siyah Altın Prodüksiyon, Serkan Kaynar tarafından kurulan; arabesk, pop ve özgün müzik üretimleri yapan bağımsız bir prodüksiyon platformudur. Bu sitede yer alan ( SK ) LOGO'LU eserlerin Hakları Eser Sahibine, Serkan Kaynar'a aittir. Yetkisiz kişiler tarafından izinsiz ticari amaçla kullanılamaz, kopyalanamaz, çoğaltılamaz. Tüm hakları saklıdır!";
-        footerContacts.innerHTML =
+        nowPlaying.textContent="Seçili şarkı yok";
+        footerDesc.innerHTML="Siyah Altın Prodüksiyon, Serkan Kaynar tarafından kurulan; arabesk, pop ve özgün müzik üretimleri yapan bağımsız bir prodüksiyon platformudur. Bu sitede yer alan ( SK ) LOGO'LU eserlerin  Hakları Eser Sahibine, Serkan Kaynar'a aittir. Yetkisiz kişiler tarafından izinsiz ticari amaçla kullanılamaz, kopyalanamaz, çoğaltılamaz. Tüm hakları saklıdır!:
+       footerContacts.innerHTML =
 "<a href='https://wa.me/905074163605?text=Merhaba,%20bilgi%20almak%20istiyorum.' style='margin-left:6px;'>Bilgi Al</a> | " +
 "📧 siyahaltin.com@gmail.com | 📸 @siyahaltinproduksiyonsk <span class='year'>2026</span>";
 
     }
 }
-
-// Sayaçlar ve şarkı başına beğeniler
-(function initSkCounters(){
-  const visitorKey = "sk_site_visitors_v1";
-  const totalPlayKey = "sk_total_plays_v1";
-  const totalLikeKey = "sk_total_likes_v1";
-  const readNumber = key => {
-    const value = Number(localStorage.getItem(key));
-    return Number.isFinite(value) && value >= 0 ? value : 0;
-  };
-  const writeNumber = (key, value) => localStorage.setItem(key, String(value));
-  // Başlangıç değeri 12.550; bundan sonra bu tarayıcıdaki ziyaretlerde artar.
-  if (localStorage.getItem(visitorKey) === null) writeNumber(visitorKey, 12550);
-  writeNumber(visitorKey, readNumber(visitorKey) + 1);
-
-  // İlk kurulumda ziyaretçi sayısına göre yaklaşık oranlar. Bunlar gerçek ölçüm değil, tahmini başlangıç değerleridir.
-  const visitorBaseline = readNumber(visitorKey);
-  if (localStorage.getItem(totalPlayKey) === null || readNumber(totalPlayKey) === 0) writeNumber(totalPlayKey, Math.round(visitorBaseline * 0.70));
-  if (localStorage.getItem(totalLikeKey) === null || readNumber(totalLikeKey) < 12255) writeNumber(totalLikeKey, 12255);
-
-  const fmt = value => Number(value).toLocaleString("tr-TR");
-  function refreshStats(){
-    const visitorEl = document.getElementById("skVisitorCount");
-    const playEl = document.getElementById("skPlayCount");
-    const likeEl = document.getElementById("skLikeCount");
-    if(visitorEl) visitorEl.textContent = fmt(readNumber(visitorKey));
-    if(playEl) playEl.textContent = fmt(readNumber(totalPlayKey));
-    if(likeEl) likeEl.textContent = fmt(readNumber(totalLikeKey));
-  }
-
-  // Her şarkı satırına beğen butonu ekle; buton şarkıyı başlatmaz.
-  document.querySelectorAll('[onclick*="playTrack("]').forEach((track, index) => {
-    if(track.querySelector(".sk-like-btn")) return;
-    const raw = track.getAttribute("onclick") || "";
-    const match = raw.match(/playTrack\(\s*['"]([^'"]+)['"]\s*,\s*['"]([^'"]+)['"]/);
-    const identity = match ? (match[1] + "|" + match[2]) : (track.textContent.trim() + "|" + index);
-    const id = Array.from(identity).reduce((hash, char) => ((hash * 31) + char.charCodeAt(0)) >>> 0, 7).toString(36);
-    const likeKey = "sk_liked_" + id;
-    const songLikeKey = "sk_song_likes_" + id;
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "sk-like-btn";
-    const updateButton = () => {
-      const liked = localStorage.getItem(likeKey) === "1";
-      button.classList.toggle("is-liked", liked);
-      button.textContent = liked ? "❤️ Beğenildi" : "❤️ Beğen";
-    };
-    updateButton();
-    button.addEventListener("click", event => {
-      event.preventDefault();
-      event.stopPropagation();
-      if(localStorage.getItem(likeKey) === "1"){
-        localStorage.removeItem(likeKey);
-        writeNumber(totalLikeKey, Math.max(0, readNumber(totalLikeKey) - 1));
-        writeNumber(songLikeKey, Math.max(0, readNumber(songLikeKey) - 1));
-      } else {
-        localStorage.setItem(likeKey, "1");
-        writeNumber(totalLikeKey, readNumber(totalLikeKey) + 1);
-        writeNumber(songLikeKey, readNumber(songLikeKey) + 1);
-      }
-      updateButton();
-      refreshStats();
-    });
-    track.appendChild(button);
-  });
-
-  // Gerçek oynatma başladığında bir kez say; duraklatıp devam etmek tekrar sayılmaz.
-  let lastCountedTrack = "";
-  const audio = document.getElementById("audioPlayer");
-  if(audio){
-    audio.addEventListener("play", () => {
-      const trackKey = audio.currentSrc || audio.src || "unknown-track";
-      if(trackKey && trackKey !== lastCountedTrack){
-        lastCountedTrack = trackKey;
-        writeNumber(totalPlayKey, readNumber(totalPlayKey) + 1);
-        refreshStats();
-      }
-    });
-    audio.addEventListener("ended", () => { lastCountedTrack = ""; });
-  }
-  refreshStats();
-})();
-
 </script>
-
-</body>
-</html>
