@@ -420,37 +420,37 @@ body{
     <span>🎵</span> YİNE EV OLSUN SK SÖZ müzik düzenleme: SK
 </div>
 
-
-        
 <div class="player-glow">
     <video id="audioPlayer" controls autoplay playsinline style="width:100%;"></video>
 </div>
+
+<div id="nowPlaying">🎵 BELALI YARIM ÇALIYOR</div>
 
 <div class="eq">
     <div></div><div></div><div></div><div></div>
 </div>
 
-
 <script>
 const playlist = [
-    {name:"ZIR DELİ", file:"ZIR.DELİ.POP.mp3"}
+    {name:"BELALI YARIM", file:"BELALI.YARIM.mp3"}
 ];
 
 let current = 0;
 const player = document.getElementById("audioPlayer");
 const now = document.getElementById("nowPlaying");
 
-function playTrack(i){
-    current = i;
-    player.src = playlist[i].file;
+function playTrack(name, file){
+    player.src = file;
     player.play();
-    now.innerHTML = "🎵 " + playlist[i].name + " ÇALIYOR";
+    now.innerHTML = "🎵 " + name + " ÇALIYOR";
 }
 
 player.addEventListener("ended",()=>{
     current++;
-    if(current>=playlist.length) current=0;
-    playTrack(current);
+    if(current >= playlist.length) current = 0;
+    player.src = playlist[current].file;
+    player.play();
+    now.innerHTML = "🎵 " + playlist[current].name + " ÇALIYOR";
 });
 
 window.addEventListener("load",()=>{
