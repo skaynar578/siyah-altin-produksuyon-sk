@@ -421,9 +421,13 @@ body{
     <video id="audioPlayer" controls autoplay playsinline style="width:100%;"></video>
 </div>
 
+<div id="nowPlaying" style="color:#d4af37;text-align:center;font-weight:bold;margin:10px 0;">
+    🎵 ŞU AN ÇALAN: -
+</div>
+
 <script>
 const playlist = [
-   
+    {name:"BELALI YARIM", file:"BELALI.YARIM.mp3"}
 ];
 
 let current = 0;
@@ -433,21 +437,25 @@ const now = document.getElementById("nowPlaying");
 function playTrack(name, file){
     player.src = file;
     player.play();
-    now.innerHTML = "🎵 " + name + " ÇALIYOR";
+    now.innerHTML = "🎵 ŞU AN ÇALAN: " + name;
 }
 
 player.addEventListener("ended",()=>{
     current++;
     if(current >= playlist.length) current = 0;
+
     player.src = playlist[current].file;
     player.play();
-    now.innerHTML = "🎵 " + playlist[current].name + " ÇALIYOR";
+    now.innerHTML = "🎵 ŞU AN ÇALAN: " + playlist[current].name;
 });
 
 window.addEventListener("load",()=>{
-    player.src = playlist[0].file;
-    player.volume = 1.0;
-    player.play().catch(()=>{});
+    if(playlist.length > 0){
+        player.src = playlist[0].file;
+        player.volume = 1.0;
+        now.innerHTML = "🎵 ŞU AN ÇALAN: " + playlist[0].name;
+        player.play().catch(()=>{});
+    }
 });
 </script>
 
