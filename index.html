@@ -437,7 +437,7 @@ const now = document.getElementById("nowPlaying");
 function playTrack(name, file){
     player.src = file;
     player.play();
-    now.innerHTML = "🎵 ŞU AN ÇALAN: " + name;
+    now.innerHTML = "🎵 : " + name;
 }
 
 player.addEventListener("ended",()=>{
@@ -468,6 +468,13 @@ window.addEventListener("load",()=>{
 
     <div class="track-list" id="yeniyayinlar">
 
+<div class="playTrack" onclick="playTrack('KALBİM GİTMİYOR SK SÖZ müzik düzenleme: SK', 'KALBİM.GİTMiyor.mp3')">
+    🎵 KALBİM GİTMİYOR SÖZ müzik düzenleme: SK
+</div>
+<a href="mailto:siyahaltin.com@gmail.com?subject=Lisans%20ve%20devir%20için%20iletişim" style="color:gold;">
+    Lisans ve devir için iletişim + E-posta
+</a>
+        
 <div onclick="playTrack('YİNE EV OLSUN SK','YINE.EV.OLSUN..mp3')">
     <span>🎵</span> YİNE EV OLSUN  SÖZ müzik düzenleme: SK
 </div>
